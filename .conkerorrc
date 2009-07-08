@@ -1,0 +1,97 @@
+// -*- mode: JavaScript -*-
+
+// Core loads
+require("session.js");
+
+// Page modes
+require("page-modes/gmail.js");
+require("page-modes/google-search-results.js");
+google_search_bind_number_shortcuts();
+
+// User Variables
+hints_auto_exit_delay = 100;
+xkcd_add_title = true;
+url_remoting_fn = load_url_in_new_buffer;
+url_completion_use_bookmarks = false;
+url_completion_use_history = true;
+session_auto_save_auto_load = true;
+
+// Mozrepl
+if ('@hyperstruct.net/mozlab/mozrepl;1' in Cc) {
+  var mozrepl = Cc['@hyperstruct.net/mozlab/mozrepl;1']
+    .getService(Ci.nsIMozRepl);
+  if (! mozrepl.isActive())
+    mozrepl.start(4242);
+}
+
+let (mozrepl_init = get_home_directory()) {
+    mozrepl_init.appendRelativePath(".mozrepl.js");
+    session_pref('extensions.mozrepl.initUrl', make_uri(mozrepl_init).spec);
+}
+
+// Custom keybindings
+define_key(content_buffer_normal_keymap, "d", "follow-new-buffer");
+define_key(content_buffer_normal_keymap, "t", "find-url-new-buffer");
+define_key(gmail_keymap, "t", "find-url-new-buffer");
+
+// Custom webjumps
+define_webjump("imdb", "http://www.google.com/search?q=%s+site%3Aimdb.com&btnI=I'm Feeling Lucky");
+
+// Minify URL using is.gd
+define_browser_object_class(
+    "is.gd", "is.gd", "Get a minified URL for the current page",
+    function (I, prompt) {
+        check_buffer(I.buffer, content_buffer);
+        let createurl = 'http://is.gd/api.php?longurl=' +
+            encodeURIComponent(
+                load_spec_uri_string(
+                    load_spec(I.buffer.top_frame)));
+        try {
+            var content = yield send_http_request(
+                load_spec({uri: createurl}));
+            yield co_return(content.responseText);
+        } catch (e) { }
+    });
+
+define_key(content_buffer_normal_keymap, "* q", "browser-object-is.gd");
+
+// Proxy settings
+function set_all_proxies (server, port) {
+    session_pref ('network.proxy.ftp',    server);
+    session_pref ('network.proxy.gopher', server);
+    session_pref ('network.proxy.http',   server);
+    session_pref ('network.proxy.socks',  server);
+    session_pref ('network.proxy.ssl',    server);
+
+    session_pref ('network.proxy.ftp_port',    port);
+    session_pref ('network.proxy.gopher_port', port);
+    session_pref ('network.proxy.http_port',   port);
+    session_pref ('network.proxy.socks_port',  port);
+    session_pref ('network.proxy.ssl_port',    port);
+}
+set_all_proxies("144.16.192.245", 8080);
+
+function switch_proxy (window, server_code) {
+    switch(server_code) {
+    case "247": server = "144.16.192.247"; break;
+    case "245": server = "144.16.192.245"; break;
+    case "211": server = "10.3.100.211"; break;
+    case "212": server = "10.3.100.212"; break;
+    case "d":
+	session_pref ('network.proxy.type', 0);
+	window.minibuffer.message ("Direct connection active now");
+	return;
+    default: server = "144.16.192.245";
+    }
+    session_pref ('network.proxy.type', 1);
+    set_all_proxies (server, 8080);
+    window.minibuffer.message ("Using proxy "+server_code+" now");
+}
+
+interactive ("switch-proxy", "Set the proxy server for all protocols for this session only",
+	     function (I) {
+                 switch_proxy (
+                     I.window,
+                     (yield I.minibuffer.read ($prompt = "Server [245, 247, 211, 212] or d: ")));
+             }
+);

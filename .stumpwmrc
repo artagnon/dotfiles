@@ -1,0 +1,38 @@
+;; -*- mode: Lisp -*-
+
+;; Utility functions
+(defun swap-groups (group1 group2)
+  (rotatef (slot-value group1 'number) (slot-value group2 'number)))
+
+(defun move-group-forward (&optional (group (current-group)))
+  (swap-groups group (next-group group (sort-groups (current-screen)))))
+
+(defun move-group-backward (&optional (group (current-group)))
+  (swap-groups group (next-group group (reverse (sort-groups (current-screen))))))
+
+;; StumpWM commands
+(define-stumpwm-command "gforward" ()
+  (move-group-forward)
+  (echo-groups (current-screen) *group-format*))
+
+(define-stumpwm-command "gbackward" ()
+  (move-group-backward)
+  (echo-groups (current-screen) *group-format*))
+
+;; Windowlist and group switching bindings
+(define-key *top-map* (kbd "s-w") "windowlist")
+(define-key *top-map* (kbd "s-1") "gselect 1")
+(define-key *top-map* (kbd "s-2") "gselect 2")
+(define-key *top-map* (kbd "s-3") "gselect 3")
+(define-key *top-map* (kbd "s-4") "gselect 4")
+(define-key *top-map* (kbd "s-5") "gselect 5")
+
+;; defprogram-shortcuts
+(defprogram-shortcut emacs :command "emacs" :key (kbd "s-e"))
+(defprogram-shortcut conkeror :command "conkeror" :key (kbd "s-c"))
+(defprogram-shortcut fran :command "urxvt" :key (kbd "s-u") :props '(:class  "URxvt"))
+(defprogram-shortcut gimp :command "gimp" :key (kbd "s-g"))
+(defprogram-shortcut amarok :command "amarok" :key (kbd "s-a"))
+
+;; Keybindings
+(define-key *groups-map* (kbd "n") "gnewbg")
