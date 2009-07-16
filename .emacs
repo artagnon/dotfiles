@@ -7,7 +7,7 @@
 (add-to-list 'load-path "~/.elisp/org-mode")  ;; org-mode
 ;;(add-to-list 'load-path "~/.elisp/swank-clojure")  ;; swank-clojure
 (add-to-list 'load-path "~/.elisp/slime")  ;; slime
-(add-to-list 'load-path "~/dev/twitel") ;; twitel development
+(add-to-list 'load-path "~/dev/ublog.el") ;; µblog.el development
 
 ;; ---------
 ;; Autoloads
@@ -44,7 +44,7 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 ;; ----------------------
-;; General Customisations
+;; General Customizations
 ;; ----------------------
 (setq inhibit-startup-message t
       font-lock-maximum-decoration t
@@ -57,7 +57,8 @@
       next-line-add-newlines nil
       blink-matching-paren t
       quack-pretty-lambda-p t
-      blink-matching-delay .25)
+      blink-matching-delay .25
+      vc-follow-symlinks t)
 (global-font-lock-mode 1)
 (color-theme-dark-laptop)
 (setq-default saveplace t)
@@ -341,6 +342,11 @@ will be part of the list returned."
 				    "-mode-hook"))))
 	  (add-hook hook (lambda () (paredit-mode +1)))))
       '(emacs-lisp lisp scheme inferior-lisp))
+
+;; ------
+;; Scheme
+;; ------
+(setq scheme-program-name "mzscheme")
 
 ;; ---------------------
 ;; SLIME for Common Lisp

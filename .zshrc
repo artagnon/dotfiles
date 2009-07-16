@@ -36,11 +36,11 @@ alias rsync='rsync -avz -e ssh'
 alias pulseoff='mv ~/.asoundrc ~/.asoundrc.pulse && sudo /etc/init.d/pulseaudio stop'
 alias pulseon='cp ~/.asoundrc.pulse ~/.asoundrc && sudo /etc/init.d/pulseaudio start'
 alias mutt='http_proxy= ftp_proxy= proxychains mutt'
-alias ec='emacsclient -c'
+alias ec='emacsclient'
 alias et='emacsclient -t'
 
 # apt aliases
-alias au='sudo aptitutde update'
+alias au='sudo aptitude update'
 alias ai='sudo aptitude install'
 alias as='aptitude search'
 alias ashow='aptitude show'
