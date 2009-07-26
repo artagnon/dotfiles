@@ -5,7 +5,6 @@
 ;; ----------
 (add-to-list 'load-path "~/.elisp/")  ;; generic
 (add-to-list 'load-path "~/.elisp/org-mode")  ;; org-mode
-;;(add-to-list 'load-path "~/.elisp/swank-clojure")  ;; swank-clojure
 (add-to-list 'load-path "~/.elisp/slime")  ;; slime
 (add-to-list 'load-path "~/dev/ublog.el") ;; µblog.el development
 
@@ -33,9 +32,6 @@
 (require 'icicles)
 (require 'org-install)
 (require 'quack)
-;;(require 'swank-clojure)
-;;(custom-set-variables '(swank-clojure-jar-path "~/.clojure/clojure.jar"))
-;;(require 'swank-clojure-autoload)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -138,6 +134,15 @@
    ido-enable-flex-matching t         ; be flexible
    ido-max-prospects 6                ; don't spam my minibuffer
    ido-confirm-unique-completion nil) ; don't wait for RET with unique completion
+;; -----
+;; Dired
+;; -----
+(add-hook 'dired-mode-hook
+	  (lambda ()
+	    (define-key dired-mode-map (kbd "<return>")
+	      'dired-find-alternate-file) ; was dired-advertised-find-file
+	    (define-key dired-mode-map (kbd "^")
+	      (lambda () (interactive) (find-alternate-file "..")))))
 
 ;; ---
 ;; ERC
@@ -146,7 +151,11 @@
 (setq socks-noproxy '("localhost"))  ;; do not conect via socks proxy for localhost (to use bitlbee)
 (setq socks-server '("Default server" "127.0.0.1" 9050 5))  ;; configure socks proxy v5 (Tor)
 (setq erc-server-connect-function 'socks-open-network-stream)  ;; connect via socks proxy
-(setq erc-modules '(autoaway autojoin button completion fill irccontrols match menu netsplit noncommands readonly ring scrolltobottom services stamp track))
+(setq erc-modules
+      '(autoaway autojoin button completion
+	fill irccontrols match menu netsplit
+	noncommands readonly ring
+	scrolltobottom services stamp track))
 (setq erc-log-channels-directory "~/.erc/logs/")  ;; erc logging
 (setq erc-save-buffer-on-part nil
       erc-save-queries-on-quit nil
