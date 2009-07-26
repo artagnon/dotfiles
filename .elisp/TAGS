@@ -1,0 +1,1410 @@
+
+/home/artagnon/.elisp/anything-config.el,3712
+(defvar anything-c-version 64,2060
+(defvar anything-c-use-standard-keys 70,2205
+(defun anything-c-match-on-file-name 130,5411
+(defun anything-c-match-on-directory-name 135,5632
+(defun anything-c-string-match 142,5884
+(defun anything-c-buffer-list 149,6086
+(defvar anything-c-source-buffers160,6602
+(defun anything-c-define-dummy-source 166,6739
+(defun anything-c-dummy-candidate 177,7037
+(defvar anything-c-source-buffer-not-found183,7265
+(defvar anything-c-source-file-name-history192,7505
+(defvar anything-c-source-recentf201,7755
+(defvar anything-c-source-files-in-current-dir211,8032
+(defvar anything-c-man-pages 224,8407
+(defvar anything-c-source-man-pages229,8543
+(defvar anything-c-info-pages 249,9349
+(defvar anything-c-source-info-pages254,9487
+(defvar anything-c-source-complex-command-history281,10636
+(defvar anything-c-source-emacs-commands291,10903
+(defvar anything-c-source-emacs-functions314,11625
+(defvar anything-c-function-abbrev-regexp 332,12265
+(defun anything-c-match-function-by-abbrev 336,12423
+(defvar anything-c-source-emacs-functions-with-abbrevs345,12810
+(defvar anything-c-source-bookmarks361,13592
+(defvar anything-c-source-picklist371,13827
+(defvar anything-c-source-imenu380,14013
+(defvar anything-c-source-file-cache-initialized 401,14881
+(defvar anything-c-file-cache-files 403,14936
+(defvar anything-c-source-file-cache405,14978
+(defvar anything-c-locate-options 424,15841
+(defvar anything-c-source-locate431,16182
+(defvar anything-c-source-tracker-search445,16624
+(defvar anything-c-source-mac-spotlight459,17098
+(defun anything-c-bbdb-candidates 472,17459
+(defun anything-c-bbdb-create-contact 479,17716
+(defvar anything-c-bbdb-name 495,18311
+(defvar anything-c-source-bbdb498,18373
+(defvar anything-c-source-evaluation-result522,19607
+(defvar anything-c-source-calculation-result539,20074
+(defvar anything-c-source-google-suggest555,20508
+(defvar anything-c-google-suggest-url579,21533
+(defvar anything-c-google-suggest-search-url583,21674
+(defun anything-c-google-suggest-fetch 587,21803
+(defun anything-c-google-suggest-get-items 618,23253
+(defun anything-c-jabber-online-contacts 629,23574
+(defvar anything-c-source-jabber-contacts638,23888
+(defvar anything-c-external-commands-list 655,24390
+(defun anything-c-external-commands-list-1 660,24575
+(defun anything-c-file-buffers 697,26376
+(defun anything-c-delete-file 708,26724
+(defun anything-c-open-file-externally 720,27190
+(defun w32-shell-execute-open-file 729,27524
+(defun anything-c-open-file-with-default-tool 735,27861
+(defun anything-c-open-dired 748,28418
+(defun anything-c-transform-file-load-el 760,28701
+(defun anything-c-transform-file-browse-url 768,29060
+(defun anything-c-transform-function-call-interactively 778,29437
+(defun anything-c-transform-sexp-eval-command-sexp 790,29873
+(defvar anything-c-boring-file-regexp808,30447
+(defun anything-c-shadow-boring-files 820,30934
+(defun anything-c-skip-boring-files 834,31542
+(defun anything-c-w32-pathname-transformer 843,31881
+(defun anything-c-shorten-home-path 854,32322
+(defun anything-c-mark-interactive-functions 866,32738
+(defvar anything-c-adaptive-history-file 882,33237
+(defvar anything-c-adaptive-history-length 885,33375
+(defvar anything-c-adaptive-done 890,33551
+(defvar anything-c-adaptive-history 894,33666
+(defadvice anything-initialize 898,33836
+(defadvice anything-exit-minibuffer 903,34051
+(defadvice anything-select-action 908,34289
+(defun anything-c-adaptive-store-selection 913,34530
+(defun anything-c-adaptive-save-history 972,37666
+(defun anything-c-adaptive-sort 986,38197
+(defun anything-c-adaptive-compare 1035,40582
+(defun anything-c-compose 1049,40897
+
+/home/artagnon/.elisp/TAGS,0
+
+/home/artagnon/.elisp/anything.el,8723
+(defvar anything-version 704,25118
+(defvar anything-sources 710,25312
+(defvar anything-type-attributes1065,39437
+(defvar anything-enable-digit-shortcuts 1084,40387
+(defvar anything-candidate-number-limit 1089,40511
+(defvar anything-idle-delay 1098,40865
+(defvar anything-input-idle-delay 1110,41381
+(defvar anything-samewindow 1116,41633
+(defvar anything-source-filter 1121,41771
+(defvar anything-map1127,41977
+(defvar anything-isearch-map1174,44599
+(defgroup anything 1190,45212
+(defvar anything-header-face 1200,45505
+(defface anything-isearch-match 1203,45603
+(defvar anything-isearch-match-face 1206,45729
+(defvar anything-selection-face 1209,45839
+(defvar anything-iswitchb-idle-delay 1212,45922
+(defvar anything-iswitchb-dont-touch-iswithcb-keys 1216,46047
+(defvar anything-buffer 1233,46801
+(defvar anything-action-buffer 1236,46872
+(defvar anything-selection-overlay 1239,46953
+(defvar anything-isearch-overlay 1242,47053
+(defvar anything-digit-overlays 1245,47156
+(defvar anything-candidate-cache 1248,47267
+(defvar anything-pattern1251,47378
+(defvar anything-input1254,47463
+(defvar anything-async-processes 1257,47533
+(defvar anything-digit-shortcut-count 1260,47646
+(defvar anything-before-initialize-hook 1263,47748
+(defvar anything-after-initialize-hook 1267,47896
+(defvar anything-update-hook 1272,48091
+(defvar anything-cleanup-hook 1276,48207
+(defvar anything-after-action-hook 1279,48341
+(defvar anything-after-persistent-action-hook 1282,48414
+(defvar anything-restored-variables1285,48509
+(defvar anything-saved-selection 1291,48714
+(defvar anything-candidate-separator1297,48884
+(defvar anything-current-buffer 1301,48996
+(defvar anything-buffer-file-name 1304,49081
+(defvar anything-current-position 1307,49172
+(defvar anything-saved-action 1311,49356
+(defvar anything-last-sources 1314,49449
+(defvar anything-saved-current-source 1317,49542
+(defvar anything-compiled-sources 1321,49681
+(defvar anything-in-persistent-action 1324,49766
+(defvar anything-quick-update 1327,49856
+(defvar anything-last-sources-local 1332,50080
+(defvar anything-last-buffer 1334,50167
+(defvar anything-save-configuration-functions1337,50258
+(defvar anything-persistent-action-use-special-display 1343,50475
+(defvar anything-execute-action-at-once-if-one 1346,50605
+(defvar anything-quit-if-no-candidate 1350,50787
+(defvar anything-test-candidate-list 1360,51103
+(defvar anything-test-mode 1361,51145
+(defvar anything-source-name 1362,51177
+(defvar anything-candidate-buffer-alist 1363,51211
+(defvar anything-check-minibuffer-input-timer 1364,51256
+(defvar anything-match-hash 1365,51307
+(defvar anything-cib-hash 1366,51367
+(defvar anything-tick-hash 1367,51425
+(defmacro anything-aif 1370,51513
+(defun anything-mklist 1376,51757
+(defun anything-buffer-get 1381,51922
+(defun anything-window 1387,52139
+(defun anything-action-window 1391,52253
+(defmacro with-anything-window 1395,52382
+(defmacro with-anything-restore-variables(1404,52718
+(defun* anything-attr 1412,53142
+(defun* anything-attr-defined 1419,53415
+(defun* anything-attrset 1425,53687
+(defun anything-set-source-filter 1466,55254
+(defun anything-set-sources 1471,55440
+(defun anything-get-sources 1480,55852
+(defun* anything-get-selection 1501,56354
+(defun anything-get-action 1515,56990
+(defun anything-get-current-source 1525,57392
+(defun anything-buffer-is-modified 1548,58508
+(defun anything-current-buffer-is-modified 1558,58978
+(defun anything-current-frame/window-configuration 1563,59196
+(defun anything-set-frame/window-configuration 1566,59308
+(defun anything-funcall-with-source 1569,59425
+(defun anything-funcall-foreach 1573,59572
+(defun anything-normalize-sources 1582,59934
+(defun anything-approximate-candidate-number 1587,60087
+(defvar anything-quit 1593,60313
+(defmacro with-anything-quittable 1594,60340
+(defun anything 1604,60641
+(defun* anything-resume 1692,64200
+(defun anything-initialize 1711,64938
+(defun anything-create-anything-buffer 1729,65585
+(defun anything-initialize-overlays 1744,66186
+(defun anything-cleanup 1771,67293
+(defun anything-check-minibuffer-input 1781,67582
+(defun anything-check-minibuffer-input-1 1792,68104
+(defun anything-check-minibuffer-input-1 1798,68276
+(defun anything-check-new-input 1803,68452
+(defvar anything-compile-source-functions1813,68775
+(defvar anything-compile-source-functions-default 1816,68997
+(defun anything-compile-sources 1818,69115
+(defun anything-get-candidates 1830,69564
+(defun anything-transform-candidates 1850,70383
+(defun anything-get-cached-candidates 1857,70641
+(defun anything-candidate-number-limit 1886,71675
+(defun anything-compute-matches 1892,71908
+(defun anything-process-source 1942,73963
+(defun anything-process-delayed-sources 1973,75276
+(defun anything-update 1997,76263
+(defun anything-insert-match 2040,77945
+(defun anything-insert-header-from-source 2057,78831
+(defun anything-insert-header 2063,79093
+(defun anything-insert-candidate-separator 2081,79742
+(defun anything-output-filter 2092,80061
+(defun anything-kill-async-processes 2148,82162
+(defun anything-kill-async-process 2157,82463
+(defun anything-execute-selection-action 2164,82652
+(defun anything-select-action 2189,83807
+(defun anything-previous-line 2224,85574
+(defun anything-next-line 2229,85710
+(defun anything-previous-page 2234,85834
+(defun anything-next-page 2239,85969
+(defun anything-previous-source 2245,86100
+(defun anything-next-source 2251,86243
+(defun anything-move-selection 2257,86374
+(defun anything-mark-current-line 2336,90003
+(defun anything-select-with-digit-shortcut 2350,90676
+(defun anything-exit-minibuffer 2363,91178
+(defun anything-get-next-header-pos 2371,91442
+(defun anything-get-previous-header-pos 2376,91596
+(defun anything-pos-multiline-p 2381,91761
+(defun anything-get-next-candidate-separator-pos 2386,91927
+(defun anything-get-previous-candidate-separator-pos 2391,92120
+(defun anything-pos-header-line-p 2396,92325
+(defun anything-pos-candidate-separator-p 2401,92564
+(defun anything-kill-buffer-hook 2406,92769
+(defun anything-maybe-fit-frame 2413,93112
+(defun anything-preselect 2430,93877
+(defun anything-delete-current-selection 2443,94389
+(defun anything-compile-source--type 2464,95263
+(defun anything-dummy-candidate 2470,95472
+(defun anything-compile-source--dummy 2474,95612
+(defun anything-candidates-in-buffer 2485,95977
+(defun* anything-candidates-in-buffer-1 2559,99307
+(defun anything-candidate-buffer 2613,101969
+(defun anything-compile-source--candidates-in-buffer 2652,103547
+(defun anything-select-nth-action 2659,103861
+(defun anything-select-2nd-action 2667,104191
+(defun anything-select-3rd-action 2672,104343
+(defun anything-select-4th-action 2677,104495
+(defun* anything-execute-persistent-action 2684,104685
+(defmacro with-anything-display-same-window 2701,105454
+(defun anything-persistent-action-display-buffer 2707,105744
+(defun anything-scroll-other-window-base 2725,106755
+(defun anything-scroll-other-window 2730,106887
+(defun anything-scroll-other-window-down 2734,107058
+(defvar anything-isearch-original-global-map 2741,107296
+(defvar anything-isearch-original-message-timeout 2744,107407
+(defvar anything-isearch-pattern 2747,107528
+(defvar anything-isearch-message-suffix 2750,107600
+(defvar anything-isearch-original-point 2753,107708
+(defvar anything-isearch-original-window 2756,107812
+(defvar anything-isearch-original-cursor-in-non-selected-windows 2759,107915
+(defvar anything-isearch-original-post-command-hook 2762,108066
+(defvar anything-isearch-match-positions 2765,108191
+(defvar anything-isearch-match-start 2778,108748
+(defun anything-isearch 2782,108833
+(defun anything-isearch-post-command 2835,110841
+(defun anything-isearch-printing-char 2844,111156
+(defun anything-isearch-again 2880,112511
+(defun anything-isearch-delete 2907,113553
+(defun anything-isearch-default-action 2922,114069
+(defun anything-isearch-select-action 2929,114291
+(defun anything-isearch-cancel 2937,114483
+(defun anything-isearch-cleanup 2947,114733
+(defun anything-isearch-message 2964,115422
+(defvar anything-iswitchb-candidate-selected 2984,116073
+(defvar anything-iswitchb-frame-configuration 2987,116195
+(defvar anything-iswitchb-saved-keys 2990,116316
+(defun anything-iswitchb-setup 2994,116419
+(defun anything-iswitchb-minibuffer-setup 3025,117404
+(defun anything-iswitchb-minibuffer-exit 3038,117842
+(defun anything-iswitchb-check-input 3050,118307
+(defun anything-iswitchb-handle-update 3058,118596
+(defun anything-iswitchb-cancel-anything 3117,121280
+(defun* anything-test-candidates 3178,123705
+(defmacro anything-test-update 3206,124810
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/basic-edit-toolkit.el,1359
+(defun open-newline-above 82,1960
+(defun open-newline-below 91,2254
+(defun insert-line-number 101,2576
+(defun insert-line-number+ 115,2972
+(defun strip-blank-lines(122,3212
+(defun strip-line-number(129,3461
+(defun strip-regular-expression-string 136,3708
+(defun comment-part-move-up 151,4658
+(defun comment-part-move-down 156,4774
+(defun comment-part-move 161,4889
+(defun comment-copy 200,6170
+(defun comment-paste 218,6790
+(defun comment-on-line-p 236,7498
+(defun comment-dwim-next-line 243,7729
+(defun comment-dwim-prev-line 252,8066
+(defun indent-buffer 257,8191
+(defun indent-comment-buffer 265,8409
+(defun indent-comment-region 270,8539
+(defun move-text-internal 281,8816
+(defun move-text-up 313,10012
+(defun move-text-down 318,10167
+(defun duplicate-line-above 323,10323
+(defun duplicate-line-below 336,10742
+(defun duplicate-line-above-comment 341,10851
+(defun duplicate-line-below-comment 353,11177
+(defun comment-or-uncomment-region+ 358,11329
+(defun upcase-char 371,11725
+(defun downcase-char 377,11878
+(defun kill-syntax-forward 383,12034
+(defun kill-syntax-backward 402,12774
+(defun mark-line 407,12936
+(defun kill-and-join-forward 417,13172
+(defun delete-chars-hungry-forward 428,13448
+(defun delete-chars-hungry-backward 439,13792
+(defun reverse-chars-in-region 443,13913
+(defun underline-line-with 457,14426
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/build-tags.el,145
+(defvar build-tags-cmd-alist 9,256
+(defvar build-tags-cmd-default 19,573
+(defun build-tags 23,735
+(defun build-tags-cmd-for-tag-file 35,1201
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/doremi-cmd.el,330
+(defgroup doremi-misc-commands 186,7297
+(defcustom doremi-color-themes 207,8242
+(defun doremi-color-themes 215,8562
+(defun doremi-bookmarks 225,8982
+(defun doremi-buffers 238,9427
+(defun doremi-marks 248,9759
+(defun doremi-global-marks 258,10077
+(defun doremi-window-height 269,10482
+(defun doremi-window-width 283,11068
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/doremi-frm.el,2916
+(defgroup doremi-frame-commands 461,22391
+(defcustom doremi-frame-config-ring-size 478,23200
+(defcustom doremi-push-frame-config-for-cmds-flag 482,23345
+(defcustom doremi-move-frame-wrap-within-display-flag 488,23626
+(defcustom doremi-wrap-color-flag 495,23992
+(defvar doremi-frame-config-ring 505,24427
+(defvar doremi-last-face-value 509,24611
+(defvar doremi-last-frame-color 523,25215
+(defun doremi-font-size 540,25848
+(defun doremi-font 567,26908
+(defun doremi-bg-color-name 581,27438
+(defun doremi-frame-width 598,28185
+(defun doremi-frame-height 616,29012
+(defun doremi-frame-horizontally 642,30227
+(defun doremi-frame-vertically 678,31769
+(defun doremi-frame-new-position 701,32904
+(defun doremi-push-current-frame-config 719,33719
+(defun doremi-frame-config-wo-parameters 729,34200
+(defun doremi-push-frame-config-for-command 744,34932
+(defun doremi-frame-configs 770,36202
+(defun doremi-bg-red 787,36827
+(defun doremi-bg-green 794,37044
+(defun doremi-bg-blue 801,37296
+(defun doremi-bg-cyan 808,37546
+(defun doremi-bg-magenta 815,37800
+(defun doremi-bg-yellow 822,38058
+(defun doremi-bg-hue 829,38314
+(defun doremi-bg-saturation 836,38556
+(defun doremi-bg-value 843,38818
+(defalias 'doremi-bg-brightness doremi-bg-brightness849,39070
+(defalias 'doremi-bg-purity doremi-bg-purity850,39120
+(defun doremi-bg 853,39187
+(defun doremi-all-frames-bg 927,42748
+(defun doremi-increment-background-color 957,44053
+(defun doremi-fg-red 975,44934
+(defun doremi-fg-green 982,45182
+(defun doremi-fg-blue 989,45434
+(defun doremi-fg-cyan 996,45684
+(defun doremi-fg-magenta 1003,45938
+(defun doremi-fg-yellow 1010,46196
+(defun doremi-fg-hue 1017,46452
+(defun doremi-fg-saturation 1024,46694
+(defun doremi-fg-value 1031,46956
+(defalias 'doremi-fg-brightness doremi-fg-brightness1037,47208
+(defalias 'doremi-fg-purity doremi-fg-purity1038,47258
+(defun doremi-fg 1041,47325
+(defun doremi-all-frames-fg 1075,48928
+(defun doremi-increment-foreground-color 1105,50233
+(defun doremi-undo-last-frame-color-change 1121,51079
+(defun doremi-undo-last-face-change 1138,51850
+(defun doremi-face-bg 1152,52549
+(defun doremi-all-faces-bg 1215,55865
+(defun doremi-increment-face-bg-color 1237,56810
+(defun doremi-face-fg 1256,57775
+(defun doremi-all-faces-fg 1320,61092
+(defun doremi-increment-face-fg-color 1350,62352
+(defun doremi-increment-color-component 1369,63317
+(defun doremi-increment-face-color-read-args 1427,66099
+(defun doremi-number-arg 1440,66677
+(defun doremi-face-bg-1 1447,66987
+(defun doremi-face-fg-1 1462,67701
+(defun doremi-increment-color 1477,68415
+(defun doremi-wrap-or-limit-color-component 1540,71737
+(defalias 'toggle-doremi-wrap-color toggle-doremi-wrap-color1547,71992
+(defun doremi-toggle-wrap-color 1549,72056
+(defun doremi-face-set 1557,72404
+(defun doremi-set-background-color 1571,72944
+(defun doremi-set-foreground-color 1583,73574
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/doremi.el,434
+(defvar mouse-wheel-down-event)189,7306
+(defvar mouse-wheel-up-event)190,7338
+(defgroup doremi 196,7428
+(defcustom doremi-up-key 214,8242
+(defcustom doremi-down-key 219,8435
+(defcustom doremi-boost-up-key 224,8630
+(defcustom doremi-boost-down-key 229,8796
+(defcustom doremi-boost-scale-factor 234,8968
+(defun doremi 245,9434
+(defun doremi-set-new-value 401,18326
+(defun doremi-limit 409,18650
+(defun doremi-wrap 416,18880
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/egg-grep.el,273
+(defvar egg-grep-saved-find-file-func 30,982
+(defun egg-grep-find-file 32,1026
+(defun egg-grep-next-error-function 44,1401
+(defun egg-grep-process-setup 55,1782
+(defvar egg-grep-mode-map73,2319
+(define-compilation-mode egg-grep-mode 90,2956
+(defun egg-grep 104,3548
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/egg.el,21364
+(defgroup egg 32,1024
+(defgroup egg-faces 37,1109
+(defface egg-header41,1178
+(defface egg-text-base48,1358
+(defface egg-text-157,1625
+(defface egg-text-help62,1730
+(defface egg-help-header-167,1843
+(defface egg-help-header-272,1961
+(defface egg-text-281,2267
+(defface egg-text-386,2384
+(defface egg-text-491,2501
+(defface egg-electrict-choice96,2618
+(defface egg-section-title105,2905
+(defface egg-branch116,3268
+(defface egg-log-buffer-mark125,3563
+(defface egg-branch-mono134,3841
+(defface egg-tag-mono143,4095
+(defface egg-an-tag-mono152,4346
+(defface egg-stash-mono161,4621
+(defface egg-remote-mono170,4894
+(defface egg-term179,5151
+(defface egg-help-key 188,5407
+(defface egg-warning193,5523
+(defface egg-diff-file-header202,5770
+(defface egg-unmerged-diff-file-header211,6060
+(defface egg-diff-hunk-header220,6374
+(defface egg-diff-add228,6592
+(defface egg-diff-none236,6819
+(defface egg-diff-del244,7047
+(defface egg-diff-conflict252,7278
+(defface egg-graph260,7512
+(defface egg-blame268,7707
+(defface egg-blame-culprit277,7974
+(defface egg-blame-subject286,8294
+(defface egg-log-HEAD295,8585
+(defcustom egg-buffer-hide-sub-blocks-on-start 300,8706
+(defcustom egg-buffer-hide-section-type-on-start 310,9178
+(defcustom egg-buffer-hide-help-on-start 331,9916
+(defcustom egg-log-HEAD-max-len 341,10384
+(defcustom egg-log-all-max-len 346,10518
+(defcustom egg-confirm-next-action 351,10652
+(defcustom egg-status-buffer-sections 356,10798
+(defcustom egg-commit-buffer-sections 365,11170
+(defcustom egg-refresh-index-in-backround 373,11497
+(defcustom egg-enable-tooltip 378,11647
+(defcustom egg-git-rebase-subdir 383,11785
+(defcustom egg-show-key-help-in-buffers 391,12025
+(defcustom egg-git-command 402,12456
+(defcustom egg-patch-command 409,12662
+(defcustom egg-dummy-option 417,12891
+(defmacro egg-text 425,13136
+(defmacro egg-prop 432,13366
+(defalias 'egg-string-at-point egg-string-at-point443,13658
+(defalias 'egg-find-file-at-point egg-find-file-at-point444,13712
+(defsubst egg-prepend 446,13768
+(defsubst egg-commit-contents 454,14079
+(defsubst egg-commit-message 460,14276
+(defsubst egg-cmd-to-string-1 469,14565
+(defsubst egg-cmd-to-string 478,14911
+(defsubst egg-git-to-string 484,15103
+(defsubst egg-cmd-ok 488,15247
+(defsubst egg-git-ok 494,15510
+(defsubst egg-git-region-ok 500,15769
+(defsubst egg-wdir-clean 506,16061
+(defsubst egg-file-updated 507,16124
+(defsubst egg-file-committed 509,16206
+(defsubst egg-file-index-empty 511,16297
+(defsubst egg-index-empty 513,16394
+(defsubst egg-git-to-lines 516,16471
+(defun egg-git-lines-matching 523,16686
+(defun egg-git-lines-matching-multi 535,17077
+(defsubst egg-file-git-name 553,17641
+(defsubst egg-buf-git-name 557,17783
+(defsubst egg-files-git-name 562,17974
+(defsubst egg-unmerged-files 568,18200
+(defsubst egg-local-branches 579,18506
+(defsubst egg-local-refs 583,18662
+(defun egg-remote-branches 587,18819
+(defsubst egg-rbranch-to-remote 596,19171
+(defsubst egg-rbranch-name 603,19411
+(defsubst egg-short-ref 610,19625
+(defsubst egg-file-as-string-raw 617,19860
+(defsubst egg-file-as-string 622,19995
+(defun egg-pick-file-contents 631,20286
+(defun egg-pick-file-records 646,20897
+(defsubst egg-is-in-git 670,21659
+(defsubst egg-is-dir-in-git 674,21807
+(defsubst egg-name-rev 678,21919
+(defsubst egg-describe-rev 682,22046
+(defsubst egg-sha1 686,22177
+(defun egg-read-git-dir 690,22281
+(defsubst egg-read-dir-git-dir 696,22479
+(defvar egg-git-dir 700,22618
+(defsubst egg-git-dir 701,22643
+(defsubst egg-buf-git-dir 716,23208
+(defun egg-HEAD 721,23339
+(defun egg-all-refs 728,23570
+(defun egg-ref-type-alist 739,23887
+(defsubst egg-tooltip-func 756,24397
+(defun egg-full-ref-decorated-alist 759,24477
+(defun egg-complete-rev 825,26471
+(defsubst egg-get-symbolic-HEAD 871,27863
+(defsubst egg-get-full-symbolic-HEAD 878,28076
+(defsubst egg-get-current-sha1 885,28299
+(defsubst egg-set-mode-info 888,28392
+(defsubst egg-get-rebase-merge-state 900,28850
+(defsubst egg-get-rebase-interactive-state 913,29360
+(defsubst egg-git-rebase-dir 936,30121
+(defsubst egg-rebase-author-info 939,30240
+(defsubst egg-interactive-rebase-in-progress 953,30710
+(defvar egg-internal-current-state 958,30910
+(defun egg-get-repo-state 959,30950
+(defsubst egg-repo-state 1013,32820
+(defsubst egg-repo-clean 1019,33057
+(defsubst egg-current-branch 1034,33587
+(defsubst egg-current-sha1 1039,33826
+(defsubst egg-head 1044,34031
+(defun egg-pretty-head-string 1052,34328
+(defsubst egg-pretty-head-name 1072,35176
+(defsubst egg-config-section-raw 1080,35475
+(defsubst egg-config-section 1090,35755
+(defun egg-config-get-all 1098,35981
+(defsubst egg-config-get-all-branches 1115,36489
+(defsubst egg-config-get-all-remotes 1118,36597
+(defsubst egg-config-get-all-remote-names 1121,36704
+(defsubst egg-config-get 1124,36796
+(defun egg-tracking-target 1128,36930
+(defsubst egg-read-rev 1138,37296
+(defsubst egg-read-remote 1142,37483
+(defsubst egg-async-process 1150,37828
+(defun egg-async-do 1158,38130
+(defsubst egg-async-0 1195,39629
+(defsubst egg-async-1 1198,39712
+(defvar egg-async-process 1201,39793
+(defvar egg-async-cmds 1202,39824
+(defvar egg-async-exit-msg 1203,39852
+(defun egg-process-sentinel 1205,39885
+(defun egg-parse-git-blame 1236,41095
+(defsubst egg-file-buffer-blame-off 1311,43896
+(defun egg-file-buffer-blame-on 1321,44153
+(defun egg-mouse-do-command 1337,44675
+(defun egg-mouse-hide-show-cmd 1349,45050
+(defconst egg-hide-show-map 1353,45176
+(defconst egg-section-map 1363,45540
+(defconst egg-diff-section-map 1372,45891
+(defconst egg-staged-diff-section-map 1382,46305
+(defconst egg-wdir-diff-section-map 1395,46815
+(defconst egg-unstaged-diff-section-map 1403,47138
+(defconst egg-unmerged-diff-section-map 1416,47664
+(defconst egg-hunk-section-map 1424,47989
+(defconst egg-staged-hunk-section-map 1433,48391
+(defconst egg-wdir-hunk-section-map 1446,48889
+(defconst egg-unstaged-hunk-section-map 1454,49200
+(defconst egg-unmerged-hunk-section-map 1467,49714
+(defun list-tp 1476,50066
+(defun list-nav 1480,50152
+(defsubst egg-navigation-at-point 1488,50356
+(defsubst egg-invisible-spec-at-point 1491,50437
+(defsubst egg-hunk-at-point 1494,50521
+(defsubst egg-diff-at-point 1497,50590
+(defsubst egg-point-in-section 1500,50659
+(defsubst egg-safe-search 1503,50761
+(defsubst egg-safe-search-pickup 1509,50929
+(defsubst egg-decorate-diff-header 1515,51115
+(defsubst egg-decorate-cc-diff-header 1526,51503
+(defsubst egg-decorate-diff-index-line 1537,51912
+(defsubst egg-decorate-hunk-header 1541,52091
+(defvar egg-internal-buffer-obarray 1546,52330
+(defsubst egg-make-navigation 1548,52372
+(defsubst egg-do-compute-navigation 1555,52705
+(defun egg-compute-navigation 1563,52969
+(defun egg-delimit-section 1568,53167
+(defsubst egg-make-hunk-info 1593,54354
+(defsubst egg-make-diff-info 1601,54680
+(defun egg-decorate-diff-sequence 1615,55263
+(defun egg-decorate-diff-section 1803,61523
+(defun egg-diff-section-cmd-visit-file 1819,62158
+(defun egg-diff-section-cmd-visit-file-other-window 1824,62309
+(defun egg-unmerged-section-cmd-ediff3 1829,62502
+(defun egg-unstaged-section-cmd-ediff 1835,62716
+(defun egg-staged-section-cmd-ediff3 1841,62930
+(defvar egg-diff-buffer-info 1847,63173
+(defun egg-diff-section-cmd-ediff 1849,63208
+(defun egg-hunk-compute-line-no 1867,63879
+(defsubst egg-hunk-info-at 1884,64483
+(defun egg-hunk-section-cmd-visit-file 1895,64905
+(defun egg-hunk-section-cmd-visit-file-other-window 1903,65202
+(defun egg-section-cmd-toggle-hide-show 1911,65527
+(defun egg-section-cmd-toggle-hide-show-children 1924,66014
+(defun egg-diff-section-patch-string 1951,67149
+(defun egg-hunk-section-patch-string 1958,67432
+(defvar egg-buffer-refresh-func 1973,68120
+(defvar egg-buffer-async-cmd-refresh-func 1974,68157
+(defvar egg-internal-update-index-timer 1975,68204
+(defsubst egg-buffer-async-do 1977,68250
+(defsubst egg-run-buffers-update-hook 1986,68574
+(defun egg-buffer-cmd-refresh 1992,68806
+(defun egg-buffer-cmd-next-block 2000,69042
+(defun egg-buffer-cmd-prev-block 2005,69231
+(defun egg-buffer-cmd-navigate-next 2010,69440
+(defun egg-buffer-cmd-navigate-prev 2015,69569
+(defconst egg-buffer-mode-map2020,69702
+(defun egg-get-buffer 2029,70079
+(defmacro define-egg-buffer 2044,70670
+(defconst egg-status-buffer-mode-map2084,72242
+(defconst egg-status-buffer-rebase-map 2096,72746
+(defun egg-buffer-do-rebase 2106,73217
+(defun egg-buffer-rebase-continue 2126,73996
+(defsubst egg-do-async-rebase-continue 2133,74196
+(defun egg-buffer-selective-rebase-action 2146,74642
+(defun egg-buffer-selective-rebase-continue 2161,75235
+(defun egg-buffer-selective-rebase-skip 2169,75515
+(defun egg-buffer-rebase-skip 2177,75815
+(defun egg-buffer-rebase-abort 2183,75966
+(defun egg-rebase-in-progress 2189,76100
+(defsubst egg-pretty-help-text 2192,76179
+(defconst egg-status-buffer-common-help-text2214,76972
+(defconst egg-status-buffer-rebase-help-text2231,77682
+(defconst egg-status-buffer-diff-help-text2240,78074
+(defun egg-sb-insert-repo-section 2250,78488
+(defun egg-ignore-pattern-from-string-at-point 2290,80155
+(defun egg-status-buffer-stage-untracked-file 2315,80975
+(defconst egg-untracked-file-map2322,81210
+(defun egg-sb-insert-untracked-section 2330,81571
+(defun egg-sb-insert-unstaged-section 2346,82223
+(defun egg-sb-insert-staged-section 2371,83298
+(defun egg-checkout-ref 2393,84197
+(defsubst egg-buffer-show-all 2399,84462
+(defsubst egg-buffer-hide-all 2405,84619
+(defsubst egg-buffer-hide-section-type 2415,84996
+(defsubst egg-buffer-maybe-hide-all 2423,85351
+(defsubst egg-buffer-maybe-hide-help 2433,85774
+(defun egg-status-buffer-redisplay 2442,86141
+(defun egg-internal-background 2459,86886
+(defun egg-internal-background-refresh-index 2470,87313
+(defvar egg-internal-status-buffer-names-list 2482,87738
+(defvar egg-internal-background-jobs-timer 2483,87789
+(defun egg-status-buffer-background-job 2485,87838
+(defsubst egg-internal-background-jobs-restart 2490,88019
+(defun egg-set-background-idle-period 2496,88272
+(defcustom egg-background-idle-period 2500,88394
+(define-egg-buffer status 2508,88615
+(defun egg-status-make-section-menu 2525,89180
+(defconst egg-status-buffer-unstaged-diff-menu 2587,91873
+(defconst egg-status-buffer-unstaged-hunk-menu 2588,91969
+(defconst egg-status-buffer-staged-diff-menu 2589,92064
+(defconst egg-status-buffer-staged-hunk-menu 2590,92156
+(defconst egg-status-buffer-mode-delta-menu 2591,92247
+(defun egg-status-popup-delta-menu 2593,92324
+(defun egg-status-popup-unstaged-diff-menu 2601,92588
+(defun egg-status-popup-staged-diff-menu 2605,92736
+(defun egg-status-popup-unstaged-hunk-menu 2609,92880
+(defun egg-status-popup-staged-hunk-menu 2613,93028
+(defconst egg-status-buffer-menu 2618,93173
+(define-key egg-status-buffer-mode-map 2620,93241
+(defun egg-status 2660,95198
+(defun egg-revert-visited-files 2676,95763
+(defun egg-revert-all-visited-files 2690,96191
+(defun egg-cmd-log-buffer 2707,96730
+(defsubst egg-cmd-log 2718,97125
+(defun egg-sync-handle-exit-code 2725,97321
+(defun egg-sync-do 2746,97988
+(defsubst egg-sync-do-region-0 2764,98624
+(defsubst egg-sync-0 2767,98728
+(defsubst egg-sync-do-region 2770,98809
+(defsubst egg-sync-git-region 2773,98917
+(defun egg-sync-do-file 2776,99026
+(defun egg-hunk-section-patch-cmd 2786,99399
+(defun egg-show-git-output 2793,99682
+(defun egg-hunk-section-cmd-stage 2810,100319
+(defun egg-hunk-section-cmd-unstage 2816,100506
+(defun egg-hunk-section-cmd-undo 2823,100717
+(defun egg-diff-section-patch-cmd 2831,101002
+(defun egg-diff-section-cmd-stage 2838,101293
+(defun egg-diff-section-cmd-unstage 2842,101411
+(defun egg-diff-section-cmd-undo-old-no-revsion-check 2848,101587
+(defun egg-diff-section-cmd-undo 2855,101859
+(defun egg-file-stage-current-file 2870,102394
+(defun egg-stage-all-files 2878,102642
+(defun egg-do-stash-wip 2885,102871
+(defun egg-do-checkout 2897,103236
+(defun egg-do-tag 2903,103423
+(defun egg-do-create-branch 2913,103775
+(defun egg-do-apply-stash 2927,104283
+(defun egg-do-pop-stash 2938,104562
+(defun egg-do-move-head 2948,104818
+(defun egg-do-merge-to-head 2956,105136
+(defun egg-do-rebase-head 2976,105855
+(defun egg-rm-ref 3026,107874
+(defvar egg-log-msg-ring 3050,108621
+(defvar egg-log-msg-ring-idx 3051,108662
+(defvar egg-log-msg-action 3052,108696
+(defvar egg-log-msg-text-beg 3053,108728
+(defvar egg-log-msg-text-end 3054,108762
+(defvar egg-log-msg-diff-beg 3055,108796
+(define-derived-mode egg-log-msg-mode 3056,108830
+(define-key egg-log-msg-mode-map 3066,109297
+(define-key egg-log-msg-mode-map 3067,109365
+(define-key egg-log-msg-mode-map 3068,109435
+(define-key egg-log-msg-mode-map 3069,109505
+(defun egg-log-msg-commit 3071,109576
+(defun egg-log-msg-amend-commit 3080,109844
+(defun egg-log-msg-done 3089,110134
+(defun egg-log-msg-hist-cycle 3107,110709
+(defun egg-log-msg-older-text 3135,111647
+(defun egg-log-msg-newer-text 3140,111769
+(defun egg-commit-log-buffer-show-diffs 3145,111892
+(define-egg-buffer commit 3165,112620
+(defun egg-commit-log-edit 3175,112958
+(defconst egg-diff-buffer-mode-map3235,115498
+(defun egg-diff-buffer-insert-diffs 3240,115645
+(define-egg-buffer diff 3278,117052
+(defconst egg-diff-buffer-common-help-text3292,117521
+(defconst egg-diff-buffer-diff-help-heading3302,117874
+(defconst egg-unstaged-diff-help-text3305,117986
+(defconst egg-staged-diff-help-text3312,118270
+(defconst egg-plain-diff-help-text3318,118500
+(defconst egg-wdir-diff-help-text3323,118666
+(defun egg-diff-info-add-help 3329,118888
+(defun egg-do-diff 3344,119394
+(defun egg-build-diff-info 3353,119683
+(defvar egg-log-buffer-comment-column 3417,122029
+(defvar egg-internal-log-buffer-closure 3418,122072
+(defun egg-run-git-log-HEAD 3420,122118
+(defun egg-run-git-log-all 3429,122488
+(defun egg-run-git-log-pickaxe 3438,122869
+(defconst egg-log-commit-base-map3442,122994
+(defconst egg-log-commit-map 3456,123679
+(defconst egg-log-ref-map 3471,124246
+(defconst egg-log-local-ref-map 3479,124553
+(defconst egg-log-remote-ref-map 3490,124956
+(defconst egg-log-remote-site-map 3500,125299
+(defconst egg-log-diff-map 3511,125683
+(defconst egg-log-hunk-map 3519,126010
+(defconst egg-log-buffer-mode-map3527,126337
+(defun egg-decorate-log 3539,126703
+(defsubst egg-log-buffer-insert-n-decorate-logs 3693,131749
+(defun egg-log-diff-cmd-visit-file 3704,132058
+(defun egg-log-diff-cmd-visit-file-other-window 3709,132276
+(defun egg-log-hunk-cmd-visit-file 3714,132509
+(defun egg-log-hunk-cmd-visit-file-other-window 3721,132837
+(defun egg-log-buffer-get-rev-at 3728,133180
+(defun egg-log-buffer-do-mark 3741,133675
+(defun egg-log-buffer-mark-pick 3763,134315
+(defun egg-log-buffer-mark-squash 3767,134409
+(defun egg-log-buffer-mark-edit 3771,134505
+(defun egg-log-buffer-do-unmark-all 3775,134599
+(defun egg-log-buffer-unmark 3783,134850
+(defun egg-log-buffer-get-marked-alist 3789,135011
+(defun egg-setup-rebase-interactive 3806,135513
+(defun egg-handle-rebase-interactive-exit 3854,137446
+(defun egg-log-buffer-merge 3941,140577
+(defun egg-log-buffer-rebase 3958,141252
+(defun egg-log-buffer-rebase-interactive 3971,141685
+(defun egg-log-buffer-checkout-commit 3993,142524
+(defun egg-log-buffer-tag-commit 3999,142726
+(defun egg-log-buffer-atag-commit 4005,142979
+(defun egg-log-buffer-create-new-branch 4013,143255
+(defun egg-log-buffer-start-new-branch 4022,143559
+(defun egg-log-buffer-attach-head 4030,143809
+(defun egg-log-buffer-rm-ref 4050,144464
+(defun egg-log-buffer-fetch-remote-ref 4062,144899
+(defun egg-log-buffer-fetch 4078,145445
+(defun egg-log-buffer-push-to-local 4099,146202
+(defun egg-log-buffer-push-head-to-local 4113,146689
+(defun egg-log-buffer-push-to-remote 4125,147134
+(defun egg-log-buffer-push 4166,148696
+(defun egg-log-buffer-goto-pos 4184,149325
+(defun egg-log-buffer-next-ref 4194,149650
+(defun egg-log-buffer-prev-ref 4206,150061
+(defun egg-log-buffer-do-insert-commit 4220,150575
+(defun egg-log-buffer-insert-commit 4258,151992
+(defun egg-generic-display-logs 4265,152269
+(defun egg-log-buffer-redisplay 4297,153480
+(defun egg-log-buffer-redisplay-from-command 4307,153928
+(define-egg-buffer log 4338,155010
+(defun egg-commit-at-point 4399,158320
+(defun egg-ref-at-point 4402,158390
+(defun egg-head-at-point 4405,158454
+(defun egg-tag-at-point 4408,158536
+(defun egg-remote-at-point 4411,158616
+(defun egg-references-at-point 4414,158702
+(defun egg-log-commit-line-menu-attach-head-index 4417,158780
+(defun egg-log-commit-line-menu-attach-head-index-wdir 4421,158895
+(defun egg-log-make-commit-line-menu 4426,159017
+(defconst egg-log-buffer-commit-line-menu 4530,163954
+(defconst egg-log-buffer-local-ref-menu 4531,164029
+(defconst egg-log-buffer-remote-ref-menu 4532,164102
+(defconst egg-log-buffer-remote-site-menu 4533,164176
+(defconst egg-log-buffer-mode-commit-menu 4534,164251
+(defun egg-log-commit-line-menu-heading 4536,164327
+(defun egg-log-commit-mouse-menu-heading 4555,164962
+(defun egg-log-popup-commit-line-menu-1 4562,165241
+(defun egg-log-popup-local-ref-menu 4582,165895
+(defun egg-log-popup-remote-ref-menu 4586,166034
+(defun egg-log-popup-remote-site-menu 4590,166175
+(defun egg-log-popup-commit-line-menu 4594,166318
+(defconst egg-log-buffer-menu 4601,166627
+(define-key egg-log-buffer-mode-map 4603,166692
+(defconst egg-log-buffer-help-text4629,167968
+(defun egg-log-buffer-diff-revs 4689,170478
+(defun egg-log 4701,170907
+(define-egg-buffer file-log 4733,172133
+(defsubst egg-run-git-file-log-HEAD 4747,172643
+(defsubst egg-run-git-file-log-all 4752,172835
+(defconst egg-log-commit-simple-map 4757,173032
+(defsubst egg-log-buffer-decorate-logs-simple 4764,173304
+(defun egg-log-buffer-simple-redisplay 4776,173699
+(defconst egg-file-log-help-text4780,173863
+(defun egg-file-log 4812,175273
+(defconst egg-query:commit-commit-map 4845,176644
+(defun egg-log-locate-commit 4855,177098
+(defun egg-query:commit-buffer-rerun 4882,178012
+(define-egg-buffer query:commit 4889,178317
+(defun egg-insert-n-decorate-pickaxed-logs 4905,178938
+(defun egg-search-changes 4915,179276
+(defsubst egg-run-reflog-branch 4932,180036
+(define-egg-buffer reflog 4937,180208
+(defconst egg-reflog-help-text4943,180399
+(defun egg-reflog 4976,181814
+(defun egg-log-buffer-reflog-ref 4999,182695
+(defsubst egg-list-stash 5006,182936
+(define-egg-buffer stash 5009,183034
+(defun egg-stash-buffer-do-insert-stash 5016,183264
+(defun egg-stash-buffer-show 5046,184348
+(defun egg-stash-buffer-pop 5053,184619
+(defun egg-stash-buffer-apply 5064,184975
+(defun egg-buffer-stash-wip 5077,185428
+(defconst egg-stash-buffer-mode-map5082,185567
+(defconst egg-stash-map5094,186004
+(defun egg-stash-buffer-next-stash 5105,186448
+(defun egg-stash-buffer-prev-stash 5110,186569
+(defconst egg-stash-help-text5116,186695
+(defun egg-decorate-stash-list 5138,187466
+(defsubst egg-stash-buffer-decorate-stash-list 5161,188186
+(defun egg-stash 5170,188443
+(defvar egg-internal-annotated-tag-name 5191,189237
+(defvar egg-internal-annotated-tag-target 5192,189282
+(defun egg-tag-msg-create-tag 5194,189330
+(define-egg-buffer tag:msg 5205,189697
+(defun egg-create-annotated-tag 5215,189996
+(defun egg-file-toggle-blame-mode 5250,191684
+(defun egg-file-diff 5274,192534
+(defun egg-file-checkout-other-version 5285,192925
+(defun egg-file-cancel-modifications 5303,193706
+(defun egg-start-new-branch 5320,194422
+(defun egg-file-get-other-version 5324,194541
+(defun egg-file-version-other-window 5348,195414
+(defun egg-file-ediff 5361,195909
+(defun egg-resolve-merge-with-ediff 5381,196527
+(defun egg-file-do-ediff 5393,197055
+(defconst egg-key-action-alist 5414,197953
+(defconst egg-action-function-alist5427,198850
+(defconst egg-action-menu-name-alist5439,199328
+(defconst egg-electrict-select-action-buffer 5450,199803
+(defun egg-select-action-run 5453,199895
+(defun egg-select-action-quit 5465,200233
+(defconst egg-electric-select-action-map 5474,200486
+(defun egg-electric-select-action 5482,200798
+(defsubst egg-guess-next-action 5536,202542
+(defun egg-limit-alternative-actions 5547,203039
+(defun egg-describe-state 5574,204218
+(defsubst egg-build-key-prompt 5617,205642
+(defun egg-prompt-next-action 5627,206023
+(defun egg-next-action 5666,207561
+(defun egg-file-next-action-menu-name 5678,207993
+(defun egg-file-next-action-menu-binding 5685,208265
+(defvar egg-minor-mode 5691,208526
+(defvar egg-minor-mode-map 5692,208554
+(defvar egg-file-cmd-map 5693,208609
+(defun egg-mode-key-prefix-set 5695,208668
+(defun egg-file-log-pickaxe 5699,208814
+(defconst egg-minor-mode-menu 5724,209880
+(define-key egg-minor-mode-map 5725,209944
+(defcustom egg-mode-key-prefix 5762,211885
+(defvar egg-minor-mode-name 5768,212039
+(defun egg-minor-mode 5771,212091
+(defun egg-minor-mode-find-file-hook 5799,213244
+(defun egg-ref-at 5826,214103
+(defun egg-ref-or-commit-at 5829,214190
+(defun egg-commit-at 5833,214337
+(defun egg-rsite-at 5836,214424
+(defun egg-delta-file-at 5839,214537
+(defun egg-delta-hunk-at 5842,214632
+(defun egg-section-at 5845,214727
+(defun egg-file-name-at 5854,215014
+(defconst egg-cmd-help-text-fmt-alist5861,215184
+(defun egg-buffer-help-echo 5905,218243
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/header2.el,2383
+(defgroup Automatic-File-Header 337,14629
+(defcustom header-max 355,15446
+(defcustom header-copyright-notice 359,15584
+(defcustom header-date-format 364,15793
+(defcustom make-header-hook 380,16555
+(defcustom header-history-label 436,19251
+(defcustom header-free-software440,19413
+(defvar return-to 464,20298
+(defvar header-multiline 468,20454
+(defvar file-header-update-alist 472,20601
+(defvar header-prefix-string 477,20854
+(defvar explicit-shell-file-name)481,20979
+(defsubst header-blank 488,21097
+(defsubst section-comment-start 494,21265
+(defsubst header-title 500,21543
+(defsubst header-file-name 512,22046
+(defsubst header-description 520,22314
+(defsubst header-author 524,22433
+(defsubst header-maintainer 528,22600
+(defun header-copyright 532,22716
+(defsubst header-creation-date 547,23337
+(defun header-date-string 552,23522
+(defsubst header-rcs-id 561,23797
+(defsubst header-version 565,23936
+(defsubst header-sccs 569,24060
+(defsubst header-commentary 573,24204
+(defsubst header-history 577,24332
+(defun header-free-software 582,24585
+(defun header-multiline 588,24815
+(defsubst header-code 615,25611
+(defsubst header-eof 621,25854
+(defsubst header-modification-date 632,26293
+(defsubst header-modification-author 637,26491
+(defsubst header-update-count 642,26707
+(defsubst header-url 646,26861
+(defsubst header-keywords 650,26956
+(defsubst header-compatibility 654,27066
+(defsubst header-lib-requires 658,27193
+(defsubst header-status 664,27460
+(defsubst header-toc 668,27566
+(defsubst header-rcs-log 673,27728
+(defsubst header-AFS 679,27999
+(defsubst header-shell 683,28126
+(defun header-mode-line 696,28690
+(defsubst header-end-line 727,30269
+(defun register-file-header-action 741,30809
+(defun true-mode-name 770,32319
+(defun header-prefix-string 781,32919
+(defun auto-make-header 810,33929
+(defun make-header 816,34138
+(defun make-revision 833,35034
+(defun make-divider 899,38401
+(defun make-box-comment 912,38968
+(defun update-file-header 937,40030
+(defun auto-update-file-header 961,41071
+(defsubst delete-and-forget-line 976,41625
+(defun update-write-count 984,41880
+(defsubst update-last-modifier 1014,43200
+(defsubst update-last-modified-date 1021,43480
+(defun update-file-name 1026,43639
+(defun update-lib-requires 1036,44041
+(defun headerable-file-p 1078,46196
+(defsubst uniquify-list 1087,46562
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/javascript.el,1922
+(defgroup javascript 63,2001
+(defcustom javascript-indent-level 68,2120
+(defcustom javascript-expr-indent-offset 73,2245
+(defcustom javascript-auto-indent-flag 80,2471
+(defvar javascript-mode-map 89,2708
+(defun javascript-insert-and-indent 100,3023
+(defvar javascript-mode-syntax-table110,3373
+(defvar js-ident-as-word-syntax-table117,3577
+(defun js-re-search-forward-inner 126,3890
+(defun js-re-search-forward 148,4660
+(defun js-re-search-backward-inner 168,5391
+(defun js-re-search-backward 192,6286
+(defun js-inside-param-list-p 214,7043
+(defconst js-function-heading-1-re 226,7364
+(defconst js-function-heading-2-re 230,7502
+(defconst js-keyword-re235,7675
+(defconst js-basic-type-re247,8341
+(defconst js-constant-re252,8547
+(defconst js-font-lock-keywords-1257,8695
+(defconst js-font-lock-keywords-2264,8917
+(defconst js-font-lock-keywords-3283,9666
+(defconst js-font-lock-keywords316,10492
+(defconst js-font-lock-syntactic-keywords321,10685
+(defconst js-possibly-braceless-keyword-re329,10915
+(defconst js-indent-operator-re336,11146
+(defun js-looking-at-operator-p 343,11376
+(defun js-continued-expression-p 354,11732
+(defun js-end-of-do-while-loop-p 370,12283
+(defun js-ctrl-statement-indentation 395,13248
+(defun js-proper-indentation 416,14056
+(defun javascript-indent-line 447,15394
+(defun js-backward-paragraph 467,16149
+(defun js-forward-paragraph 476,16452
+(defun js-fill-block-comment-paragraph 485,16741
+(defun js-sline-comment-par-start 526,18422
+(defun js-sline-comment-par-end 538,18770
+(defun js-sline-comment-offset 549,19078
+(defun js-sline-comment-text-offset 559,19342
+(defun js-at-empty-sline-comment-p 568,19592
+(defun js-fill-sline-comments 577,19880
+(defun js-trailing-comment-p 613,21301
+(defun js-block-comment-p 624,21629
+(defun javascript-fill-paragraph 635,21952
+(defconst js-imenu-generic-expression 650,22465
+(defun javascript-mode 662,22700
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/lisppaste.el,1802
+(defconst lisppaste-url 32,1105
+(defun lisppaste-send-command 34,1166
+(defvar lisppaste-display-new-paste-url 39,1423
+(defvar lisppaste-add-paste-url-to-kill-ring 42,1544
+(defun lisppaste-new-paste 45,1671
+(defun lisppaste-get-paste 68,2615
+(defun lisppaste-list-annotations 74,2774
+(defun lisppaste-list-pastes 79,2926
+(defun lisppaste-channels 92,3439
+(defvar lisppaste-channels 96,3564
+(defsubst lisppaste-check-channel 101,3709
+(defsubst lisppaste-all-channels 111,4117
+(defvar lisppaste-default-nick 117,4329
+(defsubst lisppaste-default-nick 122,4449
+(defsubst lisppaste-paste 135,4847
+(defsubst lisppaste-annotation 137,4911
+(defsubst lisppaste-channel 139,4985
+(defsubst lisppaste-annotations 141,5053
+(defsubst lisppaste-read-number 144,5130
+(defsubst lisppaste-read-channel 161,5804
+(defsubst lisppaste-read-nick 165,5924
+(defsubst lisppaste-read-title 171,6108
+(defun lisppaste-clean-returned-paste 175,6194
+(defun lisppaste-clean-time-string 188,6678
+(defvar lisppaste-creation-help198,7048
+(defsubst lisppaste-buffer-substring 203,7238
+(defun lisppaste-paste-region 220,7778
+(defun lisppaste-browse-url 233,8324
+(defun lisppaste-display-paste 249,8983
+(defun lisppaste-list-paste-annotations 287,10607
+(defun lisppaste-list-recent-pastes 316,11797
+(defun lisppaste-create-paste 352,13381
+(defun lisppaste-send-paste 366,13956
+(defun lisppaste-create-new-paste 379,14423
+(defun lisppaste-create-new-annotation 394,15042
+(defun lisppaste-dwim 410,15760
+(defun lisppaste-quit 421,16190
+(defun lisppaste-annotate 428,16334
+(defun lisppaste-display-supported-channels 438,16685
+(defvar lisppaste-help450,17140
+(defun lisppaste-help 475,18116
+(defun lisppaste 482,18292
+(defvar lisppaste-mode-map492,18564
+(define-derived-mode lisppaste-mode 507,19197
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/muttrc-mode.el,315
+(defcustom muttrc-mode-hook 70,2668
+(defvar muttrc-mode-syntax-table 75,2784
+(defvar muttrc-mode-abbrev-table 78,2873
+(define-abbrev-table 'muttrc-mode-abbrev-table muttrc-mode-abbrev-table80,2961
+(defvar muttrc-mode-map 82,3013
+(defconst muttrc-mode-font-lock-keywords107,4052
+(defun muttrc-mode 230,10853
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/paredit.el,4819
+(defconst paredit-version 177,8841
+(defconst paredit-beta-p 178,8871
+(defvar paredit-mode-map 232,10492
+(define-minor-mode paredit-mode235,10579
+(defun enable-paredit-mode 257,11568
+(defun disable-paredit-mode 264,11729
+(defvar paredit-backward-delete-key271,11892
+(defvar paredit-forward-delete-keys275,12008
+(defvar paredit-commands 285,12348
+(defun paredit-define-keys 496,20663
+(defun paredit-function-documentation 502,20857
+(defun paredit-annotate-mode-with-examples 509,21127
+(defun paredit-annotate-functions-with-examples 536,22335
+(defun paredit-insert-html-examples 553,23029
+(defun paredit-html-quote 602,25064
+(defvar paredit-wrap-commands 662,27647
+(define-paredit-pair ?\(666,27813
+(define-paredit-pair ?\[ 667,27851
+(define-paredit-pair ?\{ 668,27890
+(define-paredit-pair ?\< 669,27928
+(defalias 'paredit-open-parenthesis paredit-open-parenthesis673,28000
+(defalias 'paredit-close-parenthesis paredit-close-parenthesis674,28057
+(defalias 'paredit-close-parenthesis-and-newlineparedit-close-parenthesis-and-newline675,28116
+(defalias 'paredit-open-bracket paredit-open-bracket678,28202
+(defalias 'paredit-close-bracket paredit-close-bracket679,28256
+(defalias 'paredit-close-bracket-and-newlineparedit-close-bracket-and-newline680,28312
+(defun paredit-move-past-close 683,28396
+(defun paredit-move-past-close-and-newline 691,28666
+(defun paredit-find-comment-on-line 709,29272
+(defun paredit-insert-pair 731,30293
+(defun paredit-region-safe-for-insert-p 753,31115
+(defun paredit-space-for-delimiter-p 770,31886
+(defun paredit-move-past-close-and-reindent 781,32454
+(defun paredit-missing-close 815,34122
+(defun paredit-delete-leading-whitespace 823,34369
+(defun paredit-blink-paren-match 834,34850
+(defun paredit-doublequote 846,35271
+(defun paredit-meta-doublequote 871,36454
+(defun paredit-forward-for-quote 888,37169
+(defun paredit-backslash 921,38654
+(defun paredit-escape 944,39680
+(defun paredit-newline 956,40258
+(defun paredit-reindent-defun 973,40935
+(defun paredit-comment-dwim 987,41367
+(defun paredit-initialize-comment-dwim 1019,42964
+(defun paredit-comment-on-line-p 1034,43616
+(defun paredit-insert-comment 1050,44241
+(defun paredit-forward-delete 1089,45876
+(defun paredit-forward-delete-in-string 1139,48094
+(defun paredit-backward-delete 1162,49276
+(defun paredit-backward-delete-in-string 1208,51337
+(defun paredit-kill 1233,52487
+(defun paredit-kill-line-in-string 1256,53473
+(defun paredit-kill-sexps-on-line 1273,54058
+(defun paredit-forward-sexps-to-kill 1301,55511
+(defun paredit-kill-sexps-on-whole-line 1336,56899
+(defun paredit-forward-kill-word 1367,58437
+(defun paredit-backward-kill-word 1396,59682
+(defun paredit-kill-word-state 1425,60873
+(defun paredit-kill-word-hack 1438,61426
+(defun-saving-mark paredit-forward 1472,62594
+(defun-saving-mark paredit-backward 1482,63055
+(defun backward-down-list 1493,63512
+(defun paredit-recentre-on-sexp 1502,63837
+(defun paredit-focus-on-defun 1516,64369
+(defun paredit-wrap-sexp 1524,64578
+(defun paredit-count-sexps-forward 1549,65700
+(defun paredit-yank-pop 1558,65901
+(defun paredit-splice-sexp 1594,67540
+(defun paredit-kill-surrounding-sexps-for-splice 1621,68927
+(defun paredit-splice-sexp-killing-backward 1653,70480
+(defun paredit-splice-sexp-killing-forward 1662,70878
+(defun paredit-raise-sexp 1671,71279
+(defun paredit-convolute-sexp 1694,72409
+(defun paredit-splice-string 1720,73503
+(defun paredit-unescape-string 1748,74695
+(defun paredit-forward-slurp-sexp 1763,75099
+(defun paredit-forward-slurp-into-list 1781,75830
+(defun paredit-forward-slurp-into-string 1797,76669
+(defun paredit-forward-barf-sexp 1807,77056
+(defun paredit-backward-slurp-sexp 1829,78116
+(defun paredit-backward-slurp-into-list 1847,78836
+(defun paredit-backward-slurp-into-string 1866,79442
+(defun paredit-backward-barf-sexp 1879,79857
+(defun paredit-split-sexp 1907,80788
+(defun paredit-join-sexps 1927,81585
+(defun paredit-add-to-previous-list 1971,83611
+(defun paredit-add-to-next-list 1979,83877
+(defun paredit-join-with-previous-list 1988,84195
+(defun paredit-join-with-next-list 1998,84561
+(defun paredit-in-string-escape-p 2010,84922
+(defun paredit-in-char-p 2022,85314
+(defun paredit-forward-and-indent 2035,85965
+(defun paredit-skip-whitespace 2044,86440
+(defalias 'paredit-region-active-pparedit-region-active-p2052,86862
+(defun paredit-hack-kill-region 2058,87052
+(defun paredit-current-parse-state 2080,88033
+(defun paredit-in-string-p 2089,88394
+(defun paredit-string-start+end-points 2097,88739
+(defun paredit-in-comment-p 2111,89361
+(defun paredit-point-at-sexp-boundary 2120,89741
+(defun paredit-point-at-sexp-start 2125,89906
+(defun paredit-point-at-sexp-end 2131,90016
+(defun paredit-lose-if-not-in-sexp 2137,90124
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/stumpwm-mode.el,189
+(defvar stumpwm-shell-program 31,1131
+(define-minor-mode stumpwm-mode34,1244
+(defun stumpwm-eval-region 43,1575
+(defun stumpwm-eval-defun 53,1919
+(defun stumpwm-eval-last-sexp 62,2135
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/traverselisp.el,3047
+(defconst traverse-version 169,6289
+(defvar traversedir-mode-map176,6391
+(define-derived-mode traversedir-mode 189,6957
+(defgroup traversedir 195,7138
+(defcustom traverse-ignore-files200,7258
+(defcustom traverse-ignore-dirs223,7726
+(defcustom traverse-length-line233,7943
+(defcustom traverse-file-function239,8054
+(defcustom traverse-use-avfs245,8198
+(defcustom traverse-avfs-default-directory251,8302
+(defgroup traverse-faces 258,8451
+(defface traverse-match-face 262,8531
+(defface traverse-regex-face 265,8635
+(defface traverse-path-face 268,8742
+(defface traverse-overlay-face 271,8847
+(defvar traverse-match-overlay-face 277,9056
+(defvar traverse-show-regexp-delay 279,9162
+(defvar traverse-keep-indent 281,9255
+(defvar traverse-occur-use-miniwindow 283,9340
+(defvar traverse-miniwindow-width 285,9428
+(defvar traverse-count-occurences 289,9536
+(defvar traverse-occur-overlay 291,9632
+(defvar traverse-last-regexp 292,9668
+(defvar traverse-replace-auth 295,9784
+(defun traverselisp-version 299,9909
+(defun traverse-quit 306,10082
+(defsubst traverse-list-directory 315,10296
+(defsubst* traverse-walk-directory 320,10486
+(defun traverse-comp-str-to-list 361,12357
+(defun traverse-check-only-lists 369,12586
+(defsubst* traverse-find-readlines 376,12795
+(defun traverse-file-process 397,13647
+(defun traverse-file-process-ext 430,15562
+(defun* traverse-buffer-process-ext 459,17025
+(defun traverse-find-in-file 490,18582
+(defun traverse-occur-color-current-line 517,19774
+(defun traverse-button-func 528,20231
+(defun traverse-prepare-buffer 554,21225
+(defun traverse-read-regexp 568,21623
+(defun traverse-occur-current-buffer 581,22105
+(defun traverse-deep-rfind 597,22661
+(defun traverse-search-in-dired-dir-at-point 662,25785
+(defun traverse-search-in-dired-file-at-point 674,26295
+(defun traverse-dired-browse-archive 684,26693
+(defun traverse-dired-search-in-archive 698,27256
+(defun traverse-dired-find-in-marked-files 718,28160
+(defun traverse-dired-find-in-all-files 744,29304
+(defun traverse-dired-get-marked-files 777,30819
+(defun traverse-dired-has-marked-files 786,31114
+(defun traverse-dired-search-regexp-in-anything-at-point 796,31345
+(defun traverse-go-forward-or-backward 825,32425
+(defun traverse-go-forward 835,32669
+(defun traverse-go-backward 839,32781
+(defun traverse-scroll-down-other-window 843,32898
+(defun traverse-scroll-up-other-window 849,33068
+(defun traverse-search-and-replace 857,33275
+(defun traverse-search-and-replace-all 926,36916
+(defun file-compressed-p 1027,42716
+(defun* traverse-cp-or-mv-extfiles-in-dir 1039,43000
+(defun traverse-build-tags-in-project 1073,44643
+(defun traverse-window-split-h-or-t 1102,45903
+(defun traverse-toggle-split-window-h-v 1109,46081
+(defun traverse-count-files-in-dir 1129,46694
+(defun traverse-list-directories-in-tree 1148,47341
+(defun traverse-list-files-in-tree 1160,47740
+(defun traverse-apply-func-on-files 1180,48529
+(defun traverse-apply-func-on-dirs 1190,48890
+(defun traverse-pprint-tree 1198,49197
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/twit.el,2772
+(defvar twit-version-number 2,43
+(defvar twit-status-mode-map 218,9302
+(defvar twit-followers-mode-map 219,9353
+(defun twit-set-user-pass 225,9514
+(defgroup twit 261,10946
+(defcustom twit-user266,11027
+(defcustom twit-pass273,11140
+(defcustom twit-new-tweet-hook280,11253
+(defcustom twit-follow-idle-interval286,11373
+(defvar twit-shadow-follow-idle-interval295,11744
+(defcustom twit-user-image-dir299,11899
+(defcustom twit-debug305,12081
+(defcustom twit-filter-tweets-regex 311,12191
+(defface twit-message-face321,12475
+(defface twit-author-face328,12615
+(defface twit-info-face336,12766
+(defface twit-title-face341,12905
+(defface twit-zebra-1-face348,13059
+(defface twit-zebra-2-face354,13205
+(defvar twit-key-list364,13480
+(define-key twit-status-mode-map 371,13637
+(define-key twit-followers-mode-map 372,13700
+(defun twit-mode-help 379,13914
+(defvar twit-timer383,14034
+(defvar twit-rate-limit-timer387,14113
+(defvar twit-first-time-through 391,14195
+(defvar twit-base-url 395,14317
+(defconst twit-update-url 397,14362
+(defconst twit-puplic-timeline-file399,14438
+(defconst twit-friend-timeline-file401,14532
+(defconst twit-followers-file403,14627
+(defconst twit-friend-list-file405,14709
+(defconst twit-rate-limit-file407,14791
+(defconst twit-success-msg 410,14882
+(defconst twit-too-long-msg 412,14949
+(defconst twit-standard-rate-limit 415,15036
+(defconst twit-rate-limit-offset 417,15077
+(defconst twit-rate-limit-interval 420,15184
+(defun twit-alert 426,15428
+(defun twit-parse-xml 438,15925
+(defvar twit-async-buffer 449,16307
+(defun twit-parse-xml-async 452,16400
+(defun twit-parse-xml-async-retrieve 458,16738
+(defun twit-post-function 473,17283
+(defun twit-parse-rate-limit 484,17932
+(defun twit-get-rate-limit 492,18290
+(defun twit-get-and-set-async-rate-limit 498,18493
+(defun twit-get-and-set-async-rate-limit-callback 503,18711
+(defun twit-query-for-post 514,19237
+(defvar twit-last-tweet 518,19428
+(defun twit-write-recent-tweets 525,19743
+(defvar twit-user-image-list 601,23233
+(defun twit-get-user-image 606,23339
+(defun twit-write-user-image 618,23864
+(defun twit-follow-recent-tweets-timer-function 636,24547
+(defun twit-follow-recent-tweets-async-callback 640,24750
+(defvar twit-last-rate-limit648,24999
+(defun twit-verify-and-set-rate-limit 652,25094
+(defun twit-todochiku 683,26517
+(defun twit-grab-author-of-tweet 686,26672
+(defun twit-post 717,28289
+(defun twit-post-region 737,29091
+(defun twit-post-buffer 750,29542
+(defun twit-list-followers 763,30007
+(defun twit-insert-with-overlay-attributes 782,30722
+(defun twit-follow-recent-tweets 791,30981
+(defun twit-stop-following-tweets 799,31506
+(defun twit-show-recent-tweets 808,31858
+(define-minor-mode twit-mode 824,32375
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
+
+/home/artagnon/.elisp/xml-rpc.el,1307
+(defun xml-rpc-clean-string 162,5720
+(defcustom xml-rpc-load-hook 174,5920
+(defcustom xml-rpc-allow-unicode-string 178,6022
+(defcustom xml-rpc-base64-encode-unicode 184,6287
+(defcustom xml-rpc-base64-decode-unicode 189,6448
+(defcustom xml-rpc-debug 194,6609
+(defconst xml-rpc-version 198,6759
+(defun xml-rpc-value-datep 205,6867
+(defun xml-rpc-value-intp 209,7014
+(defun xml-rpc-value-doublep 213,7106
+(defun xml-rpc-value-stringp 217,7214
+(defun xml-rpc-value-booleanp 221,7306
+(defun xml-rpc-string-to-boolean 226,7422
+(defun xml-rpc-caddar-safe 230,7560
+(defsubst xml-rpc-value-structp 236,7820
+(defsubst xml-rpc-value-arrayp 252,8320
+(defun xml-rpc-xml-list-to-value 257,8470
+(defun xml-rpc-boolean-to-string 307,10127
+(defun xml-rpc-value-to-xml-list 313,10241
+(defun xml-rpc-xml-to-string 367,12210
+(defsubst xml-rpc-response-errorp 387,12801
+(defsubst xml-rpc-response-error-code 393,13085
+(defsubst xml-rpc-response-error-string 398,13272
+(defun xml-rpc-xml-to-response 403,13461
+(defun xml-rpc-get-temp-buffer-name 429,14330
+(defun xml-rpc-request 448,14759
+(defun xml-rpc-clean 516,17411
+(defun xml-rpc-request-process-buffer 551,18150
+(defun xml-rpc-request-callback-handler 586,19091
+(defun xml-rpc-method-call-async 595,19453
+(defun xml-rpc-method-call 615,20251
+
+/home/artagnon/.elisp/TAGS,49
+/home/artagnon/.elisp/anything-config.el,el2,2
