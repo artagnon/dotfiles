@@ -30,9 +30,11 @@
 ;; defprogram-shortcuts
 (defprogram-shortcut emacs :command "emacs" :key (kbd "s-e"))
 (defprogram-shortcut conkeror :command "conkeror" :key (kbd "s-c"))
-(defprogram-shortcut fran :command "urxvt" :key (kbd "s-u") :props '(:class  "URxvt"))
+(defprogram-shortcut urxvt :command "urxvt" :key (kbd "s-u") :props '(:class  "URxvt"))
 (defprogram-shortcut gimp :command "gimp" :key (kbd "s-g"))
 (defprogram-shortcut amarok :command "amarok" :key (kbd "s-a"))
+(defprogram-shortcut linuxdcpp :command "linuxdcpp" :key (kbd "s-d"))
+(defprogram-shortcut picard :command "picard" :key (kbd "s-p"))
 
 ;; Keybindings
 (define-key *groups-map* (kbd "n") "gnewbg")

@@ -33,6 +33,7 @@ let (mozrepl_init = get_home_directory()) {
 define_key(content_buffer_normal_keymap, "d", "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "t", "find-url-new-buffer");
 define_key(gmail_keymap, "t", "find-url-new-buffer");
+define_key(gmail_keymap, "return", null, $fallthrough);
 
 // Custom webjumps
 define_webjump("imdb", "http://www.google.com/search?q=%s+site%3Aimdb.com&btnI=I'm Feeling Lucky");
@@ -70,6 +71,7 @@ function set_all_proxies (server, port) {
     session_pref ('network.proxy.ssl_port',    port);
 }
 set_all_proxies("144.16.192.245", 8080);
+session_pref ('network.proxy.type', 1);
 
 function switch_proxy (window, server_code) {
     switch(server_code) {

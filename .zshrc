@@ -3,7 +3,7 @@
 
 # keychain
 keychain -q ~/.ssh/id_rsa
-source ~/.keychain/fran-sh
+source ~/.keychain/kytes-sh
 
 # shell settings
 autoload -U compinit promptinit
@@ -21,8 +21,8 @@ export PYTHONPATH=/opt/python
 export PYTHONSTARTUP=/home/artagnon/.pythonrc
 
 # proxy exports
-# export http_proxy=http://144.16.192.245:8080
-# export ftp_proxy=http://144.16.192.245:8080
+export http_proxy=http://144.16.192.245:8080
+export ftp_proxy=http://144.16.192.245:8080
 
 # system aliases
 alias ls='ls --color'
@@ -41,10 +41,11 @@ alias et='emacsclient -t'
 
 # apt aliases
 alias au='sudo aptitude update'
+alias aup='sudo aptitude safe-upgrade'
 alias ai='sudo aptitude install'
 alias as='aptitude search'
 alias ashow='aptitude show'
-alias ar='sudo aptitude purge'
+alias arp='sudo aptitude purge'
 alias dl='dpkg -l | grep'
 alias dL='dpkg -L'
 
