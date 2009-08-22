@@ -32,6 +32,10 @@
 (require 'icicles)
 (require 'org-install)
 (require 'quack)
+(require 'inf-haskell)
+(require 'haskell-ghci)
+(require 'haskell-indent)
+(require 'haskell-doc)
 
 ;; ----------------
 ;; auto-mode-alists
