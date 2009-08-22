@@ -63,6 +63,7 @@ setopt AUTO_CD
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # history options
 HISTFILE=/home/artagnon/.zsh-history
