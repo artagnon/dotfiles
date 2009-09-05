@@ -16,19 +16,6 @@ url_completion_use_bookmarks = false;
 url_completion_use_history = true;
 session_auto_save_auto_load = true;
 
-// Mozrepl
-if ('@hyperstruct.net/mozlab/mozrepl;1' in Cc) {
-  var mozrepl = Cc['@hyperstruct.net/mozlab/mozrepl;1']
-    .getService(Ci.nsIMozRepl);
-  if (! mozrepl.isActive())
-    mozrepl.start(4242);
-}
-
-let (mozrepl_init = get_home_directory()) {
-    mozrepl_init.appendRelativePath(".mozrepl.js");
-    session_pref('extensions.mozrepl.initUrl', make_uri(mozrepl_init).spec);
-}
-
 // Custom keybindings
 define_key(content_buffer_normal_keymap, "d", "follow-new-buffer");
 define_key(content_buffer_normal_keymap, "t", "find-url-new-buffer");
