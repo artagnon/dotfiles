@@ -48,7 +48,7 @@
            #:*inspector-verbose*
            ;; These are re-exported directly from the backend:
            #:buffer-first-change
-           #:frame-source-location-for-emacs
+           #:frame-source-location
            #:restart-frame
            #:sldb-step 
            #:sldb-break
@@ -895,8 +895,7 @@ if the file doesn't exist; otherwise the first line of the file."
 (defun open-streams (connection)
   "Return the 5 streams for IO redirection:
 DEDICATED-OUTPUT INPUT OUTPUT IO REPL-RESULTS"
-  (let* ((output-fn (make-output-function connection))
-         (input-fn
+  (let* ((input-fn
           (lambda () 
             (with-connection (connection)
               (with-simple-restart (abort-read
@@ -905,9 +904,9 @@ DEDICATED-OUTPUT INPUT OUTPUT IO REPL-RESULTS"
          (dedicated-output (if *use-dedicated-output-stream*
                                (open-dedicated-output-stream
                                 (connection.socket-io connection))))
-         (out (make-output-stream output-fn))
          (in (make-input-stream input-fn))
-         (out (or dedicated-output out))
+         (out (or dedicated-output
+                  (make-output-stream (make-output-function connection))))
          (io (make-two-way-stream in out))
          (repl-results (make-output-stream-for-target connection
                                                       :repl-result)))
@@ -1359,15 +1358,19 @@ The processing is done in the extent of the toplevel restart."
                 (if (open-stream-p stdin) 
                     :stdin-open :stdin-closed))
      (loop
-      
       (let* ((socket (connection.socket-io connection))
              (inputs (list socket stdin))
              (ready (wait-for-input inputs)))
         (cond ((eq ready :interrupt)
                (check-slime-interrupts))
               ((member socket ready)
-               (handle-requests connection t))
+               ;; A Slime request from Emacs is pending; make sure to
+               ;; redirect IO to the REPL buffer.
+               (with-io-redirection (connection)
+                 (handle-requests connection t)))
               ((member stdin ready)
+               ;; User typed something into the  *inferior-lisp* buffer,
+               ;; so do not redirect.
                (return (read-non-blocking stdin)))
               (t (assert (null ready)))))))))
 
@@ -1486,11 +1489,13 @@ dynamic binding."
 
 (defun init-global-stream-redirection ()
   (when *globally-redirect-io*
-    (assert (not *saved-global-streams*) () "Streams already redirected.")
-    (mapc #'setup-stream-indirection
-          (append *standard-output-streams*
-                  *standard-input-streams*
-                  *standard-io-streams*))))
+    (cond (*saved-global-streams*
+           (warn "Streams already redirected."))
+          (t
+           (mapc #'setup-stream-indirection
+                 (append *standard-output-streams*
+                         *standard-input-streams*
+                         *standard-io-streams*))))))
 
 (add-hook *after-init-hook* 'init-global-stream-redirection)
 
@@ -2360,37 +2365,40 @@ N.B. this is not an actual package name or nickname."
 
 WHAT can be:
   A pathname or a string,
-  A list (PATHNAME-OR-STRING LINE [COLUMN]),
+  A list (PATHNAME-OR-STRING &key LINE COLUMN POSITION),
   A function name (symbol or cons),
-  NIL.
-
-Returns true if it actually called emacs, or NIL if not."
-  (flet ((pathname-or-string-p (thing)
-           (or (pathnamep thing) (typep thing 'string)))
-         (canonicalize-filename (filename)
+  NIL. "
+  (flet ((canonicalize-filename (filename)
            (pathname-to-filename (or (probe-file filename) filename))))
-    (let ((target
-           (cond ((and (listp what) (pathname-or-string-p (first what)))
-                  (cons (canonicalize-filename (car what)) (cdr what)))
-                 ((pathname-or-string-p what)
-                  (canonicalize-filename what))
-                 ((symbolp what) what)
-                 ((consp what) what)
-                 (t (return-from ed-in-emacs nil)))))
-      (cond
-        (*emacs-connection* (send-oob-to-emacs `(:ed ,target)))
-        ((default-connection)
-         (with-connection ((default-connection))
-           (send-oob-to-emacs `(:ed ,target))))
-        (t nil)))))
+    (let ((target 
+           (etypecase what
+             (null nil)
+             ((or string pathname) 
+              `(:filename ,(canonicalize-filename what)))
+             ((cons (or string pathname) *)
+              `(:filename ,(canonicalize-filename (car what)) ,@(cdr what)))
+             ((or symbol cons)
+              `(:function-name ,(prin1-to-string-for-emacs what))))))
+      (cond (*emacs-connection* (send-oob-to-emacs `(:ed ,target)))
+            ((default-connection)
+             (with-connection ((default-connection))
+               (send-oob-to-emacs `(:ed ,target))))
+            (t (error "No connection"))))))
 
-(defslimefun inspect-in-emacs (what)
-  "Inspect WHAT in Emacs."
+(defslimefun inspect-in-emacs (what &key wait)
+  "Inspect WHAT in Emacs. If WAIT is true (default NIL) blocks until the
+inspector has been closed in Emacs."
   (flet ((send-it ()
-           (with-buffer-syntax ()
-             (reset-inspector)
-             (send-oob-to-emacs `(:inspect ,(inspect-object what))))))
-    (cond 
+           (let ((tag (when wait (make-tag)))
+                 (thread (when wait (current-thread-id))))
+             (with-buffer-syntax ()
+               (reset-inspector)
+               (send-oob-to-emacs `(:inspect ,(inspect-object what)
+                                             ,thread
+                                             ,tag)))
+             (when wait
+               (wait-for-event `(:emacs-return ,tag result))))))
+    (cond
       (*emacs-connection*
        (send-it))
       ((default-connection)
@@ -2759,8 +2767,8 @@ The time is measured in seconds."
          :severity (severity condition)
          :location (location condition)
          :references (references condition)
-         (let ((s (short-message condition)))
-           (if s (list :short-message s)))))
+         (let ((s (source-context condition)))
+           (if s (list :source-context s)))))
 
 (defun collect-notes (function)
   (let ((notes '()))
@@ -2939,19 +2947,19 @@ the filename of the module (or nil if the file doesn't exist).")
 
 ;;;; Simple completion
 
-(defslimefun simple-completions (string package)
-  "Return a list of completions for the string STRING."
-  (let ((strings (all-completions string package #'prefix-match-p)))
+(defslimefun simple-completions (prefix package)
+  "Return a list of completions for the string PREFIX."
+  (let ((strings (all-completions prefix package)))
     (list strings (longest-common-prefix strings))))
 
-(defun all-completions (string package test)
-  (multiple-value-bind (name pname intern) (tokenize-symbol string)
+(defun all-completions (prefix package)
+  (multiple-value-bind (name pname intern) (tokenize-symbol prefix)
     (let* ((extern (and pname (not intern)))
-	   (pack (cond ((equal pname "") keyword-package)
-		       ((not pname) (guess-buffer-package package))
-		       (t (guess-package pname))))
-	   (test (lambda (sym) (funcall test name (unparse-symbol sym))))
-	   (syms (and pack (matching-symbols pack extern test))))
+	   (pkg (cond ((equal pname "") keyword-package)
+                      ((not pname) (guess-buffer-package package))
+                      (t (guess-package pname))))
+	   (test (lambda (sym) (prefix-match-p name (symbol-name sym))))
+	   (syms (and pkg (matching-symbols pkg extern test))))
       (format-completion-set (mapcar #'unparse-symbol syms) intern pname))))
 
 (defun matching-symbols (package external test)
@@ -2974,7 +2982,8 @@ the filename of the module (or nil if the file doesn't exist).")
 
 (defun prefix-match-p (prefix string)
   "Return true if PREFIX is a prefix of STRING."
-  (not (mismatch prefix string :end2 (min (length string) (length prefix)))))
+  (not (mismatch prefix string :end2 (min (length string) (length prefix))
+                 :test #'char-equal)))
 
 (defun longest-common-prefix (strings)
   "Return the longest string that is a common prefix of STRINGS."
@@ -2996,10 +3005,9 @@ Returns a list of completions with package qualifiers if needed."
 
 (defslimefun operator-arglist (name package)
   (ignore-errors
-    (let ((args (arglist (parse-symbol name (guess-buffer-package package))))
-          (*print-escape* nil))
+    (let ((args (arglist (parse-symbol name (guess-buffer-package package)))))
       (cond ((eq args :not-available) nil)
-	    (t (format nil "(~a ~/pprint-fill/)" name args))))))
+	    (t (princ-to-string (cons name args)))))))
 
 
 ;;;; Documentation
@@ -3180,6 +3188,24 @@ Include the nicknames if NICKNAMES is true."
 	  (t
            (profile fname)
 	   (format nil "~S is now profiled." fname)))))
+
+(defslimefun profile-by-substring (substring package)
+  (let ((count 0))
+    (flet ((maybe-profile (symbol)
+             (when (and (fboundp symbol)
+                        (not (profiledp symbol))
+                        (search substring (symbol-name symbol) :test #'equalp))
+               (handler-case (progn
+                               (profile symbol)
+                               (incf count))
+                 (error (condition)
+                   (warn "~a" condition))))))
+      (if package
+          (do-symbols (symbol (parse-package package))
+            (maybe-profile symbol))
+          (do-all-symbols (symbol)
+            (maybe-profile symbol))))
+    (format nil "~a function~:p ~:*~[are~;is~:;are~] now profiled" count)))
 
 
 ;;;; Source Locations
@@ -3588,15 +3614,23 @@ synchronization issues (yet).  There can only be one thread listing at
 a time.")
 
 (defslimefun list-threads ()
-  "Return a list ((ID NAME STATUS DESCRIPTION) ...) of all threads."
+  "Return a list (LABELS (ID NAME STATUS DESCRIPTION ATTRS ...) ...).
+LABELS is a list of attribute names and the remaining lists are the
+corresponding attribute values per thread."
   (setq *thread-list* (all-threads))
-  (loop for thread in  *thread-list* 
-       for name = (thread-name thread)
-        collect (list (thread-id thread)
-                      (if (symbolp name) (symbol-name name) name)
-                      (thread-status thread)
-                      (thread-description thread)
-                      )))
+  (let* ((plist (thread-attributes (car *thread-list*)))
+         (labels (loop for (key) on plist by #'cddr 
+                       collect key)))
+    `((:id :name :status :description ,@labels)
+      ,@(loop for thread in *thread-list*
+              for name = (thread-name thread)
+              for attributes = (thread-attributes thread)
+              collect (list* (thread-id thread)
+                             (if (symbolp name) (symbol-name name) name)
+                             (thread-status thread)
+                             (thread-description thread)
+                             (loop for label in labels
+                                   collect (getf attributes label)))))))
 
 (defslimefun quit-thread-browser ()
   (setq *thread-list* nil))

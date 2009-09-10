@@ -45,7 +45,8 @@
                     (and (eq char ?-) val))
                 (progn
                   (forward-sexp) (backward-sexp)
-                  (slime-forward-sexp)
+                  ;; Try to suppress as far as possible.
+                  (ignore-errors (slime-forward-sexp))
                   ;; There was an `ignore-errors' form around all this
                   ;; because the following assertion was triggered
                   ;; regularly (resulting in the "non-deterministic"
@@ -64,27 +65,31 @@
   "Find reader conditionalized forms where the test is false."
   (when (and slime-highlight-suppressed-forms
              (slime-connected-p))
-    (condition-case condition
-        (slime-search-suppressed-forms-internal limit)
-      (end-of-file                      ; e.g. #+(
-       nil) 
-      ;; We found a reader conditional we couldn't process for some
-      ;; reason; however, there may still be other reader conditionals
-      ;; before `limit'.
-      (invalid-read-syntax              ; e.g. #+#.foo
-       (slime-search-suppressed-forms-internal limit))
-      (scan-error                       ; e.g. #| #+(or) #|
-       (slime-search-suppressed-forms-internal limit)) 
-      (slime-unknown-feature-expression ; e.g. #+(foo)
-       (slime-search-suppressed-forms-internal limit)) 
-      (error
-       ;; If this reports `(cl-assertion-failed (<= (point) limit))',
-       ;; the actual culprit is `slime-extend-region-for-font-lock'
-       ;; which did not extend the region enough in this case.
-       (slime-bug 
-        (concat "Caught error during fontification while searching for forms\n"
-                "that are suppressed by reader-conditionals. The error was: %S.")
-        condition)))))
+    (let ((result 'retry))
+      (while (and (eq result 'retry) (<= (point) limit))
+        (condition-case condition
+            (setq result (slime-search-suppressed-forms-internal limit))
+          (end-of-file                      ; e.g. #+(
+           (setq result nil)) 
+          ;; We found a reader conditional we couldn't process for
+          ;; some reason; however, there may still be other reader
+          ;; conditionals before `limit'.
+          (invalid-read-syntax              ; e.g. #+#.foo
+           (setq result 'retry))
+          (scan-error                       ; e.g. #+nil (foo ...
+           (setq result 'retry)) 
+          (slime-unknown-feature-expression ; e.g. #+(foo)
+           (setq result 'retry)) 
+          (error
+           (setq result nil)
+           ;; If this reports `(cl-assertion-failed (<= (point) limit))',
+           ;; the actual culprit is `slime-extend-region-for-font-lock'
+           ;; which did not extend the region enough in this case.
+           (slime-bug 
+            (concat "Caught error during fontification while searching for forms\n"
+                    "that are suppressed by reader-conditionals. The error was: %S.")
+            condition))))
+      result)))
 
 
 (defun slime-search-directly-preceding-reader-conditional ()
@@ -140,19 +145,25 @@ position, or nil."
                 "Further: font-lock-beg=%d, font-lock-end=%d.")
         c font-lock-beg font-lock-end)))))
 
-(defun slime-beginning-of-tlf ()
-  (let* ((state (slime-current-parser-state))
-         (comment-start (nth 8 state)))
-    (when comment-start                 ; or string
-      (goto-char comment-start)
-      (setq state (slime-current-parser-state)))
-    (let ((depth (nth 0 state)))
-      (if (plusp depth)
-          (up-list (- depth))
-          (when-let (upper-pt (nth 1 state)) 
-            (goto-char upper-pt)
-            (while (when-let (upper-pt (nth 1 (slime-current-parser-state)))
-                     (goto-char upper-pt))))))))
+(when (fboundp 'syntax-ppss-toplevel-pos)
+  (defun slime-beginning-of-tlf ()
+    (when-let (pos (syntax-ppss-toplevel-pos (slime-current-parser-state)))
+      (goto-char pos))))
+
+(unless (fboundp 'syntax-ppss-toplevel-pos)
+  (defun slime-beginning-of-tlf ()
+    (let* ((state (slime-current-parser-state))
+           (comment-start (nth 8 state)))
+      (when comment-start               ; or string
+        (goto-char comment-start)
+        (setq state (slime-current-parser-state)))
+      (let ((depth (nth 0 state)))
+        (when (plusp depth)
+          (ignore-errors (up-list (- depth)))) ; ignore unbalanced parentheses
+        (when-let (upper-pt (nth 1 state)) 
+          (goto-char upper-pt)
+          (while (when-let (upper-pt (nth 1 (slime-current-parser-state)))
+                   (goto-char upper-pt))))))))
 
 (defun slime-compute-region-for-font-lock (orig-beg orig-end)
   (let ((beg orig-beg)
@@ -164,20 +175,12 @@ position, or nil."
                 (or (slime-search-directly-preceding-reader-conditional)
                     pt)))
     (goto-char end)
-    (inline (slime-beginning-of-tlf)) ; `#+foo (progn ..#+bar (.. _END_ ..)..)'
-    (let ((found? (search-backward-regexp slime-reader-conditionals-regexp beg t)))
-      (unless found?
-        ;; the toplevel form isn't suppressed as a whole, so try and
-        ;; see at the tentative end position.
-        (goto-char end)
-        (setq found? (search-backward-regexp slime-reader-conditionals-regexp beg t)))
-      (when found?
-        ;; Nested reader conditionals, yuck!
-        (while (when-let (pt (slime-search-directly-preceding-reader-conditional))
-                 (goto-char pt)))
-        (ignore-errors (slime-forward-reader-conditional))
-        (setq end (max end (point)))))
+    (while (search-backward-regexp slime-reader-conditionals-regexp beg t)
+      (setq end (max end (save-excursion 
+                           (ignore-errors (slime-forward-reader-conditional))
+                           (point)))))
     (values (or (/= beg orig-beg) (/= end orig-end)) beg end)))
+
 
 
 (defun slime-activate-font-lock-magic ()
@@ -318,7 +321,21 @@ position, or nil."
                          'slime-reader-conditional-face
                          (get-text-property (point) 'face)))))
 
-
+(defun* slime-initialize-lisp-buffer-for-test-suite 
+    (&key (font-lock-magic t) (autodoc t))
+  (let ((hook lisp-mode-hook))
+    (unwind-protect
+         (progn 
+           (set (make-local-variable 'slime-highlight-suppressed-forms)
+                font-lock-magic)
+           (setq lisp-mode-hook nil)
+           (lisp-mode)
+           (slime-mode 1)
+           (when (boundp 'slime-autodoc-mode)
+             (if autodoc
+                 (slime-autodoc-mode 1)
+                 (slime-autodoc-mode -1))))
+      (setq lisp-mode-hook hook))))
 
 (provide 'slime-fontifying-fu)
 
@@ -329,4 +346,3 @@ position, or nil."
           slime-search-directly-preceding-reader-conditional
           slime-search-suppressed-forms
           slime-beginning-of-tlf)))
-

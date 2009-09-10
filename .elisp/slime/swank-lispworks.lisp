@@ -184,13 +184,26 @@
 
 ;;;; Documentation
 
+(defun replace-strings-with-symbols (tree)
+  (mapcar (lambda (x)
+            (typecase x
+              (list
+               (replace-strings-with-symbols x))
+              (symbol
+               x)
+              (string
+               (intern x))
+              (t
+               (intern (write-to-string x)))))
+          tree))
+               
 (defimplementation arglist (symbol-or-function)
   (let ((arglist (lw:function-lambda-list symbol-or-function)))
     (etypecase arglist
       ((member :dont-know) 
        :not-available)
       (list
-       arglist))))
+       (replace-strings-with-symbols arglist)))))
 
 (defimplementation function-name (function)
   (nth-value 2 (function-lambda-expression function)))
@@ -383,7 +396,7 @@ Return NIL if the symbol is unbound."
       (declare (ignore _n _s _l))
       value)))
 
-(defimplementation frame-source-location-for-emacs (frame)
+(defimplementation frame-source-location (frame)
   (let ((frame (nth-frame frame))
         (callee (if (plusp frame) (nth-frame (1- frame)))))
     (if (dbg::call-frame-p frame)
@@ -858,6 +871,10 @@ function names like \(SETF GET)."
   (setq mp:*process-initial-bindings* 
         (acons var `(eval (quote ,form))
                mp:*process-initial-bindings* )))
+
+(defimplementation thread-attributes (thread)
+  (list :priority (mp:process-priority thread)
+        :idle (mp:process-idle-time thread)))
 
 ;;; Some intergration with the lispworks environment
 

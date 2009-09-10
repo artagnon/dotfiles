@@ -19,7 +19,7 @@
       '((kawa ("java"
 	       "-cp" "/opt/kawa/kawa-svn:/opt/java/jdk1.6.0/lib/tools.jar"
 	       "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"
-	       "kawa.repl")
+	       "kawa.repl" "-s")
               :init kawa-slime-init)))
 
 (defun kawa-slime-init (file _)
@@ -192,8 +192,8 @@
            (result #!null))
        (if (instance? tmp <pair>)
            (let ((tmp :: <pair> tmp))
-             (mif (p tmp:car)
-                (mif (ps tmp:cdr)
+             (mif (p (@ car tmp))
+                (mif (ps (@ cdr tmp))
                      (set! result then)
                      (set! fail? -1))
                 (set! fail? -1)))
@@ -205,8 +205,8 @@
            (tmp value))
        (if (instance? tmp <pair>)
            (let ((tmp :: <pair> tmp))
-             (mif (p tmp:car)
-                  (mif (ps tmp:cdr)
+             (mif (p (@ car tmp))
+                  (mif (ps (@ cdr tmp))
                        then
                        (fail))
                   (fail)))
@@ -360,11 +360,7 @@
           ((in . _) (spawn/chan/catch (fun (c) (reader ins c))))
           ((out . _) (spawn/chan/catch (fun (c) (writer outs c))))
           ((dbg . _) (spawn/chan/catch vm-monitor))
-          (user-env 
-           (<gnu.mapping.InheritingEnvironment>
-            "user" (interaction-environment))
-           ;;(interaction-environment)
-           )
+          (user-env  (interaction-environment))
           (x (seq 
                (! set-flag user-env #t #|<env>:THREAD_SAFE|# 8)
                (! set-flag user-env #f #|<env>:DIRECT_INHERITED_ON_SET|# 16)))
@@ -389,8 +385,8 @@
            (send dbg `(throw-to-toplevel ,thread ,id)))
           ((_ (':emacs-rex ('|swank:sldb-continue|) pkg thread id))
            (send dbg `(thread-continue ,thread ,id)))
-          ((_ (':emacs-rex ('|swank:frame-source-location-for-emacs| frame)
-                           pkg thread id))
+          ((_ (':emacs-rex ('|swank:frame-source-location| frame)
+			   pkg thread id))
            (send dbg `(frame-src-loc ,thread ,frame ,id)))
           ((_ (':emacs-rex ('|swank:frame-locals-and-catch-tags| frame)
                            pkg thread id))
@@ -576,7 +572,7 @@
   (log "listener: ~s ~s ~s ~s\n" 
        (current-thread) ((current-thread):hashCode) c env)
   (let ((out (make-swank-outport (rpc c `(get-channel)))))
-    (set (current-output-port) out)
+    ;;(set (current-output-port) out)
     (let ((vm (as <vm> (rpc c `(get-vm)))))
       (send c `(set-listener ,(vm-mirror vm (current-thread))))
       (enable-uncaught-exception-events vm))
@@ -648,18 +644,18 @@
 
 (defslimefun compile-file-for-emacs (env (filename <str>) load? 
                                          #!optional options)
-  (let ((zip (cat (path-sans-extension (filepath filename)) ".zip")))
+  (let ((jar (cat (path-sans-extension (filepath filename)) ".jar")))
     (wrap-compilation 
      (fun ((m <gnu.text.SourceMessages>))
        (kawa.lang.CompileFile:read filename m))
-     zip (if (lisp-bool load?) env #f) #f)))
+     jar (if (lisp-bool load?) env #f) #f)))
 
-(df wrap-compilation (f zip env delete?)
+(df wrap-compilation (f jar env delete?)
   (let ((start-time (current-time))
         (messages (<gnu.text.SourceMessages>)))
     (try-catch
      (let ((c (as <gnu.expr.Compilation> (f messages))))
-       (! compile-to-archive c (! get-module c) zip))
+       (! compile-to-archive c (! get-module c) jar))
      (ex <throwable>
          (log "error during compilation: ~a\n" ex)
          (! error messages (as <char> #\f)
@@ -668,10 +664,10 @@
     (let ((success? (zero? (! get-error-count messages))))
       (when (and env success?)
         (log "loading ...\n")
-        (eval `(load ,zip) env)
+        (eval `(load ,jar) env)
         (log "loading ... done.\n"))
       (when delete?
-        (ignore-errors (delete-file zip)))
+        (ignore-errors (delete-file jar)))
       (let ((end-time (current-time)))
         (list ':compilation-result 
               (compiler-notes-for-emacs messages)
@@ -772,11 +768,42 @@
 (defslimefun quit-lisp (env)
   (exit))
 
+;;(defslimefun set-default-directory (env newdir))
+
+
 ;;;; Dummy defs
 
-(defslimefun operator-arglist (#!rest y) '())
+
 (defslimefun buffer-first-change (#!rest y) '())
 (defslimefun swank-require (#!rest y) '())
+
+;;;; arglist
+
+(defslimefun operator-arglist (env name #!rest _)
+  (mcase (try-catch `(ok ,(eval (read-from-string name) env))
+                    (ex <throwable> 'nil))
+    (('ok obj)
+     (mcase (arglist obj)
+       ('#f 'nil)
+       ((args rtype)
+        (format "(~a~{~^ ~a~})~a" name 
+                (map (fun (e) 
+                       (if (equal (cadr e) "java.lang.Object") (car e) e))
+                     args)
+                (if (equal rtype "java.lang.Object")
+                    ""
+                    (format " => ~a" rtype))))))
+    (_ 'nil)))
+
+(df arglist (obj)
+  (typecase obj
+    (<gnu.expr.ModuleMethod> 
+     (let* ((mref (module-method>meth-ref obj)))
+       (list (mapi (! arguments mref)
+                   (fun ((v <local-var>))
+                     (list (! name v) (! typeName v))))
+             (! returnTypeName mref))))
+    (<object> #f)))
 
 ;;;; M-.
 
@@ -818,7 +845,10 @@
                                       (if s (all-definitions s) '()))))
     (<java.lang.Class> (list o))
     (<gnu.mapping.Procedure> (all-definitions (! get-class o)))
-    (<kawa.lang.Macro> (list o))))
+    (<kawa.lang.Macro> (list o))
+    (<gnu.bytecode.ObjectType> (all-definitions (! getReflectClass o)))
+    (<java.lang.Object> '())
+    ))
 
 (df gf-methods ((f <gnu.expr.GenericProc>))
   (let* ((o :: <obj-ref> (vm-mirror *the-vm* f))
@@ -913,8 +943,9 @@
          (ex <throwable> #f)))))
 
 (define swank-java-source-path
-        (let ((jre-home (<java.lang.System>:getProperty "java.home")))
-          (list (<file> (<file> jre-home):parent "src.zip"):path)))
+  (let ((jre-home (<java.lang.System>:getProperty "java.home")))
+    (list (! get-path (<file> (! get-parent (<file> jre-home)) "src.zip"))
+          )))
 
 (df source-path ()
   (mlet ((base) (search-path-prop "user.dir"))
@@ -975,7 +1006,7 @@
                       (! write s cpool)
                       (! flush s)
                       (! toByteArray bs))))
-    (vm-set-slot *the-vm* ct 'constants 
+    (vm-set-slot *the-vm* ct "constants"
                  (<gnu.bytecode.ConstantPool>
                   (<java.io.DataInputStream>
                    (<java.io.ByteArrayInputStream>
@@ -1015,11 +1046,8 @@
   (pprint-to-string (%macroexpand (read-from-string string))))
 
 (df %macroexpand (sexp)
-  (let* ((lang (<gnu.expr.Language>:getDefaultLanguage))
-	 (msgs (<gnu.text.SourceMessages>))
-	 (tr (<kawa.lang.Translator> lang msgs)))
-    (! pushNewModule tr (as <str> #!null))
-    (! parse tr `(lambda () ,sexp))))
+  (let ((tr :: kawa.lang.Translator (gnu.expr.Compilation:getCurrent)))
+    (! rewrite tr `(begin ,sexp))))
 
 
 ;;;; Inspector
@@ -1148,7 +1176,7 @@
          (flush (fun ()
                   (unless (zero? (! length builder))
                     (send out `(forward (:write-string ,(<str> builder))))
-                    (! setLength builder 0))))
+                    (set! builder:length 0)))) ; pure magic
          (closed #f))
     (while (not closed)
       (mcase (! poll q 200 <timeunit>:MILLISECONDS)
@@ -1176,6 +1204,7 @@
 (df vm-monitor ((c <chan>))
   (! set-name (current-thread) "swank-vm-monitor")
   (let ((vm (vm-attach)))
+    (log-vm-props vm)
     ;;(enable-uncaught-exception-events vm)
     (mlet* (((ev . _) (spawn/chan/catch 
                        (fun (c) 
@@ -1289,7 +1318,8 @@
    (set (@ loc (this)) loc)
    (set (@ args (this)) args)
    (set (@ names (this)) names)
-   (set (@ values (this)) values))
+   (set (@ values (this)) values)
+   (set (@ self (this)) self))
   ((toString) :: <str>
    (format "#<ff ~a>" (src-loc>str loc))))
 
@@ -1316,6 +1346,25 @@
   ((*init* (thread :: <thread-ref>)) (set (@ thread (this)) thread))
   ((request) :: <com.sun.jdi.request.EventRequest> #!null)
   ((virtualMachine) :: <vm> (! virtualMachine thread)))
+
+(df log-vm-props ((vm <vm>))
+  (letrec-syntax ((p (syntax-rules ()
+                       ((p name) (log "~s: ~s\n" 'name (! name vm)))))
+                  (p* (syntax-rules ()
+                        ((p* n ...) (seq (p n) ...)))))
+    (p* canBeModified
+        canRedefineClasses
+        canAddMethod
+        canUnrestrictedlyRedefineClasses
+        canGetBytecodes
+        canGetConstantPool
+        canGetSyntheticAttribute
+        canGetSourceDebugExtension
+        canPopFrames
+        canForceEarlyReturn
+        canGetMethodReturnValues
+        canGetInstanceInfo
+        )))
 
 ;;;;; Debugger
 
@@ -1990,31 +2039,31 @@
     (format #t "; Heap~1,16t: ~10:d\n" heap)
     (format #t "; Non-Heap~1,16t: ~10:d\n" nheap)))
 
-(df javap (class #!key method signature)
-  (let* ((<is> <java.io.ByteArrayInputStream>)
-         (bytes
-          (typecase class
-            (<string> (read-bytes (<java.io.FileInputStream> (to-str class))))
-            (<byte[]> class)
-            (<symbol> (read-class-file class))))
-         (cdata (<sun.tools.javap.ClassData> (<is> bytes)))
-         (p (<sun.tools.javap.JavapPrinter> 
-	     (<is> bytes)
-             (current-output-port)
-             (<sun.tools.javap.JavapEnvironment>))))
-    (cond (method
-           (dolist ((m <sun.tools.javap.MethodData>)
-                    (array-to-list (! getMethods cdata)))
-             (when (and (equal (to-str method) (! getName m))
-                        (or (not signature) 
-                            (equal signature (! getInternalSig m))))
-               (! printMethodSignature p m (! getAccess m))
-               (! printExceptions p m)
-               (newline)
-               (! printVerboseHeader p m)
-               (! printcodeSequence p m))))
-          (#t (p:print)))
-    (values)))
+;; (df javap (class #!key method signature)
+;;   (let* ((<is> <java.io.ByteArrayInputStream>)
+;;          (bytes
+;;           (typecase class
+;;             (<string> (read-bytes (<java.io.FileInputStream> (to-str class))))
+;;             (<byte[]> class)
+;;             (<symbol> (read-class-file class))))
+;;          (cdata (<sun.tools.javap.ClassData> (<is> bytes)))
+;;          (p (<sun.tools.javap.JavapPrinter> 
+;; 	     (<is> bytes)
+;;              (current-output-port)
+;;              (<sun.tools.javap.JavapEnvironment>))))
+;;     (cond (method
+;;            (dolist ((m <sun.tools.javap.MethodData>)
+;;                     (array-to-list (! getMethods cdata)))
+;;              (when (and (equal (to-str method) (! getName m))
+;;                         (or (not signature) 
+;;                             (equal signature (! getInternalSig m))))
+;;                (! printMethodSignature p m (! getAccess m))
+;;                (! printExceptions p m)
+;;                (newline)
+;;                (! printVerboseHeader p m)
+;;                (! printcodeSequence p m))))
+;;           (#t (p:print)))
+;;     (values)))
 
 (df read-bytes ((is <java.io.InputStream>) => <byte[]>)
   (let ((os (<java.io.ByteArrayOutputStream>)))

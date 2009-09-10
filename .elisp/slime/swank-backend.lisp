@@ -13,10 +13,10 @@
 (defpackage :swank-backend
   (:use :common-lisp)
   (:export #:sldb-condition
-           #:original-condition
            #:compiler-condition
+           #:original-condition
            #:message
-           #:short-message
+           #:source-context
            #:condition
            #:severity
            #:with-compilation-hooks
@@ -149,7 +149,7 @@ Backends implement these functions using DEFIMPLEMENTATION."
          (let ((f (or (get ',name 'implementation)
                       (get ',name 'default))))
            (cond (f (apply f ,@(args-as-list args)))
-                 (t (error "~S not implementated" ',name)))))
+                 (t (error "~S not implemented" ',name)))))
        (pushnew ',name *interface-functions*)
        ,(if (null default-body)
             `(pushnew ',name *unimplemented-interfaces*)
@@ -410,7 +410,7 @@ Should return OUTPUT-TRUENAME, WARNINGS-P and FAILURE-p
 like `compile-file'")
 
 (deftype severity () 
-  '(member :error :read-error :warning :style-warning :note))
+  '(member :error :read-error :warning :style-warning :note :redefinition))
 
 ;; Base condition type for compiler errors, warnings and notes.
 (define-condition compiler-condition (condition)
@@ -428,9 +428,12 @@ like `compile-file'")
    (message :initarg :message
             :accessor message)
 
-   (short-message :initarg :short-message
-                  :initform nil
-                  :accessor short-message)
+   ;; Macro expansion history etc. which may be helpful in some cases
+   ;; but is often very verbose.
+   (source-context :initarg :source-context
+                   :type (or null string)
+                   :initform nil
+                   :accessor source-context)
 
    (references :initarg :references
                :initform nil
@@ -681,7 +684,7 @@ Return T if `restart-frame' can safely be called on the frame."
   (declare (ignore frame))
   nil)
 
-(definterface frame-source-location-for-emacs (frame-number)
+(definterface frame-source-location (frame-number)
   "Return the source location for the frame associated to FRAME-NUMBER.")
 
 (definterface frame-catch-tags (frame-number)
@@ -1006,6 +1009,11 @@ user. They do not have to be unique."
   "Set THREAD's description to DESCRIPTION."
   (declare (ignore thread description))
   "")
+
+(definterface thread-attributes (thread)
+  "Return a plist of implementation-dependent attributes for THREAD"
+  (declare (ignore thread))
+  '())
 
 (definterface make-lock (&key name)
    "Make a lock for thread synchronization.
