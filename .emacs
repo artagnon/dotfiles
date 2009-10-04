@@ -36,6 +36,7 @@
 (require 'haskell-ghci)
 (require 'haskell-indent)
 (require 'haskell-doc)
+(require 'php-mode)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -191,7 +192,7 @@
 ;; -----
 
 ;; General settings
-(setf rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar R" :channels (""))))
+(setf rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar R" :channels 'nil)))
 
 ;; Logging
 (add-hook 'rcirc-print-hooks 'rcirc-write-log)
@@ -221,30 +222,6 @@
 	  (write-region (point-min) (point-max)
 			(concat rcirc-log-directory "/" (downcase target))
 			t 'quietly))))))
-
-;; Autoaway
-(setf rcirc-auto-away-server-regexps nil
-      rcirc-auto-away-after 3600
-      rcirc-auto-away-reason "Wandered off")
-
-(defun rcirc-auto-away ()
-  (message "rcirc-auto-away")
-  (rcirc-auto-away-1 rcirc-auto-away-reason)
-  (add-hook 'post-command-hook 'rcirc-auto-unaway))
-
-(defun rcirc-auto-away-1 (reason)
-  (let ((regexp (mapconcat (lambda (x) (concat "\\(" x "\\)")) 
-			   rcirc-auto-away-server-regexps "\\|")))
-    (dolist (process (rcirc-process-list))
-      (when (string-match regexp (process-name process))
-	(rcirc-send-string process "AWAY [Autoaway] Wandered off")))))
-
-(defun rcirc-auto-unaway ()
-  (remove-hook 'post-command-hook 'rcirc-auto-unaway)
-  (rcirc-auto-away-1 ""))
-
-(run-with-idle-timer rcirc-auto-away-after t 'rcirc-auto-away)
-;;(cancel-function-timers 'rcirc-auto-away)
 
 ;; Reconnect on demand
 ;; Derived from code on
