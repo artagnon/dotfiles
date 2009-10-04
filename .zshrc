@@ -36,8 +36,8 @@ alias grep='grep -IR'
 
 # custom aliases
 alias rsync='rsync -avz -e ssh'
-alias pulseoff='mv ~/.asoundrc ~/.asoundrc.pulse && sudo /etc/init.d/pulseaudio stop'
-alias pulseon='cp ~/.asoundrc.pulse ~/.asoundrc && sudo /etc/init.d/pulseaudio start'
+alias pulseoff='mv ~/.asoundrc ~/.asoundrc.pulse'
+alias pulseon='cp ~/.asoundrc.pulse ~/.asoundrc'
 alias mutt='http_proxy= ftp_proxy= proxychains mutt'
 alias ec='emacsclient'
 alias et='emacsclient -t'

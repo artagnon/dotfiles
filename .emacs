@@ -12,7 +12,6 @@
 ;; Autoloads
 ;; ---------
 (require 'tramp)
-(require 'ido)
 (require 'slime)
 (require 'magit)
 (require 'paredit)
@@ -29,7 +28,7 @@
 (require 'saveplace)
 (require 'moz)
 (require 'javascript-mode "javascript")
-(require 'icicles)
+(require 'ido)
 (require 'org-install)
 (require 'quack)
 (require 'inf-haskell)
@@ -356,6 +355,7 @@ will be part of the list returned."
 ;; --------
 ;; org-mode
 ;; --------
+(add-hook 'org-mode-hook (lambda () (longlines-mode t)))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
