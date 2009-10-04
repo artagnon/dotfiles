@@ -66,6 +66,7 @@ function switch_proxy (window, server_code) {
     case "245": server = "144.16.192.245"; break;
     case "211": server = "10.3.100.211"; break;
     case "212": server = "10.3.100.212"; break;
+    case "148": server = "10.3.100.148"; break;
     case "d":
 	session_pref ('network.proxy.type', 0);
 	window.minibuffer.message ("Direct connection active now");
@@ -81,6 +82,6 @@ interactive ("switch-proxy", "Set the proxy server for all protocols for this se
 	     function (I) {
                  switch_proxy (
                      I.window,
-                     (yield I.minibuffer.read ($prompt = "Server [245, 247, 211, 212] or d: ")));
+                     (yield I.minibuffer.read ($prompt = "Server [245, 247, 211, 212, 148] or d: ")));
              }
 );
