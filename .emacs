@@ -392,6 +392,14 @@ will be part of the list returned."
 (setq org-default-notes-file "~/.notes")
 (define-key global-map "\C-cr" 'org-remember)
 
+;; ----------
+;; LaTeX mode
+;; ----------
+(add-hook 'latex-mode-hook (lambda () (define-key tex-mode-map "\C-c\C-c" 'tex-compile-dvi)))
+(defun tex-compile-dvi ()
+   (interactive)
+   (shell-command (concat "pdflatex -output-format dvi " (tex-main-file) "&")))
+
 ;; ------------------------
 ;; Useful utility functions
 ;; ------------------------
