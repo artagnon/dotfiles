@@ -111,12 +111,11 @@
 ;; ------------------
 ;; Custom Keybindings
 ;; ------------------
-(global-set-key [(control meta y)] #'(lambda ()
-				       "yank-pop-inverse"
-				       (interactive)
-				       (yank-pop -1)))
 (global-set-key [(meta \])] 'forward-paragraph)
 (global-set-key [(meta \[)] 'backward-paragraph)
+(global-set-key "\C-\M-w" 'kill-ring-save-whole-line)
+(global-set-key [C-M-backspace] #'(lambda () (interactive) (zap-to-char -1 32)))
+(global-set-key "\C-z" 'jump-to-char)
 (global-set-key "\r" 'newline-and-indent)
 (global-set-key "\C-xv" 'magit-status)
 (global-set-key (kbd "<f5>") 'th-save-frame-configuration)
@@ -442,7 +441,30 @@ will be part of the list returned."
                (delete-file filename)
                (set-visited-file-name newname)
                (set-buffer-modified-p nil)
-               t))))
+	       t))))
+
+(defun kill-ring-save-whole-line (&optional interactive)
+  (interactive "p")
+  (save-excursion
+    (let ((beg (progn (beginning-of-line) (point)))
+	  (end (progn (end-of-line) (point))))
+	(kill-new (filter-buffer-substring beg end)))
+    (if (interactive-p)
+	(let* ((killed-text (current-kill 0))
+	       (message-len (min (length killed-text) 40)))
+	  (message "Saved text from \"%s\""
+		   (substring killed-text 0 message-len))))))
+
+(defun jump-to-char (arg char)
+  "Jump to and including ARGth occurrence of CHAR.
+Case is ignored if `case-fold-search' is non-nil in the current buffer.
+Goes backward if ARG is negative; error if CHAR not found."
+  (interactive "p\ncJump to char: ")
+  ;; Avoid "obsolete" warnings for translation-table-for-input.
+  (with-no-warnings
+    (if (char-table-p translation-table-for-input)
+	(setq char (or (aref translation-table-for-input char) char))))
+  (search-forward (char-to-string char) nil nil arg))
 
 ;; Automagically step up priviliges for editing root files
 
@@ -513,3 +535,8 @@ argument is given, you can choose which register to jump to."
     (jump-to-register register)
     (message "Jumped to register '%c'."
              register)))
+
+;; Reformat hard-wrapped documents
+(defun reformat-hard-wrap (beg end) 
+   (interactive "r")
+   (shell-command-on-region beg end "fmt -w2000" nil t))
