@@ -20,6 +20,9 @@ export PATH=$PATH:/home/artagnon/bin
 export PYTHONPATH=/opt/python
 export PYTHONSTARTUP=/home/artagnon/.pythonrc
 
+# GPG key
+export GPGKEY=B8BB3FE9
+
 # proxy exports
 export http_proxy=http://144.16.192.245:8080
 export ftp_proxy=http://144.16.192.245:8080
