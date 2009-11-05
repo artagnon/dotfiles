@@ -4,9 +4,10 @@
 ;; load-paths
 ;; ----------
 (add-to-list 'load-path "~/.elisp/")  ;; generic
-(add-to-list 'load-path "~/.elisp/org-mode")  ;; org-mode
 (add-to-list 'load-path "~/.elisp/slime")  ;; slime
 (add-to-list 'load-path "~/dev/ublog.el") ;; µblog.el development
+(add-to-list 'load-path "~/.elisp/org-mode")  ;; org-mode
+(add-to-list 'load-path "~/.elisp/org-mode-contrib")  ;; org-mode contrib scripts
 
 ;; ---------
 ;; Autoloads
@@ -36,6 +37,8 @@
 (require 'haskell-indent)
 (require 'haskell-doc)
 (require 'php-mode)
+(require 'cscope)
+(require 'anything-ipython)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -58,7 +61,9 @@
       blink-matching-paren t
       quack-pretty-lambda-p t
       blink-matching-delay .25
-      vc-follow-symlinks t)
+      vc-follow-symlinks t
+      indent-tabs-mode nil
+      tab-width 2)
 (global-font-lock-mode 1)
 (color-theme-dark-laptop)
 (setq-default saveplace t)
@@ -73,7 +78,7 @@
 
 ;; Set the default browser to Conkeror
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "/usr/local/bin/conkeror")
+      browse-url-generic-program "google-chrome")
 
 ;; General mode loading
 (show-paren-mode t)
@@ -336,6 +341,11 @@ will be part of the list returned."
 ;; ------
 (setq scheme-program-name "mzscheme")
 
+;; ------
+;; cscope
+;; ------
+(cscope-bind-keys-2deep)
+
 ;; ---------------------
 ;; SLIME for Common Lisp
 ;; ---------------------
@@ -352,17 +362,25 @@ will be part of the list returned."
 (setq tramp-default-method "ssh")
 (add-to-list 'backup-directory-alist (cons tramp-file-name-regexp nil))
 
+;; ----------------
+;; anything-ipython
+;; ----------------
+(add-hook 'python-mode-hook #'(lambda ()
+                                (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+(add-hook 'ipython-shell-hook #'(lambda ()
+                                  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+
 ;; --------
 ;; org-mode
 ;; --------
-(add-hook 'org-mode-hook (lambda () (longlines-mode t)))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 (global-set-key "\C-ct" 'org-todo)
 (setq org-fast-tag-selection-include-todo t
       org-log-done 'note
-      org-hide-leading-stars t)
+      org-hide-leading-stars t
+      org-agenda-files '("~/notes/diary"))
 
 ;; org-remember
 (org-remember-insinuate)
