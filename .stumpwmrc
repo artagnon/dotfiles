@@ -27,6 +27,9 @@
 (define-key *top-map* (kbd "s-4") "gselect 4")
 (define-key *top-map* (kbd "s-5") "gselect 5")
 
+;; Custom commands
+(define-key *top-map* (kbd "s-SPC") "exec plait --pause")
+
 ;; defprogram-shortcuts
 (defprogram-shortcut emacs :command "emacs" :key (kbd "s-e"))
 (defprogram-shortcut conkeror :command "conkeror" :key (kbd "s-c"))
