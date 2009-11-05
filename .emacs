@@ -451,77 +451,7 @@ Goes backward if ARG is negative; error if CHAR not found."
 	(setq char (or (aref translation-table-for-input char) char))))
   (search-forward (char-to-string char) nil nil arg))
 
-;; Automagically step up priviliges for editing root files
-
-(defun th-rename-tramp-buffer ()
-  (when (file-remote-p (buffer-file-name))
-    (rename-buffer
-     (format "%s:%s"
-             (file-remote-p (buffer-file-name) 'method)
-             (buffer-name)))))
-
-(add-hook 'find-file-hook
-          'th-rename-tramp-buffer)
-
-(defadvice find-file (around my-find-file activate)
-  "Open FILENAME using Tramp’s sudo method if it’s read-only and not owned by current user."
-   (let* ((my-filename (ad-get-arg 0))
-	  (file-owner-uid (nth 2 (file-attributes my-filename))))
-
-     (if (not (file-writable-p my-filename))
-	 (if (and (not (= file-owner-uid (user-uid)))
-		  (y-or-n-p (concat "File " my-filename " is read-only. Open it as root? ")))
-	     (progn
-	       (ad-set-arg 0 (concat "/sudo::" my-filename))
-	       ad-do-it
-	       (rename-buffer
-		(format "%s:%s"
-			 (file-remote-p (buffer-file-name) 'method)
-			 (buffer-name))))
-
-	     (if (and (= file-owner-uid (user-uid))
-		      (y-or-n-p (concat "File " my-filename " is read-only. Make buffer writable? ")))
-		 (progn
-		   ad-do-it
-		   (toggle-read-only -1))))
-	 ad-do-it)))
-
-(defun th-find-file-sudo (file)
-  "Opens FILE with root privileges."
-  (interactive "F")
-  (set-buffer (find-file (concat "/sudo::" file))))
-
-;; Conviniently save and restore frame configurations
-
-(defvar th-frame-config-register ?°
-  "The register which is used for storing and restoring frame
-configurations by `th-save-frame-configuration' and
-`th-jump-to-register'.")
-
-(defun th-save-frame-configuration (arg)
-  "Stores the current frame configuration in register
-`th-frame-config-register'. If a prefix argument is given, you
-can choose which register to use."
-  (interactive "P")
-  (let ((register (if arg
-                      (read-char "Which register? ")
-                    th-frame-config-register)))
-    (frame-configuration-to-register register)
-    (message "Frame configuration saved in register '%c'."
-             register)))
-
-(defun th-jump-to-register (arg)
-  "Jumps to register `th-frame-config-register'. If a prefix
-argument is given, you can choose which register to jump to."
-  (interactive "P")
-  (let ((register (if arg
-                      (read-char "Which register? ")
-                    th-frame-config-register)))
-    (jump-to-register register)
-    (message "Jumped to register '%c'."
-             register)))
-
-;; Reformat hard-wrapped documents
-(defun reformat-hard-wrap (beg end) 
+;; Reformat hard-wrapped regions
+(defun reformat-hard-wrap (beg end)
    (interactive "r")
    (shell-command-on-region beg end "fmt -w2000" nil t))
