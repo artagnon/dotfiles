@@ -16,7 +16,7 @@ eval $(dircolors =(dircolors --print-database | awk '/DIR/ {$2="00;33"} {print}'
 # shell exports
 export PS1="%{${fg[red]}%}[%{${fg[green]}%}%T%{${fg[red]}%}]%{${fg[white]}%}%25<...<%~%{${fg[white]}%}: "
 export PS2="%_> "
-export PATH=$PATH:/home/artagnon/bin
+export PATH=$PATH:/home/artagnon/bin:/home/artagnon/bin/depot_tools
 export PYTHONPATH=/opt/python
 export PYTHONSTARTUP=/home/artagnon/.pythonrc
 
@@ -24,6 +24,7 @@ export PYTHONSTARTUP=/home/artagnon/.pythonrc
 export GPGKEY=B8BB3FE9
 
 # proxy exports
+export all_proxy=http://144.16.192.245:8080
 export http_proxy=http://144.16.192.245:8080
 export ftp_proxy=http://144.16.192.245:8080
 
@@ -32,7 +33,8 @@ alias ls='ls --color'
 alias l='ls --color'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
-alias grep='grep -IR'
+alias grep='ack-grep -i'
+alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 
 # custom aliases
 alias rsync='rsync -avz -e ssh'
