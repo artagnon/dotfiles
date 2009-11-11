@@ -387,6 +387,35 @@ will be part of the list returned."
 (setq org-default-notes-file "~/.notes")
 (define-key global-map "\C-cr" 'org-remember)
 
+;; org-mode and LaTeX Beamer
+
+;; allow for export=>beamer by placing
+;; #+LaTeX_CLASS: beamer in org files
+(unless (boundp 'org-export-latex-classes)
+  (setq org-export-latex-classes nil))
+(add-to-list 'org-export-latex-classes
+	     '("beamer"
+"\\documentclass[8pt]{beamer}
+\\beamertemplateballitem
+\\usepackage{hyperref}
+\\usepackage{color}
+\\usepackage{listings}
+\\usepackage{natbib}
+\\lstset{
+  numbers=none,language=[ISO]C++,tabsize=4,
+  frame=single,
+  basicstyle=\\small,
+  showspaces=false,showstringspaces=false,
+  showtabs=false,
+  keywordstyle=\\color{blue}\\bfseries,
+  commentstyle=\\color{red},
+}\n"
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\begin{frame}[fragile]\\frametitle{%s}"
+		"\\end{frame}"
+		"\\begin{frame}[fragile]\\frametitle{%s}"
+		"\\end{frame}")))
+
 ;; ----------
 ;; LaTeX mode
 ;; ----------
