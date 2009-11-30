@@ -401,15 +401,9 @@ will be part of the list returned."
 \\usepackage{color}
 \\usepackage{listings}
 \\usepackage{natbib}
-\\lstset{
-  numbers=none,language=[ISO]C++,tabsize=4,
-  frame=single,
-  basicstyle=\\small,
-  showspaces=false,showstringspaces=false,
-  showtabs=false,
-  keywordstyle=\\color{blue}\\bfseries,
-  commentstyle=\\color{red},
-}\n"
+\\usepackage{upquote}
+\\usepackage{amsfonts}
+\\lstset{frame=single, basicstyle=\\ttfamily\\small, upquote=false, columns=fixed, breaklines=true, keywordstyle=\\color{blue}\\bfseries, commentstyle=\\color{red}, numbers=left, xleftmargin=2em}"
 	       ("\\section{%s}" . "\\section*{%s}")
 	       ("\\begin{frame}[fragile]\\frametitle{%s}"
 		"\\end{frame}"
