@@ -4,9 +4,11 @@
 ;; load-paths
 ;; ----------
 (add-to-list 'load-path "~/.elisp/")  ;; generic
+(add-to-list 'load-path "~/.elisp/theme")  ;; color themes
 (add-to-list 'load-path "~/.elisp/slime")  ;; slime
 (add-to-list 'load-path "~/dev/ublog.el") ;; µblog.el development
 (add-to-list 'load-path "~/.elisp/org-mode")  ;; org-mode
+(add-to-list 'load-path "~/.elisp/haskell-mode") ;; haskell-mode
 (add-to-list 'load-path "~/.elisp/org-mode-contrib")  ;; org-mode contrib scripts
 
 ;; ---------
@@ -18,11 +20,9 @@
 (require 'paredit)
 (require 'socks)
 (require 'color-theme)
+(require 'color-theme-subdued)
 (require 'anything-config)
 (require 'basic-edit-toolkit)
-(require 'doremi)
-(require 'doremi-cmd)
-(require 'doremi-frm)
 (require 'stumpwm-mode)
 (require 'traverselisp)
 (require 'clojure-mode)
@@ -38,13 +38,15 @@
 (require 'haskell-doc)
 (require 'php-mode)
 (require 'cscope)
-(require 'anything-ipython)
+(require 'csharp-mode)
 
 ;; ----------------
 ;; auto-mode-alists
 ;; ----------------
 (add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
+(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 
 ;; ----------------------
 ;; General Customizations
@@ -64,8 +66,9 @@
       vc-follow-symlinks t
       indent-tabs-mode nil
       tab-width 2)
+(set-face-attribute 'default nil :height 80)
 (global-font-lock-mode 1)
-(color-theme-dark-laptop)
+(color-theme-subdued)
 (setq-default saveplace t)
 (setq edebug-trace t)
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -196,7 +199,7 @@
 ;; -----
 
 ;; General settings
-(setf rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar R" :channels 'nil)))
+(setf rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar Ramachandra")))
 
 ;; Logging
 (add-hook 'rcirc-print-hooks 'rcirc-write-log)
@@ -365,10 +368,10 @@ will be part of the list returned."
 ;; ----------------
 ;; anything-ipython
 ;; ----------------
-(add-hook 'python-mode-hook #'(lambda ()
-                                (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
-(add-hook 'ipython-shell-hook #'(lambda ()
-                                  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+;; (add-hook 'python-mode-hook #'(lambda ()
+;;                                 (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+;; (add-hook 'ipython-shell-hook #'(lambda ()
+;;                                   (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
 
 ;; --------
 ;; org-mode
