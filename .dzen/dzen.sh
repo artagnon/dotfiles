@@ -60,7 +60,7 @@ fdate()
 fmusic()
 {
     STATUS=`mpc | sed -ne 's/^.*\[\([a-z]*\)\].*$/\1/p'`
-    if [ $STATUS = "playing" -o $STATUS = "paused" ]; then
+    if [ $STATUS ]; then
 	POS=`mpc | sed -ne 's/^.*(\([0-9]*\)%).*$/\1/p'`
 	POSM="$POS 100"
 	STATUS_MESSAGE=`mpc | sed -n '1p' | tr '\n' ' '`
