@@ -12,6 +12,8 @@ import Data.Monoid
 import System.Exit
 import XMonad.Actions.WindowGo
 import XMonad.Hooks.ManageDocks
+import XMonad.Prompt
+import XMonad.Prompt.Shell
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -21,7 +23,7 @@ myTerminal      = "urxvt"
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
-myBorderWidth   = 0
+myBorderWidth   = 1
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -43,8 +45,8 @@ myWorkspaces    = ["1","2","3","4"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+myNormalBorderColor  = "#1f1f1f"
+myFocusedBorderColor = "#777772"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -54,8 +56,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch dmenu
-    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu -nb \"#1f1f1f\" -nf \"#eeeeec\" -fn \"-*-terminus-*-*-*-*-9-*-*-*-*-*-*-*\"` && eval \"exec $exe\"")
+    -- lunch the shell
+    , ((modm,               xK_p     ), shellPrompt myXPConfig)
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -186,6 +188,15 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
 
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
+
+myXPConfig = defaultXPConfig
+      { font               = "xft:Monospace:pixelsize=10:antialias=true"
+      , bgColor            = "#1f1f1f"
+      , fgColor            = "#eeeeec"
+      , promptBorderWidth  = 0
+      , height             = 20
+      , position           = Top
+      }
 
 ------------------------------------------------------------------------
 -- Window rules:
