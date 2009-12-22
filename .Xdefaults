@@ -1,4 +1,4 @@
-urxvt*font:                     xft:Terminus:pixelsize=9
+urxvt*font:                     xft:Monospace:pixelsize=10:antialias=true
 urxvt*borderLess:		false
 urxvt*externalBorder:		0
 urxvt*internalBorder:		2

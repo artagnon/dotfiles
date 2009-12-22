@@ -9,7 +9,7 @@ W=1280
 H=20
 X=0
 Y=0
-FN="-*-terminus-*-*-*-*-9-*-*-*-*-*-*-*"
+FN="-*-monospace-*-*-*-*-10-*-*-*-*-*-*-*"
 ICONPATH=$HOME/.dzen
 
 # ---[ gdbar variables ]-----------------------------------------------
@@ -73,7 +73,7 @@ fmusic()
 	PREBAR="^i(${ICONPATH}/music.xbm)"
 	POSM="0 100"
     fi
-    echo "$PREBAR $STATUS_MESSAGE ^p(;+3)" `echo $POSM | gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
+    echo "$PREBAR $STATUS_MESSAGE^p(;+3)" `echo $POSM | gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
 }
 
 # ---[ Main eval loop ]------------------------------------------------
@@ -94,7 +94,7 @@ while true; do
 	MUSIC_COUNTER=0
     fi
     
-    print "$PMUSIC^p(+10)$PBATTERY^p(+10)$PDATE"
+    print "$PMUSIC | $PBATTERY | $PDATE^p(+10)"
 
     DATE_COUNTER=$((DATE_COUNTER+1))
     BATTERY_COUNTER=$((BATTERY_COUNTER+1))
