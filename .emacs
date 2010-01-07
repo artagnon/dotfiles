@@ -14,6 +14,8 @@
 ;; ---------
 ;; Autoloads
 ;; ---------
+(require 'dtrt-indent)
+(require 'filladapt)
 (require 'tramp)
 (require 'slime)
 (require 'magit)
@@ -69,7 +71,9 @@
 (set-face-attribute 'default nil :height 80)
 (global-font-lock-mode 1)
 (color-theme-subdued)
-(setq-default saveplace t)
+(setq-default saveplace t
+	      fill-adapt-mode t
+	      dtrt-indent-mode t)
 (setq edebug-trace t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -132,6 +136,13 @@
 				       "magit-commit-amend"
 				       (interactive)
 				       (magit-log-edit-toggle-amending) (magit-log-edit)))
+
+;; --------------------------
+;; Autofill and Adaptive fill
+;; --------------------------
+(add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'turn-on-filladapt-mode)
+(add-hook 'c-mode-hook 'turn-on-filladapt-mode)
 
 ;; ---
 ;; ido
