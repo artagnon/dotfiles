@@ -90,7 +90,7 @@ setopt   HIST_REDUCE_BLANKS HIST_SAVE_NO_DUPS
 setopt   notify globdots pushdtohome
 setopt   recexact longlistjobs
 setopt   autoresume pushdsilent
-setopt   autopushd pushdminus extendedglob rcquotes mailwarning
+setopt   autopushd pushdminus rcquotes
 unsetopt BG_NICE HUP autoparamslash
 
 # ---[ History ]-------------------------------------------------------
@@ -99,16 +99,16 @@ HISTSIZE=3000
 SAVEHIST=$HISTSIZE
 
 # ---[ Completition system ]-------------------------------------------
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format '%d:'
-zstyle ':completion:*' group-name ''
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*default' list-prompt
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 2
+zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*'
-zstyle ':completion:*' max-errors 3
-zstyle ':completion:*' menu select=3 yes
-zstyle ':completion:*' prompt 'Alternatives %e:'
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle :compinstall filename '/home/artagnon/.zshrc'
+zstyle ':completion:*' menu interactive
+zstyle ':completion:*' verbose yes
 
 # ---[ System settings ]------------------------------------------------
 limit -s coredumpsize 0
