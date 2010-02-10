@@ -3,13 +3,13 @@
 ;; ----------
 ;; load-paths
 ;; ----------
-(add-to-list 'load-path "~/.elisp/")  ;; generic
-(add-to-list 'load-path "~/.elisp/theme")  ;; color themes
-(add-to-list 'load-path "~/.elisp/slime")  ;; slime
+(add-to-list 'load-path "~/.elisp/")
+(add-to-list 'load-path "~/.elisp/theme")
+(add-to-list 'load-path "~/.elisp/slime")
 (add-to-list 'load-path "~/dev/ublog.el") ;; µblog.el development
-(add-to-list 'load-path "~/.elisp/org-mode")  ;; org-mode
-(add-to-list 'load-path "~/.elisp/haskell-mode") ;; haskell-mode
-(add-to-list 'load-path "~/.elisp/org-mode-contrib")  ;; org-mode contrib scripts
+(add-to-list 'load-path "~/.elisp/org-mode")
+(add-to-list 'load-path "~/.elisp/haskell-mode")
+(add-to-list 'load-path "~/.elisp/org-mode-contrib")
 
 ;; ---------
 ;; Autoloads
@@ -41,6 +41,7 @@
 (require 'php-mode)
 (require 'cscope)
 (require 'csharp-mode)
+(require 'ess)
 
 ;; ----------------
 ;; auto-mode-alists
