@@ -109,13 +109,10 @@ playlist_disable_highlight_delay = "2"
 ## Note: colors can be nested.
 ##
 #
-#song_list_format = "{%a - }{%t}|{$8%f$9}$R{$3(%l)$9}"
-#
-#song_status_format = "{{%a{ \"%b\"{ (%y)}} - }{%t}}|{%f}"
-#
-#song_library_format = "{%n - }{%t}|{%f}"
-#
-#tag_editor_album_format = "{(%y) }%b"
+song_list_format = "{%a - }{%t}|{$8%f$9}$R{$3(%l)$9}"
+song_status_format = "{{%a{ \"%b\"{ (%y)}} - }{%t}}|{%f}"
+song_library_format = "{%n - }{%t}|{%f}"
+tag_editor_album_format = "{(%y) }%b"
 #
 ##
 ## Note: Below variables are for alternative version of user's interface.
@@ -208,8 +205,7 @@ default_place_to_search_in = "database"
 user_interface = "classic"
 
 #media_library_left_column = "a" (possible values: a,y,g,c,p, legend above)
-#
-#default_find_mode = "wrapped" (wrapped/normal)
+default_find_mode = "wrapped"
 #
 #default_space_mode = "add" (add/select)
 #
