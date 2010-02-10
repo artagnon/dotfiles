@@ -211,35 +211,13 @@
 
 ;; General settings
 (setf rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar Ramachandra")))
+(defun gtalk ()
+  (interactive)
+  (rcirc-connect "kytes" "6667" "artagnon"))
 
 ;; Logging
-(add-hook 'rcirc-print-hooks 'rcirc-write-log)
-(defcustom rcirc-log-directory "~/.rcirc-logs"
-  "Where logs should be kept.  If nil, logs aren't kept.")
-(defun rcirc-write-log (process sender response target text)
-  (when rcirc-log-directory
-    (with-temp-buffer
-      ;; Sometimes TARGET is a buffer :-(
-      (when (bufferp target)
-	(setq target (with-current-buffer buffer rcirc-target)))
-
-      (unless
-	  (or (null target)              ;; Don't log if target is null
-	      (string= "JOIN" response)  ;; Don't log JOINs
-	      (string= "MODE" response)  ;; Don't log MODEs
-	      (string= "QUIT" response)) ;; Don't log QUITs
-	(insert (format "@%-10s" process))
-	(insert (format-time-string "[%d-%m-%y|%H:%M] "))
-	(insert (format "%-16s " (rcirc-user-nick sender)))
-	(unless (string= response "PRIVMSG")
-	  (insert "/" (downcase response) " "))
-	(insert text "\n")
-
-	;; Append the line to the appropriate logfile.
-	(let ((coding-system-for-write 'no-conversion))
-	  (write-region (point-min) (point-max)
-			(concat rcirc-log-directory "/" (downcase target))
-			t 'quietly))))))
+(setf rcirc-log-flag "t"
+      rcirc-log-directory "~/.emacs.d/rcirc-log")
 
 ;; Reconnect on demand
 ;; Derived from code on
@@ -319,21 +297,6 @@ will be part of the list returned."
 		    (setq commands (cons (concat"/" (upcase (substring name 10)))
 					 commands))))))
     commands))
-
-;; Hide IRC channels from iswitchb
-;; (add-to-list 'iswitchb-buffer-ignore
-;; 	     (lambda (name)
-;; 	       (catch 'rcirc
-;; 		 (mapc (lambda (process)
-;; 			 (when (string= name (buffer-name (process-buffer process)))
-;; 			   (throw 'rcirc t))
-;; 			 (mapc (lambda (buffer)
-;; 				 (when (string= name (buffer-name buffer))
-;; 				   (throw 'rcirc t)))
-;; 			       (with-rcirc-process-buffer process
-;; 				 (mapcar 'cdr rcirc-buffer-alist))))
-;; 		       (rcirc-process-list))
-;; 		 nil)))
 
 ;; ----------
 ;; Mode hooks
