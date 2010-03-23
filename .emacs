@@ -69,7 +69,7 @@
       vc-follow-symlinks t
       indent-tabs-mode nil
       tab-width 2)
-(set-face-attribute 'default nil :height 80)
+(set-face-attribute 'default nil :height 95)
 (global-font-lock-mode 1)
 (color-theme-subdued)
 (setq-default saveplace t
