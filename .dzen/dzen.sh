@@ -84,16 +84,12 @@ while true; do
 	DATE_COUNTER=0
     fi
     
-    if [ $BATTERY_COUNTER -ge $BATTERY_INTERVAL ]; then
-	PBATTERY=$(fbattery)
-	BATTERY_COUNTER=0
-    fi
     if [ $MUSIC_COUNTER -ge $MUSIC_INTERVAL ]; then
 	PMUSIC=$(fmusic)
 	MUSIC_COUNTER=0
     fi
     
-    print "$PMUSIC | $PBATTERY | $PDATE^p(+10)"
+    print "$PMUSIC | $PDATE^p(+10)"
 
     DATE_COUNTER=$((DATE_COUNTER+1))
     BATTERY_COUNTER=$((BATTERY_COUNTER+1))
