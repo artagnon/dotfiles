@@ -340,14 +340,6 @@ will be part of the list returned."
 (setq tramp-default-method "ssh")
 (add-to-list 'backup-directory-alist (cons tramp-file-name-regexp nil))
 
-;; ----------------
-;; anything-ipython
-;; ----------------
-;; (add-hook 'python-mode-hook #'(lambda ()
-;;                                 (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
-;; (add-hook 'ipython-shell-hook #'(lambda ()
-;;                                   (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
-
 ;; --------
 ;; org-mode
 ;; --------
