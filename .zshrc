@@ -68,12 +68,12 @@ alias grep='ack-grep -i'
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias diff='diff -u'
 alias screen='tmux'
+alias less='less -r'
 
 # custom aliases
-alias rsync='rsync -avz -e ssh'
+alias rsync='rsync --progress -avze "ssh -p 51000"'
 alias pulseoff='mv ~/.asoundrc ~/.asoundrc.pulse'
 alias pulseon='cp ~/.asoundrc.pulse ~/.asoundrc'
-alias mutt='http_proxy= ftp_proxy= proxychains mutt'
 alias ec='emacsclient'
 alias et='emacsclient -t'
 
