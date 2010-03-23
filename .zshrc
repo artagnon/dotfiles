@@ -34,10 +34,11 @@ setprompt
 export EDITOR="emacsclient"
 #export PS1="%{${fg[red]}%}[%{${fg[green]}%}%T%{${fg[red]}%}]%{${fg[white]}%}%25<...<%~%{${fg[white]}%}: "
 #export PS2="%_> "
-export PATH=$PATH:/home/artagnon/bin:/home/artagnon/bin/depot_tools
+export PATH=$PATH:$HOME/bin:$HOME/bin/depot_tools:$HOME/.gem/ruby/1.8/bin
 export PYTHONPATH=/opt/python
-export PYTHONSTARTUP=/home/artagnon/.pythonrc
+export PYTHONSTARTUP=$HOME/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+export ACK_PAGER='less -r'
 
 # ---[ GPG Key ]-------------------------------------------------------
 export GPGKEY=B8BB3FE9
