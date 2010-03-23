@@ -44,9 +44,10 @@ export ACK_PAGER='less -r'
 export GPGKEY=B8BB3FE9
 
 # ---[ Proxy exports ]-------------------------------------------------
-#export all_proxy=http://144.16.192.245:8080
-#export http_proxy=http://144.16.192.245:8080
-#export ftp_proxy=http://144.16.192.245:8080
+export all_proxy=http://localhost:8888/
+export http_proxy=http://localhost:8888/
+export https_proxy=http://localhost:8888/
+export ftp_proxy=http://localhost:8888/
 
 # ---[ Debian Developer ]----------------------------------------------
 export DEBFULLNAME="Ramkumar Ramachandra"
