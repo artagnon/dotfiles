@@ -1,10 +1,9 @@
 #!/bin/sh
-
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
 $HOME/bin/randwal.py &
 $HOME/bin/dzen.sh &
-mpdas &
+$HOME/bin/mpdas &
 DEFAULT_SESSION=xmonad
 
 case $1 in
