@@ -1,7 +1,6 @@
 #!/bin/zsh
 # Copyright (C) 2009 Ramkumar Ramachandra <artagnon@gmail.com>
 
-
 # ---[ Dzen variables ]------------------------------------------------
 BG='#1f1f1f'
 FG='#eeeeec'
@@ -9,7 +8,7 @@ W=1280
 H=20
 X=0
 Y=0
-FN="-*-monospace-*-*-*-*-10-*-*-*-*-*-*-*"
+FN='inconsolata:size=9'
 ICONPATH=$HOME/.dzen
 
 # ---[ gdbar variables ]-----------------------------------------------
@@ -73,7 +72,7 @@ fmusic()
 	PREBAR="^i(${ICONPATH}/music.xbm)"
 	POSM="0 100"
     fi
-    echo "$PREBAR $STATUS_MESSAGE^p(;+3)" `echo $POSM | gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
+    echo "$PREBAR $STATUS_MESSAGE^p(;+4)" `echo $POSM | gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
 }
 
 # ---[ Main eval loop ]------------------------------------------------
