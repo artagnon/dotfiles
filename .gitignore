@@ -4,9 +4,12 @@
 *.hi
 *.elc
 *.errors
+*.1
+.private
 xmonad-i386-linux
-org-mode/
-org-mode-contrib/
+org-mode
+org-mode-contrib
 org-mode-repo/
 haskell-mode/
 magit/
+slime/
