@@ -30,6 +30,26 @@ zmodload -ap zsh/mapfile mapfile
 . ~/.zshprompt
 setprompt
 
+# ---[ cdm function ]--------------------------------------------------
+function cdm () {
+    local tmp
+    if [[ -z "${TMUX}" ]]; then
+        printf 'Not inside of `tmux'\''. Giving up.\n'
+        return 1
+    fi
+    if [[ -n "$1" ]]; then
+        [[ "$1" == . ]] && tmp="${PWD}" || tmp="$1"
+    else
+        tmp="${HOME}"
+    fi
+    cd "${tmp}"
+    tmp="${PWD}"
+    tmux "set-option" "default-path" "${tmp}"
+    [[ -n "${DISPLAY}" ]] && tmp=on || tmp=off
+    tmux "set-option" "set-titles" "${tmp}"
+    return 0
+}
+
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR="emacsclient"
 #export PS1="%{${fg[red]}%}[%{${fg[green]}%}%T%{${fg[red]}%}]%{${fg[white]}%}%25<...<%~%{${fg[white]}%}: "
