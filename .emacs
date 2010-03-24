@@ -167,6 +167,8 @@
 	    (define-key dired-mode-map (kbd "^")
 	      (lambda () (interactive) (find-alternate-file "..")))))
 
+(put 'dired-find-alternate-file 'disabled nil)
+
 ;; ---
 ;; ERC
 ;; ---
@@ -212,6 +214,11 @@
 
 ;; General settings
 (setf rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar Ramachandra")))
+
+(defun irc ()
+  (interactive)
+  (rcirc-connect "irc.freenode.net" "6667" "artagnon"))
+
 (defun gtalk ()
   (interactive)
   (rcirc-connect "kytes" "6667" "artagnon"))
@@ -284,6 +291,14 @@
                                 rcirc-nick-completion-start-offset)
                              rcirc-prompt-end-marker)
                           (if (eq (aref completion 0) ?/) " " ": ")))))))
+
+(defun rcirc-kill-all-buffers ()
+  (interactive)
+  (kill-all-mode-buffers 'rcirc-mode))
+
+(add-hook 'window-configuration-change-hook
+          '(lambda ()
+             (setq rcirc-fill-column (- (window-width) 10))))
 
 (defun rcirc-commands ()
   "Return a list of defined IRC commands.
