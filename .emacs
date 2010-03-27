@@ -321,6 +321,7 @@ will be part of the list returned."
 (add-hook 'javascript-mode-hook (lambda () (moz-minor-mode t)))
 (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
 (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+(defalias 'perl-mode 'cperl-mode)
 
 ;; Paredit
 (mapc (lambda (mode)
