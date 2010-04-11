@@ -54,8 +54,9 @@ function cdm () {
 export EDITOR="emacsclient"
 #export PS1="%{${fg[red]}%}[%{${fg[green]}%}%T%{${fg[red]}%}]%{${fg[white]}%}%25<...<%~%{${fg[white]}%}: "
 #export PS2="%_> "
-export PATH=$PATH:$HOME/bin:$HOME/bin/depot_tools:$HOME/.gem/ruby/1.8/bin
+export PATH=$PATH:$HOME/bin:$HOME/bin/depot_tools:/var/lib/gems/1.8/bin:$HOME/src/sup/bin
 export PYTHONPATH=/opt/python
+export RUBYLIB=$HOME/src/sup/lib
 export PYTHONSTARTUP=$HOME/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export ACK_PAGER='less -r'
@@ -87,7 +88,6 @@ alias reboot='sudo reboot'
 alias grep='ack-grep -i'
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias diff='diff -u'
-alias screen='tmux'
 alias less='less -r'
 
 # custom aliases
