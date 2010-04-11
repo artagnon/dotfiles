@@ -1,44 +1,47 @@
-urxvt*font:                     xft:Inconsolata:pixelsize=13:antialias=true
-urxvt*borderLess:		false
-urxvt*externalBorder:		0
-urxvt*internalBorder:		2
-urxvt*scrollBar:		false
-urxvt*depth:			32
-urxvt*background:		rgba:0000/0000/0000/cccc
-urxvt*foreground:		#c8c8c8
-urxvt*cursorColor:		#ffffff
-urxvt*cursorColor2:		#000000
-urxvt*cursorBlink:		false
-urxvt*inheritPixmap:		false
-urxvt*termName:			rxvt-unicode
-urxvt*saveLines:		1000
-urxvt*scrollTtyOutput:		false
-urxvt*scrollTtyKeypress:	true
-urxvt*mouseWheelScrollPage:	false
-urxvt*cutchars:  		`'",;@&*=|/?()<>[]{}'
-urxvt.urlLauncher:		conkeror
+URxvt*font:                     xft:Monospace:pixelsize=10:antialias=true
+URxvt*borderLess:		false
+URxvt*externalBorder:		0
+URxvt*internalBorder:		2
+URxvt*scrollBar:		false
+URxvt*depth:			32
+URxvt*background:		rgba:0000/0000/0000/cccc
+URxvt*foreground:		#c8c8c8
+URxvt*cursorColor:		#ffffff
+URxvt*cursorColor2:		#000000
+URxvt*cursorBlink:		false
+URxvt*inheritPixmap:		false
+URxvt*termName:			rxvt-unicode
+URxvt*saveLines:		1000
+URxvt*scrollTtyOutput:		false
+URxvt*scrollTtyKeypress:	true
+URxvt*mouseWheelScrollPage:	false
+URxvt*cutchars:  		`'",;@&*=|/?()<>[]{}'
+URxvt.perl-ext:			default,matcher
+URxvt.keysym.C-Delete:    	perl:matcher
+URxvt.urlLauncher:		google-chrome
+URxvt.underlineURLs:		true
 
 !! ---[ Color scheme ]--------------------------------------------------
-urxvt*color0:       #000000
-urxvt*color8:       #ffffff
+URxvt*color0:       #000000
+URxvt*color8:       #ffffff
 !! DarkRed + Red
-urxvt*color1:       #cc0000
-urxvt*color9:       #ad7fa8
+URxvt*color1:       #cc0000
+URxvt*color9:       #ad7fa8
 !! DarkGreen + Green
-urxvt*color2:       #4e9a06
-urxvt*color10:      #73d216
+URxvt*color2:       #4e9a06
+URxvt*color10:      #73d216
 !! DarkYellow + Yellow
-urxvt*color3:       #855c1b
-urxvt*color11:      #c4a000
+URxvt*color3:       #855c1b
+URxvt*color11:      #c4a000
 !! DarkBlue + Blue
-urxvt*color4:       #729fcf
-urxvt*color12:      #729fcf
+URxvt*color4:       #729fcf
+URxvt*color12:      #729fcf
 !! DarkMangenta + Mangenta
-urxvt*color5:       #cc0000
-urxvt*color13:      #cc0000
+URxvt*color5:       #cc0000
+URxvt*color13:      #cc0000
 !!DarkCyan + Cyan
-urxvt*color6:       #418179
-urxvt*color14:      #71bebe
+URxvt*color6:       #418179
+URxvt*color14:      #71bebe
 !! LightGrey + White
-urxvt*color7:       #1f1f1f
-urxvt*color15:      #eeeeec
+URxvt*color7:       #1f1f1f
+URxvt*color15:      #eeeeec
