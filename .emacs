@@ -161,44 +161,6 @@
 
 (put 'dired-find-alternate-file 'disabled nil)
 
-;; ---
-;; ERC
-;; ---
-(setq socks-override-functions 1)
-(setq socks-noproxy '("localhost"))  ;; do not conect via socks proxy for localhost (to use bitlbee)
-(setq socks-server '("Default server" "127.0.0.1" 9050 5))  ;; configure socks proxy v5 (Tor)
-(setq erc-server-connect-function 'socks-open-network-stream)  ;; connect via socks proxy
-(setq erc-modules
-      '(autoaway autojoin button completion
-	fill irccontrols match menu netsplit
-	noncommands readonly ring
-	scrolltobottom services stamp track))
-(setq erc-log-channels-directory "~/.erc/logs/")  ;; erc logging
-(setq erc-save-buffer-on-part nil
-      erc-save-queries-on-quit nil
-      erc-log-write-after-send t
-      erc-log-write-after-insert t)
-(setq erc-auto-discard-away t) ;; discard autoaway when active on ERC
-(setq erc-autoaway-idle-seconds 600) ;; autoaway idle time is 10 mins
-(setq erc-autoaway-message "[Autoaway] Wandered off") ;; autoaway message
-(setq erc-auto-set-away t) ;; autoaway when ERC is idle, not emacs itself
-
-;; Show relevant notifications only
-(setq erc-track-exclude-types '("JOIN" "PART" "QUIT" "NICK" "MODE"
-				"324" "328" "329" "332" "333" "353" "477"))
-
-;; Change header line face if disconnected
-(defface erc-header-line-disconnected
-    '((t (:foreground "black" :background "indianred")))
-  "Face to use when ERC has been disconnected.")
-
-(defun erc-update-header-line-show-disconnected ()
-  "Use a different face in the header-line when disconnected."
-  (erc-with-server-buffer
-    (cond ((erc-server-process-alive) 'erc-header-line)
-	  (t 'erc-header-line-disconnected))))
-
-(setq erc-header-line-face-method 'erc-update-header-line-show-disconnected)
 
 ;; -----
 ;; rcirc
