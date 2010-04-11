@@ -330,30 +330,6 @@
                (set-buffer-modified-p nil)
 	       t))))
 
-(defun kill-ring-save-whole-line (&optional interactive)
-  (interactive "p")
-  (save-excursion
-    (let ((beg (progn (beginning-of-line) (point)))
-	  (end (progn (end-of-line) (point))))
-	(kill-new (filter-buffer-substring beg end)))
-    (if (interactive-p)
-	(let* ((killed-text (current-kill 0))
-	       (message-len (min (length killed-text) 40)))
-	  (message "Saved text from \"%s\""
-		   (substring killed-text 0 message-len))))))
-
-(defun jump-to-char (arg char)
-  "Jump to and including ARGth occurrence of CHAR.
-Case is ignored if `case-fold-search' is non-nil in the current buffer.
-Goes backward if ARG is negative; error if CHAR not found."
-  (interactive "p\ncJump to char: ")
-  ;; Avoid "obsolete" warnings for translation-table-for-input.
-  (with-no-warnings
-    (if (char-table-p translation-table-for-input)
-	(setq char (or (aref translation-table-for-input char) char))))
-  (search-forward (char-to-string char) nil nil arg))
-
-;; Reformat hard-wrapped regions
 (defun reformat-hard-wrap (beg end)
    (interactive "r")
    (shell-command-on-region beg end "fmt -w2000" nil t))
