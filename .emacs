@@ -10,6 +10,7 @@
 (add-to-list 'load-path "~/.elisp/org-mode")
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/org-mode-contrib")
+(add-to-list 'load-path "~/.elisp/bbdb-vcard")
 
 ;; ---------
 ;; Autoloads
@@ -35,6 +36,7 @@
 (require 'cscope)
 (require 'csharp-mode)
 (require 'ess)
+(require 'bbdb-vcard)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -144,6 +146,7 @@
    ido-enable-flex-matching t         ; be flexible
    ido-max-prospects 6                ; don't spam my minibuffer
    ido-confirm-unique-completion nil) ; don't wait for RET with unique completion
+
 ;; -----
 ;; Dired
 ;; -----
@@ -218,8 +221,8 @@
 ;; ---------------------
 ;; SLIME for Common Lisp
 ;; ---------------------
-(setq inferior-lisp-program "sbcl")
-(setq lisp-indent-function 'common-lisp-indent-function
+(setq inferior-lisp-program "sbcl"
+      lisp-indent-function 'common-lisp-indent-function
       slime-complete-symbol-function 'slime-fuzzy-complete-symbol
       common-lisp-hyperspec-root "file:///home/artagnon/ebooks/HyperSpec/")
 (slime-setup)
@@ -227,9 +230,8 @@
 ;; -----
 ;; Tramp
 ;; -----
-(setq recentf-auto-cleanup 'never)
-(setq tramp-default-method "ssh")
-(add-to-list 'backup-directory-alist (cons tramp-file-name-regexp nil))
+(setq recentf-auto-cleanup 'never
+      tramp-default-method "ssh")
 
 ;; --------
 ;; org-mode
