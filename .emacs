@@ -167,84 +167,20 @@
 ;; -----
 
 ;; General settings
-(setf rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar Ramachandra")))
+(setq rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar Ramachandra")))
 
 (defun irc ()
   (interactive)
-  (rcirc-connect "irc.freenode.net" "6667" "artagnon"))
+;;  (rcirc-connect "irc.freenode.net" "6667" "artagnon"))  
+  (rcirc-connect "38.229.70.20" "6667" "artagnon"))
 
 (defun gtalk ()
   (interactive)
   (rcirc-connect "kytes" "6667" "artagnon"))
 
 ;; Logging
-(setf rcirc-log-flag "t"
+(setq rcirc-log-flag "t"
       rcirc-log-directory "~/.emacs.d/rcirc-log")
-
-;; Reconnect on demand
-;; Derived from code on
-;; <http://www.emacswiki.org/cgi-bin/wiki/rcircReconnect>
-;; but more general in that the process does not need to be alive.
-(defun-rcirc-command reconnect (arg)
-  "Reconnect the server process."
-  (interactive "i")
-  (if (buffer-live-p rcirc-server-buffer)
-      (with-current-buffer rcirc-server-buffer
-	(let ((reconnect-buffer (current-buffer))
-	      (server (or rcirc-server rcirc-default-server))
-	      (port (if (boundp 'rcirc-port) rcirc-port rcirc-default-port))
-	      (nick (or rcirc-nick rcirc-default-nick))
-	      channels)
-	  (dolist (buf (buffer-list))
-	    (with-current-buffer buf
-	      (when (equal reconnect-buffer rcirc-server-buffer)
-		(remove-hook 'change-major-mode-hook
-			     'rcirc-change-major-mode-hook)
-		(and (boundp 'rcirc-initial-target)
-		     (rcirc-channel-p rcirc-initial-target)
-		     (setq channels (cons rcirc-initial-target channels)))
-		  )))
-	  (if process (delete-process process))
-	  (rcirc-connect server port nick
-			 nil
-			 nil
-			 channels)))))
-
-;; Tab completion
-(defun rcirc-complete-nick ()
-  "Cycle through nick completions from list of nicks in channel."
-  (interactive)
-  (if (eq last-command this-command)
-      (setq rcirc-nick-completions
-            (append (cdr rcirc-nick-completions)
-                    (list (car rcirc-nick-completions))))
-    (setq rcirc-nick-completion-start-offset
-          (- (save-excursion
-               (if (re-search-backward " " rcirc-prompt-end-marker t)
-                   (1+ (point))
-                 rcirc-prompt-end-marker))
-             rcirc-prompt-end-marker))
-    (setq rcirc-nick-completions
-          (let ((completion-ignore-case t))
-            (all-completions
-	     (buffer-substring
-	      (+ rcirc-prompt-end-marker
-		 rcirc-nick-completion-start-offset)
-	      (point))
-	     (append (rcirc-channel-nicks (rcirc-buffer-process)
-					  rcirc-target)
-		     (rcirc-commands))))))
-  (let ((completion (car rcirc-nick-completions)))
-    (when completion
-      (rcirc-put-nick-channel (rcirc-buffer-process) completion rcirc-target)
-      (delete-region (+ rcirc-prompt-end-marker
-			rcirc-nick-completion-start-offset)
-		     (point))
-      (insert (concat completion
-                      (if (= (+ rcirc-prompt-end-marker
-                                rcirc-nick-completion-start-offset)
-                             rcirc-prompt-end-marker)
-                          (if (eq (aref completion 0) ?/) " " ": ")))))))
 
 (defun rcirc-kill-all-buffers ()
   (interactive)
@@ -253,20 +189,6 @@
 (add-hook 'window-configuration-change-hook
           '(lambda ()
              (setq rcirc-fill-column (- (window-width) 10))))
-
-(defun rcirc-commands ()
-  "Return a list of defined IRC commands.
-If a command called rcirc-cmd-foo exists, the IRC command /FOO
-will be part of the list returned."
-  (let ((commands))
-    (mapatoms (lambda (sym)
-		(let ((name (symbol-name sym)))
-		  (when (and (commandp sym)
-			     (string= (substring name 0 (min (length name) 10))
-				      "rcirc-cmd-"))
-		    (setq commands (cons (concat"/" (upcase (substring name 10)))
-					 commands))))))
-    commands))
 
 ;; ----------
 ;; Mode hooks
