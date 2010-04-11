@@ -125,15 +125,10 @@
 (global-set-key "\C-xv" 'magit-status)
 (global-set-key (kbd "<f5>") 'th-save-frame-configuration)
 (global-set-key (kbd "<f6>") 'th-jump-to-register)
-(define-key magit-mode-map "\C-uc" #'(lambda ()
-				       "magit-commit-amend"
-				       (interactive)
-				       (magit-log-edit-toggle-amending) (magit-log-edit)))
 
 ;; --------------------------
 ;; Autofill and Adaptive fill
 ;; --------------------------
-(add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-filladapt-mode)
 (add-hook 'c-mode-hook 'turn-on-filladapt-mode)
 
@@ -161,6 +156,16 @@
 
 (put 'dired-find-alternate-file 'disabled nil)
 
+;; -----
+;; magit
+;; -----
+(define-key magit-mode-map "\C-uc" #'(lambda ()
+				       "magit-commit-amend"
+				       (interactive)
+				       (magit-log-edit-toggle-amending) (magit-log-edit)))
+(add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
+(setq magit-commit-all-when-nothing-staged nil
+      magit-revert-item-confirm t)
 
 ;; -----
 ;; rcirc
