@@ -20,17 +20,10 @@
 (require 'slime)
 (require 'magit)
 (require 'paredit)
-(require 'socks)
 (require 'color-theme)
 (require 'color-theme-subdued)
-(require 'anything-config)
-(require 'basic-edit-toolkit)
-(require 'stumpwm-mode)
-(require 'traverselisp)
 (require 'clojure-mode)
 (require 'saveplace)
-(require 'moz)
-(require 'javascript-mode "javascript")
 (require 'ido)
 (require 'org-install)
 (require 'quack)
@@ -46,7 +39,6 @@
 ;; ----------------
 ;; auto-mode-alists
 ;; ----------------
-(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
@@ -318,7 +310,6 @@ will be part of the list returned."
 ;; Mode hooks
 ;; ----------
 (add-hook 'emacs-lisp-mode-hook (lambda () (eldoc-mode t)))
-(add-hook 'javascript-mode-hook (lambda () (moz-minor-mode t)))
 (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
 (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 (defalias 'perl-mode 'cperl-mode)
@@ -334,11 +325,6 @@ will be part of the list returned."
 ;; Scheme
 ;; ------
 (setq scheme-program-name "mzscheme")
-
-;; ------
-;; cscope
-;; ------
-(cscope-bind-keys-2deep)
 
 ;; ---------------------
 ;; SLIME for Common Lisp
