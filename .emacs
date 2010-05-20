@@ -11,11 +11,13 @@
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/org-mode-contrib")
 (add-to-list 'load-path "~/.elisp/bbdb-vcard")
+(add-to-list 'load-path "~/.elisp/mingus")
 
 ;; ---------
 ;; Autoloads
 ;; ---------
 (require 'dtrt-indent)
+(require 'whitespace)
 (require 'filladapt)
 (require 'tramp)
 (require 'slime)
@@ -37,6 +39,7 @@
 (require 'csharp-mode)
 (require 'ess)
 (require 'bbdb-vcard)
+(require 'mingus)
 
 ;; ----------------
 ;; auto-mode-alists
