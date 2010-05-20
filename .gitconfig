@@ -1,0 +1,19 @@
+[core]
+	whitespace = trailing-space,space-before-tab
+[apply]
+	whitespace = fix
+[user]
+	name = Ramkumar Ramachandra
+	email = artagnon@gmail.com
+[github]
+	user = artagnon
+[format]
+	signoff = True
+[sendemail]
+	suppresscc = all
+	smtpserver = /usr/bin/msmtp
+	chainreplyto = false
+[alias]
+	ci = commit
+	fp = format-patch --cover-letter -o outgoing
+	se = send-email
