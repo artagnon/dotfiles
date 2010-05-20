@@ -1,7 +1,7 @@
 #!/bin/sh
 xrdb -merge ~/.Xresources
-xmodmap ~/.Xmodmap
 $HOME/bin/randwal.py &
+setxkbmap -option ctrl:nocaps
 $HOME/bin/dzen.sh &
 $HOME/bin/mpdas &
 DEFAULT_SESSION=xmonad
