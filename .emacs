@@ -377,3 +377,17 @@
 (defun reformat-hard-wrap (beg end)
    (interactive "r")
    (shell-command-on-region beg end "fmt -w2000" nil t))
+
+(defmacro replace-in-file (from-string to-string)
+  `(progn
+     (goto-char (point-min))
+     (while (search-forward ,from-string nil t)
+       (replace-match ,to-string nil t))))
+
+(defun cleanup-fancy-quotes ()
+  (interactive)
+  (progn
+    (replace-in-file "’" "'")
+    (replace-in-file "“" "\"")
+    (replace-in-file "”" "\"")
+    (replace-in-file "" "")))
