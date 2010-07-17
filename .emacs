@@ -132,50 +132,46 @@
 (global-set-key (kbd "<f5>") 'th-save-frame-configuration)
 (global-set-key (kbd "<f6>") 'th-jump-to-register)
 
-;; ---------
-;; SmartTabs
-;; ---------
+;; -----------------------
+;; Linux style indentation
+;; -----------------------
 
-(defadvice align (around smart-tabs activate)
-  (let ((indent-tabs-mode nil)) ad-do-it))
-(defadvice align-regexp (around smart-tabs activate)
-  (let ((indent-tabs-mode nil)) ad-do-it))
-(defadvice indent-relative (around smart-tabs activate)
-  (let ((indent-tabs-mode nil)) ad-do-it))
-(defadvice indent-according-to-mode (around smart-tabs activate)
-  (let ((indent-tabs-mode indent-tabs-mode))
-    (if (memq indent-line-function
-	      '(indent-relative
-		indent-relative-maybe))
-	(setq indent-tabs-mode nil))
-    ad-do-it))
-(defmacro smart-tabs-advice (function offset)
-  (defvaralias offset 'tab-width)
-  `(defadvice ,function (around smart-tabs activate)
-     (cond
-       (indent-tabs-mode
-	(save-excursion
-	  (beginning-of-line)
-	  (while (looking-at "\t*\\( +\\)\t+")
-	    (replace-match "" nil nil nil 1)))
-	(setq tab-width tab-width)
-	(let ((tab-width fill-column)
-	      (,offset fill-column))
-	  ad-do-it))
-       (t
-	ad-do-it))))
-(smart-tabs-advice c-indent-line c-basic-offset)
-(smart-tabs-advice c-indent-region c-basic-offset)
-(smart-tabs-advice js2-indent-line js2-basic-offset)
-(smart-tabs-advice cperl-indent-line cperl-indent-level)
-(smart-tabs-advice python-indent-line-1 python-indent)
-(smart-tabs-advice ruby-indent-line ruby-indent-level)
+(defun c-lineup-arglist-tabs-only (ignored)
+  "Line up argument lists by tabs, not spaces"
+  (let* ((anchor (c-langelem-pos c-syntactic-element))
+         (column (c-langelem-2nd-pos c-syntactic-element))
+         (offset (- (1+ column) anchor))
+         (steps (floor offset c-basic-offset)))
+    (* (max steps 1)
+       c-basic-offset)))
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            ;; Add kernel style
+            (c-add-style
+             "linux-tabs-only"
+             '("linux" (c-offsets-alist
+                        (arglist-cont-nonempty
+                         c-lineup-gcc-asm-reg
+                         c-lineup-arglist-tabs-only))))))
+
+(add-hook 'c-mode-hook
+          (lambda ()
+            (let ((filename (buffer-file-name)))
+              ;; Enable kernel mode for the appropriate files
+              (when (and filename
+                         (string-match (expand-file-name "~/src/linux-trees")
+                                       filename))
+                (setq indent-tabs-mode t)
+                (c-set-style "linux-tabs-only")))))
 
 ;; --------------------------
 ;; Autofill and Adaptive fill
 ;; --------------------------
 (add-hook 'text-mode-hook 'turn-on-filladapt-mode)
-(add-hook 'c-mode-hook 'turn-on-filladapt-mode)
+(add-hook 'c-mode-common-hook (lambda ()
+				(turn-on-filladapt-mode)
+				(c-set-style "linux")))
 
 ;; ---
 ;; ido
