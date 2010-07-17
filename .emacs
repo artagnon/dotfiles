@@ -211,7 +211,9 @@
 				       (magit-log-edit-toggle-amending) (magit-log-edit)))
 (add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
 (setq magit-commit-all-when-nothing-staged nil
-      magit-revert-item-confirm t)
+      magit-revert-item-confirm t
+      magit-process-connection-type nil
+      process-connection-type nil)
 
 ;; -----
 ;; rcirc
