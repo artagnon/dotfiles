@@ -114,6 +114,7 @@ alias pa='pulseaudio -D'
 alias btallow="dbus-send --system --type=method_call --print-reply --dest=org.bluez /org/bluez/hci0 org.bluez.Adapter.SetMode string:discoverable && dbus-send --system --type=method_call --print-reply --dest=org.bluez /org/bluez/hci0 org.bluez.Adapter.SetDiscoverableTimeout uint32:200 > /dev/null"
 
 # ---[ ZSH Options ]----------------------------------------------------
+setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL
 setopt   ALWAYS_TO_END BASH_AUTO_LIST NO_BEEP
 setopt   AUTO_CD MULTIOS
 setopt   CHECK_JOBS NO_HUP
