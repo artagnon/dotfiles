@@ -47,6 +47,7 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 
 ;; ----------------------
 ;; General Customizations
@@ -275,6 +276,27 @@
 (setq recentf-auto-cleanup 'never
       tramp-default-method "ssh")
 
+;; ---------
+;; mail-mode
+;; ---------
+(setq user-mail-address "artagnon@gmail.com"
+      user-full-name "Ramkumar Ramachandra")
+
+(add-hook 'mail-mode-hook
+	  (lambda ()
+	    (define-key mail-mode-map [(control c) (control c)]
+	      (lambda ()
+		(interactive)
+		(save-buffer)
+		(server-edit)))))
+
+(add-hook 'mail-mode-hook
+	  (lambda ()
+	    (define-key mail-mode-map [(control c) (control k)]
+	      (lambda ()
+		(interactive)
+		(revert-buffer t t nil)
+		(server-edit)))))
 ;; --------
 ;; org-mode
 ;; --------
