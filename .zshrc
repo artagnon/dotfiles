@@ -54,9 +54,11 @@ function cdm () {
 export EDITOR="emacsclient"
 #export PS1="%{${fg[red]}%}[%{${fg[green]}%}%T%{${fg[red]}%}]%{${fg[white]}%}%25<...<%~%{${fg[white]}%}: "
 #export PS2="%_> "
-export PATH=$PATH:$HOME/bin:$HOME/bin/depot_tools:/var/lib/gems/1.8/bin:$HOME/src/sup/bin
-export PYTHONPATH=/opt/python
-export RUBYLIB=$HOME/src/sup/lib
+export PATH=$PATH:$HOME/bin:$HOME/bin/depot_tools:/var/lib/gems/1.8/bin:$HOME/.python/bin
+export PYTHONPATH=$HOME/.python/lib
+export PREFIX=$HOME
+export GEM_HOME=$PREFIX/lib/ruby/gems/1.8
+export RUBYLIB=$PREFIX/lib/ruby:$PREFIX/lib/site_ruby/1.8
 export PYTHONSTARTUP=$HOME/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export ACK_PAGER='less -r'
