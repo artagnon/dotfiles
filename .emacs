@@ -6,7 +6,7 @@
 (add-to-list 'load-path "~/.elisp/")
 (add-to-list 'load-path "~/.elisp/theme")
 (add-to-list 'load-path "~/.elisp/slime")
-(add-to-list 'load-path "~/dev/ublog.el") ;; µblog.el development
+(add-to-list 'load-path "~/dev/ublog.el")
 (add-to-list 'load-path "~/.elisp/org-mode")
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/org-mode-contrib")
@@ -16,7 +16,6 @@
 ;; ---------
 ;; Autoloads
 ;; ---------
-(require 'dtrt-indent)
 (require 'whitespace)
 (require 'filladapt)
 (require 'tramp)
@@ -26,8 +25,6 @@
 (require 'color-theme)
 (require 'color-theme-subdued)
 (require 'clojure-mode)
-(require 'saveplace)
-(require 'ido)
 (require 'org-install)
 (require 'quack)
 (require 'inf-haskell)
@@ -38,7 +35,6 @@
 (require 'cscope)
 (require 'csharp-mode)
 (require 'ess)
-(require 'bbdb-vcard)
 (require 'mingus)
 
 ;; ----------------
@@ -52,29 +48,27 @@
 ;; ----------------------
 ;; General Customizations
 ;; ----------------------
-(setq inhibit-startup-message t
-      font-lock-maximum-decoration t
-      visible-bell t
-      require-final-newline t
-      resize-minibuffer-frame t
-      column-number-mode t
-      display-battery-mode t
-      transient-mark-mode t
-      next-line-add-newlines nil
-      blink-matching-paren t
-      quack-pretty-lambda-p t
-      blink-matching-delay .25
-      vc-follow-symlinks t
-      indent-tabs-mode nil
-      tab-width 2)
+(setq-default inhibit-startup-message t
+	      font-lock-maximum-decoration t
+	      visible-bell t
+	      require-final-newline t
+	      resize-minibuffer-frame t
+	      column-number-mode t
+	      display-battery-mode t
+	      transient-mark-mode t
+	      next-line-add-newlines nil
+	      blink-matching-paren t
+	      quack-pretty-lambda-p t
+	      blink-matching-delay .25
+	      vc-follow-symlinks t
+	      indent-tabs-mode t
+	      tab-width 8
+	      c-basic-offset 8
+	      edebug-trace t
+	      fill-adapt-mode t)
 (set-face-attribute 'default nil :height 95)
 (global-font-lock-mode 1)
 (color-theme-subdued)
-(setq-default saveplace t
-	      fill-adapt-mode t
-	      dtrt-indent-mode t)
-(setq edebug-trace t)
-(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Remove toolbar, menubar, scrollbar and tooltips
 (tool-bar-mode -1)
@@ -177,14 +171,14 @@
 ;; ido
 ;; ---
 (setq 
-   ido-ignore-buffers                 ; ignore these guys
-   '("\\` " "^\*Mess" "^\*Back" ".*Completion" "^\*Ido")
-   ido-case-fold  t                   ; be case-insensitive
-   ido-use-filename-at-point nil      ; don't use filename at point (annoying)
-   ido-use-url-at-point nil           ; don't use url at point (annoying)
-   ido-enable-flex-matching t         ; be flexible
-   ido-max-prospects 6                ; don't spam my minibuffer
-   ido-confirm-unique-completion nil) ; don't wait for RET with unique completion
+ ido-ignore-buffers                 ; ignore these guys
+ '("\\` " "^\*Mess" "^\*Back" ".*Completion" "^\*Ido")
+ ido-case-fold  t                   ; be case-insensitive
+ ido-use-filename-at-point nil      ; don't use filename at point (annoying)
+ ido-use-url-at-point nil           ; don't use url at point (annoying)
+ ido-enable-flex-matching t         ; be flexible
+ ido-max-prospects 6                ; don't spam my minibuffer
+ ido-confirm-unique-completion nil) ; don't wait for RET with unique completion
 
 ;; -----
 ;; Dired
@@ -220,12 +214,11 @@
 
 (defun irc ()
   (interactive)
-;;  (rcirc-connect "irc.freenode.net" "6667" "artagnon"))  
-  (rcirc-connect "38.229.70.20" "6667" "artagnon"))
+  (rcirc-connect "irc.freenode.net" "6667" "artagnon"))
 
 (defun gtalk ()
   (interactive)
-  (rcirc-connect "kytes" "6667" "artagnon"))
+  (rcirc-connect "fran" "6667" "artagnon"))
 
 ;; Logging
 (setq rcirc-log-flag "t"
@@ -237,7 +230,7 @@
 
 (add-hook 'window-configuration-change-hook
           '(lambda ()
-             (setq rcirc-fill-column (- (window-width) 10))))
+	    (setq rcirc-fill-column (- (window-width) 10))))
 
 ;; ----------
 ;; Mode hooks
@@ -325,7 +318,7 @@
   (setq org-export-latex-classes nil))
 (add-to-list 'org-export-latex-classes
 	     '("beamer"
-"\\documentclass[8pt]{beamer}
+	       "\\documentclass[8pt]{beamer}
 \\beamertemplateballitem
 \\usepackage{hyperref}
 \\usepackage{color}
@@ -345,8 +338,8 @@
 ;; ----------
 (add-hook 'latex-mode-hook (lambda () (define-key tex-mode-map "\C-c\C-c" 'tex-compile-dvi)))
 (defun tex-compile-dvi ()
-   (interactive)
-   (shell-command (concat "pdflatex -output-format dvi " (tex-main-file) "&")))
+  (interactive)
+  (shell-command (concat "pdflatex -output-format dvi " (tex-main-file) "&")))
 
 ;; ------------------------
 ;; Useful utility functions
@@ -400,8 +393,8 @@
 	       t))))
 
 (defun reformat-hard-wrap (beg end)
-   (interactive "r")
-   (shell-command-on-region beg end "fmt -w2000" nil t))
+  (interactive "r")
+  (shell-command-on-region beg end "fmt -w2000" nil t))
 
 (defmacro replace-in-file (from-string to-string)
   `(progn
