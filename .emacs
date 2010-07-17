@@ -279,6 +279,11 @@
       tramp-default-method "ssh")
 
 ;; ---------
+;; diff-mode
+;; ---------
+(define-key diff-mode-map [(meta q)] 'fill-paragraph)
+
+;; ---------
 ;; mail-mode
 ;; ---------
 (setq user-mail-address "artagnon@gmail.com"
