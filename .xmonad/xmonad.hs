@@ -111,7 +111,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
     -- Custom keybindings
-    , ((modm              , xK_c), runOrRaise "conkeror" (className =? "Conkeror"))
+    , ((modm              , xK_c), runOrRaise "google-chrome" (className =? "Google-chrome"))
     , ((modm              , xK_e), runOrRaise "emacs" (className =? "Emacs"))
     , ((modm              , xK_u), runOrRaise "urxvt" (className =? "URxvt"))
     
