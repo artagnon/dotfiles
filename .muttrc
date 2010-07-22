@@ -16,48 +16,35 @@ set message_cachedir = ~/.mutt/cache/bodies
 set certificate_file = ~/.mutt/certificates
 
 # Some keybindings
-macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
-macro index gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
-macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to Starred Mail"
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
-macro index gc "<change-folder>=Chatlog<enter>" "Go to Chatlog"
+macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index,pager gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
+macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to Starred Mail"
+macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index,pager gc "<change-folder>=Chatlog<enter>" "Go to Chatlog"
+macro index,pager a "<pipe-message>goobook add<return>" "Add the sender address to Google contacts"
+bind index,pager I flag-message
+bind index,pager c mail
+bind index,pager a group-reply
+bind index o display-message
 macro index y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive message"
 macro index Y "<tag-thread><tag-prefix><save-message>=[Gmail]/All Mail<enter><enter>" "Archive thread"
 macro index s "<save-message>~/tmp/incoming.mbox" "Save message"
 macro index S "<tag-thread><tag-prefix><save-message>~/tmp/incoming.mbox<enter><enter>" "Save thread"
-bind index I flag-message
-bind index c mail
-bind index a group-reply
-bind index o display-message
-
-macro pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
-macro pager gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
-macro pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to Starred Mail"
-macro pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro pager y "<exit><save-message>=[Gmail]/All Mail<enter><enter>" "Archive message"
 macro pager Y "<exit><tag-thread><tag-prefix><save-message>=[Gmail]/All Mail<enter><enter>" "Archive thread"
-macro index s "<exit><save-message>~/tmp/incoming.mbox" "Save message"
+macro pager s "<exit><save-message>~/tmp/incoming.mbox" "Save message"
 macro pager S "<exit><tag-thread><tag-prefix><save-message>~/tmp/incoming.mbox<enter><enter>" "Save thread"
-bind index I flag-message
-bind pager c mail
-bind pager a group-reply
-
 macro compose y "<send-message>"
 
 # More keybindings
-bind generic <esc>< first-entry
-bind generic <esc>> last-entry
-bind index <esc>< first-entry
-bind index <esc>> last-entry
+bind generic,index <esc>< first-entry
+bind generic,index <esc>> last-entry
+bind pager <esc>< top
+bind pager <esc>> bottom
 
-bind generic \Cs search
-bind generic \Cr search-reverse
-bind index \Cs search
-bind index \Cr search-reverse
-bind pager \Cs search
-bind pager \Cr search-reverse
+bind generic,index,pager \Cs search
+bind generic,index,pager \Cr search-reverse
 
 bind index \Cn next-undeleted
 bind index \Cp previous-undeleted
