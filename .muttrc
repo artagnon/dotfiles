@@ -93,7 +93,7 @@ set followup_to = no
 set honor_followup_to = no
 
 # Google contacts
-set query_command = "~/.mutt/contactos.rb --mutt %s"
+set query_command = "goobook query %s"
 set query_format = "%4c %t %-40.40a %-40.40n %?e?(%e)?"
 
 # Default color definitions
