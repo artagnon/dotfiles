@@ -126,9 +126,25 @@
 (global-set-key (kbd "<f5>") 'th-save-frame-configuration)
 (global-set-key (kbd "<f6>") 'th-jump-to-register)
 
-;; -----------------------
-;; Linux style indentation
-;; -----------------------
+;; ---------------------
+;; Style and indentation
+;; ---------------------
+
+(defmacro define-new-c-style (name derived-from style-alists tabs-p path-match)
+  `(progn
+     (add-hook `c-mode-common-hook
+	       (lambda ()
+		 (c-add-style ,name
+		  '(,derived-from (c-offsets-alist
+				   ,@style-alists)))))
+     (add-hook `c-mode-hook
+	       (lambda ()
+		 (let ((filename (buffer-file-name)))
+		   (when (and filename
+			      (not (eq (string-match (expand-file-name ,path-match)
+						     filename) nil)))
+		     (setq indent-tabs-mode ,tabs-p)
+		     (c-set-style ,name)))))))
 
 (defun c-lineup-arglist-tabs-only (ignored)
   "Line up argument lists with tabs, not spaces"
@@ -139,39 +155,11 @@
     (* (max steps 1)
        c-basic-offset)))
 
-(defun linux-c-mode-hook ()
-  (let ((filename (buffer-file-name)))
-    (when (and filename
-	       (eq (string-match (expand-file-name "~/src/linux-2.6")
-				 filename) 0))
-      (setq indent-tabs-mode t)
-      (c-set-style "linux-tabs-only"))))
+(define-new-c-style "linux-tabs-only" "linux" ((arglist-cont-nonempty
+						c-lineup-gcc-asm-reg
+						c-lineup-arglist-tabs-only)) t "~/src/linux")
 
-(defun subversion-c-mode-hook ()
-  (let ((filename (buffer-file-name)))
-    (when (and filename
-	       (eq (string-match (expand-file-name "~/svn")
-				 filename) 0))
-      (setq indent-tabs-mode nil)
-      (c-set-style "subversion"))))
-
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            ;; Add kernel style
-            (c-add-style
-             "linux-tabs-only"
-             '("linux" (c-offsets-alist
-                        (arglist-cont-nonempty
-                         c-lineup-gcc-asm-reg
-                         c-lineup-arglist-tabs-only))))
-	    ;; Add Subversion style
-	    (c-add-style
-	     "subversion"
-	     '("gnu" (c-offsets-alist
-		      (inextern-lang 0))))))
-
-(add-hook 'c-mode-hook 'linux-c-mode-hook)
-(add-hook 'c-mode-hook 'subversion-c-mode-hook)
+(define-new-c-style "subversion" "gnu" ((inextern-lang 0)) nil "~/svn")
 
 ;; --------------------------
 ;; Autofill and Adaptive fill
