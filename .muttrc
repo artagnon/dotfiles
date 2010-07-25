@@ -102,7 +102,7 @@ color tree	 brightmagenta  default
 color tilde	 blue           default
 color attachment brightyellow   default
 color markers	 brightred      default
-color message    white          default
+color message    brightwhite    default
 color search     brightwhite    magenta
 color bold       brightyellow   default
 
