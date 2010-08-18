@@ -21,6 +21,7 @@
 (require 'tramp)
 (require 'slime)
 (require 'magit)
+(require 'rebase-mode)
 (require 'paredit)
 (require 'color-theme)
 (require 'color-theme-subdued)
@@ -36,6 +37,7 @@
 (require 'csharp-mode)
 (require 'ess)
 (require 'mingus)
+(require 'rcirc-controls)
 
 ;; ----------------
 ;; auto-mode-alists
