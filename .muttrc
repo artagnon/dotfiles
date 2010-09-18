@@ -23,7 +23,6 @@ macro index,pager gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail
 macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to Starred Mail"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro index,pager D delete-message
-macro index,pager a "<pipe-message>goobook add<enter>" "Add the sender address to Google contacts"
 bind index,pager I flag-message
 bind index,pager c mail
 bind index,pager a group-reply
@@ -77,6 +76,7 @@ set delete = yes
 set edit_headers = no
 set autoedit = no
 set beep = no
+set check_new = no
 set include = yes
 set attribution = "%n writes:"
 set index_format = "%Z | %D | %-20.20F %s"
@@ -114,3 +114,7 @@ subscribe google-summer-of-code-students-list@googlegroups.com
 subscribe dev@subversion.apache.org
 subscribe noveliniitkgp@googlegroups.com
 subscribe commits@subversion.apache.org
+subscribe optics_iitkgp@googlegroups.com
+subscribe phydep@googlegroups.com
+subscribe linux-btrfs@vger.kernel.org
+subscribe foss-in@yahoogroups.com
