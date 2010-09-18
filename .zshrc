@@ -82,22 +82,18 @@ function calc () {
 }
 
 # ---[ Aliases ]-------------------------------------------------------
-# system aliases
+# abbreviations
 alias ls='ls --color'
 alias l='ls --color'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
 alias grep='ack-grep -i'
-alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias diff='diff -u'
 alias less='less -r'
-
-# custom aliases
-alias rsync='rsync --progress -avze "ssh -p 51000"'
-alias pulseoff='mv ~/.asoundrc ~/.asoundrc.pulse'
-alias pulseon='cp ~/.asoundrc.pulse ~/.asoundrc'
 alias ec='emacsclient'
 alias et='emacsclient -t'
+alias rsync='rsync --progress -avze "ssh -p 51000"'
+alias fetch='git fetch'
 
 # apt aliases
 alias au='sudo aptitude update'
@@ -109,11 +105,10 @@ alias arp='sudo aptitude purge'
 alias dl='dpkg -l | grep'
 alias dL='dpkg -L'
 
-# pulseaudio aliases
-alias pa='pulseaudio -D'
-
-# bluetooth
-alias btallow="dbus-send --system --type=method_call --print-reply --dest=org.bluez /org/bluez/hci0 org.bluez.Adapter.SetMode string:discoverable && dbus-send --system --type=method_call --print-reply --dest=org.bluez /org/bluez/hci0 org.bluez.Adapter.SetDiscoverableTimeout uint32:200 > /dev/null"
+# tiny helpers
+alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
+alias vplayer='mplayer -af volume=-30'
+alias entertain='mplayer "$(find "." -type f -name "*.avi" | sort --random-sort | head -n 1)"'
 
 # ---[ ZSH Options ]----------------------------------------------------
 setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL
