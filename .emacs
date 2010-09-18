@@ -38,6 +38,8 @@
 (require 'ess)
 (require 'mingus)
 (require 'rcirc-controls)
+(require 'windmove)
+(require 'framemove)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -71,6 +73,8 @@
 (set-face-attribute 'default nil :height 95)
 (global-font-lock-mode 1)
 (color-theme-subdued)
+(windmove-default-keybindings)
+(setq framemove-hook-into-windmove t)
 
 ;; Remove toolbar, menubar, scrollbar and tooltips
 (tool-bar-mode -1)
