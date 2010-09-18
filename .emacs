@@ -182,8 +182,8 @@
  ido-use-url-at-point nil           ; don't use url at point (annoying)
  ido-enable-flex-matching t         ; be flexible
  ido-max-prospects 6                ; don't spam my minibuffer
- ido-confirm-unique-completion nil) ; don't wait for RET with unique completion
-
+ ido-confirm-unique-completion nil  ; don't wait for RET with unique completion
+ ido-max-directory-size 100000)
 ;; -----
 ;; Dired
 ;; -----
