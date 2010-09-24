@@ -4,11 +4,11 @@
 # ---[ Dzen variables ]------------------------------------------------
 BG='#1f1f1f'
 FG='#eeeeec'
-W=1280
+W=3840
 H=20
 X=0
 Y=0
-FN='inconsolata:size=9'
+FN='inconsolata:size=11'
 ICONPATH=$HOME/.dzen
 
 # ---[ gdbar variables ]-----------------------------------------------
