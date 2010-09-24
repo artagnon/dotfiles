@@ -34,7 +34,7 @@ setprompt
 function cdm () {
     local tmp
     if [[ -z "${TMUX}" ]]; then
-        printf 'Not inside of `tmux'\''. Giving up.\n'
+        echo 'fatal: Not inside tmux.'
         return 1
     fi
     if [[ -n "$1" ]]; then
@@ -52,9 +52,7 @@ function cdm () {
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR="emacsclient"
-#export PS1="%{${fg[red]}%}[%{${fg[green]}%}%T%{${fg[red]}%}]%{${fg[white]}%}%25<...<%~%{${fg[white]}%}: "
-#export PS2="%_> "
-export PATH=$PATH:$HOME/bin:$HOME/bin/depot_tools:/var/lib/gems/1.8/bin:$HOME/.python/bin
+export PATH=$HOME/svn/prefix/svn-trunk/bin:$HOME/bin:$HOME/bin/depot_tools:/var/lib/gems/1.8/bin:$HOME/.python/bin:$HOME/.cabal/bin:$PATH
 export PYTHONPATH=$HOME/.python/lib
 export PREFIX=$HOME
 export GEM_HOME=$PREFIX/lib/ruby/gems/1.8
@@ -62,6 +60,7 @@ export RUBYLIB=$PREFIX/lib/ruby:$PREFIX/lib/site_ruby/1.8
 export PYTHONSTARTUP=$HOME/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export ACK_PAGER='less -r'
+export LD_LIBRARY_PATH="/usr/local/lib"
 
 # ---[ GPG Key ]-------------------------------------------------------
 export GPGKEY=B8BB3FE9
