@@ -1,5 +1,6 @@
 set from = "artagnon@gmail.com"
 set realname = "Ramkumar Ramachandra"
+alternates "artagnon@apache.org|artagnon@tigris.org"
 
 # IMAP and SMTP settings
 set imap_user = "artagnon@gmail.com"
