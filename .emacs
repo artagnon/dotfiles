@@ -222,7 +222,7 @@
 
 (defun irc ()
   (interactive)
-  (rcirc-connect "irc.freenode.net" "6667" "artagnon"))
+  (rcirc-connect "irc.freenode.net" "6667" "artagnon" "artagnon" "Ramkumar Ramachandra"))
 
 (defun gtalk ()
   (interactive)
