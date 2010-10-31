@@ -135,20 +135,22 @@
 ;; ---------------------
 ;; Style and indentation
 ;; ---------------------
-
-(defmacro define-new-c-style (name derived-from style-alists tabs-p path-match)
+(defmacro define-new-c-style (name derived-from style-alists tabs-p path-list)
   `(progn
-     (add-hook `c-mode-common-hook
+     (add-hook 'c-mode-common-hook
 	       (lambda ()
 		 (c-add-style ,name
-		  '(,derived-from (c-offsets-alist
-				   ,@style-alists)))))
-     (add-hook `c-mode-hook
+			      '(,derived-from (c-offsets-alist
+					       ,style-alists)))))
+     (add-hook 'c-mode-hook
 	       (lambda ()
 		 (let ((filename (buffer-file-name)))
 		   (when (and filename
-			      (not (eq (string-match (expand-file-name ,path-match)
-						     filename) nil)))
+			      (delq nil
+				    (mapcar (lambda (path)
+					      (string-match (expand-file-name path)
+							    filename))
+					    ',path-list)))
 		     (setq indent-tabs-mode ,tabs-p)
 		     (c-set-style ,name)))))))
 
@@ -161,11 +163,15 @@
     (* (max steps 1)
        c-basic-offset)))
 
-(define-new-c-style "linux-tabs-only" "linux" ((arglist-cont-nonempty
-						c-lineup-gcc-asm-reg
-						c-lineup-arglist-tabs-only)) t "~/src/linux")
+;; Syntax for define-new-c-style:
+;; <style name> <derived from> <style alist> <tabs-p> <list of paths to apply to>
 
-(define-new-c-style "subversion" "gnu" ((inextern-lang 0)) nil "~/svn")
+(define-new-c-style "linux-tabs-only" "linux" (arglist-cont-nonempty
+					       c-lineup-gcc-asm-reg
+					       c-lineup-arglist-tabs-only) t
+					       ("~/src/linux" "~/src/git"))
+
+(define-new-c-style "subversion" "gnu" (inextern-lang 0) nil ("~/svn"))
 
 ;; --------------------------
 ;; Autofill and Adaptive fill
