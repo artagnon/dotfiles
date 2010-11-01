@@ -252,6 +252,8 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (eldoc-mode t)))
 (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
 (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (defalias 'perl-mode 'cperl-mode)
 
 ;; Paredit
