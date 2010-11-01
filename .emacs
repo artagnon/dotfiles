@@ -222,9 +222,13 @@
 ;; General settings
 (setq rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar Ramachandra")))
 
-(defun irc ()
-  (interactive)
-  (rcirc-connect "irc.freenode.net" "6667" "artagnon" "artagnon" "Ramkumar Ramachandra"))
+(defun irc (oftc-p)
+  (interactive "P")
+  (if oftc-p
+      (rcirc-connect "irc.oftc.net" "6667" "artagnon" "artagnon" "Ramkumar Ramachandra"
+		     nil nil)
+      (rcirc-connect "irc.freenode.net" "6667" "artagnon" "artagnon" "Ramkumar Ramachandra"
+		     nil nil)))
 
 (defun gtalk ()
   (interactive)
