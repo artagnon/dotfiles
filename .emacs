@@ -194,6 +194,7 @@
  ido-max-prospects 6                ; don't spam my minibuffer
  ido-confirm-unique-completion nil  ; don't wait for RET with unique completion
  ido-max-directory-size 100000)
+
 ;; -----
 ;; Dired
 ;; -----
@@ -209,11 +210,6 @@
 ;; -----
 ;; magit
 ;; -----
-(define-key magit-mode-map "\C-uc" #'(lambda ()
-				       "magit-commit-amend"
-				       (interactive)
-				       (magit-log-edit-toggle-amending) (magit-log-edit)))
-(add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
 (setq magit-commit-all-when-nothing-staged nil
       magit-revert-item-confirm t
       magit-process-connection-type nil
