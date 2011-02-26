@@ -52,15 +52,13 @@ function cdm () {
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR="emacsclient"
-export PATH=$HOME/svn/prefix/svn-trunk/bin:$HOME/bin:$HOME/bin/depot_tools:/var/lib/gems/1.8/bin:$HOME/.python/bin:$HOME/.cabal/bin:$PATH
-export PYTHONPATH=$HOME/.python/lib
-export PREFIX=$HOME
-export GEM_HOME=$PREFIX/lib/ruby/gems/1.8
-export RUBYLIB=$PREFIX/lib/ruby:$PREFIX/lib/site_ruby/1.8
-export PYTHONSTARTUP=$HOME/.pythonrc
+export PATH=~/svn/prefix/svn-trunk/bin:~/bin:~/bin/depot_tools:/var/lib/gems/1.8/bin:~/.python/bin:~/.cabal/bin:$PATH
+export PYTHONPATH=~/.python/lib
+export GEM_HOME=~/lib/ruby/gems/1.8
+export RUBYLIB=~/lib/ruby:~/lib/site_ruby/1.8
+export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export ACK_PAGER='less -r'
-export LD_LIBRARY_PATH="/usr/local/lib"
 
 # ---[ GPG Key ]-------------------------------------------------------
 export GPGKEY=B8BB3FE9
@@ -152,7 +150,7 @@ setopt   autopushd pushdminus rcquotes
 unsetopt BG_NICE HUP autoparamslash
 
 # ---[ History ]-------------------------------------------------------
-HISTFILE=$HOME/.zsh-history
+HISTFILE=~/.zsh-history
 HISTSIZE=3000
 SAVEHIST=$HISTSIZE
 
