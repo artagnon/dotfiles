@@ -4,8 +4,6 @@ alternates "artagnon@apache.org|artagnon@tigris.org"
 
 # IMAP and SMTP settings
 set imap_user = "artagnon@gmail.com"
-set imap_pass = TODO
-set smtp_pass = TODO
 set smtp_url = "smtp://artagnon@smtp.gmail.com:587/"
 
 set folder = "imaps://imap.gmail.com:993/"
