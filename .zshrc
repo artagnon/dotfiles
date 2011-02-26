@@ -154,19 +154,13 @@ alias -s dat=vlc
 alias -s mp3=mpg321
 
 # ---[ ZSH Options ]----------------------------------------------------
-setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL
-setopt   ALWAYS_TO_END BASH_AUTO_LIST NO_BEEP
-setopt   AUTO_CD MULTIOS
-setopt   CHECK_JOBS NO_HUP
-setopt   INC_APPEND_HISTORY EXTENDED_HISTORY HIST_IGNORE_DUPS HIST_FIND_NO_DUPS
-setopt	 EXTENDED_HISTORY HIST_EXPIRE_DUPS_FIRST SHARE_HISTORY
-setopt   HIST_REDUCE_BLANKS HIST_SAVE_NO_DUPS
-
-setopt   notify globdots pushdtohome
-setopt   recexact longlistjobs
-setopt   autoresume pushdsilent
-setopt   autopushd pushdminus rcquotes
-unsetopt BG_NICE HUP autoparamslash
+setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL NO_BEEP MULTIOS
+setopt   AUTO_LIST NO_LIST_AMBIGUOUS MENU_COMPLETE AUTO_REMOVE_SLASH
+setopt   LIST_PACKED LIST_TYPES
+setopt   INC_APPEND_HISTORY EXTENDED_HISTORY SHARE_HISTORY HIST_REDUCE_BLANKS
+setopt   HIST_SAVE_NO_DUPS HIST_IGNORE_DUPS HIST_FIND_NO_DUPS HIST_EXPIRE_DUPS_FIRST
+setopt   NO_NOTIFY LONG_LIST_JOBS
+setopt   AUTO_CD AUTO_PUSHD PUSHD_SILENT
 
 # ---[ History ]-------------------------------------------------------
 HISTFILE=~/.zsh-history
