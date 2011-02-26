@@ -8,12 +8,36 @@
 [github]
 	user = artagnon
 [format]
-	signoff = True
+	signoff = true
 [sendemail]
+	smtpuser = artagnon@gmail.com
 	suppresscc = all
-	smtpserver = /usr/bin/msmtp
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpencryption = tls
 	chainreplyto = false
+[help]
+	autocorrect = 20
+[color]
+	ui = auto
+[push]
+	default = matching
 [alias]
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
 	ci = commit
-	fp = format-patch --cover-letter -o outgoing
+	co = checkout
+	stat = status
+	fp = format-patch --cover-letter -M -C -o outgoing
+	fpo = format-patch --stdout -M -C
+	am = am -c
 	se = send-email
+[imap]
+        folder = "[Gmail]/Drafts"
+        host = imaps://imap.gmail.com
+        user = artagnon@gmail.com
+        port = 993
+        sslverify = false
+[merge]
+	log = 10
+[rebase]
+	autosquash = true
