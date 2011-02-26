@@ -119,6 +119,22 @@ function stream-and-save() {
     fi
     wget $url -O - | tee -a "$2" | mplayer -cache 8192 -;
 }
+# suffix aliases
+alias -s html=x-www-browser
+alias -s org=$EDITOR
+alias -s c=$EDITOR
+alias -s cc=$EDITOR
+alias -s py=$EDITOR
+alias -s hs=$EDITOR
+alias -s pdf=evince
+alias -s djvu=evince
+alias -s avi=vlc
+alias -s mpg=vlc
+alias -s mpeg=vlc
+alias -s mkv=vlc
+alias -s wmv=vlc
+alias -s dat=vlc
+alias -s mp3=mpg321
 
 # ---[ ZSH Options ]----------------------------------------------------
 setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL
