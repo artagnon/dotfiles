@@ -78,8 +78,37 @@ function calc () {
 
 # ---[ Aliases ]-------------------------------------------------------
 # abbreviations
-alias ls='ls --color'
-alias l='ls --color'
+function l () {
+    case "$1" in
+	date|mtime)
+	    shift
+	    ls --color -vt "$@"
+	    ;;
+	atime)
+	    shift
+	    ls --color -vu "$@"
+	    ;;
+	recent)
+	    shift
+	    ls --color -vt "$@" | head -n 5
+	    ;;
+	size)
+	    shift
+	    ls --color -vS "$@"
+	    ;;
+	all)
+	    shift
+	    ls --color -vlha "$@"
+	    ;;
+	extension)
+	    shift
+	    ls --color -vX "$@"
+	    ;;
+	*)
+	    ls --color -v "$@"
+	    ;;
+    esac
+}
 alias halt='sudo halt'
 alias reboot='sudo reboot'
 alias grep='ack-grep -i'
