@@ -102,21 +102,11 @@ alias dL='dpkg -L'
 
 # tiny helpers
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
-alias vplayer='mplayer -af volume=-20'
-alias entertain='mplayer "$(find "." -type f -name "*.avi" | sort --random-sort | head -n 1)"'
+alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us | xclip'
-alias xrandr-restore='xrandr --output CRT1 --auto && xrandr --output CRT2 --auto && xrandr --output CRT2 --left-of CRT1'
+alias xrandr-restore='xrandr --output CRT1 --auto; xrandr --output CRT2 --auto; xrandr --output CRT2 --left-of CRT1'
 alias incognito='export HISTFILE=/dev/null'
 
-# helper functions
-function stream-and-save() {
-    url=$1;
-    rm -f "$2";
-    if [[ $url == *youtube* ]]; then
-	url=`youtube-dl -g $url`;
-    fi
-    wget $url -O - | tee -a "$2" | mplayer -cache 8192 -;
-}
 # suffix aliases
 alias -s html=x-www-browser
 alias -s org=$EDITOR
