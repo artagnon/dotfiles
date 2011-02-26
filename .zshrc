@@ -160,13 +160,17 @@ SAVEHIST=$HISTSIZE
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*default' list-prompt
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 2
-zstyle ':completion:*:functions' ignored-patterns '_*'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' menu interactive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} l:|=* r:|=*' +'r:|[._-]=* r:|=*'
+zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' verbose yes
+zstyle ':completion:*' insert-tab false
+zstyle ':completion:*:*:git:*' verbose no
+zstyle ':completion:*:files' ignored-patterns '*?.o' '*?~'
+zstyle ':completion:*:files' file-sort 'date'
+zstyle ':completion:*:default' list-prompt
+zstyle ':completion:*:match:*' original only
+zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX + $#SUFFIX) / 5 )) )'
+zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # ---[ System settings ]------------------------------------------------
 limit -s coredumpsize 0
