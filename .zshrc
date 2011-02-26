@@ -7,16 +7,16 @@ keychain -q ~/.ssh/id_rsa
 source ~/.keychain/fran-sh
 
 # ---[ Autojump ]------------------------------------------------------
-function autojump_preexec() {
-    { (autojump -a "$(pwd -P)"&)>/dev/null 2>>|${HOME}/.autojump_errors ; } 2>/dev/null
+source ~/.z.sh
+function j () {
+    z "$@" || return 0;
+}
+function z_preexec () {
+    z --add "$(pwd -P)";
 }
 
 typeset -ga preexec_functions
-preexec_functions+=autojump_preexec
-
-alias jumpstat="autojump --stat"
-
-function j { local new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\033[31m${new_path}\\033[0m"; cd "$new_path";fi }
+preexec_functions+=z_preexec
 
 # ---[ Modules ]-------------------------------------------------------
 zmodload zsh/complist
