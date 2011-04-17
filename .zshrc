@@ -60,6 +60,11 @@ export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export ACK_PAGER='less -r'
 
+# ---[ Amazon AWS ]-------------------------------------------------
+export EC2_HOME=~/.ec2
+export PATH=$PATH:$EC2_HOME/bin
+export JAVA_HOME=/usr
+
 # ---[ GPG Key ]-------------------------------------------------------
 export GPGKEY=B8BB3FE9
 
