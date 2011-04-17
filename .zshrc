@@ -188,6 +188,14 @@ zstyle ':completion:*:match:*' original only
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX + $#SUFFIX) / 5 )) )'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
+# ---[ ZLE ]------------------------------------------------------------
+history-incremental-search-backward-initial() {
+    zle history-incremental-search-backward $BUFFER
+}
+zle -N history-incremental-search-backward-initial
+bindkey '^R' history-incremental-search-backward-initial
+bindkey -M isearch '^R' history-incremental-search-backward
+
 # ---[ System settings ]------------------------------------------------
 limit -s coredumpsize 0
 umask 0027
