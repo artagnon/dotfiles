@@ -1,0 +1,1 @@
+/home/artagnon/src/magit/contrib/magit-simple-keys.el

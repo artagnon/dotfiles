@@ -21,6 +21,7 @@
 (require 'tramp)
 (require 'slime)
 (require 'magit)
+(require 'magit-simple-keys)
 (require 'rebase-mode)
 (require 'paredit)
 (require 'color-theme)
