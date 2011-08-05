@@ -38,6 +38,9 @@
         port = 993
         sslverify = false
 [merge]
+	conflictstyle = diff3
 	log = 10
+[rerere]
+	enabled = true
 [rebase]
 	autosquash = true
