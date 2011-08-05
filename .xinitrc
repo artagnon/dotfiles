@@ -14,7 +14,7 @@ lxde)
 	exec lxde
 	;;
 xmonad)
-	exec /usr/local/bin/xmonad
+	exec $HOME/bin/xmonad
 	;;
 *)
 	exec $DEFAULT_SESSION
