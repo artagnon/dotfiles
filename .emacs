@@ -25,7 +25,7 @@
 (require 'rebase-mode)
 (require 'paredit)
 (require 'color-theme)
-(require 'color-theme-subdued)
+(require 'color-theme-hober2)
 (require 'clojure-mode)
 (require 'org-install)
 (require 'quack)
@@ -76,7 +76,7 @@
 
 (set-face-attribute 'default nil :height 85)
 (global-font-lock-mode 1)
-(color-theme-subdued)
+(color-theme-hober2)
 (windmove-default-keybindings)
 (setq framemove-hook-into-windmove t)
 
