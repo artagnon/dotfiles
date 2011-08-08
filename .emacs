@@ -250,6 +250,26 @@
           '(lambda ()
 	    (setq rcirc-fill-column (- (window-width) 10))))
 
+;; ---
+;; ZNC
+;; ---
+(defun rcirc-detach-buffer ()
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (when (and (rcirc-buffer-process)
+	       (eq (process-status (rcirc-buffer-process)) 'open))
+      (with-rcirc-server-buffer
+	(setq rcirc-buffer-alist
+	      (rassq-delete-all buffer rcirc-buffer-alist)))
+      (rcirc-update-short-buffer-names)
+      (if (rcirc-channel-p rcirc-target)
+	  (rcirc-send-string (rcirc-buffer-process)
+			     (concat "DETACH " rcirc-target))))
+    (setq rcirc-target nil)
+    (kill-buffer buffer)))
+
+(define-key rcirc-mode-map [(control c) (control d)] 'rcirc-detach-buffer)
+
 ;; ----------
 ;; Mode hooks
 ;; ----------
