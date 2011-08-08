@@ -41,6 +41,7 @@
 (require 'rcirc-controls)
 (require 'windmove)
 (require 'framemove)
+(require 'winner)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -70,8 +71,10 @@
 	      tab-width 8
 	      c-basic-offset 8
 	      edebug-trace t
-	      fill-adapt-mode t)
-(set-face-attribute 'default nil :height 95)
+	      fill-adapt-mode t
+	      winner-mode t)
+
+(set-face-attribute 'default nil :height 85)
 (global-font-lock-mode 1)
 (color-theme-subdued)
 (windmove-default-keybindings)
