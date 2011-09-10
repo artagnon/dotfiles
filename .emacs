@@ -217,6 +217,9 @@
       magit-process-connection-type nil
       process-connection-type nil)
 
+(add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
+(add-hook 'git-commit-mode-hook 'flyspell-mode)
+
 ;; -----
 ;; rcirc
 ;; -----
