@@ -233,7 +233,7 @@
 
 (defun gtalk ()
   (interactive)
-  (rcirc-connect "fran" "6667" "artagnon"))
+  (rcirc-connect "localhost" "6667" "artagnon"))
 
 ;; Always keep the prompt at the bottom of the buffer
 (add-hook 'rcirc-mode-hook
