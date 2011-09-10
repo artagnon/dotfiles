@@ -24,6 +24,7 @@
 	default = matching
 [alias]
 	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 	ci = commit
 	co = checkout
 	stat = status
