@@ -80,7 +80,7 @@ speedbar, tex, view, viper, w3m, widget, woman"
   (color-theme-install
    `(color-theme-hober2
      ;; Frame parameters
-     ((foreground-color . "light gray")
+     ((foreground-color . "gainsboro")
       (background-color . "black")
       (mouse-color      . "khaki")
       (cursor-color     . "khaki")
@@ -144,7 +144,7 @@ speedbar, tex, view, viper, w3m, widget, woman"
 
       (widget-mouse-face . highlight))
      ;; Faces
-     (default ((t (:background "black" :foreground "light gray"
+     (default ((t (:background "black" :foreground "gainsboro"
                    :stipple nil :box nil :strike-through nil :overline nil
                    :underline nil :slant normal :weight normal
                    :inverse-video nil))))
@@ -480,7 +480,7 @@ speedbar, tex, view, viper, w3m, widget, woman"
      (hyper-apropos-apropos-warning ((t (:background "indian red" :foreground "white"))))
 
 
-     (highlight ((t (:background "DarkGreen" :foreground "light gray" :underline t))))
+     (highlight ((t (:background "olive drab" :underline nil))))
 
      (highline-face ((t (:background "gray30" :foreground "white"))))
      (highline-vertical-face ((t (:background "gray30" :foreground "white"))))
