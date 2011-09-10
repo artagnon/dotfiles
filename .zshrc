@@ -52,10 +52,10 @@ function cdm () {
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR="emacsclient"
-export PATH=~/svn/prefix/svn-trunk/bin:~/bin:~/bin/depot_tools:/var/lib/gems/1.8/bin:~/.python/bin:~/.cabal/bin:$PATH
+export PATH=~/svn/prefix/svn-trunk/bin:~/bin:~/bin/depot_tools:~/.ruby/bin:~/.python/bin:~/.cabal/bin:$PATH
 export PYTHONPATH=~/.python/lib
-export GEM_HOME=~/lib/ruby/gems/1.8
-export RUBYLIB=~/lib/ruby:~/lib/site_ruby/1.8
+export GEM_HOME=~/.ruby
+export RUBYLIB=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export ACK_PAGER='less -r'
@@ -69,8 +69,7 @@ export JAVA_HOME=/usr
 export GPGKEY=B8BB3FE9
 
 # ---[ Proxy exports ]-------------------------------------------------
-export http_proxy=http://localhost:8888/
-export ftp_proxy=http://localhost:8888/
+. ~/.proxyset
 
 # ---[ Debian Developer ]----------------------------------------------
 export DEBFULLNAME="Ramkumar Ramachandra"
