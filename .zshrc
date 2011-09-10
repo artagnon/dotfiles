@@ -3,7 +3,7 @@ export PS_PERSONALITY='linux'
 [[ $TERM == eterm-color ]] && export TERM=xterm
 
 # ---[ Keychain ]------------------------------------------------------
-keychain -q ~/.ssh/id_rsa
+keychain --nogui -q ~/.ssh/id_rsa
 source ~/.keychain/fran-sh
 
 # ---[ Autojump ]------------------------------------------------------
