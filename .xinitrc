@@ -1,9 +1,9 @@
 #!/bin/sh
 xrdb -merge ~/.Xresources
-$HOME/bin/randwal.py &
+xsetroot -cursor_name left_ptr
+xset b off
 setxkbmap -option ctrl:nocaps
 $HOME/bin/dzen.sh &
-$HOME/bin/mpdas &
 DEFAULT_SESSION=xmonad
 
 case $1 in
