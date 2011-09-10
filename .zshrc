@@ -4,7 +4,7 @@ export PS_PERSONALITY='linux'
 
 # ---[ Keychain ]------------------------------------------------------
 keychain --nogui -q ~/.ssh/id_rsa
-source ~/.keychain/fran-sh
+source ~/.keychain/localhost-sh
 
 # ---[ Autojump ]------------------------------------------------------
 source ~/.z.sh
