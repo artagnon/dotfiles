@@ -1,6 +1,6 @@
 set from = "artagnon@gmail.com"
 set realname = "Ramkumar Ramachandra"
-alternates "artagnon@apache.org|artagnon@tigris.org"
+alternates "artagnon@apache.org|artagnon@tigris.org|ramkumar@iitkgp.ac.in"
 
 # IMAP and SMTP settings
 set imap_user = "artagnon@gmail.com"
@@ -8,7 +8,7 @@ set smtp_url = "smtp://artagnon@smtp.gmail.com:587/"
 
 set folder = "imaps://imap.gmail.com:993/"
 set spoolfile = "=INBOX"
-set postponed ="=[Gmail]/Drafts"
+set postponed = "=[Gmail]/Drafts"
 set trash = "=[Gmail]/Trash"
 set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/bodies
@@ -105,6 +105,9 @@ color message    brightwhite    default
 color search     brightwhite    magenta
 color bold       brightyellow   default
 
+# Auto view
+auto_view text/html
+
 # Mailing lists
 subscribe git@vger.kernel.org
 subscribe magit@googlegroups.com
@@ -117,3 +120,6 @@ subscribe optics_iitkgp@googlegroups.com
 subscribe phydep@googlegroups.com
 subscribe linux-btrfs@vger.kernel.org
 subscribe foss-in@yahoogroups.com
+subscribe BVM2005@googlegroups.com
+subscribe mutt-dev@mutt.org
+subscribe committers@apache.org
