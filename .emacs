@@ -10,7 +10,6 @@
 (add-to-list 'load-path "~/.elisp/org-mode")
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/org-mode-contrib")
-(add-to-list 'load-path "~/.elisp/bbdb-vcard")
 (add-to-list 'load-path "~/.elisp/mingus")
 
 ;; ---------
@@ -21,7 +20,9 @@
 (require 'tramp)
 (require 'slime)
 (require 'magit)
+(require 'magit-bisect)
 (require 'magit-simple-keys)
+(require 'git-commit)
 (require 'rebase-mode)
 (require 'paredit)
 (require 'color-theme)
@@ -37,7 +38,6 @@
 (require 'cscope)
 (require 'csharp-mode)
 (require 'ess)
-(require 'mingus)
 (require 'rcirc-controls)
 (require 'windmove)
 (require 'framemove)
@@ -49,7 +49,7 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
-(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
+(add-to-list 'auto-mode-alist '("mutt-.*-" . mail-mode))
 
 ;; ----------------------
 ;; General Customizations
@@ -110,8 +110,8 @@
 ;; -------------------
 ;; Everything in UTF-8
 ;; -------------------
-(prefer-coding-system 'utf-8)
-(set-language-environment "utf-8")
+(prefer-coding-system                   'utf-8)
+(set-language-environment               'utf-8)
 (set-default-coding-systems             'utf-8)
 (setq file-name-coding-system           'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
@@ -120,8 +120,8 @@
 (set-terminal-coding-system             'utf-8)
 (set-clipboard-coding-system            'utf-8)
 (set-selection-coding-system            'utf-8)
-(setq default-process-coding-system '(utf-8 . utf-8))
-(add-to-list 'auto-coding-alist '("." . utf-8))
+(setq default-process-coding-system     '(utf-8 . utf-8))
+(add-to-list 'auto-coding-alist         '("." . utf-8))
 
 ;; ------------------
 ;; Custom Keybindings
@@ -173,7 +173,7 @@
 (define-new-c-style "linux-tabs-only" "linux" (arglist-cont-nonempty
 					       c-lineup-gcc-asm-reg
 					       c-lineup-arglist-tabs-only) t
-					       ("~/src/linux" "~/src/git"))
+					       ("~/"))
 
 (define-new-c-style "subversion" "gnu" (inextern-lang 0) nil ("~/svn"))
 
@@ -181,9 +181,7 @@
 ;; Autofill and Adaptive fill
 ;; --------------------------
 (add-hook 'text-mode-hook 'turn-on-filladapt-mode)
-(add-hook 'c-mode-common-hook (lambda ()
-				(turn-on-filladapt-mode)
-				(c-set-style "linux")))
+(add-hook 'c-mode-common-hook 'turn-on-filladapt-mode)
 
 ;; ---
 ;; ido
