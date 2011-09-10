@@ -115,12 +115,13 @@ function l () {
 }
 alias halt='sudo halt'
 alias reboot='sudo reboot'
+alias hibernate='sudo pm-hibernate'
 alias grep='ack-grep -i'
 alias diff='diff -u'
 alias less='less -r'
-alias ec='emacsclient'
-alias et='emacsclient -t'
-alias rsync='rsync --progress -avze "ssh -p 51000"'
+alias ec='emacsclient -n'
+alias ecr='emacsclient -n -c'
+alias et='emacsclient -n -t'
 alias fetch='git fetch'
 
 # apt aliases
@@ -136,16 +137,16 @@ alias dL='dpkg -L'
 # tiny helpers
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
-alias sprunge='curl -F "sprunge=<-" http://sprunge.us | xclip'
+alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias xrandr-restore='xrandr --output CRT1 --auto; xrandr --output CRT2 --auto; xrandr --output CRT2 --left-of CRT1'
 alias incognito='export HISTFILE=/dev/null'
+alias git-prove='make -j 8 DEFAULT_TEST_TARGET=prove GIT_PROVE_OPTS="-j 15" test'
 
 # suffix aliases
 alias -s html=x-www-browser
 alias -s org=$EDITOR
 alias -s c=$EDITOR
 alias -s cc=$EDITOR
-alias -s py=$EDITOR
 alias -s hs=$EDITOR
 alias -s pdf=evince
 alias -s djvu=evince
