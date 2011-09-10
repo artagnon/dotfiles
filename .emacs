@@ -239,9 +239,15 @@
   (interactive)
   (rcirc-connect "fran" "6667" "artagnon"))
 
-;; Logging
-(setq rcirc-log-flag "t"
-      rcirc-log-directory "~/.emacs.d/rcirc-log")
+;; Always keep the prompt at the bottom of the buffer
+(add-hook 'rcirc-mode-hook
+          '(lambda ()
+	    (set (make-local-variable 'scroll-conservatively) 8192)))
+
+;; Wrap long lines according to the width of the window
+(add-hook 'window-configuration-change-hook
+          '(lambda ()
+	    (setq rcirc-fill-column (- (window-width) 2))))
 
 (defun rcirc-kill-all-buffers ()
   (interactive)
@@ -251,9 +257,7 @@
           '(lambda ()
 	    (setq rcirc-fill-column (- (window-width) 10))))
 
-;; ---
 ;; ZNC
-;; ---
 (defun rcirc-detach-buffer ()
   (interactive)
   (let ((buffer (current-buffer)))
