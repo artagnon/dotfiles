@@ -225,15 +225,11 @@
 ;; -----
 
 ;; General settings
-(setq rcirc-server-alist '(("irc.freenode.net" :nick "artagnon" :full-name "Ramkumar Ramachandra")))
-
-(defun irc (oftc-p)
-  (interactive "P")
-  (if oftc-p
-      (rcirc-connect "irc.oftc.net" "6667" "artagnon" "artagnon" "Ramkumar Ramachandra"
-		     nil nil)
-      (rcirc-connect "irc.freenode.net" "6667" "artagnon" "artagnon" "Ramkumar Ramachandra"
-		     nil nil)))
+(setq rcirc-server-alist
+      '(("ec2-184-72-137-52.compute-1.amazonaws.com"
+	 :port 443
+	 :nick "artagnon"
+	 :full-name "Ramkumar Ramachandra")))
 
 (defun gtalk ()
   (interactive)
