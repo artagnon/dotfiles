@@ -16,11 +16,17 @@ import qualified Data.Map        as M
 
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.TwoPane
+import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.NoBorders
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
 myTerminal      = "urxvt"
+
+-- The preferred browser program
+--
+myBrowser       = "google-chrome"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -62,7 +68,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch a terminal
-    , ((modm,               xK_u), spawn $ XMonad.terminal conf)
+    , ((modm,               xK_u     ), spawn $ XMonad.terminal conf)
 
       -- launch dmenu
     , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
@@ -180,7 +186,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Full ||| TwoPane delta (3/8))
+myLayout = smartBorders $ avoidStruts (tiled ||| Full ||| TwoPane delta (2/9))
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -213,7 +219,8 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore 
+    , isFullscreen                  --> doF W.focusDown <+> doFullFloat ]
 
 ------------------------------------------------------------------------
 -- Event handling
