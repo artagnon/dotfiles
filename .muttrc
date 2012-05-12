@@ -16,8 +16,7 @@ set certificate_file = ~/.mutt/certificates
 
 # Some keybindings
 macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index,pager ga "<change-folder>=Recent<enter>" "Go to Recent Mail"
-macro index,pager g! "<change-folder>=[Gmail]/All Mail<enter>" "Go to All Mail"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to All Mail"
 macro index,pager gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
 macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to Starred Mail"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
@@ -27,8 +26,8 @@ bind index,pager c mail
 bind index,pager a group-reply
 bind index o display-message
 bind index \# noop
-macro index y "<save-message>=Recent<enter><enter>" "Archive message"
-macro index Y "<tag-thread><tag-prefix><save-message>=Recent<enter><enter>" "Archive thread"
+macro index y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive message"
+macro index Y "<tag-thread><tag-prefix><save-message>=[Gmail]/All Mail<enter><enter>" "Archive thread"
 macro index s "<copy-message>~/tmp/incoming.mbox<enter>" "Save message"
 macro index S "<tag-thread><tag-prefix><copy-message>~/tmp/incoming.mbox<enter>" "Save thread"
 macro index d "<save-message>=[Gmail]/All Mail<enter><enter>" "Remove label for message"
