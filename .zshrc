@@ -119,9 +119,9 @@ alias hibernate='sudo pm-hibernate'
 alias grep='ack-grep -i'
 alias diff='diff -u'
 alias less='less -r'
-alias ec='emacsclient -n'
+alias ec='emacsclient'
 alias ecr='emacsclient -n -c'
-alias et='emacsclient -n -t'
+alias et='emacsclient -t'
 alias fetch='git fetch'
 
 # apt aliases
