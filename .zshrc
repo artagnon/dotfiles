@@ -54,7 +54,6 @@ export EDITOR="emacsclient"
 export PATH=~/svn/prefix/svn-trunk/bin:~/bin:~/bin/depot_tools:~/.ruby/bin:~/.python/bin:~/.cabal/bin:$PATH
 export PYTHONPATH=~/.python/lib
 export GEM_HOME=~/.ruby
-export RUBYLIB=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export ACK_PAGER='less -r'
