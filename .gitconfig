@@ -23,15 +23,21 @@
 [push]
 	default = matching
 [alias]
-	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
-	tree = log --graph --decorate --pretty=oneline --abbrev-commit
-	ci = commit
+	l = log
+	s = status
 	co = checkout
-	stat = status
+	ci = commit
+	cp = cherry-pick
 	fp = format-patch --cover-letter -M -C -o outgoing
 	fpo = format-patch --stdout -M -C
 	am = am -c
 	se = send-email
+
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	name-rev = name-rev --tags
+	r = log --reverse master..HEAD
+	rp = log -p --reverse master..HEAD
 [imap]
         folder = "[Gmail]/Drafts"
         host = imaps://imap.gmail.com
