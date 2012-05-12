@@ -6,11 +6,9 @@
 (add-to-list 'load-path "~/.elisp/")
 (add-to-list 'load-path "~/.elisp/theme")
 (add-to-list 'load-path "~/.elisp/slime")
-(add-to-list 'load-path "~/dev/ublog.el")
 (add-to-list 'load-path "~/.elisp/org-mode")
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/org-mode-contrib")
-(add-to-list 'load-path "~/.elisp/mingus")
 
 ;; ---------
 ;; Autoloads
