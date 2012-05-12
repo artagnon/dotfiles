@@ -534,10 +534,15 @@ If the prefix argument is negative, tick articles instead."
 ;; ----------
 ;; LaTeX mode
 ;; ----------
-(add-hook 'latex-mode-hook (lambda () (define-key tex-mode-map "\C-c\C-c" 'tex-compile-dvi)))
-(defun tex-compile-dvi ()
-  (interactive)
-  (shell-command (concat "pdflatex -output-format dvi " (tex-main-file) "&")))
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+(setq TeX-PDF-mode t)
 
 ;; ------------------------
 ;; Useful utility functions
