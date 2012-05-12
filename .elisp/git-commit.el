@@ -1,0 +1,1 @@
+/home/artagnon/src/git-commit-mode/git-commit.el

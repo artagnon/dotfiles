@@ -1,0 +1,1 @@
+/home/artagnon/src/magit/magit-bisect.el
