@@ -11,12 +11,11 @@ source ~/.z.sh
 function j () {
     z "$@" || return 0;
 }
-function z_preexec () {
+function _z_preexec () {
     z --add "$(pwd -P)";
 }
 
-typeset -ga preexec_functions
-preexec_functions+=z_preexec
+preexec_functions=(_z_preexec $preexec_functions)
 
 # ---[ Modules ]-------------------------------------------------------
 zmodload zsh/complist
