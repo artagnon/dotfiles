@@ -237,11 +237,6 @@
   (interactive)
   (rcirc-connect "localhost" "6667" "artagnon"))
 
-;; Always keep the prompt at the bottom of the buffer
-(add-hook 'rcirc-mode-hook
-          '(lambda ()
-	    (set (make-local-variable 'scroll-conservatively) 8192)))
-
 ;; Wrap long lines according to the width of the window
 (add-hook 'window-configuration-change-hook
           '(lambda ()
@@ -250,10 +245,6 @@
 (defun rcirc-kill-all-buffers ()
   (interactive)
   (kill-all-mode-buffers 'rcirc-mode))
-
-(add-hook 'window-configuration-change-hook
-          '(lambda ()
-	    (setq rcirc-fill-column (- (window-width) 10))))
 
 ;; ZNC
 (defun rcirc-detach-buffer ()
