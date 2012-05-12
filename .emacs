@@ -228,8 +228,8 @@
 
 ;; General settings
 (setq rcirc-server-alist
-      '(("ec2-184-72-137-52.compute-1.amazonaws.com"
-	 :port 443
+      '(("irc.freenode.net"
+	 :port 6667
 	 :nick "artagnon"
 	 :full-name "Ramkumar Ramachandra")))
 
