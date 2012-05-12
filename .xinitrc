@@ -7,12 +7,6 @@ $HOME/bin/dzen.sh &
 DEFAULT_SESSION=xmonad
 
 case $1 in
-stumpwm)
-	exec stumpwm
-	;;
-lxde)
-	exec lxde
-	;;
 xmonad)
 	exec $HOME/bin/xmonad
 	;;
