@@ -46,6 +46,7 @@ function cdm () {
     tmux "set-option" "default-path" "${tmp}"
     [[ -n "${DISPLAY}" ]] && tmp=on || tmp=off
     tmux "set-option" "set-titles" "${tmp}"
+    echo .
     return 0
 }
 
