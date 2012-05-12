@@ -449,6 +449,8 @@ If the prefix argument is negative, tick articles instead."
 ;; -----
 (setq recentf-auto-cleanup 'never
       tramp-default-method "ssh")
+(set-default 'tramp-default-proxies-alist
+	     (quote (("^(?!.*kytes).*$" "\\`root\\'" "/ssh:%h:"))))
 
 ;; ---------
 ;; diff-mode
