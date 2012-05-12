@@ -40,6 +40,8 @@
 (require 'windmove)
 (require 'framemove)
 (require 'winner)
+(require 'uniquify)
+(require 'nnmairix)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -70,7 +72,8 @@
 	      c-basic-offset 8
 	      edebug-trace t
 	      fill-adapt-mode t
-	      winner-mode t)
+	      winner-mode t
+	      uniquify-buffer-name-style 'forward)
 
 (set-face-attribute 'default nil :height 85)
 (global-font-lock-mode 1)
