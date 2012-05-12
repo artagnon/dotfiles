@@ -272,6 +272,155 @@
 
 (define-key rcirc-mode-map [(control c) (control d)] 'rcirc-detach-buffer)
 
+;; ----
+;; gnus
+;; ----
+
+(setq gnus-directory "~/.gnus"
+      gnus-cache-directory "~/.gnus/cache"
+      gnus-cache-active-file "~/.gnus/cache/active"
+      gnus-message-directory "~/.gnus/mail"
+      gnus-use-cache t
+      gnus-cachable-groups "^nnimap"
+      gnus-save-newsrc-file nil
+      gnus-read-newsrc-file nil)
+
+;; agent
+(setq gnus-agent-directory "~/.gnus/agent"
+      gnus-agent t
+      gnus-agent-cache t
+      gnus-agent-consider-all-articles t
+      gnus-agent-queue-mail t)
+
+;; smtpmail for sending mail
+(setq starttls-use-gnutls t
+      message-send-mail-function 'smtpmail-send-it
+      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+      smtpmail-auth-credentials (expand-file-name "~/.authinfo")
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+      stmpmail-debug-info t
+      smtpmail-debug-verb t)
+
+;; Display tweaks
+(add-hook 'gnus-group-mode-hook 'gnus-topic-mode) ;; topics in groups
+
+(defvar *ram-mails* "artagnon@gmail\\.com")
+(setq gnus-extra-headers '(To Cc)
+      nnmail-extra-headers gnus-extra-headers)
+
+(defun gnus-user-format-function-j (headers)
+  (let ((to (gnus-extra-header 'To headers)))
+    (if (string-match *ram-mails* to)
+        (if (string-match "," to) "›" "»")
+        (if (or (string-match *ram-mails*
+                              (gnus-extra-header 'Cc headers))
+                (string-match *ram-mails*
+                              (gnus-extra-header 'BCc headers)))
+            "~"
+            " "))))
+
+(setq gnus-summary-line-format "%U%uj%z %(%[%15&user-date;%]  %-15,15f  %B%s%)\n"
+      ;;gnus-summary-line-format "%U%R %~(pad-right 2)t%* %uj %B%~(max-right 30)~(pad-right 30)n  %~(max-right 90)~(pad-right 90)s %-135=%&user-date;\n"
+      gnus-user-date-format-alist '((t . "%a %k:%M"))
+      gnus-summary-thread-gathering-function 'gnus-gather-threads-by-subject
+      gnus-thread-sort-functions '(gnus-thread-sort-by-most-recent-date)
+      gnus-sum-thread-tree-false-root ""
+      gnus-sum-thread-tree-indent " "
+      gnus-sum-thread-tree-leaf-with-other "├► "
+      gnus-sum-thread-tree-root ""
+      gnus-sum-thread-tree-single-leaf "╰► "
+      gnus-sum-thread-tree-vertical "│")
+
+(setq gnus-user-date-format-alist
+      '(((* 1 3600) . "Minutes ago")
+	((* 2 3600) . "An hour ago")
+	((* 3 3600) . "2 hours ago")
+	((* 4 3600) . "3 hours ago")
+	((* 5 3600) . "4 hours ago")
+	((* 6 3600) . "5 hours ago")
+	((gnus-seconds-today) . "Today")
+	((+ 86400 (gnus-seconds-today)) . "Yesterday")
+	((* 3 86400) . "2 days ago")
+	((* 4 86400) . "3 days ago")
+	((* 6 86400) . "%A")
+	((* 8 86400) . "A week ago")
+	((gnus-seconds-month) . "This month, %e")
+	((gnus-seconds-year) . "%b %e")
+	(t . "%b %e, %y")))
+
+;; Subscriptions
+(setq gnus-default-subscribed-newsgroups t
+      gnus-select-method '(nntp "news.gmane.org")
+      gnus-secondary-select-methods
+      '((nnimap "dovecot"
+	 (nnimap-stream shell)
+	 (imap-shell-program "/usr/lib/dovecot/imap 2>/dev/null")
+	 (nnimap-need-unselect-to-notice-new-mail nil))))
+
+; (nnimap "gmail"
+;	 (nnimap-address "imap.gmail.com")
+;	 (nnimap-server-port 993)
+;	 (nnimap-stream ssl))
+
+(setq gnus-parameters
+      '(("nnimap\\+dovecot:INBOX"
+	 (display . all)
+         (expiry-target . delete)
+         (expiry-wait . immediate))))
+
+;; Bugfix: thread expire
+(defun gnus-summary-kill-thread (&optional unmark)
+  "Mark articles under current thread as read.
+If the prefix argument is positive, remove any kinds of marks.
+If the prefix argument is zero, mark thread as expired.
+If the prefix argument is negative, tick articles instead."
+  (interactive "P")
+  (when unmark
+    (setq unmark (prefix-numeric-value unmark)))
+  (let ((articles (gnus-summary-articles-in-thread))
+	(hide (or (null unmark) (= unmark 0))))
+    (save-excursion
+      ;; Expand the thread.
+      (gnus-summary-show-thread)
+      ;; Mark all the articles.
+      (while articles
+	(gnus-summary-goto-subject (car articles))
+	(cond ((null unmark)
+	       (gnus-summary-mark-article-as-read gnus-killed-mark))
+	      ((> unmark 0)
+	       (gnus-summary-mark-article-as-unread gnus-unread-mark))
+	      ((= unmark 0)
+	       (gnus-summary-mark-article nil gnus-expirable-mark))
+	      (t
+	       (gnus-summary-mark-article-as-unread gnus-ticked-mark)))
+	(setq articles (cdr articles))))
+    ;; Hide killed subtrees when hide is true.
+    (and hide
+	 gnus-thread-hide-killed
+	 (gnus-summary-hide-thread))
+    ;; If hide is t, go to next unread subject.
+    (when hide
+      ;; Go to next unread subject.
+      (gnus-summary-next-subject 1 t)))
+  (gnus-set-mode-line 'summary))
+
+;; Scoring
+(add-hook 'message-sent-hoook 'gnus-score-followup-article)
+(add-hook 'message-sent-hoook 'gnus-score-followup-thread)
+(setq gnus-use-scoring t)
+
+;; Speed hacks
+(setq gc-cons-threshold 3500000
+      gnus-use-correct-string-widths nil
+      gnus-asynchronous t
+      gnus-use-header-prefetch t)
+
+;; Mairix
+(define-key gnus-summary-mode-map
+    (kbd "$ /") 'nnmairix-search)
+
 ;; ----------
 ;; Mode hooks
 ;; ----------
