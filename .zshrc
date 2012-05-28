@@ -7,7 +7,7 @@ keychain --nogui -q ~/.ssh/id_rsa
 source ~/.keychain/localhost-sh
 
 # ---[ Autojump ]------------------------------------------------------
-source ~/.z.sh
+source ~/dotfiles/z/z.sh
 function j () {
     z "$@" || return 0;
 }
