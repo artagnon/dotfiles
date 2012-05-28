@@ -11,5 +11,4 @@ org-mode
 org-mode-contrib
 org-mode-repo/
 haskell-mode/
-magit/
 slime/

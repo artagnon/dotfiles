@@ -1,3 +1,6 @@
 [submodule "z"]
 	path = z
 	url = git://github.com/rupa/z
+[submodule ".elisp/magit"]
+	path = .elisp/magit
+	url = git://github.com/magit/magit
