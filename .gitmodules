@@ -10,3 +10,6 @@
 [submodule ".elisp/git-commit-mode"]
 	path = .elisp/git-commit-mode
 	url = git://github.com/rafl/git-commit-mode
+[submodule ".elisp/haskell-mode"]
+	path = .elisp/haskell-mode
+	url = git://github.com/haskell/haskell-mode
