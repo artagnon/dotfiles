@@ -79,7 +79,7 @@
 	      winner-mode t
 	      uniquify-buffer-name-style 'forward)
 
-(set-face-attribute 'default nil :height 85)
+(set-face-attribute 'default nil :height 95)
 (global-font-lock-mode 1)
 (global-auto-revert-mode 1)
 (color-theme-hober2)
