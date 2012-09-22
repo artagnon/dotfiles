@@ -67,9 +67,6 @@ export JAVA_HOME=/usr
 # ---[ GPG Key ]-------------------------------------------------------
 export GPGKEY=B8BB3FE9
 
-# ---[ Proxy exports ]-------------------------------------------------
-. ~/.proxyset
-
 # ---[ Debian Developer ]----------------------------------------------
 export DEBFULLNAME="Ramkumar Ramachandra"
 export DEBEMAIL="artagnon@gmail.com"
