@@ -1,6 +1,15 @@
 # ---[ Environment ]---------------------------------------------------
 export PS_PERSONALITY='linux'
 [[ $TERM == eterm-color ]] && export TERM=xterm
+if [[ "$TERM" == "dumb" ]]
+then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  unfunction precmd
+  unfunction preexec
+  PS1='$ '
+fi
 
 # ---[ Keychain ]------------------------------------------------------
 keychain --nogui -q ~/.ssh/id_rsa
