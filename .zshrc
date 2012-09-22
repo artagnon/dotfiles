@@ -109,6 +109,7 @@ function l () {
 	    ;;
     esac
 }
+alias ll='ls -lha'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
 alias hibernate='sudo pm-hibernate'
