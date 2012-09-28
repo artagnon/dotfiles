@@ -1,4 +1,5 @@
 #!/bin/sh
+which nvidia-settings && nvidia-settings -a InitialPixmapPlacement=0
 xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
 xset b off
