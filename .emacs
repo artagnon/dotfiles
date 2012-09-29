@@ -46,6 +46,7 @@
 (require 'winner)
 (require 'uniquify)
 (require 'nnmairix)
+(require 'edit-server)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -101,6 +102,7 @@
 (savehist-mode t)
 (ido-mode t)
 (rcirc-track-minor-mode t)
+(edit-server-start)
 
 ;; Unbind C-z. I don't want suspend
 (when window-system
