@@ -59,6 +59,14 @@ function cdm () {
     return 0
 }
 
+# ---[ Autols ]--------------------------------------------------------
+function chpwd() {
+    case `pwd` in
+	*'git'*|'/tmp') ;;
+	*) ls --color -v ;;
+    esac
+}
+
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR="emacsclient"
 export PATH=~/svn/prefix/svn-trunk/bin:~/bin:~/bin/depot_tools:~/.ruby/bin:~/.python/bin:~/.cabal/bin:$PATH
