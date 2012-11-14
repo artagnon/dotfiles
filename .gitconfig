@@ -24,7 +24,8 @@
 	default = matching
 [alias]
 	l = log
-	s = status
+	sl = shortlog -ns
+	s = status -sb
 	co = checkout
 	ci = commit
 	cp = cherry-pick
@@ -38,6 +39,9 @@
 	name-rev = name-rev --tags
 	r = log --reverse master..HEAD
 	rp = log -p --reverse master..HEAD
+	rc = rebase --continue
+	ra = rebase --abort
+	rs = rebase --skip
 [imap]
         folder = "[Gmail]/Drafts"
         host = imaps://imap.gmail.com
@@ -51,3 +55,5 @@
 	enabled = true
 [rebase]
 	autosquash = true
+[diff]
+	submodule = log
