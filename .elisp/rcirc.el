@@ -1,1 +1,0 @@
-/home/artagnon/src/rcirc/rcirc.el
