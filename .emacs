@@ -484,6 +484,12 @@ If the prefix argument is negative, tick articles instead."
 		(interactive)
 		(revert-buffer t t nil)
 		(server-edit)))))
+;; -------
+;; sh-mode
+;; -------
+(setq sh-indentation 8
+      sh-basic-offset 8)
+
 ;; --------
 ;; org-mode
 ;; --------
