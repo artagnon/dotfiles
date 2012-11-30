@@ -33,10 +33,19 @@ compinit
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -ap zsh/mapfile mapfile
+autoload colors zsh/terminfo
 
-# ---[ Modules ]-------------------------------------------------------
-. ~/.zshprompt
-setprompt
+# ---[ Prompt ]--------------------------------------------------------
+setopt prompt_subst
+
+if [[ "$terminfo[colors]" -ge 8 ]]; then
+colors
+fi
+
+if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
+
+PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:\
+%{$fg[yellow]%}%B%~%b%{$reset_color%}%(!.#.$) '
 
 # ---[ cdm function ]--------------------------------------------------
 function cdm () {
