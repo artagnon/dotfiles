@@ -1,3 +1,3 @@
 # dotfiles
 
-artagnon's dotfiles.  Clone and run `make`.
+artagnon's dotfiles.  Clone into ~/dotfiles and run `make`.
