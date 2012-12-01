@@ -1,3 +1,0 @@
-escape ^Zz
-caption always "%{.bw}%-w%{.rw}%n %t%{-}%+w %-18=%{..y}%D %d-%M %c"
-defhstatus "^EH"
