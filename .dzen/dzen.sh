@@ -47,7 +47,7 @@ fbattery()
 	PREBAR="^i(${ICONPATH}/ac.xbm)"
     fi
 
-    echo "$PREBAR^p(;+3)" `echo $RPERC | gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
+    echo "$PREBAR^p(;+3)" `echo $RPERC | dzen2-gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
 }
 
 fdate()
@@ -72,7 +72,7 @@ fmusic()
 	PREBAR="^i(${ICONPATH}/music.xbm)"
 	POSM="0 100"
     fi
-    echo "$PREBAR $STATUS_MESSAGE^p(;+4)" `echo $POSM | gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
+    echo "$PREBAR $STATUS_MESSAGE^p(;+4)" `echo $POSM | dzen2-gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
 }
 
 # ---[ Main eval loop ]------------------------------------------------
