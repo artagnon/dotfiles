@@ -8,7 +8,6 @@ W=3840
 H=20
 X=0
 Y=0
-FN='inconsolata:size=11'
 ICONPATH=$HOME/.dzen
 
 # ---[ gdbar variables ]-----------------------------------------------
@@ -95,4 +94,4 @@ while true; do
     BATTERY_COUNTER=$((BATTERY_COUNTER+1))
     MUSIC_COUNTER=$((MUSIC_COUNTER+1))
     sleep $MASTER_INTERVAL
-done | dzen2 -ta r -tw $W -h $H -y $Y -x $X -fg $FG -bg $BG -fn $FN -e "button1=exec:$MPD_TOGGLE;button3=exec:$MPD_NEXT"
+done | dzen2 -ta r -tw $W -h $H -y $Y -x $X -fg $FG -bg $BG -e "button1=exec:$MPD_TOGGLE;button3=exec:$MPD_NEXT"
