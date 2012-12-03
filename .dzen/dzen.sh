@@ -32,66 +32,67 @@ DATE_INTERVAL=30
 
 fbattery()
 {
+	STATE=`acpi|cut -d ' ' -f3|cut -d, -f1`;
+	RPERC=`acpi|cut -d, -f2|cut -d% -f1`;
 
-    STATE=`acpi|cut -d ' ' -f3|cut -d, -f1`;
-    RPERC=`acpi|cut -d, -f2|cut -d% -f1`;
-    
-    if [ $RPERC -le $LOWBAT ]; then
-	GFG=$LOWCOL
-    fi
-    
-    if [ $STATE = "Discharging" ]; then
-	PREBAR="^i(${ICONPATH}/battery.xbm)"
-    else
-	PREBAR="^i(${ICONPATH}/ac.xbm)"
-    fi
+	if [ $RPERC -le $LOWBAT ]; then
+		GFG=$LOWCOL
+	fi
 
-    echo "$PREBAR^p(;+3)" `echo $RPERC | dzen2-gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
+	if [ $STATE = "Discharging" ]; then
+		PREBAR="^i(${ICONPATH}/battery.xbm)"
+	else
+		PREBAR="^i(${ICONPATH}/ac.xbm)"
+	fi
+
+	echo "$PREBAR^p(;+3)" `echo $RPERC | dzen2-gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
 }
 
 fdate()
 {
-    DATE_FORMAT='%A, %d %b %y | %H:%M'
-    date +$DATE_FORMAT
+	DATE_FORMAT='%A, %d %b %y | %H:%M'
+	date +$DATE_FORMAT
 }
 
 fmusic()
 {
-    STATUS=`mpc | sed -ne 's/^.*\[\([a-z]*\)\].*$/\1/p'`
-    if [ $STATUS ]; then
-	POS=`mpc | sed -ne 's/^.*(\([0-9]*\)%).*$/\1/p'`
-	POSM="$POS 100"
-	STATUS_MESSAGE=`mpc | sed -n '1p' | tr '\n' ' '`
-	PREBAR="^i(${ICONPATH}/play.xbm)"
-	if [ $STATUS = "paused" ]; then
-	    PREBAR="^i(${ICONPATH}/pause.xbm)"
+	STATUS=`mpc | sed -ne 's/^.*\[\([a-z]*\)\].*$/\1/p'`
+	if [ $STATUS ]; then
+		POS=`mpc | sed -ne 's/^.*(\([0-9]*\)%).*$/\1/p'`
+		POSM="$POS 100"
+		STATUS_MESSAGE=`mpc | sed -n '1p' | tr '\n' ' '`
+		PREBAR="^i(${ICONPATH}/play.xbm)"
+		if [ $STATUS = "paused" ]; then
+			PREBAR="^i(${ICONPATH}/pause.xbm)"
+		fi
+	else
+		STATUS_MESSAGE="[Stopped]"
+		PREBAR="^i(${ICONPATH}/music.xbm)"
+		POSM="0 100"
 	fi
-    else
-	STATUS_MESSAGE="[Stopped]"
-	PREBAR="^i(${ICONPATH}/music.xbm)"
-	POSM="0 100"
-    fi
-    echo "$PREBAR $STATUS_MESSAGE^p(;+4)" `echo $POSM | dzen2-gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
+	echo "$PREBAR $STATUS_MESSAGE^p(;+4)" `echo $POSM | dzen2-gdbar -h $GH -w $GW -fg $GFG -bg $GBG` "^p()"
 }
 
 # ---[ Main eval loop ]------------------------------------------------
-BATTERY_COUNTER=$BATTERY_INTERVAL;DATE_COUNTER=$DATE_INTERVAL;MUSIC_COUNTER=$MUSIC_INTERVAL
+BATTERY_COUNTER=$BATTERY_INTERVAL
+DATE_COUNTER=$DATE_INTERVAL
+MUSIC_COUNTER=$MUSIC_INTERVAL
 
 while true; do
-    if [ $DATE_COUNTER -ge $DATE_INTERVAL ]; then
-	PDATE=$(fdate)
-	DATE_COUNTER=0
-    fi
-    
-    if [ $MUSIC_COUNTER -ge $MUSIC_INTERVAL ]; then
-	PMUSIC=$(fmusic)
-	MUSIC_COUNTER=0
-    fi
-    
-    print "$PMUSIC | $PDATE^p(+10)"
+	if [ $DATE_COUNTER -ge $DATE_INTERVAL ]; then
+		PDATE=$(fdate)
+		DATE_COUNTER=0
+	fi
 
-    DATE_COUNTER=$((DATE_COUNTER+1))
-    BATTERY_COUNTER=$((BATTERY_COUNTER+1))
-    MUSIC_COUNTER=$((MUSIC_COUNTER+1))
-    sleep $MASTER_INTERVAL
+	if [ $MUSIC_COUNTER -ge $MUSIC_INTERVAL ]; then
+		PMUSIC=$(fmusic)
+		MUSIC_COUNTER=0
+	fi
+
+	print "$PMUSIC | $PDATE^p(+10)"
+
+	DATE_COUNTER=$((DATE_COUNTER+1))
+	BATTERY_COUNTER=$((BATTERY_COUNTER+1))
+	MUSIC_COUNTER=$((MUSIC_COUNTER+1))
+	sleep $MASTER_INTERVAL
 done | dzen2 -ta r -tw $W -h $H -y $Y -x $X -fg $FG -bg $BG -e "button1=exec:$MPD_TOGGLE;button3=exec:$MPD_NEXT"
