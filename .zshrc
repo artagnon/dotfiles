@@ -78,12 +78,14 @@ function chpwd() {
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR="emacsclient"
-export PATH=~/svn/prefix/svn-trunk/bin:~/bin:~/bin/depot_tools:~/.ruby/bin:~/.python/bin:~/.cabal/bin:$PATH
+export PATH=~/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:$PATH
 export PYTHONPATH=~/.python/lib
-export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export ACK_PAGER='less -r'
+
+# ---[ rbenv ]---------------------------------------------------------
+eval "$(rbenv init -)"
 
 # ---[ Amazon AWS ]-------------------------------------------------
 export EC2_HOME=~/.ec2
