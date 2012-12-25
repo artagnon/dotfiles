@@ -19,3 +19,6 @@
 [submodule ".elisp/clojure-mode"]
 	path = .elisp/clojure-mode
 	url = git://github.com/technomancy/clojure-mode
+[submodule ".rbenv"]
+	path = .rbenv
+	url = git://github.com/sstephenson/rbenv

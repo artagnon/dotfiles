@@ -15,7 +15,7 @@ remove_if_symlink =							\
 	fi;
 
 candidates = .zshrc .emacs .gitconfig .muttrc .Xdefaults .xmonad 	\
-.ncmpcpp .xinitrc .tmux.conf .fonts.conf .elisp .dzen
+.ncmpcpp .xinitrc .tmux.conf .fonts.conf .elisp .dzen .rbenv
 
 all::
 	git submodule update --init
