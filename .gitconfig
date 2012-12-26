@@ -24,7 +24,7 @@
 	default = matching
 [alias]
 	l = log
-	sl = shortlog -ns
+	sl = shortlog -ns --no-merges
 	s = status -sb
 	co = checkout
 	ci = commit
