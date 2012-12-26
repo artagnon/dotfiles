@@ -82,7 +82,7 @@ export PATH=~/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:$PAT
 export PYTHONPATH=~/.python/lib
 export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-export ACK_PAGER='less -r'
+export LESS="FSRX"
 
 # ---[ rbenv ]---------------------------------------------------------
 eval "$(rbenv init -)"
@@ -143,11 +143,11 @@ alias reboot='sudo reboot'
 alias hibernate='sudo pm-hibernate'
 alias grep='ack-grep -i'
 alias diff='diff -u'
-alias less='less -r'
 alias ec='emacsclient'
 alias ecr='emacsclient -n -c'
 alias et='emacsclient -t'
 alias fetch='git fetch'
+alias time='/usr/bin/time -p'
 
 # apt aliases
 alias au='sudo aptitude update'
