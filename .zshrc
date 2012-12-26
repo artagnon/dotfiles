@@ -71,7 +71,7 @@ function cdm () {
 # ---[ Autols ]--------------------------------------------------------
 function chpwd() {
     case `pwd` in
-	*'git'*|'/tmp') ;;
+	*'/git'*|'/tmp') ;;
 	*) ls --color -v ;;
     esac
 }
