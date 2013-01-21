@@ -78,8 +78,9 @@ function chpwd() {
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR="emacsclient"
-export PATH=~/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:$PATH
-export PYTHONPATH=~/.python/lib
+export PATH=~/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:~/.local/bin:$PATH
+export PYTHONPATH=~/.local/lib
+export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export LESS="FSRX"
@@ -148,6 +149,7 @@ alias ecr='emacsclient -n -c'
 alias et='emacsclient -t'
 alias fetch='git fetch'
 alias time='/usr/bin/time -p'
+alias easy_install='pip install --user'
 
 # apt aliases
 alias au='sudo aptitude update'
