@@ -3,12 +3,12 @@ export PS_PERSONALITY='linux'
 [[ $TERM == eterm-color ]] && export TERM=xterm
 if [[ "$TERM" == "dumb" ]]
 then
-  unsetopt zle
-  unsetopt prompt_cr
-  unsetopt prompt_subst
-  unfunction precmd
-  unfunction preexec
-  PS1='$ '
+	unsetopt zle
+	unsetopt prompt_cr
+	unsetopt prompt_subst
+	unfunction precmd
+	unfunction preexec
+	PS1='$ '
 fi
 
 # ---[ Keychain ]------------------------------------------------------
@@ -18,10 +18,10 @@ source ~/.keychain/localhost-sh
 # ---[ Autojump ]------------------------------------------------------
 source ~/dotfiles/z/z.sh
 function j () {
-    z "$@" || return 0;
+	z "$@" || return 0;
 }
 function _z_preexec () {
-    z --add "$(pwd -P)";
+	z --add "$(pwd -P)";
 }
 
 preexec_functions=(_z_preexec $preexec_functions)
@@ -39,7 +39,7 @@ autoload colors zsh/terminfo
 setopt prompt_subst
 
 if [[ "$terminfo[colors]" -ge 8 ]]; then
-colors
+	colors
 fi
 
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
@@ -49,31 +49,31 @@ PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:\
 
 # ---[ cdm function ]--------------------------------------------------
 function cdm () {
-    local tmp
-    if [[ -z "${TMUX}" ]]; then
-        echo 'fatal: Not inside tmux.'
-        return 1
-    fi
-    if [[ -n "$1" ]]; then
-        [[ "$1" == . ]] && tmp="${PWD}" || tmp="$1"
-    else
-        tmp="${HOME}"
-    fi
-    cd "${tmp}"
-    tmp="${PWD}"
-    tmux "set-option" "default-path" "${tmp}"
-    [[ -n "${DISPLAY}" ]] && tmp=on || tmp=off
-    tmux "set-option" "set-titles" "${tmp}"
-    echo .
-    return 0
+	local tmp
+	if [[ -z "${TMUX}" ]]; then
+		echo 'fatal: Not inside tmux.'
+		return 1
+	fi
+	if [[ -n "$1" ]]; then
+		[[ "$1" == . ]] && tmp="${PWD}" || tmp="$1"
+	else
+		tmp="${HOME}"
+	fi
+	cd "${tmp}"
+	tmp="${PWD}"
+	tmux "set-option" "default-path" "${tmp}"
+	[[ -n "${DISPLAY}" ]] && tmp=on || tmp=off
+	tmux "set-option" "set-titles" "${tmp}"
+	echo .
+	return 0
 }
 
 # ---[ Autols ]--------------------------------------------------------
 function chpwd() {
-    case `pwd` in
-	*'/git'*|'/tmp') ;;
-	*) ls --color -v ;;
-    esac
+	case `pwd` in
+		*'/git'*|'/tmp') ;;
+		*) ls --color -v ;;
+	esac
 }
 
 # ---[ Shell exports ]-------------------------------------------------
@@ -102,41 +102,41 @@ export DEBEMAIL="artagnon@gmail.com"
 
 # ---[ Simple calculator ]---------------------------------------------
 function calc () {
-    awk "BEGIN { print $@ }"
+	awk "BEGIN { print $@ }"
 }
 
 # ---[ Aliases ]-------------------------------------------------------
 # abbreviations
 function l () {
-    case "$1" in
-	date|mtime)
-	    shift
-	    ls --color -vt "$@"
-	    ;;
-	atime)
-	    shift
-	    ls --color -vu "$@"
-	    ;;
-	recent)
-	    shift
-	    ls --color -vt "$@" | head -n 5
-	    ;;
-	size)
-	    shift
-	    ls --color -vS "$@"
-	    ;;
-	all)
-	    shift
-	    ls --color -vlha "$@"
-	    ;;
-	extension)
-	    shift
-	    ls --color -vX "$@"
-	    ;;
-	*)
-	    ls --color -v "$@"
-	    ;;
-    esac
+	case "$1" in
+		date|mtime)
+			shift
+			ls --color -vt "$@"
+			;;
+		atime)
+			shift
+			ls --color -vu "$@"
+			;;
+		recent)
+			shift
+			ls --color -vt "$@" | head -n 5
+			;;
+		size)
+			shift
+			ls --color -vS "$@"
+			;;
+		all)
+			shift
+			ls --color -vlha "$@"
+			;;
+		extension)
+			shift
+			ls --color -vX "$@"
+			;;
+		*)
+			ls --color -v "$@"
+			;;
+	esac
 }
 alias ll='ls -lha'
 alias halt='sudo halt'
@@ -222,7 +222,7 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # ---[ ZLE ]------------------------------------------------------------
 history-incremental-search-backward-initial() {
-    zle history-incremental-search-backward $BUFFER
+	zle history-incremental-search-backward $BUFFER
 }
 zle -N history-incremental-search-backward-initial
 bindkey '^R' history-incremental-search-backward-initial
