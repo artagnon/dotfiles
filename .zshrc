@@ -168,6 +168,17 @@ function l () {
 	esac
 }
 
+function x () {
+	case "$1" in
+		*.tar*)
+			tar xf "$1"
+			;;
+		*.zip)
+			unzip "$1"
+			;;
+	esac
+}
+
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
