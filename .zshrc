@@ -162,6 +162,10 @@ alias arp='sudo aptitude purge'
 alias dl='dpkg -l | grep'
 alias dL='dpkg -L'
 
+# gem and pip aliases
+alias gi='gem install'
+alias pi='pip install --user'
+
 # tiny helpers
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
