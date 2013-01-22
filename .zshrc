@@ -94,8 +94,8 @@ export PATH=$PATH:$EC2_HOME/bin
 export JAVA_HOME=/usr
 
 # ---[ Android SDK/ NDK ]----------------------------------------------
-export ANDROIDSDK="~/.android/sdk"
-export ANDROIDNDK="~/.android/ndk"
+export ANDROIDSDK=~/.android/sdk
+export ANDROIDNDK=~/.android/ndk
 export ANDROIDNDKVER=r8c
 export ANDROIDAPI=14
 
