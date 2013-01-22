@@ -107,6 +107,35 @@ function calc () {
 
 # ---[ Aliases ]-------------------------------------------------------
 # abbreviations
+alias ll='ls -lha'
+alias halt='sudo halt'
+alias reboot='sudo reboot'
+alias hibernate='sudo pm-hibernate'
+alias grep='ack-grep -i'
+alias diff='diff -u'
+alias ec='emacsclient'
+alias ecr='emacsclient -n -c'
+alias et='emacsclient -t'
+alias fetch='git fetch'
+alias time='/usr/bin/time -p'
+alias easy_install='pip install --user'
+alias jnettop='sudo jnettop'
+
+# apt aliases
+alias au='sudo aptitude update'
+alias aup='sudo aptitude safe-upgrade'
+alias ai='sudo aptitude install'
+alias as='aptitude search'
+alias ashow='aptitude show'
+alias arp='sudo aptitude purge'
+alias dl='dpkg -l | grep'
+alias dL='dpkg -L'
+
+# gem and pip aliases
+alias gi='gem install'
+alias pi='pip install --user'
+
+# tiny helpers
 function l () {
 	case "$1" in
 		date|mtime)
@@ -138,35 +167,7 @@ function l () {
 			;;
 	esac
 }
-alias ll='ls -lha'
-alias halt='sudo halt'
-alias reboot='sudo reboot'
-alias hibernate='sudo pm-hibernate'
-alias grep='ack-grep -i'
-alias diff='diff -u'
-alias ec='emacsclient'
-alias ecr='emacsclient -n -c'
-alias et='emacsclient -t'
-alias fetch='git fetch'
-alias time='/usr/bin/time -p'
-alias easy_install='pip install --user'
-alias jnettop='sudo jnettop'
 
-# apt aliases
-alias au='sudo aptitude update'
-alias aup='sudo aptitude safe-upgrade'
-alias ai='sudo aptitude install'
-alias as='aptitude search'
-alias ashow='aptitude show'
-alias arp='sudo aptitude purge'
-alias dl='dpkg -l | grep'
-alias dL='dpkg -L'
-
-# gem and pip aliases
-alias gi='gem install'
-alias pi='pip install --user'
-
-# tiny helpers
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
