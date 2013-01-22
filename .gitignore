@@ -6,7 +6,8 @@
 *.errors
 *.1
 .private
-xmonad-i386-linux
+.xmonad/xmonad-i386-linux
+.xmonad/xmonad-x86_64-linux
 org-mode
 org-mode-contrib
 org-mode-repo/
