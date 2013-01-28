@@ -22,3 +22,6 @@
 [submodule ".rbenv"]
 	path = .rbenv
 	url = git://github.com/sstephenson/rbenv
+[submodule ".elisp/org-mode"]
+	path = .elisp/org-mode
+	url = git://orgmode.org/org-mode.git

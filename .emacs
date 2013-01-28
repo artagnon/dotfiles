@@ -12,6 +12,7 @@
 (add-to-list 'load-path "~/.elisp/git-commit-mode")
 (add-to-list 'load-path "~/.elisp/ess/lisp")
 (add-to-list 'load-path "~/.elisp/clojure-mode")
+(add-to-list 'load-path "~/.elisp/org-mode/lisp")
 
 ;; ---------
 ;; Autoloads
