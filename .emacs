@@ -29,7 +29,6 @@
 (require 'color-theme)
 (require 'color-theme-hober2)
 (require 'clojure-mode)
-(require 'org-install)
 (require 'quack)
 (require 'inf-haskell)
 (require 'haskell-ghci)
