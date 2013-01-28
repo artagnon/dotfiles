@@ -46,6 +46,7 @@
 (require 'uniquify)
 (require 'nnmairix)
 (require 'edit-server)
+(require 'kivy-mode)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -54,6 +55,7 @@
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 (add-to-list 'auto-mode-alist '("mutt-.*-" . mail-mode))
+(add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
 
 ;; ----------------------
 ;; General Customizations
