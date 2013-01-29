@@ -251,7 +251,8 @@ main = do
        ppOutput = hPutStrLn xmproc
        , ppTitle = xmobarColor "#FFB6B0" "" . shorten 100
        , ppCurrent = xmobarColor "#CEFFAC" ""
-       , ppSep = " | "}
+       , ppSep = " | "
+       , ppOrder = \(ws:_:t:_) -> [ws,t]}
     }
 
 -- A structure containing your configuration settings, overriding
