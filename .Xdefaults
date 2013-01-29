@@ -1,4 +1,4 @@
-URxvt*font:                     xft:Monospace:pixelsize=11:antialias=true
+URxvt*font:                     xft:Droid Sans Mono:pixelsize=10:antialias=true
 URxvt*borderLess:		false
 URxvt*externalBorder:		0
 URxvt*internalBorder:		2
