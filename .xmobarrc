@@ -4,8 +4,6 @@ Config { borderColor = "black"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
-       , hideOnStart = False
-       , persistent = False
        , commands = [ Run Weather "VOMM" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
                     , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
