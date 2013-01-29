@@ -24,7 +24,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Layout.TwoPane
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
-import XMonad.Layout.Combo
+import XMonad.Layout.ComboP
 import XMonad.Layout.WindowNavigation
 
 import XMonad.Util.Run(spawnPipe)
@@ -128,6 +128,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. controlMask, xK_Left ), sendMessage $ Move L)
     , ((modm .|. controlMask, xK_Up   ), sendMessage $ Move U)
     , ((modm .|. controlMask, xK_Down ), sendMessage $ Move D)
+    , ((modm .|. controlMask, xK_s    ), sendMessage $ SwapWindow)
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
@@ -186,7 +187,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- which denotes layout choice.
 --
 myLayout = windowNavigation . smartBorders . avoidStruts $
-           (combineTwo (TwoPane delta ratio) simpleTabbed simpleTabbed |||
+           (combineTwoP (TwoPane delta ratio) simpleTabbed simpleTabbed (ClassName "Emacs") |||
             simpleTabbed)
   where
      -- Default proportion of screen occupied by master pane
