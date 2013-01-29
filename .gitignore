@@ -8,3 +8,4 @@
 .private
 .xmonad/xmonad-i386-linux
 .xmonad/xmonad-x86_64-linux
+.ncmpcpp/error.log
