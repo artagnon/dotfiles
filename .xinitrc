@@ -7,7 +7,7 @@ DEFAULT_SESSION=xmonad
 
 case $1 in
 xmonad)
-	exec /usr/bin/xmonad
+	exec xmonad
 	;;
 *)
 	exec $DEFAULT_SESSION
