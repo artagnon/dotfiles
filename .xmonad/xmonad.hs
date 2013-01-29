@@ -15,6 +15,8 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+import XMonad.Actions.WindowBringer
+
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
@@ -78,6 +80,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "exe=`dmenu_path | yeganesh -- -nb black -nf grey -sb \"#ee9a00\"` && eval \"exec $exe\"")
 
+    -- XMonad.Actions.WindowBringer
+    , ((modm,               xK_b     ), bringMenuArgs ["-nb", "black", "-nf", "grey", "-sb", "#ee9a00"])
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
