@@ -206,7 +206,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 --
 myLayout = windowNavigation . smartBorders . avoidStruts $
            (combineTwo (TwoPane delta ratio) simpleTabbed simpleTabbed |||
-            Full)
+            simpleTabbed)
   where
      -- Default proportion of screen occupied by master pane
      ratio   = 1/2
