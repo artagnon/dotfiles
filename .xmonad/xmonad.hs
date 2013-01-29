@@ -9,15 +9,23 @@
 
 import XMonad
 import Data.Monoid
+import System.IO
 import System.Exit
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 import XMonad.Hooks.ManageDocks
-import XMonad.Layout.TwoPane
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.DynamicLog
+
+import XMonad.Layout.TwoPane
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Tabbed
+import XMonad.Layout.Combo
+import XMonad.Layout.WindowNavigation
+
+import XMonad.Util.Run(spawnPipe)
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -52,7 +60,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["1:dev","2:web","3:mail","4:media"] ++ map show [5..9]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -71,7 +79,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_u     ), spawn $ XMonad.terminal conf)
 
       -- launch dmenu
-    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | yeganesh -- -nb black -nf grey -sb \"#ee9a00\"` && eval \"exec $exe\"")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -130,6 +138,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
+    -- Special keybindings from XMonad.Layout.WindowNavigation
+    , ((modm,                 xK_Right), sendMessage $ Go R)
+    , ((modm,                 xK_Left ), sendMessage $ Go L)
+    , ((modm,                 xK_Up   ), sendMessage $ Go U)
+    , ((modm,                 xK_Down ), sendMessage $ Go D)
+    , ((modm .|. controlMask, xK_Right), sendMessage $ Move R)
+    , ((modm .|. controlMask, xK_Left ), sendMessage $ Move L)
+    , ((modm .|. controlMask, xK_Up   ), sendMessage $ Move U)
+    , ((modm .|. controlMask, xK_Down ), sendMessage $ Move D)
+
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
@@ -186,14 +204,10 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = smartBorders $ avoidStruts (tiled ||| Full ||| TwoPane delta (3/10))
+myLayout = windowNavigation . smartBorders . avoidStruts $
+           (combineTwo (TwoPane delta ratio) simpleTabbed simpleTabbed |||
+            Full)
   where
-     -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
-
-     -- The default number of windows in the master pane
-     nmaster = 1
-
      -- Default proportion of screen occupied by master pane
      ratio   = 1/2
 
@@ -216,10 +230,12 @@ myLayout = smartBorders $ avoidStruts (tiled ||| Full ||| TwoPane delta (3/10))
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
+    [ className =? "Emacs"          --> doShift "1:dev"
+    , className =? "Google-chrome"  --> doShift "2:web"
+    , className =? "Icedove"        --> doShift "3:mail"
+    , className =? "Steam"          --> doFloat
+    , className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore 
     , isFullscreen                  --> doF W.focusDown <+> doFullFloat ]
 
 ------------------------------------------------------------------------
@@ -232,14 +248,6 @@ myManageHook = composeAll
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
 myEventHook = mempty
-
-------------------------------------------------------------------------
--- Status bars and logging
-
--- Perform an arbitrary action on each internal state change or X event.
--- See the 'XMonad.Hooks.DynamicLog' extension for examples.
---
-myLogHook = return ()
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -256,7 +264,22 @@ myStartupHook = return ()
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad defaults
+main = do
+  xmproc <- spawnPipe "xmobar"
+  xmonad $ defaults {
+
+    ------------------------------------------------------------------------
+    -- Status bars and logging
+
+    -- Perform an arbitrary action on each internal state change or X event.
+    -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
+    --
+    logHook = dynamicLogWithPP $ xmobarPP {
+       ppOutput = hPutStrLn xmproc
+       , ppTitle = xmobarColor "#FFB6B0" "" . shorten 100
+       , ppCurrent = xmobarColor "#CEFFAC" ""
+       , ppSep = " | "}
+    }
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -282,6 +305,5 @@ defaults = defaultConfig {
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
         startupHook        = myStartupHook
     }
