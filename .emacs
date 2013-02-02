@@ -82,7 +82,6 @@
 
 (set-face-attribute 'default nil :height 85)
 (global-font-lock-mode 1)
-(global-auto-revert-mode 1)
 (color-theme-hober2)
 (windmove-default-keybindings)
 (setq framemove-hook-into-windmove t)
