@@ -92,7 +92,7 @@
 (tooltip-mode -1)
 (set-scroll-bar-mode 'nil)
 
-;; Set the default browser to Conkeror
+;; Set the default browser to Chrome
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome")
 
