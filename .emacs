@@ -14,6 +14,8 @@
 (add-to-list 'load-path "~/.elisp/clojure-mode")
 (add-to-list 'load-path "~/.elisp/org-mode/lisp")
 
+(add-to-list 'custom-theme-load-path "~/.elisp/eltbus-theme")
+
 ;; ---------
 ;; Autoloads
 ;; ---------
@@ -27,8 +29,6 @@
 (require 'git-commit)
 (require 'rebase-mode)
 (require 'paredit)
-(require 'color-theme)
-(require 'color-theme-hober2)
 (require 'clojure-mode)
 (require 'quack)
 (require 'inf-haskell)
@@ -82,9 +82,9 @@
 
 (set-face-attribute 'default nil :height 85)
 (global-font-lock-mode 1)
-(color-theme-hober2)
 (windmove-default-keybindings)
 (setq framemove-hook-into-windmove t)
+(load-theme 'eltbus t)
 
 ;; Remove toolbar, menubar, scrollbar and tooltips
 (tool-bar-mode -1)
