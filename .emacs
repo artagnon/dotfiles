@@ -47,6 +47,7 @@
 (require 'nnmairix)
 (require 'edit-server)
 (require 'kivy-mode)
+(require 'cython-mode)
 
 ;; ----------------
 ;; auto-mode-alists
