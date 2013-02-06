@@ -89,6 +89,7 @@ export LESS="FSRX"
 eval "$(rbenv init -)"
 
 # ---[ Android SDK/ NDK ]----------------------------------------------
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export ANDROIDSDK=~/.android/sdk
 export ANDROIDNDK=~/.android/ndk
 export ANDROIDNDKVER=r8c
