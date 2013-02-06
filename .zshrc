@@ -88,11 +88,6 @@ export LESS="FSRX"
 # ---[ rbenv ]---------------------------------------------------------
 eval "$(rbenv init -)"
 
-# ---[ Amazon AWS ]----------------------------------------------------
-export EC2_HOME=~/.ec2
-export PATH=$PATH:$EC2_HOME/bin
-export JAVA_HOME=/usr
-
 # ---[ Android SDK/ NDK ]----------------------------------------------
 export ANDROIDSDK=~/.android/sdk
 export ANDROIDNDK=~/.android/ndk
