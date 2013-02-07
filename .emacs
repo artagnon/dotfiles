@@ -48,6 +48,7 @@
 (require 'edit-server)
 (require 'kivy-mode)
 (require 'cython-mode)
+(require 'mirah-mode)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -56,6 +57,7 @@
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 (add-to-list 'auto-mode-alist '("mutt-.*-" . mail-mode))
 (add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
+(add-to-list 'auto-mode-alist '("\\.mirah$" . mirah-mode))
 
 ;; ----------------------
 ;; General Customizations
