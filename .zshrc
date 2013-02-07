@@ -77,6 +77,9 @@ export LESS="FSRX"
 # ---[ rbenv ]---------------------------------------------------------
 eval "$(rbenv init -)"
 
+# ---[ hub ]---------------------------------------------------------
+eval "$(hub alias -s)"
+
 # ---[ Android SDK/ NDK ]----------------------------------------------
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
 export ANDROIDSDK=~/.android/sdk
