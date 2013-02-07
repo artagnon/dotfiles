@@ -29,23 +29,12 @@ preexec_functions=(_z_preexec $preexec_functions)
 # ---[ Modules ]-------------------------------------------------------
 zmodload zsh/complist
 autoload -Uz compinit
+autoload -Uz vcs_info
 compinit
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -ap zsh/mapfile mapfile
 autoload colors zsh/terminfo
-
-# ---[ Prompt ]--------------------------------------------------------
-setopt prompt_subst
-
-if [[ "$terminfo[colors]" -ge 8 ]]; then
-	colors
-fi
-
-if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
-
-PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:\
-%{$fg[yellow]%}%B%~%b%{$reset_color%}%(!.#.$) '
 
 # ---[ cdm function ]--------------------------------------------------
 function cdm () {
@@ -212,6 +201,7 @@ setopt   INC_APPEND_HISTORY EXTENDED_HISTORY SHARE_HISTORY HIST_REDUCE_BLANKS
 setopt   HIST_SAVE_NO_DUPS HIST_IGNORE_DUPS HIST_FIND_NO_DUPS HIST_EXPIRE_DUPS_FIRST
 setopt   NO_NOTIFY LONG_LIST_JOBS
 setopt   AUTO_CD AUTO_PUSHD PUSHD_SILENT
+setopt   PROMPT_SUBST
 
 # ---[ History ]-------------------------------------------------------
 HISTFILE=~/.zsh-history
@@ -233,6 +223,8 @@ zstyle ':completion:*:default' list-prompt
 zstyle ':completion:*:match:*' original only
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX + $#SUFFIX) / 5 )) )'
 zstyle ':completion:*:functions' ignored-patterns '_*'
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' formats '|%F{green}%b%c%u%f'
 
 # ---[ ZLE ]------------------------------------------------------------
 history-incremental-search-backward-initial() {
@@ -241,6 +233,21 @@ history-incremental-search-backward-initial() {
 zle -N history-incremental-search-backward-initial
 bindkey '^R' history-incremental-search-backward-initial
 bindkey -M isearch '^R' history-incremental-search-backward
+
+# ---[ Prompt ]--------------------------------------------------------
+function precmd() {
+	vcs_info
+}
+
+if [[ "$terminfo[colors]" -ge 8 ]]; then
+	colors
+fi
+
+if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
+
+PROMPT='%F{$NCOLOR}%B%n%b%f\
+${vcs_info_msg_0_}:\
+%F{yellow}%B%~%b%f%(!.#.$) '
 
 # ---[ System settings ]------------------------------------------------
 limit -s coredumpsize 0
