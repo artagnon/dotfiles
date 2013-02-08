@@ -22,6 +22,8 @@
 	ui = auto
 [push]
 	default = matching
+[pretty]
+	lg = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset'
 [alias]
 	l = log
 	sl = shortlog -ns --no-merges
@@ -33,7 +35,7 @@
 	fpo = format-patch --stdout -M -C
 	am = am -c
 	se = send-email
-	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+	lg = log --pretty=lg --abbrev-commit --date=relative
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 	name-rev = name-rev --tags
 	r = log --reverse master..HEAD
