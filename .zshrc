@@ -172,11 +172,6 @@ alias incognito='export HISTFILE=/dev/null'
 alias git-prove='make -j 8 DEFAULT_TEST_TARGET=prove GIT_PROVE_OPTS="-j 15" test'
 
 # suffix aliases
-alias -s html=x-www-browser
-alias -s org=$EDITOR
-alias -s c=$EDITOR
-alias -s cc=$EDITOR
-alias -s hs=$EDITOR
 alias -s pdf=evince
 alias -s djvu=evince
 alias -s avi=vlc
