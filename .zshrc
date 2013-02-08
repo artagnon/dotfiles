@@ -229,14 +229,8 @@ bindkey '^R' history-incremental-search-backward-initial
 bindkey -M isearch '^R' history-incremental-search-backward
 
 # ---[ Prompt ]--------------------------------------------------------
-function precmd() {
-	vcs_info
-}
-
-if [[ "$terminfo[colors]" -ge 8 ]]; then
-	colors
-fi
-
+function precmd() { vcs_info }
+[[ "$terminfo[colors]" -ge 8 ]] && colors
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
 
 PROMPT='%F{$NCOLOR}%B%n%b%f\
