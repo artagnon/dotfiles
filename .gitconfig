@@ -61,3 +61,11 @@
 	submodule = log
 [grep]
 	lineNumber = true
+[advice]
+	pushUpdateRejected = false
+	statusHints = false
+	commitBeforeMerge = false
+	resolveConflict = false
+	implicitIdentity = false
+	detachedHead = false
+	amWorkDir = false
