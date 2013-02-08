@@ -57,3 +57,5 @@
 	autosquash = true
 [diff]
 	submodule = log
+[grep]
+	lineNumber = true
