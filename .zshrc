@@ -113,6 +113,7 @@ alias ai='sudo aptitude install'
 alias as='aptitude search'
 alias ashow='aptitude show'
 alias arp='sudo aptitude purge'
+alias are='sudo aptitude reinstall'
 alias dl='dpkg -l | grep'
 alias dL='dpkg -L'
 
