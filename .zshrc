@@ -165,6 +165,11 @@ function x () {
 	esac
 }
 
+function man_ () {
+	emacsclient -e "(man \"$*\")" 2&>1 >/dev/null || man "$*"
+}
+
+alias man=man_
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
