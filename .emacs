@@ -139,15 +139,10 @@
 ;; ------------------
 ;; Custom Keybindings
 ;; ------------------
-(global-set-key [(meta \])] 'forward-paragraph)
-(global-set-key [(meta \[)] 'backward-paragraph)
-(global-set-key "\C-\M-w" 'kill-ring-save-whole-line)
-(global-set-key [C-M-backspace] #'(lambda () (interactive) (zap-to-char -1 32)))
-(global-set-key "\C-z" 'jump-to-char)
-(global-set-key "\r" 'newline-and-indent)
-(global-set-key "\C-xv" 'magit-status)
-(global-set-key (kbd "<f5>") 'th-save-frame-configuration)
-(global-set-key (kbd "<f6>") 'th-jump-to-register)
+(global-set-key (kbd "M-]") 'forward-paragraph)
+(global-set-key (kbd "M-[") 'backward-paragraph)
+(global-set-key (kbd "C-M-DEL") #'(lambda () (interactive) (zap-to-char -1 32)))
+(global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; ---------------------
 ;; Style and indentation
