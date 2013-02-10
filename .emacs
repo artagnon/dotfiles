@@ -14,6 +14,8 @@
 (add-to-list 'load-path "~/.elisp/clojure-mode")
 (add-to-list 'load-path "~/.elisp/org-mode/lisp")
 (add-to-list 'load-path "~/.elisp/yasnippet")
+(add-to-list 'load-path "~/.elisp/auto-complete/lib/popup")
+(add-to-list 'load-path "~/.elisp/auto-complete")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/eltbus-theme")
 
@@ -51,6 +53,7 @@
 (require 'cython-mode)
 (require 'mirah-mode)
 (require 'yasnippet)
+(require 'auto-complete-config)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -559,6 +562,12 @@ If the prefix argument is negative, tick articles instead."
 (setq yas-snippet-dirs
       '("~/.elisp/yasnippet/snippets" "~/.elisp/snippets"))
 (yas-global-mode 1)
+
+;; -------------
+;; auto-complete
+;; -------------
+(add-to-list 'ac-dictionary-directories "~/.elisp/auto-complete/dict")
+(ac-config-default)
 
 ;; ------------------------
 ;; Useful utility functions

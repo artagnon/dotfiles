@@ -31,3 +31,6 @@
 [submodule ".elisp/yasnippet"]
 	path = .elisp/yasnippet
 	url = git://github.com/capitaomorte/yasnippet
+[submodule ".elisp/auto-complete"]
+	path = .elisp/auto-complete
+	url = git://github.com/auto-complete/auto-complete
