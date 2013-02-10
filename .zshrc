@@ -167,7 +167,7 @@ function x () {
 }
 
 function man_ () {
-	emacsclient -e "(man \"$*\")" 2&>1 >/dev/null || man "$*"
+	emacsclient -e "(man \"$*\")" 2>&1 >/dev/null || man "$*"
 }
 
 alias man=man_
