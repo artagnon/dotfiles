@@ -19,7 +19,7 @@ candidates = .zshrc .emacs .gitconfig .muttrc .Xdefaults .xmonad 	\
 .xmobarrc .xmobarrc.2
 
 all::
-	git submodule update --init
+	git submodule update --init --recursive
 	@$(foreach file,$(candidates),$(symlink_to_home))
 
 clean:
