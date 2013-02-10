@@ -28,3 +28,6 @@
 [submodule ".elisp/eltbus-theme"]
 	path = .elisp/eltbus-theme
 	url = git://github.com/ScriptDevil/eltbus-theme
+[submodule ".elisp/yasnippet"]
+	path = .elisp/yasnippet
+	url = git://github.com/capitaomorte/yasnippet

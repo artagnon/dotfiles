@@ -13,6 +13,7 @@
 (add-to-list 'load-path "~/.elisp/ess/lisp")
 (add-to-list 'load-path "~/.elisp/clojure-mode")
 (add-to-list 'load-path "~/.elisp/org-mode/lisp")
+(add-to-list 'load-path "~/.elisp/yasnippet")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/eltbus-theme")
 
@@ -49,6 +50,7 @@
 (require 'kivy-mode)
 (require 'cython-mode)
 (require 'mirah-mode)
+(require 'yasnippet)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -550,6 +552,13 @@ If the prefix argument is negative, tick articles instead."
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 (setq TeX-PDF-mode t)
+
+;; ---------
+;; yasnippet
+;; ---------
+(setq yas-snippet-dirs
+      '("~/.elisp/yasnippet/snippets" "~/.elisp/snippets"))
+(yas-global-mode 1)
 
 ;; ------------------------
 ;; Useful utility functions
