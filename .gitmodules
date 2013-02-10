@@ -13,9 +13,6 @@
 [submodule ".elisp/haskell-mode"]
 	path = .elisp/haskell-mode
 	url = git://github.com/haskell/haskell-mode
-[submodule ".elisp/ess"]
-	path = .elisp/ess
-	url = git://github.com/emacs-ess/ESS
 [submodule ".elisp/clojure-mode"]
 	path = .elisp/clojure-mode
 	url = git://github.com/technomancy/clojure-mode
