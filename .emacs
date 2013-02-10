@@ -514,7 +514,6 @@ If the prefix argument is negative, tick articles instead."
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
 ;; org-remember
-(org-remember-insinuate)
 (setq org-default-notes-file "~/.notes")
 (define-key global-map "\C-cr" 'org-remember)
 
