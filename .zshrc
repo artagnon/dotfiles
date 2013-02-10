@@ -92,6 +92,7 @@ function calc () {
 
 # ---[ Aliases ]-------------------------------------------------------
 # abbreviations
+alias resh='source ~/.zshrc'
 alias ll='ls -lha'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
