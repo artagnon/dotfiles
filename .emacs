@@ -144,6 +144,7 @@
 (global-set-key (kbd "C-M-DEL") #'(lambda () (interactive) (zap-to-char -1 32)))
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))
+(global-set-key (kbd "C-x v") 'magit-status)
 
 ;; ---------------------
 ;; Style and indentation
