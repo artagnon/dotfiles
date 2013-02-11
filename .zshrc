@@ -58,7 +58,7 @@ function chpwd() {
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR="emacsclient"
-export PATH=~/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:~/.ruby/bin:~/.local/bin:~/.android/sdk/tools:~/.android/sdk/platform-tools:/bin:/usr/local/bin:/usr/bin
+export PATH=~/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:~/.ruby/bin:~/.local/bin:~/.android/sdk/tools:~/.android/sdk/platform-tools:/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin
 export PYTHONPATH=~/.local/lib
 export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
