@@ -118,6 +118,17 @@ alias are='sudo aptitude reinstall'
 alias dl='dpkg -l | grep'
 alias dL='dpkg -L'
 
+# pacman aliases
+alias pS='sudo pacman -S'
+alias pSs='pacman -Ss'
+alias pSu='sudo pacman -Su'
+alias pR='sudo pacman -Rs'
+alias pQ='pacman -Q'
+alias pQl='pacman -Ql'
+alias pQi='pacman -Qi'
+alias pQo='pacamn -Qo'
+alias pQs='pacman -Qs'
+
 # gem and pip aliases
 alias gi='gem install'
 alias pi='pip install --user'
