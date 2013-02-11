@@ -121,7 +121,7 @@ alias dL='dpkg -L'
 # pacman aliases
 alias pS='sudo pacman -S'
 alias pSs='pacman -Ss'
-alias pSu='sudo pacman -Su'
+alias pSu='sudo pacman -Syu'
 alias pR='sudo pacman -Rs'
 alias pQ='pacman -Q'
 alias pQl='pacman -Ql'
