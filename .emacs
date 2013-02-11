@@ -32,7 +32,6 @@
 (require 'rebase-mode)
 (require 'paredit)
 (require 'clojure-mode)
-(require 'quack)
 (require 'inf-haskell)
 (require 'haskell-ghci)
 (require 'haskell-indent)
