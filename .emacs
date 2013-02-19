@@ -528,6 +528,7 @@ If the prefix argument is negative, tick articles instead."
 \\usepackage{listings}
 \\usepackage{natbib}
 \\usepackage{upquote}
+\\usepackage{alltt}
 \\usepackage{amsfonts}
 \\lstset{frame=single, basicstyle=\\ttfamily\\small, upquote=false, columns=fixed, breaklines=true, keywordstyle=\\color{blue}\\bfseries, commentstyle=\\color{red}, numbers=left, xleftmargin=2em}"
 	       ("\\section{%s}" . "\\section*{%s}")
