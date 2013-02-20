@@ -102,23 +102,19 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
     -- Shrink the master area
-    , ((modm,               xK_h     ), sendMessage Shrink)
+    , ((modm .|. shiftMask, xK_h     ), sendMessage Shrink)
 
     -- Expand the master area
-    , ((modm,               xK_l     ), sendMessage Expand)
+    , ((modm .|. shiftMask, xK_l     ), sendMessage Expand)
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
     -- Special keybindings from XMonad.Layout.WindowNavigation
-    , ((modm,                 xK_Right), sendMessage $ Go R)
-    , ((modm,                 xK_Left ), sendMessage $ Go L)
-    , ((modm,                 xK_Up   ), sendMessage $ Go U)
-    , ((modm,                 xK_Down ), sendMessage $ Go D)
-    , ((modm .|. controlMask, xK_Right), sendMessage $ Move R)
-    , ((modm .|. controlMask, xK_Left ), sendMessage $ Move L)
-    , ((modm .|. controlMask, xK_Up   ), sendMessage $ Move U)
-    , ((modm .|. controlMask, xK_Down ), sendMessage $ Move D)
+    , ((modm,                 xK_l    ), sendMessage $ Go R)
+    , ((modm,                 xK_h    ), sendMessage $ Go L)
+    , ((modm .|. controlMask, xK_l    ), sendMessage $ Move R)
+    , ((modm .|. controlMask, xK_h    ), sendMessage $ Move L)
     , ((modm .|. controlMask, xK_s    ), sendMessage $ SwapWindow)
 
     -- Quit xmonad
