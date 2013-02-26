@@ -49,6 +49,7 @@
 (require 'mirah-mode)
 (require 'yasnippet)
 (require 'auto-complete-config)
+(require 'slim-mode)
 
 ;; ----------------
 ;; auto-mode-alists
