@@ -5,7 +5,6 @@
 ;; ----------
 (add-to-list 'load-path "~/.elisp/")
 (add-to-list 'load-path "~/.elisp/theme")
-(add-to-list 'load-path "~/.elisp/slime")
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/magit")
 (add-to-list 'load-path "~/.elisp/magit/contrib")
@@ -24,7 +23,6 @@
 (require 'whitespace)
 (require 'filladapt)
 (require 'tramp)
-(require 'slime)
 (require 'magit)
 (require 'magit-bisect)
 (require 'magit-simple-keys)
@@ -424,8 +422,6 @@ If the prefix argument is negative, tick articles instead."
 ;; Mode hooks
 ;; ----------
 (add-hook 'emacs-lisp-mode-hook (lambda () (eldoc-mode t)))
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (defalias 'perl-mode 'cperl-mode)
@@ -441,15 +437,6 @@ If the prefix argument is negative, tick articles instead."
 ;; Scheme
 ;; ------
 (setq scheme-program-name "mzscheme")
-
-;; ---------------------
-;; SLIME for Common Lisp
-;; ---------------------
-(setq inferior-lisp-program "sbcl"
-      lisp-indent-function 'common-lisp-indent-function
-      slime-complete-symbol-function 'slime-fuzzy-complete-symbol
-      common-lisp-hyperspec-root "file:///home/artagnon/ebooks/HyperSpec/")
-(slime-setup)
 
 ;; -----
 ;; Tramp

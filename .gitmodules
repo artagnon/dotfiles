@@ -4,9 +4,6 @@
 [submodule ".elisp/magit"]
 	path = .elisp/magit
 	url = git://github.com/magit/magit
-[submodule ".elisp/slime"]
-	path = .elisp/slime
-	url = git://github.com/nablaone/slime
 [submodule ".elisp/git-commit-mode"]
 	path = .elisp/git-commit-mode
 	url = git://github.com/rafl/git-commit-mode
