@@ -11,6 +11,7 @@ import XMonad.Actions.WindowBringer
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.TwoPane
 import XMonad.Layout.NoBorders
@@ -216,7 +217,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = fullscreenEventHook -- For Chome fullscreen
 
 ------------------------------------------------------------------------
 -- Startup hook
