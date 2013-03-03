@@ -108,17 +108,6 @@ alias time='/usr/bin/time -p'
 alias easy_install='pip install --user'
 alias jnettop='sudo jnettop'
 
-# apt aliases
-alias au='sudo aptitude update'
-alias aup='sudo aptitude safe-upgrade'
-alias ai='sudo aptitude install'
-alias as='aptitude search'
-alias ashow='aptitude show'
-alias arp='sudo aptitude purge'
-alias are='sudo aptitude reinstall'
-alias dl='dpkg -l | grep'
-alias dL='dpkg -L'
-
 # pacman aliases
 alias pS='sudo pacman -S'
 alias pSs='pacman -Ss'
