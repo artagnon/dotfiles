@@ -118,7 +118,7 @@ alias pR='sudo pacman -Rs'
 alias pQ='pacman -Q'
 alias pQl='pacman -Ql'
 alias pQi='pacman -Qi'
-alias pQo='pacamn -Qo'
+alias pQo='pacman -Qo'
 alias pQs='pacman -Qs'
 
 # gem and pip aliases
