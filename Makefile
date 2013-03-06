@@ -16,7 +16,7 @@ remove_if_symlink =							\
 
 candidates = .zshrc .emacs .gitconfig .muttrc .Xdefaults .xmonad 	\
 .ncmpcpp .xinitrc .tmux.conf .elisp .rbenv .mpdconf .xmobarrc		\
-.xmobarrc.2
+.xmobarrc.2 .irbrc
 
 all::
 	git submodule update --init --recursive
