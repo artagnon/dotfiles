@@ -82,10 +82,6 @@ export ANDROIDAPI=14
 # ---[ GPG Key ]-------------------------------------------------------
 export GPGKEY=B8BB3FE9
 
-# ---[ Debian Developer ]----------------------------------------------
-export DEBFULLNAME="Ramkumar Ramachandra"
-export DEBEMAIL="artagnon@gmail.com"
-
 # ---[ Simple calculator ]---------------------------------------------
 function calc () {
 	awk "BEGIN { print $@ }"
