@@ -73,7 +73,7 @@ eval "$(rbenv init -)"
 eval "$(hub alias -s)"
 
 # ---[ Android SDK/ NDK ]----------------------------------------------
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 export ANDROIDSDK=~/.android/sdk
 export ANDROIDNDK=~/.android/ndk
 export ANDROIDNDKVER=r8c
