@@ -104,7 +104,6 @@ alias ec='emacsclient'
 alias ecr='emacsclient -n -c'
 alias et='emacsclient -t'
 alias fetch='git fetch'
-alias time='/usr/bin/time -p'
 alias easy_install='pip install --user'
 alias jnettop='sudo jnettop'
 
