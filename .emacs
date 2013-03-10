@@ -50,6 +50,7 @@
 (require 'yasnippet)
 (require 'auto-complete-config)
 (require 'slim-mode)
+(require 'revive)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -550,6 +551,13 @@ If the prefix argument is negative, tick articles instead."
 ;; -------------
 (add-to-list 'ac-dictionary-directories "~/.elisp/auto-complete/dict")
 (ac-config-default)
+
+;; ------
+;; revive
+;; ------
+(define-key ctl-x-map "S" 'save-current-configuration)
+(define-key ctl-x-map "R" 'resume)
+(define-key ctl-x-map "K" 'wipe)
 
 ;; ------------------------
 ;; Useful utility functions
