@@ -555,6 +555,7 @@ If the prefix argument is negative, tick articles instead."
 ;; ------
 ;; revive
 ;; ------
+(setq revive:configuration-file "~/.elisp/.state.el")
 (define-key ctl-x-map "S" 'save-current-configuration)
 (define-key ctl-x-map "R" 'resume)
 (define-key ctl-x-map "K" 'wipe)
