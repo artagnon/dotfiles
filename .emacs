@@ -204,6 +204,8 @@
  ido-enable-flex-matching t         ; be flexible
  ido-max-prospects 6                ; don't spam my minibuffer
  ido-confirm-unique-completion nil  ; don't wait for RET with unique completion
+ ido-default-file-method 'selected-window   ; open files in selected window
+ ido-default-buffer-method 'selected-window ; open buffers in selected window
  ido-max-directory-size 100000)
 
 ;; -----
