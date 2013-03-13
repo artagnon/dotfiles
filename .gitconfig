@@ -44,7 +44,8 @@
 	rc = rebase --continue
 	ra = rebase --abort
 	rs = rebase --skip
-	pull = pull --ff-only
+[pull]
+	rebase = true
 [imap]
         folder = "[Gmail]/Drafts"
         host = imaps://imap.gmail.com
