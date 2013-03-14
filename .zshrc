@@ -27,27 +27,6 @@ zmodload -a zsh/zpty zpty
 zmodload -ap zsh/mapfile mapfile
 autoload colors zsh/terminfo
 
-# ---[ cdm function ]--------------------------------------------------
-function cdm () {
-	local tmp
-	if [[ -z "${TMUX}" ]]; then
-		echo 'fatal: Not inside tmux.'
-		return 1
-	fi
-	if [[ -n "$1" ]]; then
-		[[ "$1" == . ]] && tmp="${PWD}" || tmp="$1"
-	else
-		tmp="${HOME}"
-	fi
-	cd "${tmp}"
-	tmp="${PWD}"
-	tmux "set-option" "default-path" "${tmp}"
-	[[ -n "${DISPLAY}" ]] && tmp=on || tmp=off
-	tmux "set-option" "set-titles" "${tmp}"
-	echo .
-	return 0
-}
-
 # ---[ Autols ]--------------------------------------------------------
 function chpwd() {
 	case `pwd` in
