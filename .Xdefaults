@@ -18,7 +18,7 @@ URxvt*mouseWheelScrollPage:	false
 URxvt*cutchars:  		`'",;@&*=|/?()<>[]{}'
 URxvt.perl-ext:			default,matcher
 URxvt.keysym.C-Delete:    	perl:matcher
-URxvt.urlLauncher:		google-chrome
+URxvt.url-launcher:		google-chrome
 URxvt.underlineURLs:		true
 
 !! ---[ Color scheme ]--------------------------------------------------
