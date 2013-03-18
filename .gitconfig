@@ -21,7 +21,7 @@
 [color]
 	ui = auto
 [push]
-	default = matching
+	default = current
 [pretty]
 	lg = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset'
 [alias]
