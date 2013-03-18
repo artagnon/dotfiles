@@ -87,6 +87,7 @@ alias et='emacsclient -t'
 alias fetch='git fetch'
 alias easy_install='pip install --user'
 alias jnettop='sudo jnettop'
+alias mount='sudo mount -o gid=users,fmask=113,dmask=002'
 
 # pacman aliases
 alias pS='sudo pacman -S'
