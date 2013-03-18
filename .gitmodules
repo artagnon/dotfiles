@@ -1,30 +1,30 @@
 [submodule "z"]
 	path = z
-	url = git://github.com/rupa/z
+	url = gh:rupa/z
 [submodule ".elisp/magit"]
 	path = .elisp/magit
-	url = git://github.com/magit/magit
+	url = gh:magit/magit
 [submodule ".elisp/git-commit-mode"]
 	path = .elisp/git-commit-mode
-	url = git://github.com/rafl/git-commit-mode
+	url = gh:rafl/git-commit-mode
 [submodule ".elisp/haskell-mode"]
 	path = .elisp/haskell-mode
-	url = git://github.com/haskell/haskell-mode
+	url = gh:haskell/haskell-mode
 [submodule ".elisp/clojure-mode"]
 	path = .elisp/clojure-mode
-	url = git://github.com/technomancy/clojure-mode
+	url = gh:technomancy/clojure-mode
 [submodule ".rbenv"]
 	path = .rbenv
-	url = git://github.com/sstephenson/rbenv
+	url = gh:sstephenson/rbenv
 [submodule ".elisp/org-mode"]
 	path = .elisp/org-mode
 	url = git://orgmode.org/org-mode.git
 [submodule ".elisp/eltbus-theme"]
 	path = .elisp/eltbus-theme
-	url = git://github.com/ScriptDevil/eltbus-theme
+	url = gh:ScriptDevil/eltbus-theme
 [submodule ".elisp/yasnippet"]
 	path = .elisp/yasnippet
-	url = git://github.com/capitaomorte/yasnippet
+	url = gh:capitaomorte/yasnippet
 [submodule ".elisp/auto-complete"]
 	path = .elisp/auto-complete
-	url = git://github.com/auto-complete/auto-complete
+	url = gh:auto-complete/auto-complete
