@@ -544,6 +544,11 @@ If the prefix argument is negative, tick articles instead."
 (define-key ctl-x-map "R" 'resume)
 (define-key ctl-x-map "K" 'wipe)
 
+;; ---
+;; man
+;; ---
+(setq Man-notify-method 'aggressive)
+
 ;; ------------------------
 ;; Useful utility functions
 ;; ------------------------
