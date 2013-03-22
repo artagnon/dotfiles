@@ -478,8 +478,10 @@ If the prefix argument is negative, tick articles instead."
       sh-basic-offset 8)
 
 ;; I don't use sh-repeat
-(define-key sh-mode-map
-  (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))
+(add-hook 'sh-mode-hook
+	  (lambda ()
+	    (define-key sh-mode-map
+	      (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))))
 
 ;; --------
 ;; org-mode
