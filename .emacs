@@ -149,6 +149,8 @@
 ;; c-mode
 ;; ------
 (add-hook 'c-mode-common-hook 'turn-on-filladapt-mode)
+(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
+
 (defmacro define-new-c-style (name derived-from style-alists tabs-p path-list)
   `(progn
      (add-hook 'c-mode-common-hook
