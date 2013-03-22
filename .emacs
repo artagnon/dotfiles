@@ -409,7 +409,7 @@ If the prefix argument is negative, tick articles instead."
 ;; ---------
 ;; text-mode
 ;; ---------
-(add-hook 'text-mode-hook 'turn-on-filladapt-mode)
+(add-hook 'text-mode-hook 'auto-fill-mode)
 (add-hook 'text-mode-hook 'flyspell-mode)
 
 ;; ---------------
