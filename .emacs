@@ -404,6 +404,16 @@ If the prefix argument is negative, tick articles instead."
 (define-key gnus-summary-mode-map
     (kbd "$ /") 'nnmairix-search)
 
+;; -------------
+;; flyspell-mode
+;; -------------
+(global-set-key "\C-cf" 'flyspell-check-previous-highlighted-word)
+
+;; ---------
+;; text-mode
+;; ---------
+(add-hook 'text-mode-hook 'flyspell-mode)
+
 ;; ---------------
 ;; emacs-list-mode
 ;; ---------------
