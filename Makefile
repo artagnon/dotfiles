@@ -16,7 +16,7 @@ remove_if_symlink =							\
 
 candidates = .zshrc .emacs .gitconfig .muttrc .Xdefaults .xmonad 	\
 .ncmpcpp .xinitrc .tmux.conf .elisp .rbenv .mpdconf .xmobarrc		\
-.xmobarrc.2 .irbrc .perlcriticrc
+.xmobarrc.2 .irbrc .perlcriticrc .aspell.conf .aspell.personal
 
 all::
 	@$(foreach file,$(candidates),$(symlink_to_home))
