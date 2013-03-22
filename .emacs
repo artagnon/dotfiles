@@ -404,15 +404,25 @@ If the prefix argument is negative, tick articles instead."
 (define-key gnus-summary-mode-map
     (kbd "$ /") 'nnmairix-search)
 
-;; ----------
-;; Mode hooks
-;; ----------
+;; ---------------
+;; emacs-list-mode
+;; ---------------
 (add-hook 'emacs-lisp-mode-hook (lambda () (eldoc-mode t)))
+
+;; ------------
+;; haskell-mode
+;; ------------
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+
+;; ---------
+;; perl-mode
+;; ---------
 (defalias 'perl-mode 'cperl-mode)
 
+;; -------
 ;; Paredit
+;; -------
 (mapc (lambda (mode)
 	(let ((hook (intern (concat (symbol-name mode)
 				    "-mode-hook"))))
