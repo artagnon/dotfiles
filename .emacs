@@ -439,11 +439,6 @@ If the prefix argument is negative, tick articles instead."
 	  (add-hook hook (lambda () (paredit-mode +1)))))
       '(emacs-lisp lisp scheme inferior-lisp))
 
-;; ------
-;; Scheme
-;; ------
-(setq scheme-program-name "mzscheme")
-
 ;; -----
 ;; Tramp
 ;; -----
