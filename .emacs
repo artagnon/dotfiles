@@ -145,9 +145,10 @@
 (global-set-key (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))
 (global-set-key (kbd "C-x v") 'magit-status)
 
-;; ---------------------
-;; Style and indentation
-;; ---------------------
+;; ------
+;; c-mode
+;; ------
+(add-hook 'c-mode-common-hook 'turn-on-filladapt-mode)
 (defmacro define-new-c-style (name derived-from style-alists tabs-p path-list)
   `(progn
      (add-hook 'c-mode-common-hook
@@ -185,12 +186,6 @@
 					       ("~/"))
 
 (define-new-c-style "subversion" "gnu" (inextern-lang 0) nil ("~/svn"))
-
-;; --------------------------
-;; Autofill and Adaptive fill
-;; --------------------------
-(add-hook 'text-mode-hook 'turn-on-filladapt-mode)
-(add-hook 'c-mode-common-hook 'turn-on-filladapt-mode)
 
 ;; ---
 ;; ido
@@ -412,6 +407,7 @@ If the prefix argument is negative, tick articles instead."
 ;; ---------
 ;; text-mode
 ;; ---------
+(add-hook 'text-mode-hook 'turn-on-filladapt-mode)
 (add-hook 'text-mode-hook 'flyspell-mode)
 
 ;; ---------------
