@@ -16,6 +16,7 @@
 (add-to-list 'load-path "~/.elisp/auto-complete")
 (add-to-list 'load-path "~/.elisp/ace-jump-mode")
 (add-to-list 'load-path "~/.elisp/smex")
+(add-to-list 'load-path "~/.elisp/scala-mode2")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/eltbus-theme")
 
@@ -55,6 +56,7 @@
 (require 'revive)
 (require 'ace-jump-mode)
 (require 'smex)
+(require 'scala-mode2)
 
 ;; ----------------
 ;; auto-mode-alists

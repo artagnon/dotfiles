@@ -34,3 +34,6 @@
 [submodule ".elisp/smex"]
 	path = .elisp/smex
 	url = gh:nonsequitur/smex
+[submodule ".elisp/scala-mode2"]
+	path = .elisp/scala-mode2
+	url = gh:hvesalai/scala-mode2
