@@ -112,7 +112,7 @@
 
 ;; Unbind C-z. I don't want suspend
 (when window-system
-  (global-unset-key "\C-z"))
+  (global-unset-key (kbd "C-z")))
 
 ;; ----------------------
 ;; Final newline handling
@@ -145,7 +145,6 @@
 (global-set-key (kbd "C-M-DEL") #'(lambda () (interactive) (zap-to-char -1 32)))
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))
-(global-set-key (kbd "C-x v") 'magit-status)
 
 ;; ------
 ;; c-mode
@@ -222,6 +221,7 @@
 ;; -----
 ;; magit
 ;; -----
+(global-set-key (kbd "C-x v") 'magit-status)
 (setq magit-commit-all-when-nothing-staged nil
       magit-revert-item-confirm t
       magit-process-connection-type nil
@@ -488,10 +488,10 @@ If the prefix argument is negative, tick articles instead."
 ;; --------
 ;; org-mode
 ;; --------
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(global-set-key "\C-ct" 'org-todo)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c b") 'org-iswitchb)
+(global-set-key (kbd "C-c t") 'org-todo)
 (setq org-fast-tag-selection-include-todo t
       org-log-done 'note
       org-hide-leading-stars t
@@ -505,7 +505,7 @@ If the prefix argument is negative, tick articles instead."
 
 ;; org-remember
 (setq org-default-notes-file "~/.notes")
-(define-key global-map "\C-cr" 'org-remember)
+(define-key global-map (kbd "C-c r") 'org-remember)
 
 ;; org-mode and LaTeX Beamer
 
