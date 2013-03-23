@@ -15,6 +15,7 @@
 (add-to-list 'load-path "~/.elisp/auto-complete/lib/popup")
 (add-to-list 'load-path "~/.elisp/auto-complete")
 (add-to-list 'load-path "~/.elisp/ace-jump-mode")
+(add-to-list 'load-path "~/.elisp/smex")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/eltbus-theme")
 
@@ -53,6 +54,7 @@
 (require 'slim-mode)
 (require 'revive)
 (require 'ace-jump-mode)
+(require 'smex)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -574,6 +576,12 @@ If the prefix argument is negative, tick articles instead."
 ;; ace-jump-mode
 ;; -------------
 (global-set-key (kbd "C-c j") 'ace-jump-mode)
+
+;; ----
+;; smex
+;; ----
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
 
 ;; ------------------------
 ;; Useful utility functions

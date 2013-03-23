@@ -31,3 +31,6 @@
 [submodule ".elisp/ace-jump-mode"]
 	path = .elisp/ace-jump-mode
 	url = gh:winterTTr/ace-jump-mode
+[submodule ".elisp/smex"]
+	path = .elisp/smex
+	url = gh:nonsequitur/smex
