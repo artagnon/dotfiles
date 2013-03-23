@@ -14,6 +14,7 @@
 (add-to-list 'load-path "~/.elisp/yasnippet")
 (add-to-list 'load-path "~/.elisp/auto-complete/lib/popup")
 (add-to-list 'load-path "~/.elisp/auto-complete")
+(add-to-list 'load-path "~/.elisp/ace-jump-mode")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/eltbus-theme")
 
@@ -51,6 +52,7 @@
 (require 'auto-complete-config)
 (require 'slim-mode)
 (require 'revive)
+(require 'ace-jump-mode)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -567,6 +569,11 @@ If the prefix argument is negative, tick articles instead."
 ;; man
 ;; ---
 (setq Man-notify-method 'aggressive)
+
+;; -------------
+;; ace-jump-mode
+;; -------------
+(global-set-key (kbd "C-c j") 'ace-jump-mode)
 
 ;; ------------------------
 ;; Useful utility functions

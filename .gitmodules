@@ -28,3 +28,6 @@
 [submodule ".elisp/auto-complete"]
 	path = .elisp/auto-complete
 	url = gh:auto-complete/auto-complete
+[submodule ".elisp/ace-jump-mode"]
+	path = .elisp/ace-jump-mode
+	url = gh:winterTTr/ace-jump-mode
