@@ -46,6 +46,7 @@
 	rs = rebase --skip
 [pull]
 	rebase = true
+	autostash = true
 [imap]
         folder = "[Gmail]/Drafts"
         host = imaps://imap.gmail.com
