@@ -21,7 +21,7 @@
 	url = git://orgmode.org/org-mode.git
 [submodule ".elisp/eltbus-theme"]
 	path = .elisp/eltbus-theme
-	url = gh:ScriptDevil/eltbus-theme
+	url = gh:artagnon/eltbus-theme
 [submodule ".elisp/yasnippet"]
 	path = .elisp/yasnippet
 	url = gh:capitaomorte/yasnippet
