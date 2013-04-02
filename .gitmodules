@@ -4,9 +4,6 @@
 [submodule ".elisp/magit"]
 	path = .elisp/magit
 	url = gh:magit/magit
-[submodule ".elisp/git-commit-mode"]
-	path = .elisp/git-commit-mode
-	url = gh:rafl/git-commit-mode
 [submodule ".elisp/haskell-mode"]
 	path = .elisp/haskell-mode
 	url = gh:haskell/haskell-mode
