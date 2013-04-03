@@ -8,7 +8,6 @@
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/magit")
 (add-to-list 'load-path "~/.elisp/magit/contrib")
-(add-to-list 'load-path "~/.elisp/git-commit-mode")
 (add-to-list 'load-path "~/.elisp/clojure-mode")
 (add-to-list 'load-path "~/.elisp/org-mode/lisp")
 (add-to-list 'load-path "~/.elisp/yasnippet")
@@ -29,7 +28,7 @@
 (require 'magit)
 (require 'magit-bisect)
 (require 'magit-simple-keys)
-(require 'git-commit)
+(require 'commit-mode)
 (require 'rebase-mode)
 (require 'paredit)
 (require 'clojure-mode)
@@ -233,6 +232,8 @@
 
 (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
 (add-hook 'git-commit-mode-hook 'flyspell-mode)
+
+(global-set-key (kbd "C-x l") 'magit-simple-log)
 
 ;; -----
 ;; rcirc
