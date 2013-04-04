@@ -15,10 +15,6 @@ file must be a symlink to `~/.keychain/$HOSTNAME-sh`.  If you don't
 know what keychain is, or don't want to use it, simply uncomment the
 relevant portion.
 
-git is aliased to hub, but hub is not included in this repository.
-Simply `gem install hub` and `hub hub standalone >~/bin/hub; chmod +x
-~/bin/hub` to get it.
-
 grep is aliased to ack-grep, which is also not included in this
 repository.  Get ack-grep for your distribution.
 

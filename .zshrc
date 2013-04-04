@@ -55,9 +55,6 @@ export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
 export PERL5LIB="$HOME/.perl5/lib/perl5:$PERL5LIB"
 export PATH="$HOME/.perl5/bin:$PATH"
 
-# ---[ hub ]-----------------------------------------------------------
-eval "$(hub alias -s)"
-
 # ---[ Android SDK/ NDK ]----------------------------------------------
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 export ANDROIDSDK=~/.android/sdk
