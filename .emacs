@@ -232,7 +232,7 @@
 
 (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
 
-(global-set-key (kbd "C-x l") 'magit-simple-log)
+(global-set-key (kbd "C-x l") 'magit-log-simple)
 
 ;; -----
 ;; rcirc
