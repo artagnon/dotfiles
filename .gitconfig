@@ -78,3 +78,5 @@
 	insteadOf = gh:artagnon/
 [url "git://github.com/"]
 	insteadOf = gh:
+[clone]
+	submodulegitdir = /home/artagnon/bare
