@@ -655,3 +655,10 @@ If the prefix argument is negative, tick articles instead."
     (replace-in-file "“" "\"")
     (replace-in-file "”" "\"")
     (replace-in-file "" "")))
+
+(defun smart-kill-whole-line (&optional arg)
+  (interactive "P")
+  (kill-whole-line arg)
+  (back-to-indentation))
+
+(global-set-key [remap kill-whole-line] 'smart-kill-whole-line)
