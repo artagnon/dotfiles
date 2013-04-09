@@ -456,6 +456,7 @@ If the prefix argument is negative, tick articles instead."
 ;; diff-mode
 ;; ---------
 (define-key diff-mode-map [(meta q)] 'fill-paragraph)
+(define-key diff-mode-map [(meta backspace)] 'backward-kill-word)
 
 ;; ---------
 ;; mail-mode
