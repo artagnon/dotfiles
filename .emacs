@@ -579,7 +579,7 @@ If the prefix argument is negative, tick articles instead."
 ;; -------------
 ;; ace-jump-mode
 ;; -------------
-(global-set-key (kbd "C-c j") 'ace-jump-mode)
+(global-set-key (kbd "M-h") 'ace-jump-mode)
 
 ;; ----
 ;; smex
