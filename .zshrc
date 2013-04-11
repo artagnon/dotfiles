@@ -158,6 +158,7 @@ alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mp
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias xrandr-restore='xrandr --output CRT1 --auto; xrandr --output CRT2 --auto; xrandr --output CRT2 --left-of CRT1'
 alias incognito='export HISTFILE=/dev/null'
+alias git-make='make -j 8 CFLAGS="-g -O0 -Wall"'
 alias git-prove='make -j 8 DEFAULT_TEST_TARGET=prove GIT_PROVE_OPTS="-j 15" test'
 
 # suffix aliases
