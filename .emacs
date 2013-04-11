@@ -680,3 +680,11 @@ If the prefix argument is negative, tick articles instead."
   (back-to-indentation))
 
 (global-set-key [remap kill-whole-line] 'smart-kill-whole-line)
+
+(defun smart-open-line ()
+  "Shortcut for C-e RET"
+  (interactive)
+  (move-end-of-line nil)
+  (newline))
+
+(global-set-key [(shift return)] 'smart-open-line)
