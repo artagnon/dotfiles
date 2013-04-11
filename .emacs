@@ -111,6 +111,7 @@
 (savehist-mode t)
 (ido-mode t)
 (rcirc-track-minor-mode t)
+(electric-indent-mode 1)
 (edit-server-start)
 
 ;; Unbind C-z. I don't want suspend
@@ -146,7 +147,6 @@
 (global-set-key (kbd "M-]") 'forward-paragraph)
 (global-set-key (kbd "M-[") 'backward-paragraph)
 (global-set-key (kbd "C-M-DEL") #'(lambda () (interactive) (zap-to-char -1 32)))
-(global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))
 
 ;; ------
