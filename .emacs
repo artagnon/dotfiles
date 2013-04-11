@@ -231,7 +231,6 @@
       process-connection-type nil)
 
 (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
-(add-hook 'git-commit-mode-hook 'flyspell-mode)
 
 (global-set-key (kbd "C-x l") 'magit-simple-log)
 
