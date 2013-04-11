@@ -153,7 +153,6 @@
 ;; c-mode
 ;; ------
 (add-hook 'c-mode-common-hook 'turn-on-filladapt-mode)
-(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 
 (defmacro define-new-c-style (name derived-from style-alists tabs-p path-list)
   `(progn
@@ -410,6 +409,7 @@ If the prefix argument is negative, tick articles instead."
 ;; -------------
 ;; flyspell-mode
 ;; -------------
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (global-set-key "\C-cf" 'flyspell-check-previous-highlighted-word)
 
 ;; ---------
