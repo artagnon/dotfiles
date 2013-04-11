@@ -56,6 +56,7 @@
 (require 'ace-jump-mode)
 (require 'smex)
 (require 'scala-mode2)
+(require 'recentf)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -579,6 +580,24 @@ If the prefix argument is negative, tick articles instead."
 ;; ace-jump-mode
 ;; -------------
 (global-set-key (kbd "M-h") 'ace-jump-mode)
+
+;; -------
+;; recentf
+;; -------
+(setq recentf-max-saved-items 200
+      recentf-max-menu-items 50)
+(recentf-mode 1)
+
+(defun recentf-ido-find-file ()
+  "Find a recent file using ido."
+  (interactive)
+  (let ((file
+	 (ido-completing-read "Choose recent file: "
+			      (mapcar #'abbreviate-file-name recentf-list) nil t)))
+    (when file
+      (find-file file))))
+
+(global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
 
 ;; ----
 ;; smex
