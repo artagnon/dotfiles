@@ -411,7 +411,7 @@ If the prefix argument is negative, tick articles instead."
 ;; flyspell-mode
 ;; -------------
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-(global-set-key "\C-cf" 'flyspell-check-previous-highlighted-word)
+(global-set-key (kbd "C-c f") 'flyspell-check-previous-highlighted-word)
 
 ;; ---------
 ;; text-mode
@@ -511,7 +511,7 @@ If the prefix argument is negative, tick articles instead."
 
 ;; org-remember
 (setq org-default-notes-file "~/.notes")
-(define-key global-map (kbd "C-c r") 'org-remember)
+(global-set-key (kbd "C-c r") 'org-remember)
 
 ;; org-mode and LaTeX Beamer
 
