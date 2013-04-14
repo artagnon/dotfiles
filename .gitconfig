@@ -80,3 +80,5 @@
 	insteadOf = gh:
 [clone]
 	submoduleGitDir = ~/bare
+[include]
+	path = ~/private/.gitconfig
