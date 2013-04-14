@@ -33,7 +33,7 @@
 	cp = cherry-pick
 	fp = format-patch --cover-letter -M -C -o outgoing
 	fpo = format-patch --stdout -M -C
-	am = am -c
+	am = am -3 -c
 	se = send-email
 	lg = log --pretty=lg --abbrev-commit --date=relative
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
