@@ -44,6 +44,8 @@
 	rc = rebase --continue
 	ra = rebase --abort
 	rs = rebase --skip
+	ss = stash save
+	sp = stash pop
 [pull]
 	rebase = true
 	autostash = true
