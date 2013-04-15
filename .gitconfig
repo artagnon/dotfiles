@@ -48,6 +48,9 @@
 	rs = rebase --skip
 	ss = stash save
 	sp = stash pop
+	p = push
+	f = fetch
+	pu = pull
 [pull]
 	rebase = true
 	autostash = true
