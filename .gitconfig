@@ -1,3 +1,5 @@
+[include]
+	path = ~/private/.gitconfig
 [core]
 	whitespace = trailing-space,space-before-tab
 [apply]
@@ -82,5 +84,3 @@
 	insteadOf = gh:
 [clone]
 	submoduleGitDir = ~/bare
-[include]
-	path = ~/private/.gitconfig
