@@ -53,7 +53,6 @@
 	pu = pull
 [pull]
 	rebase = true
-	autostash = true
 [imap]
         folder = "[Gmail]/Drafts"
         host = imaps://imap.gmail.com
@@ -67,6 +66,7 @@
 	enabled = true
 [rebase]
 	autosquash = true
+	autostash = true
 [diff]
 	submodule = log
 [grep]
