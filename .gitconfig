@@ -50,6 +50,7 @@
 	ss = stash save
 	sp = stash pop
 	p = push
+	pf = push -f
 	f = fetch
 	pu = pull
 [pull]
