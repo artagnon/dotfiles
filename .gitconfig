@@ -2,6 +2,7 @@
 	path = ~/private/.gitconfig
 [core]
 	whitespace = trailing-space,space-before-tab
+	submoduleGitDir = ~/bare
 [apply]
 	whitespace = fix
 [user]
@@ -85,5 +86,3 @@
 	insteadOf = gh:artagnon/
 [url "git://github.com/"]
 	insteadOf = gh:
-[clone]
-	submoduleGitDir = ~/bare
