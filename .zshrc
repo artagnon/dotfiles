@@ -86,6 +86,7 @@ alias easy_install='pip install --user'
 alias jnettop='sudo jnettop'
 alias mount='sudo mount -o uid=artagnon,gid=artagnon,fmask=113,dmask=002'
 alias umount='sudo umount'
+alias g='git'
 
 # pacman aliases
 alias pS='sudo pacman -S'
