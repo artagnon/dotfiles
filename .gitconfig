@@ -52,6 +52,7 @@
 	pf = push -f
 	f = fetch
 	pu = pull
+	b = blame -M -CCC
 [pull]
 	rebase = true
 [imap]
