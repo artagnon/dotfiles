@@ -476,8 +476,17 @@ If the prefix argument is negative, tick articles instead."
 ;; -------
 ;; sh-mode
 ;; -------
-(setq sh-indentation 8
-      sh-basic-offset 8)
+(defmacro define-new-sh-style (indentation basic-offset match-path)
+  `(add-hook 'sh-mode-hook
+	     (lambda ()
+	       (let ((filename (buffer-file-name)))
+		 (when (and filename
+			    (string-match (expand-file-name ,match-path) filename))
+		   (setq sh-indetnation ,indentation)
+		   (setq sh-basic-offset ,basic-offset))))))
+
+(define-new-sh-style 2 2 "~/src/zsh")
+(define-new-sh-style 8 8 "~")
 
 ;; I don't use sh-repeat
 (add-hook 'sh-mode-hook
