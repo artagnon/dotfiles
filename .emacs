@@ -151,6 +151,8 @@
 (global-set-key (kbd "M-[") 'backward-paragraph)
 (global-set-key (kbd "C-M-DEL") #'(lambda () (interactive) (zap-to-char -1 32)))
 (global-set-key (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))
+(global-set-key (kbd "C-S-n") #'(lambda () (interactive) (ignore-errors (next-line 5))))
+(global-set-key (kbd "C-S-p") #'(lambda () (interactive) (ignore-errors (previous-line 5))))
 
 ;; ------
 ;; c-mode
