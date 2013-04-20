@@ -628,6 +628,21 @@ If the prefix argument is negative, tick articles instead."
 		 (set-visited-file-name new-name)
 		 (set-buffer-modified-p nil)))))))
 
+(defun delete-file-and-buffer ()
+  "Removes file connected to current buffer and kills buffer"
+  (interactive)
+  (let ((filename (buffer-file-name))
+        (buffer (current-buffer))
+        (name (buffer-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (ido-kill-buffer)
+      (when (yes-or-no-p "Are you sure you want to remove this file? ")
+        (delete-file filename)
+        (kill-buffer buffer)
+        (message "File '%s' successfully removed" filename)))))
+
+(global-set-key (kbd "C-x C-k") 'delete-file-and-buffer)
+
 (defun reformat-hard-wrap (beg end)
   (interactive "r")
   (shell-command-on-region beg end "fmt -w2000" nil t))
