@@ -153,6 +153,7 @@
 (global-set-key (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))
 (global-set-key (kbd "C-S-n") #'(lambda () (interactive) (ignore-errors (next-line 5))))
 (global-set-key (kbd "C-S-p") #'(lambda () (interactive) (ignore-errors (previous-line 5))))
+(global-set-key (kbd "M-j") #'(lambda () (interactive) (join-line -1)))
 
 ;; ------
 ;; c-mode
