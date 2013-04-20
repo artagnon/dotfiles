@@ -57,6 +57,7 @@
 (require 'smex)
 (require 'scala-mode2)
 (require 'recentf)
+(require 'saveplace)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -89,7 +90,8 @@
 	      edebug-trace t
 	      fill-adapt-mode t
 	      winner-mode t
-	      uniquify-buffer-name-style 'forward)
+	      uniquify-buffer-name-style 'forward
+	      save-place t)
 
 (set-face-attribute 'default nil :height 85)
 (global-font-lock-mode 1)
