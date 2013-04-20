@@ -613,23 +613,6 @@ If the prefix argument is negative, tick articles instead."
 ;; ------------------------
 ;; Useful utility functions
 ;; ------------------------
-(defun revert-all-buffers ()
-  "Refreshs all open buffers from their respective files"
-  (interactive)
-  (let* ((list (buffer-list))
-         (buffer (car list)))
-    (while buffer
-      (if (string-match "\\*" (buffer-name buffer)) 
-          (progn
-            (setq list (cdr list))
-            (setq buffer (car list)))
-          (progn
-            (set-buffer buffer)
-            (revert-buffer t t t)
-            (setq list (cdr list))
-            (setq buffer (car list))))))
-  (message "Refreshing open files"))
-
 (defun rename-file-and-buffer ()
   "Renames the current buffer and the file it's visiting"
   (interactive)
