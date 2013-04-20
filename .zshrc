@@ -162,6 +162,12 @@ alias incognito='export HISTFILE=/dev/null'
 alias git-make='make -j 8 CFLAGS="-g -O0 -Wall"'
 alias git-prove='make -j 8 DEFAULT_TEST_TARGET=prove GIT_PROVE_OPTS="-j 15" test'
 
+# reload the git completer from ~/src/zsh
+function regitsh () {
+	unfunction -m _git\*
+	autoload -Uz $^fpath/_git*(N:t)
+}
+
 # suffix aliases
 alias -s pdf=evince
 alias -s djvu=evince
@@ -205,6 +211,10 @@ zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX + $#SU
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats '|%F{green}%b%c%u%f'
+
+
+# ---[ Load functions in ~/src/zsh ]------------------------------------
+fpath=($HOME/src/zsh/{Completion{,/**/_*(N:h)},Functions/*(/N)} $fpath)
 
 # ---[ ZLE ]------------------------------------------------------------
 history-incremental-search-backward-initial() {
