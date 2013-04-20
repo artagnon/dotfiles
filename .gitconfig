@@ -53,6 +53,9 @@
 	f = fetch
 	pu = pull
 	b = blame -M -CCC
+	bD = branch -D
+	bM = branch -M
+	bl = branch
 [pull]
 	rebase = true
 [imap]
