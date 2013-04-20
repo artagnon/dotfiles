@@ -191,8 +191,6 @@
 					       c-lineup-arglist-tabs-only) t
 					       ("~/"))
 
-(define-new-c-style "subversion" "gnu" (inextern-lang 0) nil ("~/svn"))
-
 ;; ---
 ;; ido
 ;; ---
