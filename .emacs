@@ -155,7 +155,7 @@
 ;; ------
 (add-hook 'c-mode-common-hook 'turn-on-filladapt-mode)
 
-(defmacro define-new-c-style (name derived-from style-alists tabs-p path-list)
+(defmacro define-new-c-style (name derived-from style-alists tabs-p match-path)
   `(progn
      (add-hook 'c-mode-common-hook
 	       (lambda ()
@@ -166,11 +166,7 @@
 	       (lambda ()
 		 (let ((filename (buffer-file-name)))
 		   (when (and filename
-			      (delq nil
-				    (mapcar (lambda (path)
-					      (string-match (expand-file-name path)
-							    filename))
-					    ',path-list)))
+			      (string-match (expand-file-name ,match-path) filename))
 		     (setq indent-tabs-mode ,tabs-p)
 		     (c-set-style ,name)))))))
 
@@ -184,12 +180,12 @@
        c-basic-offset)))
 
 ;; Syntax for define-new-c-style:
-;; <style name> <derived from> <style alist> <tabs-p> <list of paths to apply to>
+;; <style name> <derived from> <style alist> <tabs-p> <path to apply to>
 
 (define-new-c-style "linux-tabs-only" "linux" (arglist-cont-nonempty
 					       c-lineup-gcc-asm-reg
 					       c-lineup-arglist-tabs-only) t
-					       ("~/"))
+					       "~")
 
 ;; ---
 ;; ido
