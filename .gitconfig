@@ -39,8 +39,8 @@
 	se = send-email
 	lg = log --pretty=lg --abbrev-commit --date=relative
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
-	r = log --reverse master..HEAD
-	rp = log -p --reverse master..HEAD
+	review = log -p --reverse master..
+	r = rebase
 	ri = rebase --interactive
 	rc = rebase --continue
 	ra = rebase --abort
