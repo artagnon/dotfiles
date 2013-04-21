@@ -54,7 +54,8 @@
 	b = blame -M -CCC
 	bD = branch -D
 	bM = branch -M
-	bl = branch
+	br = branch
+	bra = branch -a
 [pull]
 	rebase = true
 [imap]
