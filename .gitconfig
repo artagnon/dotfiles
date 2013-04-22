@@ -56,6 +56,7 @@
 	bM = branch -M
 	br = branch
 	bra = branch -a
+	test-ri = !GIT_EDITOR='sed -i /^pick/agit-prove' git ri
 [pull]
 	rebase = true
 [imap]
