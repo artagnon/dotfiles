@@ -28,7 +28,8 @@
 [pretty]
 	lg = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset'
 [alias]
-	l = log --follow
+	l = log
+	lf = log --follow
 	sl = shortlog -ns --no-merges
 	s = status -sb
 	co = checkout
