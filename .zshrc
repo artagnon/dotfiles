@@ -2,6 +2,9 @@
 export PS_PERSONALITY='linux'
 [[ $TERM == eterm-color ]] && export TERM=xterm
 
+# ---[ Augment fpath ]-------------------------------------------------
+fpath=(~/.zsh/completion $fpath)
+
 # ---[ Keychain ]------------------------------------------------------
 keychain --nogui -q ~/.ssh/id_rsa
 source ~/.keychain/localhost-sh
@@ -162,7 +165,7 @@ alias incognito='export HISTFILE=/dev/null'
 alias git-make='make -j 8 CFLAGS="-g -O0 -Wall"'
 alias git-prove='make -j 8 DEFAULT_TEST_TARGET=prove GIT_PROVE_OPTS="-j 15" test'
 
-# reload the git completer from ~/src/zsh
+# reload the git completer from fpath
 function regitsh () {
 	unfunction -m _git\*
 	autoload -Uz $^fpath/_git*(N:t)
@@ -179,7 +182,7 @@ alias -s wmv=vlc
 alias -s dat=vlc
 alias -s mp3=mpg321
 
-# ---[ ZSH Options ]----------------------------------------------------
+# ---[ ZSH Options ]---------------------------------------------------
 setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL NO_BEEP MULTIOS
 setopt   AUTO_LIST NO_LIST_AMBIGUOUS MENU_COMPLETE AUTO_REMOVE_SLASH
 setopt   LIST_PACKED LIST_TYPES
@@ -212,11 +215,7 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats '|%F{green}%b%c%u%f'
 
-
-# ---[ Load functions in ~/src/zsh ]------------------------------------
-fpath=($HOME/src/zsh/{Completion{,/**/_*(N:h)},Functions/*(/N)} $fpath)
-
-# ---[ ZLE ]------------------------------------------------------------
+# ---[ ZLE ]-----------------------------------------------------------
 history-incremental-search-backward-initial() {
 	zle history-incremental-search-backward $BUFFER
 }
@@ -233,6 +232,6 @@ PROMPT='%F{$NCOLOR}%B%n%b%f\
 ${vcs_info_msg_0_}:\
 %F{yellow}%B%~%b%f%(!.#.$) '
 
-# ---[ System settings ]------------------------------------------------
+# ---[ System settings ]-----------------------------------------------
 limit -s coredumpsize 0
 umask 0027
