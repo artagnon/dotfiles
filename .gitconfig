@@ -41,7 +41,9 @@
 	lg = log --pretty=lg --abbrev-commit --date=relative
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 	review = log -p --reverse master..
-	r = rebase
+	r = reset
+	rh = reset --hard
+	re = rebase
 	ri = rebase --interactive
 	rc = rebase --continue
 	ra = rebase --abort
