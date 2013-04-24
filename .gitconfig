@@ -50,6 +50,8 @@
 	rs = rebase --skip
 	ss = stash save
 	sp = stash pop
+	sd = stash drop
+	sc = stash clear
 	p = push
 	pf = push -f
 	f = fetch
