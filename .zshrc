@@ -235,4 +235,4 @@ ${vcs_info_msg_0_}:\
 
 # ---[ System settings ]-----------------------------------------------
 limit -s coredumpsize 0
-umask 0027
+umask 002
