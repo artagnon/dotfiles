@@ -77,7 +77,7 @@ function calc () {
 # ---[ Aliases ]-------------------------------------------------------
 # abbreviations
 alias resh='source ~/.zshrc'
-alias ll='ls -lha'
+alias ll='ls --color -vlha'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
 alias hibernate='sudo pm-hibernate'
@@ -112,14 +112,6 @@ alias pi='pip install --user'
 # tiny helpers
 function l () {
 	case "$1" in
-		date|mtime)
-			shift
-			ls --color -vt "$@"
-			;;
-		atime)
-			shift
-			ls --color -vu "$@"
-			;;
 		recent)
 			shift
 			ls --color -vt "$@" | head -n 5
@@ -127,14 +119,6 @@ function l () {
 		size)
 			shift
 			ls --color -vS "$@"
-			;;
-		all)
-			shift
-			ls --color -vlha "$@"
-			;;
-		extension)
-			shift
-			ls --color -vX "$@"
 			;;
 		*)
 			ls --color -v "$@"
