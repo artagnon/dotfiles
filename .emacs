@@ -520,10 +520,6 @@ If the prefix argument is negative, tick articles instead."
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-;; org-remember
-(setq org-default-notes-file "~/.notes")
-(global-set-key (kbd "C-c r") 'org-remember)
-
 ;; org-mode and LaTeX Beamer
 
 ;; allow for export=>beamer by placing
