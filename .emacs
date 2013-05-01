@@ -192,6 +192,8 @@
 					       c-lineup-arglist-tabs-only) t
 					       "~")
 
+(define-key c-mode-map [(meta j)] #'(lambda () (interactive) (join-line -1)))
+
 ;; ---
 ;; ido
 ;; ---
