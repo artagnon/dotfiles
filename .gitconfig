@@ -2,7 +2,6 @@
 	path = ~/private/.gitconfig
 [core]
 	whitespace = trailing-space,space-before-tab
-	submoduleGitDir = ~/bare
 [apply]
 	whitespace = fix
 [user]
