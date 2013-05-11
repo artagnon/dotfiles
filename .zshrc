@@ -197,8 +197,6 @@ zstyle ':completion:*:default' list-prompt
 zstyle ':completion:*:match:*' original only
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX + $#SUFFIX) / 5 )) )'
 zstyle ':completion:*:functions' ignored-patterns '_*'
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats '|%F{green}%b%c%u%f'
 
 # ---[ ZLE ]-----------------------------------------------------------
 history-incremental-search-backward-initial() {
@@ -209,12 +207,13 @@ bindkey '^R' history-incremental-search-backward-initial
 bindkey -M isearch '^R' history-incremental-search-backward
 
 # ---[ Prompt ]--------------------------------------------------------
-function precmd() { vcs_info }
 [[ "$terminfo[colors]" -ge 8 ]] && colors
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
 
+source ~/.zsh/prompt/git-prompt.sh
+
 PROMPT='%F{$NCOLOR}%B%n%b%f\
-${vcs_info_msg_0_}:\
+|%F{green}$(__git_ps1 "%s"):\
 %F{yellow}%B%~%b%f%(!.#.$) '
 
 # ---[ System settings ]-----------------------------------------------
