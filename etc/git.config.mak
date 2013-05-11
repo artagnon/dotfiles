@@ -1,0 +1,4 @@
+CFLAGS = -g -O0 -Wall
+DEFAULT_TEST_TARGET = prove
+GIT_PROVE_OPTS = -j 16
+GIT_TEST_OPTS = -i
