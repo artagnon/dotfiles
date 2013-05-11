@@ -211,6 +211,10 @@ bindkey -M isearch '^R' history-incremental-search-backward
 
 source ~/.zsh/prompt/git-prompt.sh
 
+GIT_PS1_DESCRIBE_STYLE=branch
+GIT_PS1_SHOWUPSTREAM=auto
+GIT_PS1_SHOWDIRTYSTATE=true
+
 PROMPT='%F{$NCOLOR}%B%n%b%f\
 |%F{green}$(__git_ps1 "%s"):\
 %F{yellow}%B%~%b%f%(!.#.$) '
