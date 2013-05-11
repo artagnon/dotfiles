@@ -208,7 +208,6 @@ bindkey -M isearch '^R' history-incremental-search-backward
 
 # ---[ Prompt ]--------------------------------------------------------
 [[ "$terminfo[colors]" -ge 8 ]] && colors
-if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
 
 source ~/.zsh/prompt/git-prompt.sh
 
