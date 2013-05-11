@@ -207,17 +207,14 @@ bindkey '^R' history-incremental-search-backward-initial
 bindkey -M isearch '^R' history-incremental-search-backward
 
 # ---[ Prompt ]--------------------------------------------------------
-[[ "$terminfo[colors]" -ge 8 ]] && colors
-
-source ~/.zsh/prompt/git-prompt.sh
+source ~/.zsh/prompt/git-prompt.zsh
 
 GIT_PS1_DESCRIBE_STYLE=branch
 GIT_PS1_SHOWUPSTREAM=auto
 GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWCOLORHINTS=true
 
-PROMPT='%F{$NCOLOR}%B%n%b%f\
-|%F{green}$(__git_ps1 "%s"):\
-%F{yellow}%B%~%b%f%(!.#.$) '
+precmd () { __git_ps1 "%F{$NCOLOR}%B%n%b%f" ":%F{yellow}%B%~%b%f%(!.#.$) " "|%s" }
 
 # ---[ System settings ]-----------------------------------------------
 limit -s coredumpsize 0
