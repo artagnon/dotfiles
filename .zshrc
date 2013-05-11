@@ -145,8 +145,6 @@ function man_ () {
 alias man=man_
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
-alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
-alias xrandr-restore='xrandr --output CRT1 --auto; xrandr --output CRT2 --auto; xrandr --output CRT2 --left-of CRT1'
 alias incognito='export HISTFILE=/dev/null'
 alias git-make='make -j 8'
 alias git-prove='make -j 8 test'
