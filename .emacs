@@ -8,6 +8,7 @@
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/magit")
 (add-to-list 'load-path "~/.elisp/magit/contrib")
+(add-to-list 'load-path "~/.elisp/git-modes")
 (add-to-list 'load-path "~/.elisp/clojure-mode")
 (add-to-list 'load-path "~/.elisp/org-mode/lisp")
 (add-to-list 'load-path "~/.elisp/yasnippet")
@@ -28,8 +29,10 @@
 (require 'magit)
 (require 'magit-bisect)
 (require 'magit-simple-keys)
-(require 'commit-mode)
 (require 'rebase-mode)
+(require 'git-commit-mode)
+(require 'gitignore-mode)
+(require 'gitconfig-mode)
 (require 'paredit)
 (require 'clojure-mode)
 (require 'inf-haskell)
@@ -237,6 +240,9 @@
 (global-set-key (kbd "C-x h") #'(lambda () (interactive)
 				  (magit-show-commit
 				   (magit-rev-parse "HEAD") nil t t)))
+
+;; git-modes
+(setq git-commit-confirm-commit nil)
 
 ;; -----
 ;; rcirc
