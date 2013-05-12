@@ -112,7 +112,7 @@ alias pi='pip install --user'
 
 # tiny helpers
 function l () {
-	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+	if test "true" = $(g rp --is-inside-work-tree); then
 		g s
 		return
 	fi
@@ -159,8 +159,8 @@ function regitsh () {
 	autoload -Uz $^fpath/_git*(N:t)
 }
 
-function - () {v
-	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+function - () {
+	if test "true" = $(g rp --is-inside-work-tree); then
 		g co -
 	else
 		cd -
