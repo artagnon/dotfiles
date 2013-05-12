@@ -500,6 +500,7 @@
   (kill-whole-line arg)
   (back-to-indentation))
 
+;; [(control shift backspace)]
 (global-set-key [remap kill-whole-line] 'smart-kill-whole-line)
 
 (defun smart-open-line ()
