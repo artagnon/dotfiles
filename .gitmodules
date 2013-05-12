@@ -70,3 +70,9 @@
 	branch = master
 	update = rebase
 	ignore = all
+[submodule ".elisp/git-modes"]
+	path = .elisp/git-modes
+	url = gh:lunaryorn/git-modes
+	branch = master
+	update = rebase
+	ignore = all
