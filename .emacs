@@ -363,21 +363,6 @@
 ;; --------
 ;; org-mode
 ;; --------
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c b") 'org-iswitchb)
-(global-set-key (kbd "C-c t") 'org-todo)
-(setq org-fast-tag-selection-include-todo t
-      org-log-done 'note
-      org-hide-leading-stars t
-      org-agenda-files '("~/notes/diary"))
-
-;; let windmove work in org-mode
-(add-hook 'org-shiftup-final-hook 'windmove-up)
-(add-hook 'org-shiftleft-final-hook 'windmove-left)
-(add-hook 'org-shiftdown-final-hook 'windmove-down)
-(add-hook 'org-shiftright-final-hook 'windmove-right)
-
 ;; org-mode and LaTeX Beamer
 
 ;; allow for export=>beamer by placing
