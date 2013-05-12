@@ -55,7 +55,6 @@
 (require 'yasnippet)
 (require 'auto-complete-config)
 (require 'slim-mode)
-(require 'revive)
 (require 'ace-jump-mode)
 (require 'smex)
 (require 'scala-mode2)
@@ -428,14 +427,6 @@
 ;; -------------
 (add-to-list 'ac-dictionary-directories "~/.elisp/auto-complete/dict")
 (ac-config-default)
-
-;; ------
-;; revive
-;; ------
-(setq revive:configuration-file "~/.elisp/.state.el")
-(define-key ctl-x-map "S" 'save-current-configuration)
-(define-key ctl-x-map "R" 'resume)
-(define-key ctl-x-map "K" 'wipe)
 
 ;; ---
 ;; man
