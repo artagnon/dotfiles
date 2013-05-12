@@ -112,6 +112,10 @@ alias pi='pip install --user'
 
 # tiny helpers
 function l () {
+	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+		g s
+		return
+	fi
 	case "$1" in
 		recent)
 			shift
