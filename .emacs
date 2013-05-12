@@ -653,10 +653,6 @@ If the prefix argument is negative, tick articles instead."
 
 (global-set-key (kbd "C-x C-k") 'delete-file-and-buffer)
 
-(defun reformat-hard-wrap (beg end)
-  (interactive "r")
-  (shell-command-on-region beg end "fmt -w2000" nil t))
-
 (defun smart-kill-whole-line (&optional arg)
   (interactive "P")
   (kill-whole-line arg)
