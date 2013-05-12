@@ -64,6 +64,7 @@
 	m = merge
 	mu = merge --ff-only @{u}
 	fb = filter-branch
+	rp = rev-parse
 [pull]
 	rebase = true
 [imap]
