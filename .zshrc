@@ -155,6 +155,14 @@ function regitsh () {
 	autoload -Uz $^fpath/_git*(N:t)
 }
 
+function - () {v
+	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+		g co -
+	else
+		cd -
+	fi
+}
+
 # suffix aliases
 alias -s pdf=evince
 alias -s djvu=evince
