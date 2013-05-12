@@ -63,6 +63,7 @@
 	test-ri = !GIT_EDITOR='sed -i /^pick/agit-prove' git ri
 	m = merge
 	mu = merge --ff-only @{u}
+	fb = filter-branch
 [pull]
 	rebase = true
 [imap]
