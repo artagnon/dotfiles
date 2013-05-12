@@ -18,7 +18,7 @@
 (add-to-list 'load-path "~/.elisp/smex")
 (add-to-list 'load-path "~/.elisp/scala-mode2")
 
-(add-to-list 'custom-theme-load-path "~/.elisp/eltbus-theme")
+(add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
 ;; ---------
 ;; Autoloads
@@ -100,7 +100,7 @@
 (global-font-lock-mode 1)
 (windmove-default-keybindings)
 (setq framemove-hook-into-windmove t)
-(load-theme 'eltbus t)
+(load-theme 'zenburn t)
 
 ;; Remove toolbar, menubar, scrollbar and tooltips
 (tool-bar-mode -1)
