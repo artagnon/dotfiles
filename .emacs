@@ -121,7 +121,7 @@
 
 ;; Unbind C-z. I don't want suspend
 (when window-system
-  (global-unset-key (kbd "C-z")))
+  (global-unset-key [(control z)]))
 
 ;; ----------------------
 ;; Final newline handling
@@ -149,13 +149,12 @@
 ;; ------------------
 ;; Custom Keybindings
 ;; ------------------
-(global-set-key (kbd "M-]") 'forward-paragraph)
-(global-set-key (kbd "M-[") 'backward-paragraph)
-(global-set-key (kbd "C-M-DEL") #'(lambda () (interactive) (zap-to-char -1 32)))
-(global-set-key (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))
-(global-set-key (kbd "C-S-n") #'(lambda () (interactive) (ignore-errors (next-line 5))))
-(global-set-key (kbd "C-S-p") #'(lambda () (interactive) (ignore-errors (previous-line 5))))
-(global-set-key (kbd "M-j") #'(lambda () (interactive) (join-line -1)))
+(global-set-key [(meta \])] 'forward-paragraph)
+(global-set-key [(meta \[)] 'backward-paragraph)
+(global-set-key [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))
+(global-set-key [(control shift n)] #'(lambda () (interactive) (ignore-errors (next-line 5))))
+(global-set-key [(control shift p)] #'(lambda () (interactive) (ignore-errors (previous-line 5))))
+(global-set-key [(meta j)] #'(lambda () (interactive) (join-line -1)))
 
 ;; ------
 ;; c-mode
@@ -227,7 +226,7 @@
 ;; -----
 ;; magit
 ;; -----
-(global-set-key (kbd "C-x v") 'magit-status)
+(global-set-key [(control x) (v)] 'magit-status)
 (setq magit-commit-all-when-nothing-staged nil
       magit-revert-item-confirm t
       magit-process-connection-type nil
@@ -235,8 +234,8 @@
 
 (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
 
-(global-set-key (kbd "C-x l") 'magit-log-simple)
-(global-set-key (kbd "C-x h") #'(lambda () (interactive)
+(global-set-key [(control x) (l)] 'magit-log-simple)
+(global-set-key [(control x) (h)] #'(lambda () (interactive)
 				  (magit-show-commit
 				   (magit-rev-parse "HEAD") nil t t)))
 
@@ -271,7 +270,7 @@
 ;; flyspell-mode
 ;; -------------
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-(global-set-key (kbd "C-c f") 'flyspell-check-previous-highlighted-word)
+(global-set-key [(control c) (f)] 'flyspell-check-previous-highlighted-word)
 
 ;; ---------
 ;; text-mode
@@ -358,7 +357,7 @@
 (add-hook 'sh-mode-hook
 	  (lambda ()
 	    (define-key sh-mode-map
-	      (kbd "C-c C-r") #'(lambda () (interactive) (revert-buffer nil t)))))
+	      [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))))
 
 ;; --------
 ;; org-mode
@@ -421,7 +420,7 @@
 ;; -------------
 ;; ace-jump-mode
 ;; -------------
-(global-set-key (kbd "M-h") 'ace-jump-mode)
+(global-set-key [(meta h)] 'ace-jump-mode)
 
 ;; -------
 ;; recentf
@@ -439,13 +438,13 @@
     (when file
       (find-file file))))
 
-(global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
+(global-set-key [(control c) (control r)] 'recentf-ido-find-file)
 
 ;; ----
 ;; smex
 ;; ----
 (smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
+(global-set-key [remap execute-extended-command] 'smex)
 
 ;; ------------------------
 ;; Useful utility functions
@@ -478,7 +477,7 @@
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
 
-(global-set-key (kbd "C-x C-k") 'delete-file-and-buffer)
+(global-set-key [(control x) (control k)] 'delete-file-and-buffer)
 
 (defun smart-kill-whole-line (&optional arg)
   (interactive "P")
