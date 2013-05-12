@@ -65,6 +65,12 @@
 	mu = merge --ff-only @{u}
 	fb = filter-branch
 	rp = rev-parse
+	rems = remote show -n
+	rema = remote add
+	remr = remote rm
+	remp = remote prune
+	remn = rename rename
+	su = remote set-url
 [pull]
 	rebase = true
 [imap]
