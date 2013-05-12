@@ -163,7 +163,7 @@ function - () {
 	if test "true" = $(g rp --is-inside-work-tree); then
 		g co -
 	else
-		cd -
+		cd - >/dev/null
 	fi
 }
 
