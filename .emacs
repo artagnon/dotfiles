@@ -123,6 +123,9 @@
 (when window-system
   (global-unset-key [(control z)]))
 
+;; y-or-n-p please
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; ----------------------
 ;; Final newline handling
 ;; ----------------------
