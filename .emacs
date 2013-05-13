@@ -438,7 +438,7 @@
     (when file
       (find-file file))))
 
-(global-set-key [(control c) (control r)] 'recentf-ido-find-file)
+(global-set-key [(control c) (r)] 'recentf-ido-find-file)
 
 ;; ----
 ;; smex
