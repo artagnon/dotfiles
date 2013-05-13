@@ -32,6 +32,7 @@
 	sl = shortlog -ns --no-merges
 	s = status -sb
 	sh = show
+	c = clone
 	co = checkout
 	ci = commit
 	cp = cherry-pick
