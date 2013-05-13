@@ -151,10 +151,15 @@ alias incognito='export HISTFILE=/dev/null'
 alias git-make='make -j 8'
 alias git-prove='make -j 8 test'
 
-# usage: git-test stash|rebase|merge
-function git-test () {
+# usage: gsh <file>
+#    or: gsh <name-to-match>
+function gsh () {
 	if test $# != 1; then
 		return 1
+	fi
+	if test -f "$1"; then
+		sh "$1" -v -i
+		return
 	fi
 	find . -maxdepth 1 -type f -name "*$1*" -exec echo "== {}" \; -exec sh {} \;
 }
