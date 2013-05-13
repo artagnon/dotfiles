@@ -219,7 +219,7 @@ bindkey '^R' history-incremental-search-backward-initial
 bindkey -M isearch '^R' history-incremental-search-backward
 
 # ---[ Prompt ]--------------------------------------------------------
-source ~/.zsh/prompt/git-prompt.zsh
+source ~/.zsh/prompt/git-prompt.sh
 
 GIT_PS1_DESCRIBE_STYLE=branch
 GIT_PS1_SHOWUPSTREAM=auto
