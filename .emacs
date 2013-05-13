@@ -423,7 +423,7 @@
 ;; -------------
 ;; ace-jump-mode
 ;; -------------
-(global-set-key [(meta h)] 'ace-jump-mode)
+(global-set-key [(meta h)] 'ace-jump-word-mode)
 
 ;; -------
 ;; recentf
