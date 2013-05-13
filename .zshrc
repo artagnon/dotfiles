@@ -112,7 +112,7 @@ alias pi='pip install --user'
 
 # tiny helpers
 function l () {
-	if test "true" = $(g rp --is-inside-work-tree); then
+	if test $# = 0 && test "true" = $(g rp --is-inside-work-tree); then
 		g s
 		return
 	fi
@@ -125,10 +125,8 @@ function l () {
 			shift
 			ls --color -vS "$@"
 			;;
-		*)
-			ls --color -v "$@"
-			;;
 	esac
+	ls --color -v "$@"
 }
 
 function x () {
