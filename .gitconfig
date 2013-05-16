@@ -39,7 +39,7 @@
 	fp = format-patch --cover-letter -M -C -o outgoing
 	fpo = format-patch --stdout -M -C
 	se = send-email
-	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	graph = log --graph --decorate --pretty=oneline --abbrev-commit
 	review = log -p --reverse master..
 	r = reset
 	rh = reset --hard
