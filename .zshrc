@@ -2,9 +2,6 @@
 export PS_PERSONALITY='linux'
 [[ $TERM == eterm-color ]] && export TERM=xterm
 
-# ---[ Augment fpath ]-------------------------------------------------
-fpath=(~/.zsh/completion $fpath)
-
 # ---[ Keychain ]------------------------------------------------------
 keychain --nogui -q ~/.ssh/id_rsa
 source ~/.keychain/localhost-sh
@@ -203,7 +200,9 @@ HISTFILE=~/.zsh-history
 HISTSIZE=3000
 SAVEHIST=$HISTSIZE
 
-# ---[ Completition system ]-------------------------------------------
+# ---[ Completion system ]---------------------------------------------
+fpath=(~/.zsh/completion $fpath)
+
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*' completer _complete _match _approximate
