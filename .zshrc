@@ -102,7 +102,7 @@ alias pi='pip install --user'
 
 # tiny helpers
 function l () {
-	if test $# = 0 && test "true" = $(g rp --is-inside-work-tree); then
+	if test $# = 0 && test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)"; then
 		g s
 		return
 	fi
@@ -165,7 +165,7 @@ function regitsh () {
 }
 
 function - () {
-	if test "true" = $(g rp --is-inside-work-tree); then
+	if test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)"; then
 		g co -
 	else
 		cd - >/dev/null
