@@ -173,17 +173,6 @@ function - () {
 	fi
 }
 
-# suffix aliases
-alias -s pdf=evince
-alias -s djvu=evince
-alias -s avi=vlc
-alias -s mpg=vlc
-alias -s mpeg=vlc
-alias -s mkv=vlc
-alias -s wmv=vlc
-alias -s dat=vlc
-alias -s mp3=mpg321
-
 # ---[ ZSH Options ]---------------------------------------------------
 setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL NO_BEEP MULTIOS
 setopt   NO_NOMATCH
