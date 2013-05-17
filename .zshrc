@@ -44,7 +44,7 @@ export LD_LIBRARY_PATH=/usr/local/lib
 export PYTHONPATH=~/.local/lib
 export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
-export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+export WORDCHARS='*?[]~=&;!#$%^(){}<>'
 export LESS="FSRX"
 
 # ---[ rbenv ]---------------------------------------------------------
