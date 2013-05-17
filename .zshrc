@@ -64,11 +64,6 @@ export ANDROIDNDK=~/.android/ndk
 export ANDROIDNDKVER=r8c
 export ANDROIDAPI=14
 
-# ---[ Simple calculator ]---------------------------------------------
-function calc () {
-	awk "BEGIN { print $@ }"
-}
-
 # ---[ Aliases ]-------------------------------------------------------
 # abbreviations
 alias resh='source ~/.zshrc'
@@ -133,6 +128,10 @@ function x () {
 			unzip "$1"
 			;;
 	esac
+}
+
+function calc () {
+	awk "BEGIN { print $@ }"
 }
 
 function man_ () {
