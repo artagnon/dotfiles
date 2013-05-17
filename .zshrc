@@ -30,8 +30,8 @@ autoload colors zsh/terminfo
 # ---[ Autols ]--------------------------------------------------------
 function chpwd() {
 	case `pwd` in
-		*'/git/t/'*) ls --color -v ;;
-		*'/git'*|'/tmp') ;;
+		"$HOME/src/git/t/"*) ls --color -v ;;
+		"$HOME/src/git"|"$HOME/src/git/"*|"/tmp") ;;
 		*) ls --color -v ;;
 	esac
 }
