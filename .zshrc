@@ -67,9 +67,6 @@ export ANDROIDNDK=~/.android/ndk
 export ANDROIDNDKVER=r8c
 export ANDROIDAPI=14
 
-# ---[ GPG Key ]-------------------------------------------------------
-export GPGKEY=B8BB3FE9
-
 # ---[ Simple calculator ]---------------------------------------------
 function calc () {
 	awk "BEGIN { print $@ }"
