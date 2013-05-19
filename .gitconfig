@@ -11,6 +11,7 @@
 	user = artagnon
 [format]
 	signoff = true
+	coverLetter = auto
 [sendemail]
 	smtpuser = artagnon@gmail.com
 	suppresscc = all
@@ -37,7 +38,7 @@
 	cob = checkout -b
 	ci = commit
 	cp = cherry-pick
-	fp = format-patch --cover-letter -M -C -o outgoing
+	fp = format-patch -M -C -o outgoing
 	fpo = format-patch --stdout -M -C
 	se = send-email
 	graph = log --graph --decorate --pretty=oneline --abbrev-commit
