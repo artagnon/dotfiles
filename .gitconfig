@@ -19,8 +19,6 @@
 	smtpserverport = 587
 	smtpencryption = tls
 	chainreplyto = false
-[help]
-	autocorrect = 20
 [color]
 	ui = auto
 [push]
