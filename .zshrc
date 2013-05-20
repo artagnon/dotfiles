@@ -159,7 +159,7 @@ function gsh () {
 }
 
 # reload the git completer from fpath
-function regitsh () {
+function regitcomp () {
 	unfunction -m _git\*
 	autoload -Uz $^fpath/_git*(N:t)
 }
