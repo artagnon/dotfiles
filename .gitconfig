@@ -55,6 +55,7 @@
 	p = push -u
 	pf = push -u -f
 	f = fetch
+	fa = fetch --all
 	pu = pull
 	b = blame -M -CCC
 	bD = branch -D
