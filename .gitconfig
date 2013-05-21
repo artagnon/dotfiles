@@ -73,6 +73,7 @@
 	remn = rename rename
 	su = remote set-url
 	d = diff
+	g = grep
 [pull]
 	rebase = true
 [imap]
