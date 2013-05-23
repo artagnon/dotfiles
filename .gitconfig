@@ -74,6 +74,7 @@
 	su = remote set-url
 	d = diff
 	g = grep
+	rl = log --oneline --relative-date -g
 [pull]
 	rebase = true
 [imap]
