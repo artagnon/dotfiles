@@ -64,7 +64,6 @@
 	bra = branch -a
 	test-ri = !GIT_EDITOR='sed -i /^pick/agit-prove' git ri
 	m = merge
-	mu = merge --ff-only @{u}
 	fb = filter-branch
 	rp = rev-parse
 	rems = remote show -n
@@ -86,6 +85,8 @@
 [merge]
 	conflictstyle = diff3
 	log = 10
+	ff = only
+	defaultToUpstream = true
 [rerere]
 	enabled = true
 [rebase]
