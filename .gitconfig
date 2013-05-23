@@ -40,7 +40,7 @@
 	fpo = format-patch --stdout -M -C
 	se = send-email
 	graph = log --graph --decorate --pretty=oneline --abbrev-commit
-	review = log -p --reverse master..
+	review = log -p --reverse origin..
 	r = reset
 	rh = reset --hard
 	re = rebase
