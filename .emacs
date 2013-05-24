@@ -203,7 +203,7 @@
 ;; ---
 (setq 
  ido-ignore-buffers                 ; ignore these guys
- '("\\` " "^\*Mess" "^\*Back" ".*Completion" "^\*Ido")
+ '("\\` " "^\*Mess" "^\*Back" "^\*Ido")
  ido-case-fold  t                   ; be case-insensitive
  ido-use-filename-at-point nil      ; don't use filename at point (annoying)
  ido-use-url-at-point nil           ; don't use url at point (annoying)
