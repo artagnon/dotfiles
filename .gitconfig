@@ -36,7 +36,7 @@
 	cob = checkout -b
 	ci = commit
 	cp = cherry-pick
-	fp = format-patch -M -C -o outgoing
+	fp = !rm -rf outgoing && git format-patch -M -C -o outgoing
 	fpo = format-patch --stdout -M -C
 	se = send-email
 	graph = log --graph --decorate --pretty=oneline --abbrev-commit
