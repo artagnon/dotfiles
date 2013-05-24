@@ -1,8 +1,10 @@
-personal_ws-1.1 en 15 
+personal_ws-1.1 en 21 
 lensing
+iteratively
 worktree
 wankery
 conf
+changeset
 customizable
 favorability
 emacs
@@ -10,7 +12,11 @@ linux
 thermodynamically
 submodules
 keybindings
+postimage
+filepairs
 unfavorability
 submodule
 programmatically
+preimage
 committer
+filepair
