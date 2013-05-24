@@ -60,7 +60,7 @@
 	b = blame -M -CCC
 	bD = branch -D
 	bM = branch -M
-	br = branch -v -v
+	br = branch
 	bra = branch -a
 	test-ri = !GIT_EDITOR='sed -i /^pick/agit-prove' git ri
 	m = merge
