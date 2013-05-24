@@ -52,8 +52,8 @@
 	sp = stash pop
 	sd = stash drop
 	sc = stash clear
-	p = push -u
-	pf = push -u -f
+	p = push
+	pf = push -f
 	f = fetch
 	fa = fetch --all
 	pu = pull
