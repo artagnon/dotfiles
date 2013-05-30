@@ -67,6 +67,7 @@
 	m = merge
 	fb = filter-branch
 	rp = rev-parse
+	rl = rev-list
 	rems = remote show -n
 	rema = remote add
 	remr = remote rm
@@ -75,7 +76,7 @@
 	su = remote set-url
 	d = diff
 	g = grep
-	rl = log --oneline --relative-date -g
+	rfl = log --oneline --relative-date -g
 [pull]
 	rebase = true
 [merge]
