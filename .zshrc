@@ -23,7 +23,6 @@ autoload -Uz compinit
 autoload -Uz vcs_info
 compinit
 zmodload -a zsh/stat stat
-zmodload -a zsh/zpty zpty
 zmodload -ap zsh/mapfile mapfile
 autoload colors zsh/terminfo
 
