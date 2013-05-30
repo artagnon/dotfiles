@@ -141,8 +141,17 @@ alias man=man_
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias incognito='export HISTFILE=/dev/null'
-alias git-make='make -j 8'
-alias git-prove='make -j 8 test'
+
+# usage: git-make
+#    or: git-make p ;for tests
+function git-make () {
+    	test $# = 1 && prove="test"
+    	toplevel=$(g rp --show-toplevel 2>/dev/null)
+	if test -n "$toplevel"; then
+		cd $toplevel
+		make -j 8 $prove
+	fi
+}
 
 # usage: gsh <file>
 #    or: gsh <name-to-match>
