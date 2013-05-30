@@ -62,8 +62,6 @@
 	bM = branch -M
 	br = branch
 	hot = for-each-ref --pretty='%C(red)%(HEAD)%C(reset) %C(green)%(refname:short)%C(reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
-	brv = for-each-ref --format='%(HEAD) %C(green)%<(*)%(refname:short)%C(reset) %<(*)%(objectname:short) %(subject)' refs/heads
-	brvv = for-each-ref --format='%(HEAD) %C(green)%<(*)%(refname:short)%C(reset) %<(*)%(objectname:short) %C(blue)%(upstream:short)%C(reset) %(subject)' refs/heads
 	bra = branch -a
 	test-ri = !GIT_EDITOR='sed -i /^pick/agit-prove' git ri
 	m = merge
