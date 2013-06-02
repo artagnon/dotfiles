@@ -353,8 +353,7 @@
 		   (setq sh-indetnation ,indentation)
 		   (setq sh-basic-offset ,basic-offset))))))
 
-(define-new-sh-style 2 2 "~/src/zsh")
-(define-new-sh-style 2 2 "~/.rbenv")
+(define-new-sh-style 8 8 "~")
 
 ;; I don't use sh-repeat
 (add-hook 'sh-mode-hook
