@@ -93,6 +93,8 @@
 	submodule = log
 [grep]
 	lineNumber = true
+[blame]
+	date = relative
 [advice]
 	pushUpdateRejected = false
 	statusHints = false
