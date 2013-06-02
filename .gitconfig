@@ -91,6 +91,7 @@
 	autostash = true
 [diff]
 	submodule = log
+	tool = vimdiff2
 [grep]
 	lineNumber = true
 [blame]
