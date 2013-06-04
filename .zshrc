@@ -74,7 +74,6 @@ alias diff='diff -u'
 alias ec='emacsclient'
 alias ecr='emacsclient -n -c'
 alias et='emacsclient -t'
-alias fetch='git fetch'
 alias easy_install='pip install --user'
 alias jnettop='sudo jnettop'
 alias mount="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
