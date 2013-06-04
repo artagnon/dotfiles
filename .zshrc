@@ -81,6 +81,7 @@ alias mount="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
 alias umount='sudo umount'
 alias g='git'
 alias rf='rm -rf'
+alias chrome='google-chrome'
 
 # pacman aliases
 alias pS='sudo pacman -S'
