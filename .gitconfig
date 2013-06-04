@@ -24,7 +24,7 @@
 [push]
 	default = current
 [pretty]
-	lg = format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset
+	lg = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset
 [alias]
 	l = log
 	lf = log --follow
