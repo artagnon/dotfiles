@@ -62,6 +62,7 @@
 	bD = branch -D
 	bM = branch -M
 	br = branch
+	bru = branch -u
 	hot = for-each-ref --pretty=hot --count 10 --sort='-committerdate' refs/heads
 	bra = branch -a
 	test-ri = !GIT_EDITOR='sed -i /^pick/agit-prove' git ri
