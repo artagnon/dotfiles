@@ -25,6 +25,7 @@
 	default = current
 [pretty]
 	lg = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset
+	hot = %C(red)%(HEAD)%C(reset) %C(green)%(refname:short)%C(reset)%(upstream:trackshort)
 [alias]
 	l = log
 	lf = log --follow
@@ -61,7 +62,7 @@
 	bD = branch -D
 	bM = branch -M
 	br = branch
-	hot = for-each-ref --pretty='%C(red)%(HEAD)%C(reset) %C(green)%(refname:short)%C(reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
+	hot = for-each-ref --pretty=hot --count 10 --sort='-committerdate' refs/heads
 	bra = branch -a
 	test-ri = !GIT_EDITOR='sed -i /^pick/agit-prove' git ri
 	m = merge
