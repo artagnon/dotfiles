@@ -17,6 +17,7 @@
 (add-to-list 'load-path "~/.elisp/ace-jump-mode")
 (add-to-list 'load-path "~/.elisp/smex")
 (add-to-list 'load-path "~/.elisp/scala-mode2")
+(add-to-list 'load-path "~/.elisp/rust-mode")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -60,6 +61,7 @@
 (require 'scala-mode2)
 (require 'recentf)
 (require 'saveplace)
+(require 'rust-mode)
 
 ;; ----------------
 ;; auto-mode-alists
