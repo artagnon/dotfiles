@@ -79,6 +79,7 @@
 	d = diff
 	g = grep
 	rfl = log --oneline --relative-date -g
+	conf = config
 [pull]
 	rebase = true
 [merge]
