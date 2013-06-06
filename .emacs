@@ -71,6 +71,7 @@
 (add-to-list 'auto-mode-alist '("mutt-.*-" . mail-mode))
 (add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
 (add-to-list 'auto-mode-alist '("\\.mirah$" . mirah-mode))
+(add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 
 ;; ----------------------
 ;; General Customizations
