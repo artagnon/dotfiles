@@ -24,7 +24,7 @@
 [push]
 	default = current
 [pretty]
-	lg = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset
+	lg = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr %an)%C(reset)
 	hot = %C(red)%(HEAD)%C(reset) %C(green)%(refname:short)%C(reset)%(upstream:trackshort)
 [alias]
 	l = log
