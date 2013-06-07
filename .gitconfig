@@ -59,7 +59,7 @@
 	fo = fetch origin
 	fa = fetch --all
 	pu = pull
-	b = blame -M -CCC
+	b = blame -M -CC
 	bD = branch -D
 	bM = branch -M
 	br = branch
