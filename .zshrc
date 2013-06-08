@@ -145,7 +145,7 @@ alias incognito='export HISTFILE=/dev/null'
 # usage: git-make
 #    or: git-make p ;for tests
 function git-make () {
-    	test $# = 1 && prove="test"
+    	test $# = 1 && prove="test" || prove=""
     	toplevel=$(g rp --show-toplevel 2>/dev/null)
 	if test -n "$toplevel"; then
 		cd $toplevel
