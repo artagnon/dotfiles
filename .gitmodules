@@ -1,9 +1,3 @@
-[submodule "z"]
-	path = z
-	url = gh:rupa/z
-	branch = master
-	update = rebase
-	ignore = all
 [submodule ".elisp/magit"]
 	path = .elisp/magit
 	url = gh:magit/magit

@@ -6,17 +6,6 @@ export PS_PERSONALITY='linux'
 keychain --nogui -q ~/.ssh/id_rsa
 source ~/.keychain/localhost-sh
 
-# ---[ Autojump ]------------------------------------------------------
-source ~/dotfiles/z/z.sh
-function j () {
-	z "$@" || return 0;
-}
-function _z_preexec () {
-	z --add "$(pwd -P)";
-}
-
-preexec_functions=(_z_preexec $preexec_functions)
-
 # ---[ Modules ]-------------------------------------------------------
 zmodload zsh/complist
 autoload -Uz compinit
