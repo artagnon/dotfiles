@@ -142,6 +142,8 @@ function git-make () {
 	fi
 }
 
+alias git-prove='git-make prove'
+
 # usage: gsh <file>
 #    or: gsh <name-to-match>
 function gsh () {
