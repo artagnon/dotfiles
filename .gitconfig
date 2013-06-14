@@ -44,6 +44,7 @@
 	rv = log -p --reverse origin..
 	r = reset
 	rh = reset --hard
+	rhu = reset --hard @{u}
 	re = rebase
 	ri = rebase --interactive
 	rc = rebase --continue
