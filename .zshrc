@@ -189,6 +189,9 @@ SAVEHIST=$HISTSIZE
 # ---[ Completion system ]---------------------------------------------
 fpath=(~/.zsh/completion $fpath)
 
+# Hack to complete git fp
+_git_fp () { _git_format_patch; }
+
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*' completer _complete _match _approximate
