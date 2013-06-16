@@ -344,9 +344,10 @@
 		(interactive)
 		(revert-buffer t t nil)
 		(server-edit)))))
-;; -------
-;; sh-mode
-;; -------
+
+;; -----------------
+;; shell-script-mode
+;; -----------------
 (defmacro define-new-sh-style (indentation basic-offset match-path)
   `(add-hook 'sh-mode-hook
 	     (lambda ()
@@ -354,7 +355,9 @@
 		 (when (and filename
 			    (string-match (expand-file-name ,match-path) filename))
 		   (setq sh-indetnation ,indentation)
-		   (setq sh-basic-offset ,basic-offset))))))
+		   (setq sh-basic-offset ,basic-offset)
+		   (setq sh-indent-for-case-label 0)
+		   (setq sh-indent-for-case-alt '+))))))
 
 (define-new-sh-style 8 8 "~")
 
