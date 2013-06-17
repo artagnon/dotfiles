@@ -11,7 +11,6 @@
 (add-to-list 'load-path "~/.elisp/git-modes")
 (add-to-list 'load-path "~/.elisp/clojure-mode")
 (add-to-list 'load-path "~/.elisp/org-mode/lisp")
-(add-to-list 'load-path "~/.elisp/yasnippet")
 (add-to-list 'load-path "~/.elisp/auto-complete/lib/popup")
 (add-to-list 'load-path "~/.elisp/auto-complete")
 (add-to-list 'load-path "~/.elisp/ace-jump-mode")
@@ -53,7 +52,6 @@
 (require 'kivy-mode)
 (require 'cython-mode)
 (require 'mirah-mode)
-(require 'yasnippet)
 (require 'auto-complete-config)
 (require 'slim-mode)
 (require 'ace-jump-mode)
@@ -406,13 +404,6 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 (setq TeX-PDF-mode t)
-
-;; ---------
-;; yasnippet
-;; ---------
-(setq yas-snippet-dirs
-      '("~/.elisp/yasnippet/snippets" "~/.elisp/snippets"))
-(yas-global-mode 1)
 
 ;; -------------
 ;; auto-complete
