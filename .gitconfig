@@ -82,6 +82,7 @@
 	g = grep
 	rfl = log --oneline --relative-date -g
 	conf = config
+	desc = describe --always --contains --all
 [pull]
 	rebase = true
 [merge]
