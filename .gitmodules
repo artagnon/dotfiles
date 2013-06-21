@@ -3,64 +3,53 @@
 	url = gh:magit/magit
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".elisp/haskell-mode"]
 	path = .elisp/haskell-mode
 	url = gh:haskell/haskell-mode
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".elisp/clojure-mode"]
 	path = .elisp/clojure-mode
 	url = gh:technomancy/clojure-mode
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".rbenv"]
 	path = .rbenv
 	url = gh:sstephenson/rbenv
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".elisp/org-mode"]
 	path = .elisp/org-mode
 	url = git://orgmode.org/org-mode.git
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".elisp/auto-complete"]
 	path = .elisp/auto-complete
 	url = gh:auto-complete/auto-complete
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".elisp/ace-jump-mode"]
 	path = .elisp/ace-jump-mode
 	url = gh:winterTTr/ace-jump-mode
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".elisp/smex"]
 	path = .elisp/smex
 	url = gh:nonsequitur/smex
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".elisp/scala-mode2"]
 	path = .elisp/scala-mode2
 	url = gh:hvesalai/scala-mode2
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".elisp/git-modes"]
 	path = .elisp/git-modes
 	url = gh:lunaryorn/git-modes
 	branch = master
 	update = rebase
-	ignore = all
 [submodule ".elisp/zenburn-emacs"]
 	path = .elisp/zenburn-emacs
 	url = gh:bbatsov/zenburn-emacs
 	branch = master
 	update = rebase
-	ignore = all
