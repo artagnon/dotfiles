@@ -36,7 +36,6 @@
 (require 'paredit)
 (require 'clojure-mode)
 (require 'inf-haskell)
-(require 'haskell-ghci)
 (require 'haskell-indent)
 (require 'haskell-doc)
 (require 'php-mode)
