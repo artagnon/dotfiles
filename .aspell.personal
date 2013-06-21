@@ -1,4 +1,4 @@
-personal_ws-1.1 en 47 
+personal_ws-1.1 en 49 
 decoherence
 lensing
 iteratively
@@ -24,8 +24,10 @@ contrib
 thermodynamically
 submodules
 keybindings
+workflow
 namespace
 customizations
+prebuilt
 postimage
 filepairs
 recurse
