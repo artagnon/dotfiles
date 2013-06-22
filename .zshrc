@@ -143,6 +143,11 @@ function git-make () {
 
 alias git-prove='git-make prove'
 
+# usage: git-prove-all [<branch>]
+function git-prove-all () {
+	GIT_SEQUENCE_EDITOR="sed -i '/^pick/aexec make -j 8 test'" git ri ${1-master}
+}
+
 # usage: gsh <file>
 #    or: gsh <name-to-match>
 function gsh () {
