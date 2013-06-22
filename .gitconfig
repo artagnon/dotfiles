@@ -68,7 +68,6 @@
 	fer = for-each-ref
 	hot = for-each-ref --pretty=hot --count 10 --sort='-committerdate' refs/heads
 	bra = branch -a
-	test-ri = !GIT_EDITOR='sed -i /^pick/agit-prove' git ri
 	m = merge
 	fb = filter-branch
 	rp = rev-parse
