@@ -60,12 +60,12 @@
 (require 'recentf)
 (require 'saveplace)
 (require 'rust-mode)
+(require 'haskell-mode-autoloads)
 
 ;; ----------------
 ;; auto-mode-alists
 ;; ----------------
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
-(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 (add-to-list 'auto-mode-alist '("mutt-.*-" . mail-mode))
 (add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
 (add-to-list 'auto-mode-alist '("\\.mirah$" . mirah-mode))
