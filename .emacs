@@ -28,6 +28,7 @@
 (require 'tramp)
 (require 'magit)
 (require 'magit-bisect)
+(require 'magit-blame)
 (require 'magit-simple-keys)
 (require 'rebase-mode)
 (require 'git-commit-mode)
