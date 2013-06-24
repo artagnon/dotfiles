@@ -105,9 +105,6 @@
 	lineNumber = true
 [blame]
 	date = relative
-[status]
-	short = true
-	branch = true
 [advice]
 	pushUpdateRejected = false
 	statusHints = false
