@@ -101,6 +101,8 @@
 [diff]
 	submodule = log
 	tool = vimdiff2
+[pack]
+	usebitmaps = true
 [grep]
 	lineNumber = true
 [blame]
