@@ -105,6 +105,8 @@
 	lineNumber = true
 [blame]
 	date = relative
+	blankboundary = true
+	showroot = true
 [advice]
 	pushUpdateRejected = false
 	statusHints = false
