@@ -76,7 +76,7 @@
 	rema = remote add
 	remr = remote rm
 	remp = remote prune
-	remn = rename rename
+	remn = remote rename
 	su = remote set-url
 	d = diff
 	g = grep
