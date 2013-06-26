@@ -28,6 +28,8 @@
 	hot = %C(red)%(HEAD)%C(reset) %C(green)%(refname:short)%C(reset)%(upstream:trackshort)
 [alias]
 	l = log
+	l1 = log -1 -p
+	lp = log -p
 	lf = log --follow
 	sl = shortlog -ns --no-merges
 	s = status -sb
