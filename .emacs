@@ -39,7 +39,6 @@
 (require 'php-mode)
 (require 'cscope)
 (require 'csharp-mode)
-(require 'rcirc-controls)
 (require 'windmove)
 (require 'framemove)
 (require 'winner)
@@ -113,7 +112,6 @@
 (show-paren-mode t)
 (savehist-mode t)
 (ido-mode t)
-(rcirc-track-minor-mode t)
 (electric-indent-mode 1)
 (edit-server-start)
 
@@ -242,30 +240,6 @@
 
 ;; git-modes
 (setq git-commit-confirm-commit nil)
-
-;; -----
-;; rcirc
-;; -----
-
-;; General settings
-(setq rcirc-server-alist
-      '(("irc.freenode.net"
-	 :port 6667
-	 :nick "artagnon"
-	 :full-name "Ramkumar Ramachandra")))
-
-(defun gtalk ()
-  (interactive)
-  (rcirc-connect "localhost" "6667" "artagnon"))
-
-;; Wrap long lines according to the width of the window
-(add-hook 'window-configuration-change-hook
-          '(lambda ()
-	    (setq rcirc-fill-column (- (window-width) 2))))
-
-(defun rcirc-kill-all-buffers ()
-  (interactive)
-  (kill-all-mode-buffers 'rcirc-mode))
 
 ;; -------------
 ;; flyspell-mode
