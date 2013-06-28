@@ -204,7 +204,6 @@ zstyle ':completion:*' matcher-list '+' '+m:{|:lower:|}={|:upper:|}' '+l:|=* r:|
 zstyle ':completion:*' list-colors no=00 fi=00 di=01\;34 pi=33 so=01\;35 bd=00\;35 cd=00\;34 or=00\;41 mi=00\;45 ex=01\;32
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' insert-tab false
-zstyle ':completion:*:*:git:*' verbose no
 zstyle ':completion:*:files' ignored-patterns '*?.o' '*?~'
 zstyle ':completion:*:files' file-sort 'date'
 zstyle ':completion:*:default' list-prompt
