@@ -136,7 +136,7 @@ function git-make () {
     	test $# = 1 && prove="test" || prove=""
     	toplevel=$(g rp --show-toplevel 2>/dev/null)
 	if test -n "$toplevel"; then
-		cd $toplevel
+		cd $toplevel >/dev/null
 		make -j 8 $prove
 	fi
 }
