@@ -161,10 +161,11 @@ function gsh () {
 	find . -maxdepth 1 -type f -name "*$1*" -exec echo "== {}" \; -exec sh {} \;
 }
 
-# reload the git completer from fpath
-function regitcomp () {
-	unfunction -m _git\*
-	autoload -Uz $^fpath/_git*(N:t)
+# usage: reload-completer (git|rust)
+function reload-completer () {
+	test $# != 1 && return 1
+	unfunction -m _$1\*
+	autoload -Uz $^fpath/_$1*(N:t)
 }
 
 function - () {
