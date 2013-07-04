@@ -57,6 +57,7 @@
 (require 'saveplace)
 (require 'rust-mode)
 (require 'haskell-mode-autoloads)
+(require 'kconfig-mode)
 
 ;; ----------------
 ;; auto-mode-alists
