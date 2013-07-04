@@ -14,7 +14,7 @@
 	coverLetter = auto
 [sendemail]
 	smtpuser = artagnon@gmail.com
-	suppresscc = all
+	suppresscc = self
 	smtpserver = smtp.gmail.com
 	smtpserverport = 587
 	smtpencryption = tls
