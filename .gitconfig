@@ -32,6 +32,7 @@
 	lp = log -p
 	lf = log --follow
 	sl = shortlog -ns --no-merges
+	sle = shortlog -nse --no-merges
 	s = status -sb
 	sh = show
 	c = clone
