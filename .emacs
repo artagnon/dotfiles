@@ -270,6 +270,22 @@
 ;; ---------
 (defalias 'perl-mode 'cperl-mode)
 
+(defmacro define-new-pl-style (offset match-path)
+  `(add-hook 'cperl-mode-hook
+	     (lambda ()
+	       (let ((filename (buffer-file-name)))
+		 (when (and filename
+			    (string-match (expand-file-name ,match-path) filename))
+		   (setq cperl-indent-level ,offset)
+		   (setq cperl-brace-offset 0)
+		   (setq cperl-continued-brace-offset ,(- offset))
+		   (setq cperl-label-offset ,(- offset))
+		   (setq cperl-continued-statement-offset ,offset)
+		   (setq cperl-merge-trailing-else nil))))))
+
+(define-new-pl-style 4 "~/src/linux")
+(define-new-pl-style 8 "~/src/git")
+
 ;; -------
 ;; Paredit
 ;; -------
