@@ -33,6 +33,7 @@ export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?[]~=&;!#$%^(){}<>'
 export LESS="FSRX"
+export MENUCONFIG_COLOR="mono"
 
 # ---[ rbenv ]---------------------------------------------------------
 eval "$(rbenv init -)"
