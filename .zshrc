@@ -1,7 +1,5 @@
 # ---[ Environment ]---------------------------------------------------
 export PS_PERSONALITY='linux'
-[[ $TERM == eterm-color ]] && export TERM=xterm
-
 # ---[ Keychain ]------------------------------------------------------
 keychain --nogui -q ~/.ssh/id_rsa
 source ~/.keychain/localhost-sh
