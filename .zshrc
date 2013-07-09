@@ -90,10 +90,6 @@ alias pi='pip install --user'
 
 # tiny helpers
 function l () {
-	if test $# = 0 && test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)"; then
-		g s
-		return
-	fi
 	case "$1" in
 	recent)
 		shift
