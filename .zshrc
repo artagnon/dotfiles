@@ -35,6 +35,9 @@ export PS_PERSONALITY='linux'
 # ---[ rbenv ]---------------------------------------------------------
 eval "$(rbenv init -)"
 
+# ---[ dircolors ]-----------------------------------------------------
+eval "$(dircolors)"
+
 # ---[ Perl ]----------------------------------------------------------
 export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:$HOME/.perl5"
 export PERL_MB_OPT="--install_base $HOME/.perl5"
