@@ -124,7 +124,7 @@ function man_ () {
 
 alias man=man_
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
-alias entertain='vlc "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
+alias entertain='mpv "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias incognito='export HISTFILE=/dev/null'
 
 # usage: git-make
