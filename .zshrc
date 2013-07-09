@@ -18,8 +18,8 @@ autoload colors zsh/terminfo
 # ---[ Autols ]--------------------------------------------------------
 function chpwd() {
 	case `pwd` in
-		"$HOME/src/git"|"$HOME/src/git/"*|"/tmp") ;;
-		*) ls --color -v ;;
+	"$HOME/src/git"|"$HOME/src/git/"*|"/tmp") ;;
+	*) ls --color -v ;;
 	esac
 }
 
@@ -95,26 +95,26 @@ function l () {
 		return
 	fi
 	case "$1" in
-		recent)
-			shift
-			ls --color -vt "$@" | head -n 5
-			;;
-		size)
-			shift
-			ls --color -vS "$@"
-			;;
+	recent)
+		shift
+		ls --color -vt "$@" | head -n 5
+		;;
+	size)
+		shift
+		ls --color -vS "$@"
+		;;
 	esac
 	ls --color -v "$@"
 }
 
 function x () {
 	case "$1" in
-		*.tar*)
-			tar xf "$1"
-			;;
-		*.zip)
-			unzip "$1"
-			;;
+	*.tar*)
+		tar xf "$1"
+		;;
+	*.zip)
+		unzip "$1"
+		;;
 	esac
 }
 
@@ -134,8 +134,8 @@ alias incognito='export HISTFILE=/dev/null'
 # usage: git-make
 #    or: git-make p ;for tests
 function git-make () {
-    	test $# = 1 && prove="test" || prove=""
-    	toplevel=$(g rp --show-toplevel 2>/dev/null)
+	test $# = 1 && prove="test" || prove=""
+	toplevel=$(g rp --show-toplevel 2>/dev/null)
 	if test -n "$toplevel"; then
 		cd $toplevel >/dev/null
 		make -j 8 $prove
