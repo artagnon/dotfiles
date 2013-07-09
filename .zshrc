@@ -1,5 +1,3 @@
-# ---[ Environment ]---------------------------------------------------
-export PS_PERSONALITY='linux'
 # ---[ Keychain ]------------------------------------------------------
 keychain --nogui -q ~/.ssh/id_rsa
 source ~/.keychain/localhost-sh
@@ -32,6 +30,7 @@ export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?[]~=&;!#$%^(){}<>'
 export LESS="FSRX"
 export MENUCONFIG_COLOR="mono"
+export PS_PERSONALITY='linux'
 
 # ---[ rbenv ]---------------------------------------------------------
 eval "$(rbenv init -)"
