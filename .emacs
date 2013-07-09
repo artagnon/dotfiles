@@ -234,7 +234,6 @@
 
 (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
 
-(global-set-key [(control x) (l)] 'magit-log-simple)
 (global-set-key [(control x) (h)] #'(lambda () (interactive)
 				  (magit-show-commit
 				   (magit-rev-parse "HEAD") nil t t)))
