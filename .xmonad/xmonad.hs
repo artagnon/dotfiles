@@ -56,11 +56,6 @@ myModMask       = mod4Mask
 --
 myWorkspaces    = ["1:dev","2:web","3:mail","4:media"] ++ map show [5..9]
 
--- Border colors for unfocused and focused windows, respectively.
---
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
-
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
@@ -174,7 +169,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = windowNavigation . smartBorders . avoidStruts $
+myLayout = windowNavigation . noBorders . avoidStruts $
            (combineTwoP (TwoPane delta ratio) simpleTabbed simpleTabbed (ClassName "Emacs") |||
             simpleTabbed)
   where
@@ -265,8 +260,6 @@ defaults = defaultConfig {
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
         workspaces         = myWorkspaces,
-        normalBorderColor  = myNormalBorderColor,
-        focusedBorderColor = myFocusedBorderColor,
 
       -- key bindings
         keys               = myKeys,
