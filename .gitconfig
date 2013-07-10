@@ -39,6 +39,7 @@
 	co = checkout
 	cob = checkout -b
 	ci = commit
+	cia = commit --amend
 	cp = cherry-pick
 	fp = !rm -rf outgoing && git format-patch -M -C -o outgoing
 	fpo = format-patch --stdout -M -C
