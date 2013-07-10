@@ -106,7 +106,7 @@ function l () {
 function x () {
 	case "$1" in
 	*.tar*)
-		tar xf "$1"
+		tar xvf "$1"
 		;;
 	*.zip)
 		unzip "$1"
