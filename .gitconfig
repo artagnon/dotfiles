@@ -58,6 +58,7 @@
 	sd = stash drop
 	sc = stash clear
 	p = push
+	pup = push -u
 	pf = push -f
 	f = fetch
 	fo = fetch origin
