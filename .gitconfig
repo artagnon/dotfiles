@@ -108,6 +108,9 @@
 	usebitmaps = true
 [grep]
 	lineNumber = true
+[log]
+	date = relative
+	mailmap = true
 [blame]
 	date = relative
 	blankboundary = true
