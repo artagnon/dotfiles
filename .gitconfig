@@ -50,7 +50,8 @@
 	rh = reset --hard
 	rhu = reset --hard @{u}
 	re = rebase
-	ri = rebase --interactive
+	ri = rebase -i
+	rim = rebase -i master
 	rc = rebase --continue
 	ra = rebase --abort
 	rs = rebase --skip
