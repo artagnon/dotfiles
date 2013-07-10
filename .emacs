@@ -307,6 +307,7 @@
 ;; ---------
 (define-key diff-mode-map [(meta q)] 'fill-paragraph)
 (define-key diff-mode-map [(meta backspace)] 'backward-kill-word)
+(define-key diff-mode-map [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))
 
 ;; ---------
 ;; mail-mode
