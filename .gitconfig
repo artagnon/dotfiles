@@ -80,7 +80,7 @@
 	remr = remote rm
 	remp = remote prune
 	remn = remote rename
-	su = remote set-url
+	remsu = remote set-url
 	d = diff
 	g = grep
 	rfl = log --oneline --relative-date -g
