@@ -175,6 +175,13 @@
 		   (when (and filename
 			      (string-match (expand-file-name ,match-path) filename))
 		     (setq indent-tabs-mode ,tabs-p)
+		     (c-set-style ,name)))))
+     (add-hook 'c++-mode-hook
+	       (lambda ()
+		 (let ((filename (buffer-file-name)))
+		   (when (and filename
+			      (string-match (expand-file-name ,match-path) filename))
+		     (setq indent-tabs-mode ,tabs-p)
 		     (c-set-style ,name)))))))
 
 (defun c-lineup-arglist-tabs-only (ignored)
