@@ -164,24 +164,21 @@
 ;; ------
 (add-hook 'c-mode-common-hook 'turn-on-filladapt-mode)
 
-(defmacro define-new-c-style (name derived-from style-alists tabs-p match-path)
+(defmacro define-new-c-style (name derived-from style-alist match-path)
   `(progn
      (c-add-style ,name
-		  '(,derived-from (c-offsets-alist
-				   ,style-alists)))
+		  '(,derived-from ,@style-alist))
      (add-hook 'c-mode-hook
 	       (lambda ()
 		 (let ((filename (buffer-file-name)))
 		   (when (and filename
 			      (string-match (expand-file-name ,match-path) filename))
-		     (setq indent-tabs-mode ,tabs-p)
 		     (c-set-style ,name)))))
      (add-hook 'c++-mode-hook
 	       (lambda ()
 		 (let ((filename (buffer-file-name)))
 		   (when (and filename
 			      (string-match (expand-file-name ,match-path) filename))
-		     (setq indent-tabs-mode ,tabs-p)
 		     (c-set-style ,name)))))))
 
 (defun c-lineup-arglist-tabs-only (ignored)
@@ -194,19 +191,19 @@
        c-basic-offset)))
 
 ;; Syntax for define-new-c-style:
-;; <style name> <derived from> <style alist> <tabs-p> <path to apply to>
+;; <style-name> <derived-from> <style-alist> <match-path>
 
 (define-new-c-style "llvm" "gnu" ((fill-column . 80)
 				  (c++-indent-level . 2)
-				  (c-basic-offset . 2)
-				  (indent-tabs-mode . nil)
-				  (c-offsets-alist . ((innamespace 0)))) nil
-				  "~/src/llvm")
+				  (c-offsets-alist . ((innamespace 0))))
+  "~/src/llvm")
 
-(define-new-c-style "linux-tabs-only" "linux" (arglist-cont-nonempty
-					       c-lineup-gcc-asm-reg
-					       c-lineup-arglist-tabs-only) t
-					       "~")
+(define-new-c-style "linux-tabs-only" "linux" ((indent-tabs-mode . t)
+					       (c-offsets-alist
+						(arglist-cont-nonempty
+						 c-lineup-gcc-asm-reg
+						 c-lineup-arglist-tabs-only)))
+  "~")
 
 (define-key c-mode-map [(meta j)] #'(lambda () (interactive) (join-line -1)))
 
