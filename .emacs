@@ -17,6 +17,7 @@
 (add-to-list 'load-path "~/.elisp/smex")
 (add-to-list 'load-path "~/.elisp/scala-mode2")
 (add-to-list 'load-path "~/.elisp/rust-mode")
+(add-to-list 'load-path "~/.elisp/llvm-mode")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -58,6 +59,8 @@
 (require 'rust-mode)
 (require 'haskell-mode-autoloads)
 (require 'kconfig-mode)
+(require 'llvm-mode)
+(require 'tablegen-mode)
 
 ;; ----------------
 ;; auto-mode-alists
