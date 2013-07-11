@@ -196,6 +196,13 @@
 ;; Syntax for define-new-c-style:
 ;; <style name> <derived from> <style alist> <tabs-p> <path to apply to>
 
+(define-new-c-style "llvm" "gnu" ((fill-column . 80)
+				  (c++-indent-level . 2)
+				  (c-basic-offset . 2)
+				  (indent-tabs-mode . nil)
+				  (c-offsets-alist . ((innamespace 0)))) nil
+				  "~/src/llvm")
+
 (define-new-c-style "linux-tabs-only" "linux" (arglist-cont-nonempty
 					       c-lineup-gcc-asm-reg
 					       c-lineup-arglist-tabs-only) t
