@@ -163,11 +163,9 @@
 
 (defmacro define-new-c-style (name derived-from style-alists tabs-p match-path)
   `(progn
-     (add-hook 'c-mode-common-hook
-	       (lambda ()
-		 (c-add-style ,name
-			      '(,derived-from (c-offsets-alist
-					       ,style-alists)))))
+     (c-add-style ,name
+		  '(,derived-from (c-offsets-alist
+				   ,style-alists)))
      (add-hook 'c-mode-hook
 	       (lambda ()
 		 (let ((filename (buffer-file-name)))
