@@ -239,7 +239,7 @@
 ;; magit
 ;; -----
 (global-set-key [(control x) (v)] 'magit-status)
-(setq magit-commit-all-when-nothing-staged nil
+(setq magit-commit-all-when-nothing-staged t
       magit-revert-item-confirm t
       magit-process-connection-type nil
       process-connection-type nil)
