@@ -25,7 +25,6 @@
 	default = current
 [pretty]
 	lg = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr %an)%C(reset)
-	hot = %C(red)%(HEAD)%C(reset) %C(green)%(refname:short)%C(reset)%(upstream:trackshort)
 [alias]
 	l = log
 	l1 = log -1 -p
@@ -72,7 +71,7 @@
 	br = branch
 	bru = branch -u
 	fer = for-each-ref
-	hot = for-each-ref --pretty=hot --count 10 --sort='-committerdate' refs/heads
+	hot = for-each-ref --format='%C(red)%(HEAD)%C(reset) %C(green)%(refname:short)%C(reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
 	bra = branch -a
 	m = merge
 	fb = filter-branch
