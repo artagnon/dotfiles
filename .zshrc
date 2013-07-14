@@ -134,7 +134,7 @@ function git-make () {
 	toplevel=$(g rp --show-toplevel 2>/dev/null)
 	if test -n "$toplevel"; then
 		cd $toplevel >/dev/null
-		test -f Kconfig && ! test -f .config && make defconfig
+		test -f Kconfig && make mrproper && make defconfig
 		make -j 8 $prove
 	fi
 }
