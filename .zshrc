@@ -27,7 +27,7 @@ export LD_LIBRARY_PATH=/usr/local/lib
 export PYTHONPATH=~/.local/lib
 export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
-export WORDCHARS='*?[]~=&;!#$%^(){}<>'
+export WORDCHARS='*?[]~&;!#$%^(){}<>'
 export LESS='FSRX'
 export MENUCONFIG_COLOR='mono'
 export PS_PERSONALITY='linux'
