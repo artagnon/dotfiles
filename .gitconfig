@@ -34,6 +34,7 @@
 	sle = shortlog -nse --no-merges
 	s = status -sb
 	sh = show
+	shs = show -s
 	c = clone
 	co = checkout
 	cob = checkout -b
