@@ -228,7 +228,3 @@ GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_STATESEPARATOR=""
 
 precmd () { __git_ps1 "%F{$NCOLOR}%B%n%b%f" ":%F{yellow}%B%~%b%f%(!.#.$) " "|%s" }
-
-# ---[ System settings ]-----------------------------------------------
-limit -s coredumpsize 0
-umask 002
