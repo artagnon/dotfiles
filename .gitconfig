@@ -82,6 +82,7 @@
 	rpr = remote prune
 	rre = remote rename
 	rsu = remote set-url
+	sad = submodule add
 	d = diff
 	g = grep
 	rfl = log --oneline --relative-date -g
