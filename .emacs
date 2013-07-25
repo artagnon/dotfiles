@@ -132,6 +132,9 @@
 ;; y-or-n-p please
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; only stop-the-world gc every 20M
+(setq gc-cons-threshold 20000000)
+
 ;; ----------------------
 ;; Final newline handling
 ;; ----------------------
