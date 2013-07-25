@@ -30,7 +30,7 @@
 	lf = log --follow
 	sl = shortlog -ns --no-merges
 	sle = shortlog -nse --no-merges
-	s = status -sb
+	s = status
 	sh = show
 	shs = show -s
 	c = clone
@@ -91,6 +91,9 @@
 	h = help
 [man]
 	viewer = eman
+[status]
+	short = true
+	branch = true
 [pull]
 	rebase = true
 [merge]
