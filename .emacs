@@ -18,6 +18,9 @@
 (add-to-list 'load-path "~/.elisp/scala-mode2")
 (add-to-list 'load-path "~/.elisp/rust-mode")
 (add-to-list 'load-path "~/.elisp/llvm-mode")
+(add-to-list 'load-path "~/.elisp/dash")
+(add-to-list 'load-path "~/.elisp/s")
+(add-to-list 'load-path "~/.elisp/projectile")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -61,6 +64,9 @@
 (require 'kconfig-mode)
 (require 'llvm-mode)
 (require 'tablegen-mode)
+(require 'dash)
+(require 's)
+(require 'projectile)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -258,6 +264,11 @@
 ;; -------------
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (global-set-key [(control c) (f)] 'flyspell-check-previous-highlighted-word)
+
+;; ----------
+;; projectile
+;; ----------
+(projectile-global-mode)
 
 ;; ---------
 ;; text-mode

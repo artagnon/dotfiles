@@ -64,3 +64,12 @@
 	branch = master
 	update = rebase
 	ignore = all
+[submodule ".elisp/projectile"]
+	path = .elisp/projectile
+	url = gh:bbatsov/projectile
+[submodule ".elisp/dash"]
+	path = .elisp/dash
+	url = gh:magnars/dash.el
+[submodule ".elisp/s"]
+	path = .elisp/s
+	url = gh:magnars/s.el
