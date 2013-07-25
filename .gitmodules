@@ -73,3 +73,6 @@
 [submodule ".elisp/s"]
 	path = .elisp/s
 	url = gh:magnars/s.el
+[submodule ".elisp/flx"]
+	path = .elisp/flx
+	url = gh:lewang/flx

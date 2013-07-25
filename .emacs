@@ -21,6 +21,7 @@
 (add-to-list 'load-path "~/.elisp/dash")
 (add-to-list 'load-path "~/.elisp/s")
 (add-to-list 'load-path "~/.elisp/projectile")
+(add-to-list 'load-path "~/.elisp/flx")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -67,6 +68,7 @@
 (require 'dash)
 (require 's)
 (require 'projectile)
+(require 'flx-ido)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -121,7 +123,6 @@
 ;; General mode loading
 (show-paren-mode t)
 (savehist-mode t)
-(ido-mode t)
 (electric-indent-mode 1)
 (edit-server-start)
 
@@ -219,18 +220,19 @@
 ;; ---
 ;; ido
 ;; ---
-(setq 
- ido-ignore-buffers                 ; ignore these guys
- '("\\` " "^\*Mess" "^\*Back" "^\*Ido")
- ido-case-fold  t                   ; be case-insensitive
- ido-use-filename-at-point nil      ; don't use filename at point (annoying)
- ido-use-url-at-point nil           ; don't use url at point (annoying)
- ido-enable-flex-matching t         ; be flexible
- ido-max-prospects 6                ; don't spam my minibuffer
- ido-confirm-unique-completion nil  ; don't wait for RET with unique completion
- ido-default-file-method 'selected-window   ; open files in selected window
- ido-default-buffer-method 'selected-window ; open buffers in selected window
- ido-max-directory-size 100000)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+(setq ido-use-faces nil)
+
+(setq
+ ido-ignore-buffers '("\\` " "^\*Mess" "^\*Back" "^\*Ido")
+ ido-case-fold t
+ ido-use-filename-at-point nil
+ ido-use-url-at-point nil
+ ido-default-file-method 'selected-window
+ ido-default-buffer-method 'selected-window
+ ido-max-directory-size nil)
 
 ;; -----
 ;; Dired
