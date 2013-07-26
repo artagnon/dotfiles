@@ -85,6 +85,7 @@
 	sad = submodule add
 	d = diff
 	g = grep -p
+	fg = !git ls-files | grep -E
 	rfl = log --oneline --relative-date -g
 	conf = config
 	desc = describe --always --contains --all
