@@ -39,6 +39,9 @@
 	ci = commit
 	cia = commit --amend
 	cp = cherry-pick
+	cpc = cherry-pick --continue
+	cpa = cherry-pick --abort
+	cpq = cherry-pick --quit
 	fp = !rm -rf outgoing && git format-patch -M -C -o outgoing
 	fpo = format-patch --stdout -M -C
 	se = send-email
