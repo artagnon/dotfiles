@@ -249,6 +249,7 @@
 ;; -----
 ;; magit
 ;; -----
+(setq vc-handled-backends nil) ;; deprecated nonsense
 (global-set-key [(control x) (v)] 'magit-status)
 (setq magit-commit-all-when-nothing-staged t
       magit-revert-item-confirm t
