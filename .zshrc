@@ -45,6 +45,11 @@ export PATH="$HOME/.perl5/bin:$PATH"
 export PERLBREW_ROOT="$HOME/.perl5"
 source ~/.perl5/etc/bashrc
 
+# ---[ Go ]------------------------------------------------------------
+export GOROOT=~/.go
+export GOPATH=$GOROOT/site
+export PATH=$GOROOT/bin:$PATH
+
 # ---[ Android SDK/ NDK ]----------------------------------------------
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 export ANDROIDSDK=~/.android/sdk
