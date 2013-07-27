@@ -22,6 +22,7 @@
 (add-to-list 'load-path "~/.elisp/s")
 (add-to-list 'load-path "~/.elisp/projectile")
 (add-to-list 'load-path "~/.elisp/flx")
+(add-to-list 'load-path "~/.elisp/go-mode")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -69,6 +70,7 @@
 (require 's)
 (require 'projectile)
 (require 'flx-ido)
+(require 'go-mode)
 
 ;; ----------------
 ;; auto-mode-alists
