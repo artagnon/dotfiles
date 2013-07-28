@@ -210,6 +210,8 @@
 				  (c-offsets-alist . ((innamespace 0))))
   "~/src/llvm")
 
+(define-new-c-style "emacs" "gnu" nil "~/src/emacs")
+
 (define-new-c-style "linux-tabs-only" "linux" ((indent-tabs-mode . t)
 					       (c-offsets-alist
 						(arglist-cont-nonempty
