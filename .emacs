@@ -104,7 +104,8 @@
 	      fill-adapt-mode t
 	      winner-mode t
 	      uniquify-buffer-name-style 'forward
-	      save-place t)
+	      save-place t
+	      find-file-visit-truename t)
 
 (set-face-attribute 'default nil :height 85)
 (global-font-lock-mode 1)
