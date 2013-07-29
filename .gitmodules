@@ -84,3 +84,6 @@
 	url = gh:lewang/flx
 	update = rebase
 	ignore = all
+[submodule ".elisp/lua-mode"]
+	path = .elisp/lua-mode
+	url = gh:immerrr/lua-mode
