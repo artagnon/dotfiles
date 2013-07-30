@@ -52,9 +52,7 @@
 (require 'uniquify)
 (require 'nnmairix)
 (require 'edit-server)
-(require 'kivy-mode)
 (require 'cython-mode)
-(require 'mirah-mode)
 (require 'auto-complete-config)
 (require 'slim-mode)
 (require 'ace-jump-mode)
@@ -79,8 +77,6 @@
 ;; ----------------
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 (add-to-list 'auto-mode-alist '("mutt-.*-" . mail-mode))
-(add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
-(add-to-list 'auto-mode-alist '("\\.mirah$" . mirah-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 
 ;; ----------------------
