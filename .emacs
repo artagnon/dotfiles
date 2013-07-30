@@ -43,7 +43,6 @@
 (require 'gitconfig-mode)
 (require 'paredit)
 (require 'clojure-mode)
-(require 'php-mode)
 (require 'cscope)
 (require 'csharp-mode)
 (require 'windmove)
