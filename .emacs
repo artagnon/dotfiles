@@ -4,7 +4,6 @@
 ;; load-paths
 ;; ----------
 (add-to-list 'load-path "~/.elisp/")
-(add-to-list 'load-path "~/.elisp/theme")
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/magit")
 (add-to-list 'load-path "~/.elisp/magit/contrib")
