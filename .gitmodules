@@ -94,3 +94,8 @@
 	url = http://mumble.net/~campbell/git/paredit.git
 	update = rebase
 	ignore = all
+[submodule ".elisp/slim-mode"]
+	path = .elisp/slim-mode
+	url = gh:slim-template/emacs-slim
+	update = rebase
+	ignore = all

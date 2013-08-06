@@ -24,6 +24,7 @@
 (add-to-list 'load-path "~/.elisp/go-mode")
 (add-to-list 'load-path "~/.elisp/lua-mode")
 (add-to-list 'load-path "~/.elisp/paredit")
+(add-to-list 'load-path "~/.elisp/slim-mode")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
