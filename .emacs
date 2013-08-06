@@ -42,7 +42,6 @@
 (require 'gitconfig-mode)
 (require 'paredit)
 (require 'clojure-mode)
-(require 'cscope)
 (require 'windmove)
 (require 'framemove)
 (require 'winner)
