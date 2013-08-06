@@ -43,7 +43,6 @@
 (require 'paredit)
 (require 'clojure-mode)
 (require 'cscope)
-(require 'csharp-mode)
 (require 'windmove)
 (require 'framemove)
 (require 'winner)
@@ -73,7 +72,6 @@
 ;; ----------------
 ;; auto-mode-alists
 ;; ----------------
-(add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 (add-to-list 'auto-mode-alist '("mutt-.*-" . mail-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 
