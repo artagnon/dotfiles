@@ -212,7 +212,9 @@
 						 c-lineup-arglist-tabs-only)))
   "~")
 
-(define-key c-mode-map [(meta j)] #'(lambda () (interactive) (join-line -1)))
+(add-hook 'c-mode-hook (lambda ()
+			 (define-key c-mode-map
+			   [(meta j)] #'(lambda () (interactive) (join-line -1)))))
 
 ;; ---
 ;; ido
