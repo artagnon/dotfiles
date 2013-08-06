@@ -87,6 +87,10 @@
 [submodule ".elisp/lua-mode"]
 	path = .elisp/lua-mode
 	url = gh:immerrr/lua-mode
+	update = rebase
+	ignore = all
 [submodule ".elisp/paredit"]
 	path = .elisp/paredit
 	url = http://mumble.net/~campbell/git/paredit.git
+	update = rebase
+	ignore = all
