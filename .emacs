@@ -98,7 +98,9 @@
 	      fill-adapt-mode t
 	      winner-mode t
 	      uniquify-buffer-name-style 'forward
-	      save-place t)
+	      save-place t
+	      initial-scratch-message ""
+	      initial-major-mode 'text-mode)
 
 (set-face-attribute 'default nil :height 85)
 (global-font-lock-mode 1)
