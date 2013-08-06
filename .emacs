@@ -46,7 +46,6 @@
 (require 'framemove)
 (require 'winner)
 (require 'uniquify)
-(require 'nnmairix)
 (require 'edit-server)
 (require 'cython-mode)
 (require 'auto-complete-config)
