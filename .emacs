@@ -23,6 +23,7 @@
 (add-to-list 'load-path "~/.elisp/flx")
 (add-to-list 'load-path "~/.elisp/go-mode")
 (add-to-list 'load-path "~/.elisp/lua-mode")
+(add-to-list 'load-path "~/.elisp/paredit")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
