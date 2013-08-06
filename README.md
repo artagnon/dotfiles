@@ -23,11 +23,6 @@ repository.  Get ack-grep for your distribution.
 I use the Droid Sans Mono font.  Should be available for your
 distribution easily enough.
 
-## Mutt
-
-The keybindings are very simlar to that on the GMail web interface, so
-it should take no time to get used to.
-
 ## XMonad
 
 You need the latest versions of xmonad, xmonad-contrib, yeganesh, and
