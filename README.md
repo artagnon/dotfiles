@@ -40,12 +40,6 @@ ruby-build is not included, so please `git clone
 git://github.com/sstephenson/ruby-build ~/.rbenv/plugins/ruby-build`
 before you can use `rbenv install`.
 
-## Xmobar
-
-There's an optional `.xmobar.2` included in case you have a dual-head
-display like I do.  To use it, simply execute `xmobar -x 1
-~/.xmobarrc.2 &`.
-
 ## Emacs
 
 You need the latest development version of Emacs.  Either compile from
