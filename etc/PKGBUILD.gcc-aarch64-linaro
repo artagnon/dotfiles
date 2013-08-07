@@ -17,10 +17,10 @@ source=('gcc-linaro-aarch64-none-elf-2013.07.tar.xz::https://launchpad.net/linar
 md5sums=('b073efb7a1c704950f703912863a0b50')
 
 package () {
-	executables=('aarch64-none-elf-gcc' 'aarch64-none-elf-c++' 'aarch64-none-elf-ld')
+	executables=('ar' 'as' 'c++' 'gcc' 'g++' 'ld' 'ld.bfd' 'nm' 'objcopy' 'objdump' 'ranlib' 'strip')
 	mkdir -p "$pkgdir/opt" "$pkgdir/usr/bin"
 	mv "$srcdir/gcc-linaro-aarch64-none-elf-4.8-2013.07-1_linux" "$pkgdir/opt/gcc-aarch64-linaro"
 	for i in "${executables[@]}"; do
-		ln -s "/opt/gcc-aarch64-linaro/bin/${i}" "$pkgdir/usr/bin/${i}"
+		ln -s "/opt/gcc-aarch64-linaro/bin/aarch64-none-elf-${i}" "$pkgdir/usr/bin/aarch64-none-elf-${i}"
 	done
 }
