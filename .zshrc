@@ -22,7 +22,7 @@ function chpwd() {
 # ---[ Shell exports ]-------------------------------------------------
 export LANG=en_US.utf8
 export EDITOR='emacsclient'
-export PATH=~/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:~/.ruby/bin:~/.local/bin:~/.android/sdk/tools:~/.android/sdk/platform-tools:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/usr/bin/vendor_perl
+export PATH=~/bin:~/bin/gcc-linaro-aarch64/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:~/.ruby/bin:~/.local/bin:~/.android/sdk/tools:~/.android/sdk/platform-tools:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/usr/bin/vendor_perl
 export LD_LIBRARY_PATH=/usr/local/lib
 export PYTHONPATH=~/.local/lib
 export GEM_HOME=~/.ruby
