@@ -133,14 +133,31 @@ alias entertain='mpv "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mp
 alias incognito='export HISTFILE=/dev/null'
 
 # usage: git-make
-#    or: git-make p ;for tests
+#    or: git-make prove ;for git.git tests
+#    or: git-make arm   ;for arm64 linux.git build
+#    or: git-make um    ;for um linux.git build
 function git-make () {
-	test $# = 1 && prove="test" || prove=""
+	make_args=""
+	export ARCH=
+	export CROSS_COMPILE=
+
+	case "$1" in
+	"prove")
+		make_args="test"
+		;;
+	"um")
+		export ARCH=um
+		;;
+	"arm")
+		export ARCH=arm64
+		export CROSS_COMPILE=aarch64-none-elf-
+		;;
+	esac
 	toplevel=$(g rp --show-toplevel 2>/dev/null)
 	if test -n "$toplevel"; then
 		cd $toplevel >/dev/null
 		test -f Kconfig && make mrproper && make defconfig
-		make -j 8 $prove
+		make -j 8 $make_args
 	fi
 }
 
