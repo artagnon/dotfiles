@@ -26,7 +26,7 @@
 [alias]
 	l = log
 	l1 = log -1 -p
-	lp = log -p
+	lp = log -p --no-merges
 	lf = log --follow
 	sl = shortlog -ns --no-merges
 	sle = shortlog -nse --no-merges
