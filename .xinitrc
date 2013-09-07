@@ -3,11 +3,11 @@ which nvidia-settings && nvidia-settings -a InitialPixmapPlacement=0
 xsetroot -cursor_name left_ptr
 xset b off
 setxkbmap -option ctrl:nocaps
-DEFAULT_SESSION=xmonad
+DEFAULT_SESSION=awesome
 
 case $1 in
-xmonad)
-	exec xmonad
+awesome)
+	exec awesome
 	;;
 *)
 	exec $DEFAULT_SESSION
