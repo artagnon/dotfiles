@@ -104,7 +104,6 @@
 [merge]
 	conflictstyle = diff3
 	log = 10
-	ff = only
 	defaultToUpstream = true
 [rerere]
 	enabled = true
