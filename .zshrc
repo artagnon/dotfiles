@@ -138,7 +138,7 @@ alias incognito='export HISTFILE=/dev/null'
 #    or: git-make um    ;for um linux.git build
 function git-make () {
 	make_args=""
-	export ARCH=
+	export ARCH=x86
 	export CROSS_COMPILE=
 
 	case "$1" in
