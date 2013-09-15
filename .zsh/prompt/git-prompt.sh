@@ -1,0 +1,1 @@
+/home/artagnon/src/git/contrib/completion/git-prompt.sh
