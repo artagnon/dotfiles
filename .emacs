@@ -104,7 +104,7 @@
 	      initial-scratch-message ""
 	      initial-major-mode 'text-mode)
 
-(set-face-attribute 'default nil :height 115)
+(set-face-attribute 'default nil :height 95)
 (global-font-lock-mode 1)
 (windmove-default-keybindings)
 (setq framemove-hook-into-windmove t)
