@@ -32,6 +32,11 @@ export LESS='FSRX'
 export MENUCONFIG_COLOR='mono'
 export PS_PERSONALITY='linux'
 
+# ---[ set MANPATH ]---------------------------------------------------
+unset MANPATH
+MANPATH=~/share/doc/perf:$(manpath)
+export MANPATH
+
 # ---[ evals ]---------------------------------------------------------
 eval "$(rbenv init -)"
 eval "$(dircolors)"
