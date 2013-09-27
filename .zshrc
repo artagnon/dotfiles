@@ -162,7 +162,7 @@ function git-make () {
 		;;
 	"arm")
 		export ARCH=arm64
-		export CROSS_COMPILE=aarch64-none-elf-
+		export CROSS_COMPILE=aarch64-linux-gnu-
 		;;
 	esac
 	toplevel=$(g rp --show-toplevel 2>/dev/null)
