@@ -116,8 +116,11 @@ function l () {
 
 function x () {
 	case "$1" in
-	*.tar*)
+	*.tar|*.tar.gz|*.tar.bz2|*.tgz|*.xz)
 		tar xvf "$1"
+		;;
+	*.bz2)
+		bunzip2 "$1"
 		;;
 	*.zip)
 		unzip "$1"
