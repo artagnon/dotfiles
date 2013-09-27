@@ -47,7 +47,8 @@
 	fpo = format-patch --stdout -M -C
 	se = send-email
 	graph = log --graph --decorate --pretty=oneline --abbrev-commit
-	rv = log -p --reverse origin..
+	rv = log --reverse origin..
+	rvp = log -p --reverse origin..
 	r = reset
 	rh = reset --hard
 	rhu = reset --hard @{u}
