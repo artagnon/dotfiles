@@ -43,6 +43,7 @@
 	cpa = cherry-pick --abort
 	cpq = cherry-pick --quit
 	fp = !rm -rf outgoing && git format-patch -M -C -o outgoing
+	fp1 = !rm -rf outgoing && git format-patch -1 -M -C -o outgoing
 	fpo = format-patch --stdout -M -C
 	se = send-email
 	graph = log --graph --decorate --pretty=oneline --abbrev-commit
