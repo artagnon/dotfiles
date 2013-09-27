@@ -22,5 +22,8 @@ all::
 	@$(foreach file,$(candidates),$(symlink_to_home))
 	git submodule update --init --recursive
 
+update:
+	git submodule foreach 'git checkout master; git pull'
+
 clean:
 	@$(foreach file,$(candidates),$(remove_if_symlink))
