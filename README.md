@@ -23,12 +23,6 @@ repository.  Get ack-grep for your distribution.
 I use the Droid Sans Mono font.  Should be available for your
 distribution easily enough.
 
-## XMonad
-
-You need the latest versions of xmonad, xmonad-contrib, yeganesh, and
-xmobar.  Use `cabal` to fetch them.  Use xmobar-0.15 in case you have
-problems with the latest version (0.16).
-
 ## rbenv
 
 ruby-build is not included, so please `git clone
