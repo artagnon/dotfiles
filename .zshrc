@@ -153,6 +153,12 @@ function git-make () {
 	"um")
 		export ARCH=um
 		;;
+	"um32")
+		make mrproper
+		make defconfig ARCH=um SUBARCH=i386
+		make -j 8 ARCH=um SUBARCH=i386
+		return
+		;;
 	"arm")
 		export ARCH=arm64
 		export CROSS_COMPILE=aarch64-none-elf-
