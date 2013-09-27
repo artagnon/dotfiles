@@ -76,6 +76,7 @@ alias et='emacsclient -t'
 alias easy_install='pip install --user'
 alias jnettop='sudo jnettop'
 alias mount="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
+alias mountl="sudo mount -o loop"
 alias umount='sudo umount'
 alias g='git'
 alias rf='rm -rf'
