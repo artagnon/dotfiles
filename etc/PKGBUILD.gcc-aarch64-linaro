@@ -10,7 +10,7 @@ url="http://www.linaro.org/engineering/engineering-projects/armv8"
 license=('GPL')
 depends=('gcc-multilib' 'lib32-zlib')
 optdepends=()
-provides=("linaro-gcc-aarch64=$pkgver")
+provides=()
 options=(!strip)
 install=
 source=('gcc-linaro-aarch64-none-elf-2013.09.tar.xz::https://launchpad.net/linaro-toolchain-binaries/trunk/2013.09/+download/gcc-linaro-aarch64-none-elf-4.8-2013.09_linux.tar.xz')
