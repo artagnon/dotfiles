@@ -163,7 +163,7 @@ function git-make () {
 		make -j 8 ARCH=um SUBARCH=i386
 		return
 		;;
-	"arm")
+	"arm64")
 		export ARCH=arm64
 		export CROSS_COMPILE=aarch64-linux-gnu-
 		;;
