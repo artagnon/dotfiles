@@ -147,6 +147,10 @@ alias incognito='export HISTFILE=/dev/null'
 #    or: git-make um32  ;for um32 linux.git build
 #    or: git-make arm   ;for arm64 linux.git build
 function git-make () {
+	unset ARCH
+	unset SUBARCH
+	unset CROSS_COMPILE
+
 	test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)" || exit 1
 	case "$1" in
 	"prove")
