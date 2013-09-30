@@ -141,21 +141,23 @@ alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='mpv "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias incognito='export HISTFILE=/dev/null'
 
-# usage: git-make
+# usage: git-make       ;for x86 linux.git build or make -j 8
 #    or: git-make prove ;for git.git tests
-#    or: git-make arm   ;for arm64 linux.git build
 #    or: git-make um    ;for um linux.git build
+#    or: git-make um32  ;for um32 linux.git build
+#    or: git-make arm   ;for arm64 linux.git build
 function git-make () {
-	make_args=""
-	export ARCH=x86
-	export CROSS_COMPILE=
-
+	test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)" || exit 1
 	case "$1" in
 	"prove")
-		make_args="test"
+		make -j 8 test
+		return
 		;;
 	"um")
-		export ARCH=um
+		make mrproper
+		make defconfig ARCH=um
+		make -j 8 ARCH=um
+		return
 		;;
 	"um32")
 		make mrproper
@@ -163,20 +165,23 @@ function git-make () {
 		make -j 8 ARCH=um SUBARCH=i386
 		return
 		;;
-	"arm64")
-		export ARCH=arm64
-		export CROSS_COMPILE=aarch64-linux-gnu-
+	"arm")
+		make mrproper
+		make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+		make -j 8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+		return
 		;;
+	*)
+		if test -f Kconfig; then
+			make mrproper
+			make defconfig ARCH=x86
+			make -j 8 ARCH=x86
+		else
+			make -j 8
+		fi
+		return
 	esac
-	toplevel=$(g rp --show-toplevel 2>/dev/null)
-	if test -n "$toplevel"; then
-		cd $toplevel >/dev/null
-		test -f Kconfig && make mrproper && make defconfig
-		make -j 8 $make_args
-	fi
 }
-
-alias git-prove='git-make prove'
 
 # usage: git-prove-all [<branch>]
 function git-prove-all () {
