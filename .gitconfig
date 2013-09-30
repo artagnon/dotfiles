@@ -25,6 +25,7 @@
 	lg = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr %an)%C(reset)
 [alias]
 	l = log
+	lr = log --reverse
 	l1 = log -1 -p
 	lp = log -p --no-merges
 	lf = log --follow
