@@ -141,6 +141,7 @@ alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='mpv "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias incognito='export HISTFILE=/dev/null'
 alias cdtop='cd $(g rp --show-toplevel)'
+alias fgrep='find . -print0 | grep -FZz'
 
 # usage: git-make       ;for x86 linux.git build or make -j 8
 #    or: git-make prove ;for git.git tests
