@@ -25,9 +25,9 @@
 	lg = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr %an)%C(reset)
 [alias]
 	l = log
-	lr = log --reverse
+	lr = log --reverse --no-merges
 	lp = log -p --no-merges
-	lrp = log --reverse -p
+	lrp = log --reverse -p --no-merges
 	lf = log --follow
 	sl = shortlog -ns --no-merges
 	sle = shortlog -nse --no-merges
