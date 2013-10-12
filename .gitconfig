@@ -27,6 +27,7 @@
 	l = log
 	lr = log --reverse
 	lp = log -p --no-merges
+	lrp = log --reverse -p
 	lf = log --follow
 	sl = shortlog -ns --no-merges
 	sle = shortlog -nse --no-merges
