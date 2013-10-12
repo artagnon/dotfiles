@@ -26,7 +26,6 @@
 [alias]
 	l = log
 	lr = log --reverse
-	l1 = log -1 -p
 	lp = log -p --no-merges
 	lf = log --follow
 	sl = shortlog -ns --no-merges
