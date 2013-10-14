@@ -157,25 +157,21 @@ function git-make () {
 	case "$1" in
 	"prove")
 		make -j 8 test
-		return
 		;;
 	"um")
 		make mrproper
 		make defconfig ARCH=um
 		make -j 8 ARCH=um
-		return
 		;;
 	"um32")
 		make mrproper
 		make defconfig ARCH=um SUBARCH=i386
 		make -j 8 ARCH=um SUBARCH=i386
-		return
 		;;
 	"arm")
 		make mrproper
 		make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 		make -j 8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
-		return
 		;;
 	*)
 		if test -f Kconfig; then
@@ -185,7 +181,6 @@ function git-make () {
 		else
 			make -j 8
 		fi
-		return
 	esac
 }
 
