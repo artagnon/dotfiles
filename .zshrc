@@ -34,7 +34,7 @@ export PS_PERSONALITY='linux'
 
 # ---[ set MANPATH ]---------------------------------------------------
 unset MANPATH
-MANPATH=~/share/doc/perf:$(manpath)
+MANPATH=~/share/doc/perf:~/share/doc/git:$(manpath)
 export MANPATH
 
 # ---[ evals ]---------------------------------------------------------
