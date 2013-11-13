@@ -76,7 +76,7 @@
 	br = branch
 	bru = branch -u
 	fer = for-each-ref
-	hot = for-each-ref --format='%C(red)%(HEAD)%C(reset) %C(green)%(refname:short)%C(reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
+	hot = for-each-ref --format='%(color:red)%(HEAD)%(color:reset) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
 	bra = branch -a
 	m = merge
 	fb = filter-branch
