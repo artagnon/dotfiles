@@ -154,20 +154,20 @@ function git-make () {
 
 	test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)" || exit 1
 	case "$1" in
-	"prove")
+	prove)
 		make -j 8 test
 		;;
-	"um")
+	um)
 		make mrproper
 		make defconfig ARCH=um
 		make -j 8 ARCH=um
 		;;
-	"um32")
+	um32)
 		make mrproper
 		make defconfig ARCH=um SUBARCH=i386
 		make -j 8 ARCH=um SUBARCH=i386
 		;;
-	"arm")
+	arm)
 		make mrproper
 		make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 		make -j 8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
