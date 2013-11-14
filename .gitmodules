@@ -93,3 +93,9 @@
 	url = gh:slim-template/emacs-slim
 	update = rebase
 	ignore = all
+[submodule ".elisp/pkg-info"]
+	path = .elisp/pkg-info
+	url = gh:lunaryorn/pkg-info.el
+[submodule ".elisp/epl"]
+	path = .elisp/epl
+	url = gh:cask/epl
