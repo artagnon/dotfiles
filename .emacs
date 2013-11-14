@@ -9,7 +9,6 @@
 (add-to-list 'load-path "~/.elisp/magit/contrib")
 (add-to-list 'load-path "~/.elisp/git-modes")
 (add-to-list 'load-path "~/.elisp/clojure-mode")
-(add-to-list 'load-path "~/.elisp/org-mode/lisp")
 (add-to-list 'load-path "~/.elisp/auto-complete/lib/popup")
 (add-to-list 'load-path "~/.elisp/auto-complete")
 (add-to-list 'load-path "~/.elisp/ace-jump-mode")
