@@ -26,6 +26,7 @@
 (add-to-list 'load-path "~/.elisp/lua-mode")
 (add-to-list 'load-path "~/.elisp/paredit")
 (add-to-list 'load-path "~/.elisp/slim-mode")
+(add-to-list 'load-path "~/.elisp/yaml-mode")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -71,6 +72,7 @@
 (require 'flx-ido)
 (require 'go-mode)
 (require 'lua-mode)
+(require 'yaml-mode)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -79,6 +81,7 @@
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("PKGBUILD" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;; ----------------------
 ;; General Customizations

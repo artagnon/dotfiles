@@ -99,3 +99,6 @@
 [submodule ".elisp/epl"]
 	path = .elisp/epl
 	url = gh:cask/epl
+[submodule ".elisp/yaml-mode"]
+	path = .elisp/yaml-mode
+	url = gh:yoshiki/yaml-mode
