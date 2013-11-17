@@ -1,0 +1,6 @@
+AndOr:
+  Enabled: false
+Not:
+  Enabled: false
+PerlBackrefs:
+  Enabled: false
