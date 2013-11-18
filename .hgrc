@@ -3,3 +3,8 @@ codereview = $GOROOT/lib/codereview/codereview.py
 
 [ui]
 username = Ramkumar Ramachandra <artagnon@gmail.com>
+
+[alias]
+l = log
+d = diff
+b = annotate -u -n
