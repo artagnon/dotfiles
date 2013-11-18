@@ -52,7 +52,7 @@ source ~/.perl5/etc/bashrc
 # ---[ Go ]------------------------------------------------------------
 export GOROOT=~/.go
 export GOPATH=$GOROOT/site
-export PATH=$GOROOT/bin:$PATH
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # ---[ Android SDK/ NDK ]----------------------------------------------
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
