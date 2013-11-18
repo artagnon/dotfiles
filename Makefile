@@ -14,7 +14,7 @@ remove_if_symlink =							\
 		fi;							\
 	fi;
 
-candidates = .zshrc .emacs .gitconfig .Xdefaults .i3		 	\
+candidates = .zshrc .emacs .gitconfig .hgrc .Xdefaults .i3	 	\
 .ncmpcpp .xinitrc .tmux.conf .elisp .rbenv .i3status.conf		\
 .irbrc .perlcriticrc .aspell.conf .aspell.personal .zsh
 
