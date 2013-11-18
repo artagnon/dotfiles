@@ -8,3 +8,4 @@ username = Ramkumar Ramachandra <artagnon@gmail.com>
 l = log
 d = diff
 b = annotate -u -n
+g = grep
