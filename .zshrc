@@ -201,7 +201,7 @@ function gsh () {
 	find . -maxdepth 1 -type f -name "*$1*" -exec echo "== {}" \; -exec sh {} \;
 }
 
-# usage: reload-completer (git|rust)
+# usage: reload-completer (git|rustc)
 function reload-completer () {
 	test $# != 1 && return 1
 	unfunction -m _$1\*
