@@ -54,6 +54,12 @@ export GOROOT=~/.go
 export GOPATH=$GOROOT/site
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
+alias godoc='GOROOT= godoc' # system docs
+
+function gocd () {
+	cd "$GOPATH/src/$1"
+}
+
 # ---[ Android SDK/ NDK ]----------------------------------------------
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
 export ANDROIDSDK=~/.android/sdk
