@@ -241,6 +241,7 @@ SAVEHIST=$HISTSIZE
 # ---[ Completion system ]---------------------------------------------
 fpath=(~/.zsh/completion $fpath)
 source ~/.zsh/completion/go.zsh
+source ~/.zsh/completion/perf.sh
 
 # Hack to complete git fp
 _git_fp () { _git_format_patch; }
