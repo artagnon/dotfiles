@@ -97,6 +97,7 @@
 	desc = describe --always --contains --all
 	ref = log -1 --date=short --pretty='%h (%s, %ad)'
 	h = help
+	cf = cat-file
 [man]
 	viewer = eman
 [status]
