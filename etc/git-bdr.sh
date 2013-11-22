@@ -1,5 +1,6 @@
 #!/bin/sh
 
+test "true" = "$(git rev-parse --is-inside-work-tree 2>/dev/null)" || exit 1
 branches="$@"
 pushstring=
 for branch in $branches; do git branch -D $branch; done
