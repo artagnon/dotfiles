@@ -71,9 +71,6 @@ export ANDROIDAPI=14
 # abbreviations
 alias resh='source ~/.zshrc'
 alias ll='ls --color -vlha'
-alias halt='sudo halt'
-alias reboot='sudo reboot'
-alias hibernate='sudo pm-hibernate'
 alias diff='diff -u'
 alias ec='emacsclient'
 alias ecr='emacsclient -n -c'
