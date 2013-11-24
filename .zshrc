@@ -5,7 +5,6 @@ source ~/.keychain/localhost-sh
 # ---[ Modules ]-------------------------------------------------------
 zmodload zsh/complist
 autoload -Uz compinit
-autoload -Uz vcs_info
 compinit
 zmodload -a zsh/stat stat
 zmodload -ap zsh/mapfile mapfile
