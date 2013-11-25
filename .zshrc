@@ -18,6 +18,12 @@ function chpwd() {
 	esac
 }
 
+# ---[ Save canceled command ]-----------------------------------------
+TRAPINT () {
+  zle && [[ $HISTNO -eq $HISTCMD ]] && print -rs -- $BUFFER
+  return $1
+}
+
 # ---[ Shell exports ]-------------------------------------------------
 export LANG=en_US.utf8
 export EDITOR='emacsclient'
