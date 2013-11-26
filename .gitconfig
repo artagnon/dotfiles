@@ -31,6 +31,7 @@
 	lf = log --follow
 	sl = shortlog -ns --no-merges
 	sle = shortlog -nse --no-merges
+	sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
 	s = status
 	sh = show
 	shs = show -s
