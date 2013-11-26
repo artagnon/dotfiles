@@ -78,9 +78,6 @@ alias resh='source ~/.zshrc'
 alias ll='ls --color -vlha'
 alias diff='diff -u'
 alias ec='emacsclient'
-alias ecr='emacsclient -n -c'
-alias et='emacsclient -t'
-alias easy_install='pip install --user'
 alias jnettop='sudo jnettop'
 alias mountu="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
 alias mountl="sudo mount -o loop"
