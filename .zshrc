@@ -146,6 +146,10 @@ alias entertain='mpv "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mp
 alias incognito='export HISTFILE=/dev/null'
 alias cdtop='cd $(g rp --show-toplevel)'
 alias fgrep='find . -print0 | grep -FZz'
+alias -g L='| less'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
 
 # usage: git-make       ;for x86 linux.git build or make -j 8
 #    or: git-make prove ;for git.git tests
