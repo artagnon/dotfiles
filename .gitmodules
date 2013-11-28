@@ -102,3 +102,6 @@
 [submodule ".elisp/yaml-mode"]
 	path = .elisp/yaml-mode
 	url = gh:yoshiki/yaml-mode
+[submodule ".elisp/php-mode"]
+	path = .elisp/php-mode
+	url = gh:ejmr/php-mode
