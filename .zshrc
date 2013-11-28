@@ -79,7 +79,7 @@ alias ll='ls --color -vlha'
 alias diff='diff -u'
 alias ec='emacsclient'
 alias jnettop='sudo jnettop'
-alias mountu="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
+alias mountfat="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
 alias mountl="sudo mount -o loop"
 alias umount='sudo umount'
 alias g='git'
