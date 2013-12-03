@@ -105,3 +105,6 @@
 [submodule ".elisp/php-mode"]
 	path = .elisp/php-mode
 	url = gh:ejmr/php-mode
+[submodule ".elisp/feature-mode"]
+	path = .elisp/feature-mode
+	url = gh:michaelklishin/cucumber.el

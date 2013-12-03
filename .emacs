@@ -28,6 +28,7 @@
 (add-to-list 'load-path "~/.elisp/paredit")
 (add-to-list 'load-path "~/.elisp/slim-mode")
 (add-to-list 'load-path "~/.elisp/yaml-mode")
+(add-to-list 'load-path "~/.elisp/feature-mode")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -75,6 +76,7 @@
 (require 'go-mode)
 (require 'lua-mode)
 (require 'yaml-mode)
+(require 'feature-mode)
 
 ;; ----------------
 ;; auto-mode-alists
