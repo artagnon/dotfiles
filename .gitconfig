@@ -98,6 +98,7 @@
 	conf = config
 	desc = describe --always --contains --all
 	ref = log -1 --date=short --pretty='%h (%s, %ad)'
+	fixes = log -1 --abbrev=12 --pretty='Fixes: %h (%s)'
 	h = help
 	cf = cat-file
 [man]
