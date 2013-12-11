@@ -62,6 +62,7 @@
 	ra = rebase --abort
 	rs = rebase --skip
 	ss = stash save
+	ssk = stash save --keep-index
 	sp = stash pop
 	sd = stash drop
 	sc = stash clear
