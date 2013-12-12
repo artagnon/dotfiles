@@ -103,7 +103,7 @@
 	h = help
 	cf = cat-file
 [man]
-	viewer = eman
+	viewer = woman
 [status]
 	short = true
 	branch = true
