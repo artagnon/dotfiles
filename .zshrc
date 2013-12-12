@@ -160,7 +160,7 @@ function git-make () {
 	unset SUBARCH
 	unset CROSS_COMPILE
 
-	test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)" || exit 1
+	test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)" || return 1
 	case "$1" in
 	prove)
 		make -j 8 test
