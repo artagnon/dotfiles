@@ -52,7 +52,6 @@
 (require 'framemove)
 (require 'winner)
 (require 'uniquify)
-(require 'edit-server)
 (require 'cython-mode)
 (require 'auto-complete-config)
 (require 'slim-mode)
@@ -134,7 +133,6 @@
 (show-paren-mode t)
 (savehist-mode t)
 (electric-indent-mode 1)
-(edit-server-start)
 
 ;; Unbind C-z. I don't want suspend
 (when window-system
