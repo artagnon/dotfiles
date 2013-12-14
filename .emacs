@@ -176,6 +176,11 @@
 (global-set-key [(control shift n)] #'(lambda () (interactive) (ignore-errors (next-line 5))))
 (global-set-key [(control shift p)] #'(lambda () (interactive) (ignore-errors (previous-line 5))))
 (global-set-key [(meta j)] #'(lambda () (interactive) (join-line -1)))
+(global-set-key [(control c) (s)] 'replace-string)
+(global-set-key [(control c) (x)] 'replace-regexp)
+(global-set-key [(control c) (c)] 'comment-region)
+(global-set-key [(control c) (u)] 'uncomment-region)
+(global-set-key [(control c) (m)] 'man)
 
 ;; ------
 ;; c-mode
