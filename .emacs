@@ -234,7 +234,7 @@
 ;; ---
 (ido-mode 1)
 (ido-everywhere 1)
-(flx-ido-mode 1)
+(flx-ido-mode 0)
 (setq ido-use-faces nil)
 
 (setq
