@@ -3,6 +3,7 @@ which nvidia-settings && nvidia-settings -a InitialPixmapPlacement=0
 xsetroot -cursor_name left_ptr
 xset b off
 setxkbmap -option ctrl:nocaps
+setxkbmap -option altwin:swap_alt_win
 DEFAULT_SESSION=i3
 
 case $1 in
