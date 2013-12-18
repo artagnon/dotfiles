@@ -52,7 +52,7 @@ export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
 export PERL5LIB=~/.perl5/lib/perl5:$PERL5LIB
 export PATH=~/.perl5/bin:$PATH
 export PERLBREW_ROOT=~/.perl5
-source ~/.perl5/etc/bashrc
+test -f ~/.perl5/etc/bashrc && source ~/.perl5/etc/bashrc
 
 # ---[ Go ]------------------------------------------------------------
 export GOROOT=~/.go
@@ -242,8 +242,8 @@ SAVEHIST=$HISTSIZE
 
 # ---[ Completion system ]---------------------------------------------
 fpath=(~/.zsh/completion $fpath)
-source ~/.zsh/completion/go.zsh
-source ~/.zsh/completion/perf.sh
+test -f ~/.zsh/completion/go.zsh && e ~/.zsh/completion/go.zsh
+test -f ~/.zsh/completion/perf.sh && source ~/.zsh/completion/perf.sh
 
 # Hack to complete git fp
 _git_fp () { _git_format_patch; }
