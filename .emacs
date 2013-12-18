@@ -6,7 +6,6 @@
 (add-to-list 'load-path "~/.elisp/")
 (add-to-list 'load-path "~/.elisp/haskell-mode")
 (add-to-list 'load-path "~/.elisp/magit")
-(add-to-list 'load-path "~/.elisp/magit/contrib")
 (add-to-list 'load-path "~/.elisp/git-modes")
 (add-to-list 'load-path "~/.elisp/clojure-mode")
 (add-to-list 'load-path "~/.elisp/auto-complete/lib/popup")
@@ -38,11 +37,13 @@
 (require 'whitespace)
 (require 'filladapt)
 (require 'tramp)
+
+(setq magit-rigid-key-bindings t)
 (require 'magit)
 (require 'magit-bisect)
 (require 'magit-blame)
-(require 'magit-simple-keys)
 (require 'rebase-mode)
+
 (require 'git-commit-mode)
 (require 'gitignore-mode)
 (require 'gitconfig-mode)
