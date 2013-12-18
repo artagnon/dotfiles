@@ -66,7 +66,7 @@
 (require 'recentf)
 (require 'saveplace)
 (require 'php-mode)
-(require 'haskell-mode-autoloads)
+(require 'haskell-mode)
 (require 'kconfig-mode)
 (require 'epl)
 (require 'dash)
