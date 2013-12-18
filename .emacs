@@ -31,6 +31,10 @@
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
+(defmacro require-maybe (feature &optional file)
+  "Try to require FEATURE, but don't signal an error if it fails."
+  `(require ,feature ,file 'noerror))
+
 ;; ---------
 ;; Autoloads
 ;; ---------
@@ -61,22 +65,23 @@
 (require 'scala-mode2)
 (require 'recentf)
 (require 'saveplace)
-(require 'rust-mode)
 (require 'php-mode)
 (require 'haskell-mode-autoloads)
 (require 'kconfig-mode)
-(require 'llvm-mode)
-(require 'tablegen-mode)
 (require 'epl)
 (require 'dash)
 (require 's)
 (require 'pkg-info)
 (require 'projectile)
 (require 'flx-ido)
-(require 'go-mode)
 (require 'lua-mode)
 (require 'yaml-mode)
 (require 'feature-mode)
+
+(require-maybe 'llvm-mode)
+(require-maybe 'tablegen-mode)
+(require-maybe 'rust-mode)
+(require-maybe 'go-mode)
 
 ;; ----------------
 ;; auto-mode-alists
