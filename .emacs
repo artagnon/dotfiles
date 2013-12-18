@@ -44,7 +44,6 @@
 
 (setq magit-rigid-key-bindings t)
 (require 'magit)
-(require 'magit-bisect)
 (require 'magit-blame)
 
 (require 'git-rebase-mode)
