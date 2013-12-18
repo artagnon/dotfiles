@@ -96,15 +96,25 @@
 [submodule ".elisp/pkg-info"]
 	path = .elisp/pkg-info
 	url = gh:lunaryorn/pkg-info.el
+	update = rebase
+	ignore = all
 [submodule ".elisp/epl"]
 	path = .elisp/epl
 	url = gh:cask/epl
+	update = rebase
+	ignore = all
 [submodule ".elisp/yaml-mode"]
 	path = .elisp/yaml-mode
 	url = gh:yoshiki/yaml-mode
+	update = rebase
+	ignore = all
 [submodule ".elisp/php-mode"]
 	path = .elisp/php-mode
 	url = gh:ejmr/php-mode
+	update = rebase
+	ignore = all
 [submodule ".elisp/feature-mode"]
 	path = .elisp/feature-mode
 	url = gh:michaelklishin/cucumber.el
+	update = rebase
+	ignore = all
