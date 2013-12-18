@@ -46,8 +46,8 @@
 (require 'magit)
 (require 'magit-bisect)
 (require 'magit-blame)
-(require 'rebase-mode)
 
+(require 'git-rebase-mode)
 (require 'git-commit-mode)
 (require 'gitignore-mode)
 (require 'gitconfig-mode)
