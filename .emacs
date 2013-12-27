@@ -118,7 +118,7 @@
 	      initial-scratch-message ""
 	      initial-major-mode 'text-mode)
 
-(set-face-attribute 'default nil :height 120)
+(set-default-font "Droid Sans Mono 14")
 (global-font-lock-mode 1)
 (windmove-default-keybindings)
 (setq framemove-hook-into-windmove t)
