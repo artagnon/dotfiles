@@ -15,9 +15,6 @@ file must be a symlink to `~/.keychain/$HOSTNAME-sh`.  If you don't
 know what keychain is, or don't want to use it, simply uncomment the
 relevant portion.
 
-grep is aliased to ack-grep, which is also not included in this
-repository.  Get ack-grep for your distribution.
-
 ## Xdefaults
 
 I use the Droid Sans Mono font.  Should be available for your
