@@ -55,11 +55,8 @@ export PERLBREW_ROOT=~/.perl5
 test -f ~/.perl5/etc/bashrc && source ~/.perl5/etc/bashrc
 
 # ---[ Go ]------------------------------------------------------------
-export GOROOT=~/.go
-export GOPATH=$GOROOT/site
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-
-alias godoc='GOROOT= godoc' # system docs
+export GOPATH=~/.go
+export PATH=$GOPATH/bin:$PATH
 
 function gocd () {
 	cd "$GOPATH/src/$1"
