@@ -1,6 +1,3 @@
-[extensions]
-codereview = $GOROOT/lib/codereview/codereview.py
-
 [ui]
 username = Ramkumar Ramachandra <artagnon@gmail.com>
 
