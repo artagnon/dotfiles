@@ -1,1 +1,1 @@
-/home/artagnon/.go/misc/zsh/go
+/home/artagnon/src/go/misc/zsh/go
