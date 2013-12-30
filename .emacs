@@ -290,6 +290,7 @@
 ;; -------------
 ;; flyspell-mode
 ;; -------------
+(setq ispell-list-command "--list") ;; run flyspell with aspell, not ispell
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (global-set-key [(control c) (f)] 'flyspell-check-previous-highlighted-word)
 
