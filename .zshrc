@@ -99,6 +99,11 @@ alias pQi='pacman -Qi'
 alias pQo='pacman -Qo'
 alias pQs='pacman -Qs'
 
+# cower aliases
+alias cS='cower -s'
+alias cD='cower -d'
+alias cU='cower -u'
+
 # gem and pip aliases
 alias gi='gem install'
 alias pi='pip install --user'
