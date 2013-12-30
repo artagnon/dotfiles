@@ -38,6 +38,7 @@
 	c = clone
 	co = checkout
 	cob = checkout -b
+	com = checkout master
 	ci = commit
 	cia = commit --amend
 	cp = cherry-pick
