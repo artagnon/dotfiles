@@ -282,7 +282,7 @@
 
 (global-set-key [(control x) (h)] #'(lambda () (interactive)
 				  (magit-show-commit
-				   (magit-rev-parse "HEAD") nil t t)))
+				   (magit-rev-parse "HEAD") nil t)))
 
 ;; git-modes
 (setq git-commit-confirm-commit nil)
