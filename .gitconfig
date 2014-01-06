@@ -50,6 +50,8 @@
 	fpm = !rm -rf outgoing && git format-patch -M -C -o outgoing master
 	fpo = format-patch --stdout -M -C
 	se = send-email
+	sel = !git send-email --to=\"LKML <linux-kernel@vger.kernel.org>\" ~/src/linux/outgoing/*.patch
+	seg = !git send-email --to=\"Git List <git@vger.kernel.org>\" ~/src/git/outgoing/*.patch
 	graph = log --graph --decorate --pretty=oneline --abbrev-commit
 	rv = log --reverse origin..
 	rvp = log -p --reverse origin..
