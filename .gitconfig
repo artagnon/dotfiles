@@ -12,6 +12,7 @@
 [format]
 	signoff = true
 	coverLetter = auto
+	defaultTo = master
 [sendemail]
 	smtpuser = artagnon@gmail.com
 	suppresscc = self
