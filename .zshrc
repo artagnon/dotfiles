@@ -247,8 +247,10 @@ fpath=(~/.zsh/completion $fpath)
 test -f ~/.zsh/completion/go.zsh && source ~/.zsh/completion/go.zsh
 test -f ~/.zsh/completion/perf.sh && source ~/.zsh/completion/perf.sh
 
-# Hack to complete git fp
+# Hack to complete some aliases
 _git_fp () { _git_format_patch; }
+_git_sel () { _git_send_email; }
+_git_seg () { _git_send_email; }
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
