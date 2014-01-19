@@ -30,6 +30,7 @@
 	lp = log -p --no-merges
 	lrp = log --reverse -p --no-merges
 	lf = log --follow
+	la = !git log --author=\"$(git config --get user.name)\"
 	sl = shortlog -ns --no-merges
 	sle = shortlog -nse --no-merges
 	sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
