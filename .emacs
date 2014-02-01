@@ -412,7 +412,7 @@
 ;; I use C-c > for py-shift-region-right
 (add-hook 'python-mode-hook
 	  (lambda ()
-	    (define-key py-mode-map
+	    (define-key python-mode-map
 	      [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))))
 
 ;; --------
