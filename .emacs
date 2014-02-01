@@ -406,6 +406,20 @@
 	      [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))))
 
 
+;; ---------
+;; html-mode
+;; ---------
+(add-hook 'html-mode-hook
+	     (lambda ()
+	       (setq indent-tabs-mode nil)))
+
+;; -------
+;; js-mode
+;; -------
+(add-hook 'js-mode-hook
+	     (lambda ()
+	       (setq indent-tabs-mode nil)))
+
 ;; -----------
 ;; python-mode
 ;; -----------
