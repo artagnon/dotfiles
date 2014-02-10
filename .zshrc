@@ -81,7 +81,7 @@ alias mountl="sudo mount -o loop"
 alias umount='sudo umount'
 alias g='git'
 alias rf='rm -rf'
-alias chrome='google-chrome'
+alias chrome='google-chrome-beta'
 
 # pacman aliases
 alias pS='sudo pacman -S'
