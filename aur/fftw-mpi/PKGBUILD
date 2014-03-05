@@ -9,6 +9,7 @@ depends=('glibc' 'bash' 'openmpi')
 conflicts=('fftw')
 makedepends=('gcc-fortran')
 source=("http://www.fftw.org/fftw-${pkgver}.tar.gz")
+provides=('fftw')
 install=fftw.install
 sha1sums=('11487180928d05746d431ebe7a176b52fe205cf9')
 
