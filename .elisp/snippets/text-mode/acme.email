@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: acme
+# key: acme
+# --
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: jiri
+# key: jiri
+# --
+Cc: Jiri Olsa <jolsa@redhat.com>
