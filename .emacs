@@ -21,7 +21,6 @@
 (add-to-list 'load-path "~/.elisp/s")
 (add-to-list 'load-path "~/.elisp/pkg-info")
 (add-to-list 'load-path "~/.elisp/projectile")
-(add-to-list 'load-path "~/.elisp/flx")
 (add-to-list 'load-path "~/.elisp/go-mode")
 (add-to-list 'load-path "~/.elisp/lua-mode")
 (add-to-list 'load-path "~/.elisp/paredit")
@@ -72,7 +71,6 @@
 (require 's)
 (require 'pkg-info)
 (require 'projectile)
-(require 'flx-ido)
 (require 'lua-mode)
 (require 'yaml-mode)
 (require 'feature-mode)
@@ -244,7 +242,6 @@
 ;; ---
 (ido-mode 1)
 (ido-everywhere 1)
-(flx-ido-mode 0)
 (setq ido-use-faces nil)
 
 (setq
