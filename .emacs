@@ -27,6 +27,7 @@
 (add-to-list 'load-path "~/.elisp/slim-mode")
 (add-to-list 'load-path "~/.elisp/yaml-mode")
 (add-to-list 'load-path "~/.elisp/feature-mode")
+(add-to-list 'load-path "~/.elisp/yasnippet")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -74,6 +75,7 @@
 (require 'lua-mode)
 (require 'yaml-mode)
 (require 'feature-mode)
+(require 'yasnippet)
 
 (require-maybe 'llvm-mode)
 (require-maybe 'tablegen-mode)
@@ -505,6 +507,13 @@
 ;; ----
 (smex-initialize)
 (global-set-key [remap execute-extended-command] 'smex)
+
+;; ---------
+;; yasnippet
+;; ---------
+(setq yas-snippet-dirs
+      '("~/.elisp/snippets"))
+(yas-global-mode 1)
 
 ;; ------------------------
 ;; Useful utility functions

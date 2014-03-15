@@ -113,3 +113,8 @@
 	url = gh:michaelklishin/cucumber.el
 	update = rebase
 	ignore = all
+[submodule ".elisp/yasnippet"]
+	path = .elisp/yasnippet
+	url = gh:capitaomorte/yasnippet
+	update = rebase
+	ignore = all
