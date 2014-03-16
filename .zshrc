@@ -38,8 +38,7 @@ export PS_PERSONALITY='linux'
 
 # ---[ set MANPATH ]---------------------------------------------------
 unset MANPATH
-MANPATH=~/share/doc/perf:~/share/doc/git:$(manpath)
-export MANPATH
+export MANPATH=~/share/man:$(manpath)
 
 # ---[ evals ]---------------------------------------------------------
 eval "$(rbenv init -)"
