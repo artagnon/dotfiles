@@ -28,7 +28,7 @@ TRAPINT () {
 export LANG=en_US.utf8
 export EDITOR='emacsclient'
 export PATH=~/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:~/.ruby/bin:~/.local/bin:~/.npms/bin:~/.android/sdk/tools:~/.android/sdk/platform-tools:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/usr/bin/vendor_perl
-export LD_LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf
 export PYTHONPATH=~/.local/lib
 export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
