@@ -480,6 +480,9 @@
 ;; auto-complete
 ;; -------------
 (add-to-list 'ac-dictionary-directories "~/.elisp/auto-complete/dict")
+(add-hook 'c-mode-common-hook (lambda ()
+				(add-to-list 'ac-sources 'ac-source-gtags)
+				(add-to-list 'ac-sources 'ac-souce-semantic)))
 (ac-config-default)
 
 ;; ---
