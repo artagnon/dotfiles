@@ -76,6 +76,8 @@
 (require 'yaml-mode)
 (require 'feature-mode)
 (require 'yasnippet)
+(require 'semantic/ia)
+(require 'semantic/bovine/gcc)
 
 (require-maybe 'llvm-mode)
 (require-maybe 'tablegen-mode)
@@ -238,6 +240,12 @@
 (add-hook 'c-mode-hook (lambda ()
 			 (define-key c-mode-map
 			   [(meta j)] #'(lambda () (interactive) (join-line -1)))))
+
+;; --------
+;; semantic
+;; --------
+(semantic-mode 1)
+(global-set-key [(control c) (j)] 'semantic-ia-fast-jump)
 
 ;; ---
 ;; ido
