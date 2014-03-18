@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rostedt
+# key: rostedt
+# --
+Cc: Steven Rostedt <rostedt@goodmis.org>
