@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mingo
+# key: mingo
+# --
+Cc: Ingo Molnar <mingo@kernel.org>
