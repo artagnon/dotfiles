@@ -65,7 +65,7 @@
 (require 'recentf)
 (require 'saveplace)
 (require 'php-mode)
-(require 'haskell-mode)
+(require 'haskell-mode-autoloads)
 (require 'kconfig-mode)
 (require 'epl)
 (require 'dash)
@@ -320,8 +320,7 @@
 ;; ------------
 ;; haskell-mode
 ;; ------------
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-to-list 'Info-default-directory-list "~/.elisp/haskell-mode")
 
 ;; ---------
 ;; perl-mode
