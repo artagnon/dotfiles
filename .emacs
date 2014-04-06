@@ -180,7 +180,7 @@
 
 (global-set-key [(meta \])] 'forward-paragraph)
 (global-set-key [(meta \[)] 'backward-paragraph)
-(global-set-key [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))
+(bind-key* "C-c C-r" #'(lambda () (interactive) (revert-buffer nil t)))
 (global-set-key [(control shift n)] #'(lambda () (interactive) (ignore-errors (next-line 5))))
 (global-set-key [(control shift p)] #'(lambda () (interactive) (ignore-errors (previous-line 5))))
 (global-set-key [(meta j)] #'(lambda () (interactive) (join-line -1)))
@@ -388,7 +388,6 @@
 ;; ---------
 (define-key diff-mode-map [(meta q)] 'fill-paragraph)
 (define-key diff-mode-map [(meta backspace)] 'backward-kill-word)
-(define-key diff-mode-map [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))
 
 ;; ---------
 ;; mail-mode
@@ -428,13 +427,6 @@
 
 (define-new-sh-style 8 8 "~")
 
-;; I don't use sh-repeat
-(add-hook 'sh-mode-hook
-	  (lambda ()
-	    (define-key sh-mode-map
-	      [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))))
-
-
 ;; ---------
 ;; html-mode
 ;; ---------
@@ -448,15 +440,6 @@
 (add-hook 'js-mode-hook
 	     (lambda ()
 	       (setq indent-tabs-mode nil)))
-
-;; -----------
-;; python-mode
-;; -----------
-;; I use C-c > for py-shift-region-right
-(add-hook 'python-mode-hook
-	  (lambda ()
-	    (define-key python-mode-map
-	      [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))))
 
 ;; --------
 ;; org-mode
