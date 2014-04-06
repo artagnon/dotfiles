@@ -193,6 +193,7 @@
 ;; c-mode
 ;; ------
 (add-hook 'c-mode-common-hook 'turn-on-filladapt-mode)
+(add-to-list 'completion-ignored-extensions ".o")
 
 (defmacro define-new-c-style (name derived-from style-alist match-path)
   `(progn
@@ -322,6 +323,7 @@
 ;; ------------
 (add-to-list 'Info-default-directory-list "~/.elisp/haskell-mode")
 (add-hook 'haskell-mode-hook (lambda () (turn-on-haskell-indentation) (haskell-doc-mode)))
+(add-to-list 'completion-ignored-extensions ".hi")
 
 ;; ---------
 ;; perl-mode
