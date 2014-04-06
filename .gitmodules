@@ -123,3 +123,6 @@
 	url = gh:capitaomorte/autopair
 	update = rebase
 	ignore = all
+[submodule ".elisp/helm"]
+	path = .elisp/helm
+	url = gh:emacs-helm/helm

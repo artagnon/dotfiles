@@ -29,6 +29,7 @@
 (add-to-list 'load-path "~/.elisp/feature-mode")
 (add-to-list 'load-path "~/.elisp/yasnippet")
 (add-to-list 'load-path "~/.elisp/autopair")
+(add-to-list 'load-path "~/.elisp/helm")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -79,6 +80,7 @@
 (require 'semantic/ia)
 (require 'semantic/bovine/gcc)
 (require 'autopair)
+(require 'helm-config)
 
 (require-maybe 'llvm-mode)
 (require-maybe 'tablegen-mode)
@@ -264,6 +266,14 @@
  ido-default-file-method 'selected-window
  ido-default-buffer-method 'selected-window
  ido-max-directory-size nil)
+
+;; ----
+;; helm
+;; ----
+(global-set-key [(control c) (control f)] 'helm-for-files)
+(global-set-key [(control c) (control g)] 'helm-do-grep)
+(global-set-key [(control c) (control o)] 'helm-occur)
+(global-set-key [(control c) (meta x)] 'helm-M-x)
 
 ;; -----
 ;; Dired
