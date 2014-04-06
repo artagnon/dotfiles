@@ -78,7 +78,6 @@
 (use-package semantic/ia)
 (use-package semantic/bovine/gcc)
 (use-package autopair)
-(use-package helm-config)
 (use-package llvm-mode)
 (use-package tablegen-mode)
 (use-package rust-mode)
@@ -269,10 +268,17 @@
 ;; ----
 ;; helm
 ;; ----
-(global-set-key [(control c) (control f)] 'helm-for-files)
-(global-set-key [(control c) (control g)] 'helm-do-grep)
-(global-set-key [(control c) (control o)] 'helm-occur)
-(global-set-key [(control c) (meta x)] 'helm-M-x)
+(use-package helm-config
+  :init
+  (progn
+    (defvar ctl-period-map)
+    (define-prefix-command 'ctl-period-map)
+    (bind-key* "C-." 'ctl-period-map)
+
+    (bind-key "C-. C-f" 'helm-for-files)
+    (bind-key "C-. C-g" 'helm-do-grep)
+    (bind-key "C-. C-o" 'helm-occur)
+    (bind-key "C-. M-x" 'helm-M-x)))
 
 ;; -----
 ;; Dired
