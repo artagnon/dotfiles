@@ -533,6 +533,8 @@
 		 (set-visited-file-name new-name)
 		 (set-buffer-modified-p nil)))))))
 
+(global-set-key [(control x) (control r)] 'rename-file-and-buffer)
+
 (defun delete-file-and-buffer ()
   "Removes file connected to current buffer and kills buffer"
   (interactive)
