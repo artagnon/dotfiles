@@ -183,9 +183,9 @@
 (global-set-key [(control shift p)] #'(lambda () (interactive) (ignore-errors (previous-line 5))))
 (global-set-key [(meta j)] #'(lambda () (interactive) (join-line -1)))
 (global-set-key [(control c) (s)] 'replace-string)
-(global-set-key [(control c) (x)] 'replace-regexp)
-(global-set-key [(control c) (c)] 'comment-region)
-(global-set-key [(control c) (u)] 'uncomment-region)
+(global-set-key [(control c) (r)] 'replace-regexp)
+(global-set-key [(control c) (\;)] 'comment-or-uncomment-region)
+(global-set-key [(control c) (x)] 'compile)
 (global-set-key [(control c) (m)] 'man)
 
 ;; ------
