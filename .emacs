@@ -28,6 +28,7 @@
 (add-to-list 'load-path "~/.elisp/yaml-mode")
 (add-to-list 'load-path "~/.elisp/feature-mode")
 (add-to-list 'load-path "~/.elisp/yasnippet")
+(add-to-list 'load-path "~/.elisp/autopair")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -77,6 +78,7 @@
 (require 'yasnippet)
 (require 'semantic/ia)
 (require 'semantic/bovine/gcc)
+(require 'autopair)
 
 (require-maybe 'llvm-mode)
 (require-maybe 'tablegen-mode)
@@ -353,6 +355,11 @@
 				    "-mode-hook"))))
 	  (add-hook hook (lambda () (paredit-mode +1)))))
       '(emacs-lisp lisp scheme inferior-lisp))
+
+;; --------
+;; Autopair
+;; --------
+(autopair-global-mode)
 
 ;; -----
 ;; Tramp

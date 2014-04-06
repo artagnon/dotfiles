@@ -118,3 +118,8 @@
 	url = gh:capitaomorte/yasnippet
 	update = rebase
 	ignore = all
+[submodule ".elisp/autopair"]
+	path = .elisp/autopair
+	url = gh:capitaomorte/autopair
+	update = rebase
+	ignore = all
