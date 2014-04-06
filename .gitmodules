@@ -126,3 +126,6 @@
 [submodule ".elisp/helm"]
 	path = .elisp/helm
 	url = gh:emacs-helm/helm
+[submodule ".elisp/use-package"]
+	path = .elisp/use-package
+	url = gh:jwiegley/use-package
