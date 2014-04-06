@@ -321,6 +321,7 @@
 ;; haskell-mode
 ;; ------------
 (add-to-list 'Info-default-directory-list "~/.elisp/haskell-mode")
+(add-hook 'haskell-mode-hook (lambda () (turn-on-haskell-indentation) (haskell-doc-mode)))
 
 ;; ---------
 ;; perl-mode
