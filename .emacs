@@ -330,7 +330,7 @@
 (add-hook 'text-mode-hook 'flyspell-mode)
 
 ;; ---------------
-;; emacs-list-mode
+;; emacs-lisp-mode
 ;; ---------------
 (add-hook 'emacs-lisp-mode-hook (lambda () (eldoc-mode t)))
 
