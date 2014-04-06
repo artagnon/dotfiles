@@ -62,7 +62,6 @@
 (require 'ace-jump-mode)
 (require 'smex)
 (require 'scala-mode2)
-(require 'recentf)
 (require 'saveplace)
 (require 'php-mode)
 (require 'haskell-mode-autoloads)
@@ -358,8 +357,7 @@
 ;; -----
 ;; Tramp
 ;; -----
-(setq recentf-auto-cleanup 'never
-      tramp-default-method "ssh")
+(setq tramp-default-method "ssh")
 (set-default 'tramp-default-proxies-alist
 	     (quote (("^(?!.*kytes).*$" "\\`root\\'" "/ssh:%h:"))))
 
@@ -496,24 +494,6 @@
 ;; ace-jump-mode
 ;; -------------
 (global-set-key [(meta h)] 'ace-jump-word-mode)
-
-;; -------
-;; recentf
-;; -------
-(setq recentf-max-saved-items 200
-      recentf-max-menu-items 50)
-(recentf-mode 1)
-
-(defun recentf-ido-find-file ()
-  "Find a recent file using ido."
-  (interactive)
-  (let ((file
-	 (ido-completing-read "Choose recent file: "
-			      (mapcar #'abbreviate-file-name recentf-list) nil t)))
-    (when file
-      (find-file file))))
-
-(global-set-key [(control c) (r)] 'recentf-ido-find-file)
 
 ;; ----
 ;; smex
