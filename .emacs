@@ -177,6 +177,8 @@
 ;; ------------------
 ;; Custom Keybindings
 ;; ------------------
+(bind-key* "<C-return>" 'other-window)
+
 (global-set-key [(meta \])] 'forward-paragraph)
 (global-set-key [(meta \[)] 'backward-paragraph)
 (global-set-key [(control c) (control r)] #'(lambda () (interactive) (revert-buffer nil t)))
