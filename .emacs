@@ -31,6 +31,7 @@
 (add-to-list 'load-path "~/.elisp/yasnippet")
 (add-to-list 'load-path "~/.elisp/autopair")
 (add-to-list 'load-path "~/.elisp/helm")
+(add-to-list 'load-path "~/.elisp/ghc-mod/elisp")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
 
@@ -64,7 +65,6 @@
 (use-package scala-mode2)
 (use-package saveplace)
 (use-package php-mode)
-(use-package haskell-mode-autoloads)
 (use-package kconfig-mode)
 (use-package epl)
 (use-package dash)
@@ -337,9 +337,16 @@
 ;; ------------
 ;; haskell-mode
 ;; ------------
-(add-to-list 'Info-default-directory-list "~/.elisp/haskell-mode")
-(add-hook 'haskell-mode-hook (lambda () (turn-on-haskell-indentation) (haskell-doc-mode)))
-(add-to-list 'completion-ignored-extensions ".hi")
+(use-package haskell-mode-autoloads
+  :init
+  (use-package ghc)
+  (add-to-list 'Info-default-directory-list "~/.elisp/haskell-mode")
+  (setq haskell-doc-show-global-types t)
+  (add-hook 'haskell-mode-hook (lambda ()
+				 (turn-on-haskell-indentation)
+				 (haskell-doc-mode)
+				 (ghc-init)))
+  (add-to-list 'completion-ignored-extensions ".hi"))
 
 ;; ---------
 ;; perl-mode

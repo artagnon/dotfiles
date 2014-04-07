@@ -129,3 +129,6 @@
 [submodule ".elisp/use-package"]
 	path = .elisp/use-package
 	url = gh:jwiegley/use-package
+[submodule ".elisp/ghc-mod"]
+	path = .elisp/ghc-mod
+	url = gh:kazu-yamamoto/ghc-mod
