@@ -1,7 +1,5 @@
 [include]
 	path = ~/private/.gitconfig
-[core]
-	whitespace = trailing-space,space-before-tab
 [apply]
 	whitespace = fix
 [user]
