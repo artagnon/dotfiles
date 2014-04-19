@@ -517,7 +517,8 @@
 ;; yasnippet
 ;; ---------
 (setq yas-snippet-dirs
-      '("~/.elisp/snippets"))
+      '("~/.elisp/snippets"
+	"~/.elisp/yasnippet/snippets"))
 (yas-global-mode 1)
 
 ;; ------------------------
