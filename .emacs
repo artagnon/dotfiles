@@ -21,7 +21,6 @@
 (add-to-list 'load-path "~/.elisp/dash")
 (add-to-list 'load-path "~/.elisp/s")
 (add-to-list 'load-path "~/.elisp/pkg-info")
-(add-to-list 'load-path "~/.elisp/projectile")
 (add-to-list 'load-path "~/.elisp/go-mode")
 (add-to-list 'load-path "~/.elisp/lua-mode")
 (add-to-list 'load-path "~/.elisp/paredit")
@@ -70,7 +69,6 @@
 (use-package dash)
 (use-package s)
 (use-package pkg-info)
-(use-package projectile)
 (use-package lua-mode)
 (use-package yaml-mode)
 (use-package feature-mode)
@@ -317,11 +315,6 @@
 (setq ispell-list-command "--list") ;; run flyspell with aspell, not ispell
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (global-set-key [(control c) (f)] 'flyspell-check-previous-highlighted-word)
-
-;; ----------
-;; projectile
-;; ----------
-(projectile-global-mode)
 
 ;; ---------
 ;; text-mode
