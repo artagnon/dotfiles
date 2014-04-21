@@ -187,6 +187,7 @@
 (global-set-key [(control c) (\;)] 'comment-or-uncomment-region)
 (global-set-key [(control c) (x)] 'compile)
 (global-set-key [(control c) (m)] 'man)
+(global-set-key [(control x) (p)] 'bury-buffer)
 
 ;; ------
 ;; c-mode
