@@ -1,5 +1,4 @@
 # Maintainer: Ramkumar Ramachandra <artagnon@gmail.com>
-# Check for new releases in: http://www.linaro.org/engineering/engineering-projects/armv8
 
 pkgname=gcc-aarch64-linaro
 pkgver=2014.03
