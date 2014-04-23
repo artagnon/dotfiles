@@ -179,7 +179,7 @@ function git-make () {
 	arm)
 		make mrproper
 		make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
-		make -j 8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+		make -j 8 ARCH=arm64
 		;;
 	*)
 		if test -f Kconfig; then
