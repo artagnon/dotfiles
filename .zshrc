@@ -179,7 +179,12 @@ function git-make () {
 	arm)
 		make mrproper
 		make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
-		make -j 8 ARCH=arm64
+		make -j 8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+		;;
+	sparc32)
+		make mrproper
+		make defconfig ARCH=sparc CROSS_COMPILE=sparc-leon3-linux-
+		make -j 8 ARCH=sparc CROSS_COMPILE=sparc-leon3-linux-
 		;;
 	*)
 		if test -f Kconfig; then
