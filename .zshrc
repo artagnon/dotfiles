@@ -14,7 +14,7 @@ autoload colors zsh/terminfo
 function chpwd() {
 	case `pwd` in
 	"$HOME/src/git"|"$HOME/src/git/"*|"/tmp") ;;
-	*) ls --color -v ;;
+	*) ls -G -v ;;
 	esac
 }
 
@@ -71,7 +71,7 @@ export ANDROIDAPI=14
 # ---[ Aliases ]-------------------------------------------------------
 # abbreviations
 alias resh='source ~/.zshrc'
-alias ll='ls --color -vlha'
+alias ll='ls -G -vlha'
 alias diff='diff -u'
 alias ec='emacsclient'
 alias jnettop='sudo jnettop'
@@ -109,14 +109,14 @@ function l () {
 	case "$1" in
 	recent)
 		shift
-		ls --color -vt "$@" | head -n 5
+		ls -G -vt "$@" | head -n 5
 		;;
 	size)
 		shift
-		ls --color -vS "$@"
+		ls -G -vS "$@"
 		;;
 	esac
-	ls --color -v "$@"
+	ls -G -v "$@"
 }
 
 function x () {
