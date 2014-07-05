@@ -175,6 +175,11 @@ function git-make () {
 		make defconfig ARCH=um SUBARCH=i386
 		make -j 8 ARCH=um SUBARCH=i386
 		;;
+	arm32-native)
+		make mrproper
+		make defconfig ARCH=arm32
+		make -j 4 ARCH=arm32
+		;;
 	arm)
 		make mrproper
 		make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
