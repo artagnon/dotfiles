@@ -1,5 +1,5 @@
 # ---[ Keychain ]------------------------------------------------------
-keychain --nogui -q ~/.ssh/id_rsa
+keychain --nogui -q ~/.ssh/id_rsa 2>/dev/null &&
 source ~/.keychain/localhost-sh
 
 # ---[ Modules ]-------------------------------------------------------
@@ -41,8 +41,8 @@ unset MANPATH
 export MANPATH=~/share/man:$(manpath)
 
 # ---[ evals ]---------------------------------------------------------
-eval "$(rbenv init -)"
-eval "$(dircolors)"
+eval "$(rbenv init - 2>/dev/null)"
+eval "$(dircolors 2>/dev/null)"
 
 # ---[ Perl ]----------------------------------------------------------
 export PERL_LOCAL_LIB_ROOT=$PERL_LOCAL_LIB_ROOT:~/.perl5
