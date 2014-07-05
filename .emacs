@@ -307,6 +307,8 @@
 				  (magit-show-commit
 				   (magit-rev-parse "HEAD") nil t)))
 
+(set-variable 'magit-emacsclient-executable "~/bin/emacsclient")
+
 ;; git-modes
 (setq git-commit-confirm-commit nil)
 
