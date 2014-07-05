@@ -178,7 +178,7 @@ function git-make () {
 	arm32-native)
 		make mrproper
 		make defconfig ARCH=arm32
-		make -j 4 ARCH=arm32
+		make -j 2 ARCH=arm32
 		;;
 	arm)
 		make mrproper
