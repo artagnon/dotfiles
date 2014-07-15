@@ -78,6 +78,7 @@
 (use-package tablegen-mode)
 (use-package rust-mode)
 (use-package go-mode)
+(use-package helm-config)
 
 ;; ----------------
 ;; auto-mode-alists
@@ -265,17 +266,14 @@
 ;; ----
 ;; helm
 ;; ----
-(use-package helm-config
-  :init
-  (progn
-    (defvar ctl-period-map)
-    (define-prefix-command 'ctl-period-map)
-    (bind-key* "C-." 'ctl-period-map)
+(defvar ctl-period-map)
+(define-prefix-command 'ctl-period-map)
+(bind-key* "C-." 'ctl-period-map)
 
-    (bind-key "C-. C-f" 'helm-for-files)
-    (bind-key "C-. C-g" 'helm-do-grep)
-    (bind-key "C-. C-o" 'helm-occur)
-    (bind-key "C-. M-x" 'helm-M-x)))
+(bind-key "C-. C-f" 'helm-for-files)
+(bind-key "C-. C-g" 'helm-do-grep)
+(bind-key "C-. C-o" 'helm-occur)
+(bind-key "C-. M-x" 'helm-M-x)
 
 ;; -----
 ;; Dired
