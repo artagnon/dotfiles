@@ -78,6 +78,7 @@
 (use-package tablegen-mode)
 (use-package rust-mode)
 (use-package go-mode)
+(use-package package)
 (use-package helm-config)
 
 ;; ----------------
@@ -507,6 +508,15 @@
       '("~/.elisp/snippets"
 	"~/.elisp/yasnippet/snippets"))
 (yas-global-mode 1)
+
+;; ----------
+;; package.el
+;; ----------
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
 
 ;; ------------------------
 ;; Useful utility functions
