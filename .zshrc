@@ -26,7 +26,7 @@ TRAPINT () {
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR='emacsclient'
-export PATH=~/bin:~/bin/depot_tools:~/.python/bin:~/.cabal/bin:~/.rbenv/bin:~/.ruby/bin:~/.local/bin:~/.npms/bin:~/.android/sdk/tools:~/.android/sdk/platform-tools:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/usr/bin/vendor_perl
+export PATH=~/bin:~/.rbenv/bin:/opt/local/bin:/opt/local/sbin:$PATH
 export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf
 export PYTHONPATH=~/.local/lib
 export GEM_HOME=~/.ruby
@@ -36,8 +36,7 @@ export MENUCONFIG_COLOR='mono'
 export PS_PERSONALITY='linux'
 
 # ---[ set MANPATH ]---------------------------------------------------
-unset MANPATH
-export MANPATH=~/share/man:$(manpath)
+export MANPATH=~/share/man:/opt/local/share/manpath:$MANPATH
 
 # ---[ evals ]---------------------------------------------------------
 eval "$(rbenv init - 2>/dev/null)"
