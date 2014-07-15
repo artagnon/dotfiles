@@ -41,6 +41,7 @@ export MANPATH=~/share/man:/opt/local/share/manpath:$MANPATH
 # ---[ evals ]---------------------------------------------------------
 eval "$(rbenv init - 2>/dev/null)"
 eval "$(dircolors 2>/dev/null)"
+source ~/.opam/opam-init/init.zsh &>/dev/null
 
 # ---[ Perl ]----------------------------------------------------------
 export PERL_LOCAL_LIB_ROOT=$PERL_LOCAL_LIB_ROOT:~/.perl5
