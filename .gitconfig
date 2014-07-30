@@ -37,6 +37,7 @@
 	shs = show -s
 	c = clone
 	co = checkout
+	cof = checkout -f
 	cob = checkout -b
 	com = checkout master
 	ci = commit
