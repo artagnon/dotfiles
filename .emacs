@@ -518,6 +518,15 @@
 	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; -----------
+;; tuareg-mode
+;; -----------
+(delete '("\\.ml[iylp]?\\'" . tuareg-mode) auto-mode-alist)
+(add-to-list 'auto-mode-alist '("\\.ml[il]?\\'" . tuareg-mode))
+(add-hook 'tuareg-mode-hook
+	     (lambda ()
+	       (setq indent-tabs-mode nil)))
+
 ;; ------------------------
 ;; Useful utility functions
 ;; ------------------------
