@@ -1,6 +1,8 @@
-personal_ws-1.1 en 60
+personal_ws-1.1 en 66 
 toplevel
+hypervisor
 workflows
+builtins
 iteratively
 spelt
 namespace
@@ -12,6 +14,7 @@ testsuite
 favorability
 atleast
 recurse
+initializer
 lookup
 programmatically
 learnt
@@ -19,6 +22,7 @@ decoherence
 whitespace
 worktree
 frontend
+paravirtualization
 unsets
 prebuilt
 reflog
@@ -28,6 +32,7 @@ lensing
 obsoletion
 keybindings
 btree
+intrinsics
 workflow
 submodules
 inhomogeneous
@@ -35,8 +40,8 @@ timestamp
 builtin
 customizable
 omelette
-permalink
 backend
+permalink
 wankery
 filenames
 postimage
@@ -45,6 +50,7 @@ unfalsifiable
 parsable
 rebase
 thermodynamically
+recursing
 upto
 refspec
 filepair
