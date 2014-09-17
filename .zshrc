@@ -162,35 +162,40 @@ function git-make () {
 
 	test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)" || return 1
 	case "$1" in
-	prove)
+	    prove)
 		make -j 8 test
 		;;
-	um)
+	    um)
 		make mrproper
 		make defconfig ARCH=um
 		make -j 8 ARCH=um
 		;;
-	um32)
+	    um32)
 		make mrproper
 		make defconfig ARCH=um SUBARCH=i386
 		make -j 8 ARCH=um SUBARCH=i386
 		;;
-	arm32-native)
+	    arm32-native)
 		make mrproper
 		make defconfig ARCH=arm32
 		make -j 2 ARCH=arm32
 		;;
-	arm)
+	    arm)
 		make mrproper
 		make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 		make -j 8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 		;;
-	sparc32)
+	    android)
+		make mrproper
+		make goldfish_armv7_defconfig ARCH=arm
+		make -j 8 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-
+		;;
+	    sparc32)
 		make mrproper
 		make defconfig ARCH=sparc CROSS_COMPILE=sparc-leon3-linux-
 		make -j 8 ARCH=sparc CROSS_COMPILE=sparc-leon3-linux-
 		;;
-	*)
+	    *)
 		if test -f Kconfig; then
 			make mrproper
 			make defconfig ARCH=x86
