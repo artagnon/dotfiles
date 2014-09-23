@@ -9,8 +9,6 @@
 (add-to-list 'load-path "~/.elisp/magit")
 (add-to-list 'load-path "~/.elisp/git-modes")
 (add-to-list 'load-path "~/.elisp/clojure-mode")
-(add-to-list 'load-path "~/.elisp/auto-complete/lib/popup")
-(add-to-list 'load-path "~/.elisp/auto-complete")
 (add-to-list 'load-path "~/.elisp/ace-jump-mode")
 (add-to-list 'load-path "~/.elisp/smex")
 (add-to-list 'load-path "~/.elisp/scala-mode2")
@@ -28,7 +26,6 @@
 (add-to-list 'load-path "~/.elisp/yaml-mode")
 (add-to-list 'load-path "~/.elisp/feature-mode")
 (add-to-list 'load-path "~/.elisp/yasnippet")
-(add-to-list 'load-path "~/.elisp/helm")
 (add-to-list 'load-path "~/.elisp/ghc-mod/elisp")
 
 (add-to-list 'custom-theme-load-path "~/.elisp/zenburn-emacs")
