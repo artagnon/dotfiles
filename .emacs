@@ -53,7 +53,6 @@
 (use-package winner)
 (use-package uniquify)
 (use-package cython-mode)
-(use-package auto-complete-config)
 (use-package slim-mode)
 (use-package ace-jump-mode)
 (use-package smex)
@@ -475,7 +474,6 @@
 ;; -------------
 ;; auto-complete
 ;; -------------
-(add-to-list 'ac-dictionary-directories "~/.elisp/auto-complete/dict")
 (add-hook 'c-mode-common-hook (lambda ()
 				(add-to-list 'ac-sources 'ac-source-gtags)
 				(add-to-list 'ac-sources 'ac-souce-semantic)))
@@ -503,7 +501,7 @@
 (setq yas-snippet-dirs
       '("~/.elisp/snippets"
 	"~/.elisp/yasnippet/snippets"))
-(yas-global-mode 1)
+(yas-global-mode 0)
 
 ;; ----------
 ;; package.el
