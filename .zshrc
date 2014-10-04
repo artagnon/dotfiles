@@ -185,10 +185,23 @@ function git-make () {
 		make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 		make -j 8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 		;;
-	    android)
-		make mrproper
-		make goldfish_armv7_defconfig ARCH=arm
-		make -j 8 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-
+	    android-em)
+		if test "$2" = "-i"; then
+		    make -j 8 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-;
+		else
+		    make mrproper
+		    make goldfish_armv7_defconfig ARCH=arm
+		    make -j 8 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-
+		fi
+		;;
+	    android-flo)
+		if test "$2" = "-i"; then
+		    make -j 8 ARCH=arm CROSS_COMPILE=arm-eabi-;
+		else
+		    make mrproper
+		    make flo_defconfig ARCH=arm
+		    make -j 8 ARCH=arm CROSS_COMPILE=arm-eabi-;
+		fi
 		;;
 	    sparc32)
 		make mrproper
