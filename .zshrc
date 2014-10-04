@@ -62,10 +62,18 @@ function gocd () {
 
 # ---[ Android SDK/ NDK ]----------------------------------------------
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
-export ANDROIDSDK=~/.android/sdk
-export ANDROIDNDK=~/.android/ndk
-export ANDROIDNDKVER=r8c
-export ANDROIDAPI=14
+# add Android SDK Tools to the path
+export ANDROID_SDK=~/utils/android-sdk-linux
+export PATH=$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
+
+# add toolchain to the path
+export PATH=$PATH:~/utils/arm-eabi-4.6/bin
+
+# add other custom utilities to the path
+export PATH=$PATH:~/utils/bin
+
+# add toolchain to the path
+export PATH=$PATH:~/utils/arm-2013.11/bin
 
 # ---[ Aliases ]-------------------------------------------------------
 # abbreviations
