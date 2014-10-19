@@ -70,6 +70,7 @@
 (use-package yasnippet)
 (use-package semantic/ia)
 (use-package semantic/bovine/gcc)
+(use-package auto-complete)
 (use-package llvm-mode)
 (use-package tablegen-mode)
 (use-package rust-mode)
@@ -474,10 +475,7 @@
 ;; -------------
 ;; auto-complete
 ;; -------------
-(add-hook 'c-mode-common-hook (lambda ()
-				(add-to-list 'ac-sources 'ac-source-gtags)
-				(add-to-list 'ac-sources 'ac-souce-semantic)))
-(ac-config-default)
+;; ???
 
 ;; ---
 ;; man
