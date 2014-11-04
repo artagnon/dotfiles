@@ -26,7 +26,7 @@ TRAPINT () {
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR='emacsclient'
-export PATH=~/bin:~/.rbenv/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/bin:~/.rbenv/bin:~/.cask/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf
 export PYTHONPATH=~/.local/lib
 export GEM_HOME=~/.ruby

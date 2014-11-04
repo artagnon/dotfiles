@@ -99,6 +99,7 @@
 	rsu = remote set-url
 	sad = submodule add
 	d = diff
+	dc = diff --cached
 	g = grep -p
 	fg = !git ls-files | grep -E
 	rfl = log --oneline --relative-date -g
