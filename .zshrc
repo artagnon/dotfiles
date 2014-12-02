@@ -85,7 +85,6 @@ alias jnettop='sudo jnettop'
 alias mountfat="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
 alias mountl="sudo mount -o loop"
 alias umount='sudo umount'
-alias g='git'
 alias rf='rm -rf'
 alias chrome='google-chrome-beta'
 
@@ -124,6 +123,14 @@ function l () {
 		;;
 	esac
 	ls -G -v "$@"
+}
+
+function g () {
+    if test $# = 0; then
+	git status
+    else
+	git "$@"
+    fi
 }
 
 function x () {
