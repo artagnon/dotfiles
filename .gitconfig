@@ -42,6 +42,10 @@
 	com = checkout master
 	ci = commit
 	cia = commit --amend
+	cim = commit -m
+	ciaa = commit --amend -a
+	ciam = commit -am
+	cial = commit -a
 	cp = cherry-pick
 	cpc = cherry-pick --continue
 	cpa = cherry-pick --abort
@@ -98,9 +102,12 @@
 	rre = remote rename
 	rsu = remote set-url
 	sad = submodule add
+	a = add
 	d = diff
+	dni = diff --no-index
 	dc = diff --cached
 	g = grep -p
+	g0 = grep -p --max-depth 0
 	fg = !git ls-files | grep -E
 	rfl = log --oneline --relative-date -g
 	conf = config
