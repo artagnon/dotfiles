@@ -25,9 +25,3 @@ distribution easily enough.
 ruby-build is not included, so please `git clone
 git://github.com/sstephenson/ruby-build ~/.rbenv/plugins/ruby-build`
 before you can use `rbenv install`.
-
-## Emacs
-
-You need the latest development version of Emacs.  Either compile from
-sources, or find a suitable package for your distribution.  For
-Debian, use emacs-snapshot from http://emacs.naquadah.org.

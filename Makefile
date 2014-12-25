@@ -15,9 +15,9 @@ remove_if_symlink =							\
 	fi;
 
 candidates = .zshrc .emacs .gitconfig .hgrc .Xdefaults .i3	 	\
-.ncmpcpp .xinitrc .tmux.conf .elisp .rbenv .i3status.conf		\
+.ncmpcpp .xinitrc .tmux.conf .rbenv .i3status.conf bin .ssh		\
 .irbrc .perlcriticrc .aspell.conf .aspell.personal .zsh .mpdconf	\
-.mpdscribble .gdbinit .npmrc bin .ssh
+.mpdscribble .gdbinit .npmrc
 
 all::
 	@$(foreach file,$(candidates),$(symlink_to_home))
