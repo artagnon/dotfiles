@@ -26,6 +26,7 @@
 	l = log
 	lr = log --reverse --no-merges
 	lp = log -p --no-merges
+	l1 = log -1 -p
 	lrp = log --reverse -p --no-merges
 	lf = log --follow
 	la = !git log --author=\"$(git config --get user.name)\"
