@@ -292,6 +292,7 @@ test -f ~/.zsh/completion/perf.sh && source ~/.zsh/completion/perf.sh
 _git_fp () { _git_format_patch; }
 _git_sel () { _git_send_email; }
 _git_seg () { _git_send_email; }
+compdef g=git
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
