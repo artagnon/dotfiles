@@ -320,7 +320,7 @@ bindkey -M isearch '^R' history-incremental-search-backward
 source ~/.zsh/prompt/git-prompt.sh
 
 GIT_PS1_DESCRIBE_STYLE=branch
-GIT_PS1_SHOWUPSTREAM=auto
+GIT_PS1_SHOWUPSTREAM=git
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_STATESEPARATOR=""
