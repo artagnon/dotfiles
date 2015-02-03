@@ -283,6 +283,11 @@ HISTFILE=~/.zsh-history
 HISTSIZE=3000
 SAVEHIST=$HISTSIZE
 
+# TODO: how to remove it from the history list?
+zshaddhistory () {
+    [[ $1 != *dcommit* ]]
+}
+
 # ---[ Completion system ]---------------------------------------------
 fpath=(~/.zsh/completion $fpath)
 test -f ~/.zsh/completion/go.zsh && source ~/.zsh/completion/go.zsh
