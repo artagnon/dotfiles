@@ -59,7 +59,10 @@
 	fpo = format-patch --stdout -M -C
 	se = send-email
 	sel = !git send-email --to=\"LKML <linux-kernel@vger.kernel.org>\" ~/src/linux/outgoing/*.patch
-	seg = !git send-email --to=\"Git List <git@vger.kernel.org>\" ~/src/git/outgoing/*.patch
+	se-git = !git send-email --to=\"Git List <git@vger.kernel.org>\" ~/src/git/outgoing/*.patch
+	se-llvm = !git send-email --to=\"LLVMdev <llvmdev@cs.uiuc.edu>\" ~/src/llvm/outgoing/*.patch
+	se-cedet = !git send-email --to=\"cedet-devel <cedet-devel@lists.sourceforge.net>\" ~/src/cedet/outgoing/*.patch
+	se-clang = !git send-email --to=\"cfe-commits <cfe-commits@cs.uiuc.edu>\" ~/src/clang/outgoing/*.patch
 	graph = log --graph --decorate --pretty=oneline --abbrev-commit
 	rv = log --reverse origin..
 	rvp = log -p --reverse origin..
@@ -90,6 +93,7 @@
 	bM = branch -M
 	br = branch
 	bru = branch -u
+	brum = branch -u master
 	fer = for-each-ref
 	hot = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
 	bra = branch -a
