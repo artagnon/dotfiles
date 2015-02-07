@@ -57,6 +57,7 @@
 	fp1 = !rm -rf outgoing && git format-patch -1 -M -C -o outgoing
 	fpm = !rm -rf outgoing && git format-patch -M -C -o outgoing master
 	fpo = format-patch --stdout -M -C
+	cf = clang-format
 	se = send-email
 	sel = !git send-email --to=\"LKML <linux-kernel@vger.kernel.org>\" ~/src/linux/outgoing/*.patch
 	se-git = !git send-email --to=\"Git List <git@vger.kernel.org>\" ~/src/git/outgoing/*.patch
