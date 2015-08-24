@@ -25,15 +25,16 @@ TRAPINT () {
 }
 
 # ---[ Shell exports ]-------------------------------------------------
-export EDITOR='emacsclient'
-export PATH=~/bin:~/.rbenv/bin:~/.cask/bin:$PATH
+export EDITOR=emacsclient
+export PATH=~/bin:~/bin/depot_tools:~/.rbenv/bin:~/.ruby/bin:~/.cask/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf
-export PYTHONPATH=~/.local/lib
+export PYTHONPATH=~/.local/lib:/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python
 export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
 export WORDCHARS='*?[]~&;!#$%^(){}<>'
-export MENUCONFIG_COLOR='mono'
-export PS_PERSONALITY='linux'
+export MENUCONFIG_COLOR=mono
+export PS_PERSONALITY=linux
+export LLDB_DEBUGSERVER_PATH=~/bin/debugserver
 
 # ---[ set MANPATH ]---------------------------------------------------
 export MANPATH=~/share/man:/opt/local/share/manpath:$MANPATH
@@ -53,12 +54,7 @@ export PERLBREW_ROOT=~/.perl5
 test -f ~/.perl5/etc/bashrc && source ~/.perl5/etc/bashrc
 
 # ---[ Go ]------------------------------------------------------------
-export GOPATH=~/.go
-export PATH=$GOPATH/bin:$PATH
-
-function gocd () {
-	cd "$GOPATH/src/$1"
-}
+export PATH=/usr/local/go/bin:$PATH
 
 # ---[ Android SDK/ NDK ]----------------------------------------------
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
@@ -80,7 +76,7 @@ export PATH=$PATH:~/utils/arm-2013.11/bin
 alias resh='source ~/.zshrc'
 alias ll='ls -G -vlha'
 alias diff='diff -u'
-alias ec='emacsclient'
+alias ec='emacsclient -n'
 alias jnettop='sudo jnettop'
 alias mountfat="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
 alias mountl="sudo mount -o loop"
@@ -109,6 +105,7 @@ alias cU='cower -u'
 # gem and pip aliases
 alias gi='gem install'
 alias pi='pip install --user'
+alias bi='brew install'
 
 # tiny helpers
 function l () {
@@ -269,7 +266,7 @@ function - () {
 
 # ---[ ZSH Options ]---------------------------------------------------
 setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL NO_BEEP MULTIOS
-setopt   NO_NOMATCH
+setopt   NO_NOMATCH EXTENDED_GLOB
 setopt   LIST_AMBIGUOUS AUTO_LIST AUTO_REMOVE_SLASH
 setopt   LIST_PACKED LIST_TYPES
 setopt   INC_APPEND_HISTORY EXTENDED_HISTORY SHARE_HISTORY HIST_REDUCE_BLANKS
