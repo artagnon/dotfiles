@@ -1,1 +1,1 @@
-dotfiles/.zprezto/runcoms/zprofile
+.zprezto/runcoms/zprofile
