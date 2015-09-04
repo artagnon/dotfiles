@@ -1,0 +1,3 @@
+#!/bin/sh
+
+open -a /Applications/Emacs_24.3.app --args $*

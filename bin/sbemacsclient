@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# File: sbemacsclient.sh
+# Abstract:
+#   Used to invoke emacsclient in a manner that understands workspaces
+#   See http://inside.mathworks.com/wiki/SBTools#sbemacs
+#
+
+waitForEmacs=0
+if [ $# -gt 0 ]; then
+    if [ $1 == '-w' ]; then
+        shift
+        waitForEmacs=1
+    fi
+fi
+
+server="server"
+if [ -z "$DISPLAY" -o "$SBARCH" = "maci64" ]; then
+    id=""
+else
+    dispNum=`echo $DISPLAY | cut -d: -f 2`
+    screenNum=`echo $dispNum | cut -s -d. -f 2`
+    if [ "$screenNum" = "" ]; then
+        screenNum=0
+    else
+        dispNum=`echo $dispNum | cut -d. -f 1`
+    fi
+    # ID Workspace (in KDE)
+    ws=`xprop -root -display $DISPLAY _NET_CURRENT_DESKTOP 2>/dev/null | cut -d" " -f 3`
+
+    id="$dispNum.$screenNum.$ws"
+fi
+
+if [ $waitForEmacs -eq 1 ]; then
+    echo "emacsclient -s $server$id $*"
+    exec  emacsclient -s $server$id $*
+else
+    echo "emacsclient -n -s $server$id $*"
+    exec  emacsclient -n -s $server$id --alternate-editor 'Please start a new emacs session or run "M-x server-start" in your existing SBTools emacs session.' $*
+fi

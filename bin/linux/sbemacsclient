@@ -1,0 +1,20 @@
+#!/bin/bash
+
+EMACS_SOCKET=`find /tmp/emacs* -type s`
+
+if [[ -z $EMACS_SOCKET ]]
+then
+   echo "No emacs instance found.  Opening new instance."
+   emacs --daemon
+fi
+
+EMACS_SOCKET=`find /tmp/emacs* -type s`
+if [[ -z $EMACS_SOCKET ]]
+then
+   echo "Unable to find emacs server socket after starting server."
+   exit 1
+else
+   echo "Running emacs client with server socket: $EMACS_SOCKET."
+   echo emacsclient -s $EMACS_SOCKET $*
+   emacsclient -s $EMACS_SOCKET $*
+fi
