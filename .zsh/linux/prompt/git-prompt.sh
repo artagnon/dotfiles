@@ -1,0 +1,1 @@
+/home/rramacha/src/git/contrib/completion/git-prompt.sh

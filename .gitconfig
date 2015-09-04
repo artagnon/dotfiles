@@ -114,6 +114,7 @@
 	d = diff
 	dni = diff --no-index
 	dc = diff --cached
+        o = diff --name-status @{u}
 	g = grep -p
 	g0 = grep -p --max-depth 0
 	fg = !git ls-files | grep -E
@@ -143,6 +144,8 @@
 [diff]
 	submodule = log
 	tool = vimdiff2
+[difftool "foom"]
+         cmd = meld
 [pack]
 	usebitmaps = true
 [grep]

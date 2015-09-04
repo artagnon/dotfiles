@@ -7,24 +7,56 @@ fi
 keychain --nogui -q ~/.ssh/id_rsa 2>/dev/null &&
 source ~/.keychain/localhost-sh
 
+# ---[ Modules ]-------------------------------------------------------
+zmodload zsh/complist
+autoload -Uz compinit
+compinit
+zmodload -a zsh/stat stat
+zmodload -ap zsh/mapfile mapfile
+autoload colors zsh/terminfo
+
+case `uname` in
+Darwin)
+	LSCOLORSW=-G;;
+Linux)
+	LSCOLORSW=--color;;
+esac
+
 # ---[ Autols ]--------------------------------------------------------
 function chpwd() {
-	case `pwd` in
-	"$HOME/src/git"|"$HOME/src/git/"*|"/tmp") ;;
-	*) ls -G -v ;;
-	esac
+case `pwd` in
+"$HOME/src/git"|"$HOME/src/git/"*|"/tmp") ;;
+*) ls $LSCOLORSW -v ;;
+esac
 }
 
 # ---[ Save canceled command ]-----------------------------------------
 TRAPINT () {
-  zle && [[ $HISTNO -eq $HISTCMD ]] && print -rs -- $BUFFER
-  return $1
+zle && [[ $HISTNO -eq $HISTCMD ]] && print -rs -- $BUFFER
+return $1
 }
+
+# ---[ MathWorks ]-----------------------------------------------------
+if [[ $USER == rramacha ]]; then
+	. /mathworks/hub/share/sbtools/bash_setup.bash
+fi
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR=emacsclient
 export VISUAL=$EDITOR
-export PATH=~/bin:~/bin/depot_tools:~/.rbenv/bin:~/.ruby/bin:~/.cask/bin:$PATH
+export PATH=~/bin:~/.rbenv/bin:~/.cask/bin:/hub/share/sbtools/apps/cgir_tools:$PATH
+
+if [[ `uname` == Linux ]]; then
+	PATH=~/bin/linux:~/bin/bear:$PATH
+fi
+EMACSCLIENT=emacsclient
+if [[ $USER == rramacha ]]; then
+	EMACSCLIENT=sbemacsclient
+fi
+export EDITOR=$EMACSCLIENT
+export VISUAL=$EDITOR
+export GIT_EDITOR=$EDITOR
+export BROWSER=google-chrome
 export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf
 export PYTHONPATH=~/.local/lib:/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python
 export GEM_HOME=~/.ruby
@@ -33,14 +65,14 @@ export WORDCHARS='*?[]~&;!#$%^(){}<>'
 export MENUCONFIG_COLOR=mono
 export PS_PERSONALITY=linux
 export LLDB_DEBUGSERVER_PATH=~/bin/debugserver
+export PPPATH=/tmp/ppdump
 
 # ---[ set MANPATH ]---------------------------------------------------
 export MANPATH=~/share/man:/opt/local/share/manpath:$MANPATH
 
 # ---[ evals ]---------------------------------------------------------
-eval "$(rbenv init - 2>/dev/null)"
-eval "$(dircolors 2>/dev/null)"
-source ~/.opam/opam-init/init.zsh &>/dev/null
+eval "$(rbenv init -)"
+test -f ~/.opam/opam-init/init.zsh && source ~/.opam/opam-init/init.zsh
 
 # ---[ Perl ]----------------------------------------------------------
 export PERL_LOCAL_LIB_ROOT=$PERL_LOCAL_LIB_ROOT:~/.perl5
@@ -50,9 +82,6 @@ export PERL5LIB=~/.perl5/lib/perl5:$PERL5LIB
 export PATH=~/.perl5/bin:$PATH
 export PERLBREW_ROOT=~/.perl5
 test -f ~/.perl5/etc/bashrc && source ~/.perl5/etc/bashrc
-
-# ---[ Go ]------------------------------------------------------------
-export PATH=/usr/local/go/bin:$PATH
 
 # ---[ Android SDK/ NDK ]----------------------------------------------
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
@@ -72,28 +101,27 @@ export PATH=$PATH:~/utils/arm-2013.11/bin
 # ---[ Aliases ]-------------------------------------------------------
 # abbreviations
 alias resh='source ~/.zshrc'
-alias ll='ls -G -vlha'
+alias ll='ls $LSCOLORSW -vlha'
 alias diff='diff -u'
-alias ec='emacsclient -n'
+alias ec='$EMACSCLIENT -n'
 alias jnettop='sudo jnettop'
 alias mountfat="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
 alias mountl="sudo mount -o loop"
 alias umount='sudo umount'
 alias rf='rm -rf'
-alias chrome='google-chrome-beta'
+alias chrome='google-chrome'
+alias p4='p4g'
+alias sb='sb -softwareopengl'
+alias sbnd='sb -softwareopengl -nodesktop'
+alias sbndd='sb -softwareopengl -nodesktop -debug'
 
-# pacman aliases
-alias pS='sudo pacman -S'
-alias pSs='pacman -Ss'
-alias pSy='sudo pacman -Sy'
-alias pSu='sudo pacman -Syu'
-alias pU='sudo pacman -U'
-alias pR='sudo pacman -Rs'
-alias pQ='pacman -Q'
-alias pQl='pacman -Ql'
-alias pQi='pacman -Qi'
-alias pQo='pacman -Qo'
-alias pQs='pacman -Qs'
+# aptitude aliases
+alias pS='sudo aptitude install'
+alias pSs='aptitude search'
+alias pSu='sudo aptitude upgrade'
+alias pU='sudo aptitude update'
+alias pR='sudo aptitude purge'
+alias dL='dpkg -L'
 
 # cower aliases
 alias cS='cower -s'
@@ -115,14 +143,14 @@ function l () {
 	case "$1" in
 	recent)
 		shift
-		ls -G -vt "$@" | head -n 5
+		ls $LSCOLORSW -vt "$@" | head -n 5
 		;;
 	size)
 		shift
-		ls -G -vS "$@"
+		ls $LSCOLORSW -vS "$@"
 		;;
 	esac
-	ls -G -v "$@"
+	ls $LSCOLORSW -v "$@"
 }
 
 function g () {
@@ -152,7 +180,7 @@ function calc () {
 }
 
 function m () {
-	emacsclient -e "(man \"$*\")" 2>&1 >/dev/null || man "$*"
+	$EMACSCLIENT -n -e "(man \"$*\")" 2>&1 >/dev/null || man "$*"
 }
 
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
@@ -160,10 +188,18 @@ alias entertain='mpv "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mp
 alias incognito='export HISTFILE=/dev/null'
 alias cdtop='cd $(g rp --show-toplevel)'
 alias fgrep='find . -print0 | grep -FZz'
+alias ag='ag --pager "less -R"'
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g G='| grep'
+alias -g S='| sort'
+alias syncmaster='mw -using Bcgir_core sbsyncmaster -C /local-ssd/rramacha -log-dir /tmp/bcgir_core -src-root Bcgir_core -cfg cgir_syncmaster_debug'
+alias sbs='mw -using Bmain sbs'
+
+function fgr () {
+    find . -name "*$1*"
+}
 
 # usage: git-make       ;for x86 linux.git build or make -j 8
 #    or: git-make prove ;for git.git tests
@@ -267,6 +303,10 @@ function - () {
 	fi
 }
 
+function swd () {
+        cd $(pwd | sed -e "s|/local-ssd/$USER/[^/]*|/local-ssd/$USER/$1|")
+}
+
 # ---[ ZSH Options ]---------------------------------------------------
 setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL NO_BEEP MULTIOS
 setopt   NO_NOMATCH EXTENDED_GLOB
@@ -289,9 +329,16 @@ zshaddhistory () {
 }
 
 # ---[ Completion system ]---------------------------------------------
-fpath=(~/.zsh/completion $fpath)
-test -f ~/.zsh/completion/go.zsh && source ~/.zsh/completion/go.zsh
-test -f ~/.zsh/completion/perf.sh && source ~/.zsh/completion/perf.sh
+case `uname` in
+Darwin)
+	DOTZSHPATH=~/.zsh;;
+Linux)
+	DOTZSHPATH=~/.zsh/linux;;
+esac
+
+fpath=($DOTZSHPATH/completion $fpath)
+test -f $DOTZSHPATH/completion/go.zsh && source $DOTZSHPATH/completion/go.zsh
+test -f $DOTZSHPATH/completion/perf.sh && source $DOTZSHPATH/completion/perf.sh
 
 # Hack to complete some aliases
 _git_fp () { _git_format_patch; }
@@ -300,7 +347,7 @@ _git_seg () { _git_send_email; }
 compdef g=git
 
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' cache-path $DOTZSHPATH/cache
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*' matcher-list '+' '+m:{|:lower:|}={|:upper:|}' '+l:|=* r:|=*' '+r:|[._-]=** r:|=**'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -322,7 +369,7 @@ bindkey '^R' history-incremental-search-backward-initial
 bindkey -M isearch '^R' history-incremental-search-backward
 
 # ---[ Prompt ]--------------------------------------------------------
-source ~/.zsh/prompt/git-prompt.sh
+source $DOTZSHPATH/prompt/git-prompt.sh
 
 GIT_PS1_DESCRIBE_STYLE=branch
 GIT_PS1_SHOWUPSTREAM=git
@@ -330,4 +377,9 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_STATESEPARATOR=""
 
-precmd () { __git_ps1 "%F{white}%B%n%b%f" ":%F{yellow}%B%~%b%f%(!.#.$) " "|%s" }
+SSH_PROMPT_INDICATOR=""
+if [[ -n $SSH_CLIENT ]]; then
+	SSH_PROMPT_INDICATOR="%F{cyan}^%f"
+fi
+
+precmd () { __git_ps1 "%F{white}%B%n%b%f" "$SSH_PROMPT_INDICATOR:%F{yellow}%B%~%b%f%(!.#.$) " "|%s" }
