@@ -1,14 +1,11 @@
+# ---[ Prezto ]--------------------------------------------------------
+if [[ -s ~/.zprezto/init.zsh ]]; then
+	source ~/.zprezto/init.zsh
+fi
+
 # ---[ Keychain ]------------------------------------------------------
 keychain --nogui -q ~/.ssh/id_rsa 2>/dev/null &&
 source ~/.keychain/localhost-sh
-
-# ---[ Modules ]-------------------------------------------------------
-zmodload zsh/complist
-autoload -Uz compinit
-compinit
-zmodload -a zsh/stat stat
-zmodload -ap zsh/mapfile mapfile
-autoload colors zsh/terminfo
 
 # ---[ Autols ]--------------------------------------------------------
 function chpwd() {
@@ -26,6 +23,7 @@ TRAPINT () {
 
 # ---[ Shell exports ]-------------------------------------------------
 export EDITOR=emacsclient
+export VISUAL=$EDITOR
 export PATH=~/bin:~/bin/depot_tools:~/.rbenv/bin:~/.ruby/bin:~/.cask/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf
 export PYTHONPATH=~/.local/lib:/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python
@@ -106,6 +104,11 @@ alias cU='cower -u'
 alias gi='gem install'
 alias pi='pip install --user'
 alias bi='brew install'
+
+# remove bad aliases set by prezto
+unalias -m l
+unalias -m rm
+unalias -m mv
 
 # tiny helpers
 function l () {

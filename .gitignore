@@ -11,3 +11,7 @@
 .xmonad/history
 .ncmpcpp/error.log
 .zsh/cache/
+
+# cloned separately
+.zprezto
+.rbenv
