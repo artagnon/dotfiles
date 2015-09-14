@@ -16,10 +16,11 @@ fi
 # sbsyncmaster -C $WORKDIR -log-dir $LOGDIR/bcg_integ -src-root bcg_integ -cfg $NOBUILD
 # sbsyncmaster -C $WORKDIR -log-dir $LOGDIR/bcg_integ -src-root bcg_integ -cfg $DEBUG -prime-from $WORKDIR/bdacore_integ.lp
 
-BCGIR_CORE_PRIME_FROM=""
-# If we already have bcgir_core.lp, prime from it
-if [ -d bcgir_core.lp ]; then
-    BCGIR_CORE_PRIME_FROM="-prime-from bcgir_core.lp"
+BCGIR_TASK_PRIME_FROM=""
+# If we already have bcgir_task.lp, prime from it
+if [ -d bcgir_task.lp ]; then
+    BCGIR_TASK_PRIME_FROM="-prime-from bcgir_task.lp"
 fi
-sbsyncmaster -C $WORKDIR -create bcgir_core.lp -log-dir $LOGDIR/bcgir_core -src-root bcgir_core -cfg $DEBUG $BCGIR_CORE_PRIME_FROM
-sbsyncmaster -C $WORKDIR -create bmatlabcoder.lp -log-dir $LOGDIR/bmatlabcoder -src-root bmatlabcoder -cfg $DEBUG $BCGIR_CORE_PRIME_FROM
+sbsyncmaster -C $WORKDIR -create bcgir_task.lp -log-dir $LOGDIR/bcgir_task -src-root bcgir_task -cfg $DEBUG $BCGIR_TASK_PRIME_FROM
+sbsyncmaster -C $WORKDIR -create bcgir_thin.lp -log-dir $LOGDIR/bcgir_task -src-root bcgir_thin -cfg $DEBUG $BCGIR_TASK_PRIME_FROM
+sbsyncmaster -C $WORKDIR -create bmatlabcoder.lp -log-dir $LOGDIR/bmatlabcoder -src-root bmatlabcoder -cfg $DEBUG $BCGIR_TASK_PRIME_FROM
