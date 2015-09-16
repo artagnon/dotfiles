@@ -42,7 +42,7 @@ if [[ $USER == rramacha ]]; then
 fi
 
 # ---[ Shell exports ]-------------------------------------------------
-export PATH=~/bin:~/.rbenv/bin:~/.cask/bin:/hub/share/sbtools/apps/cgir_tools:$PATH
+export PATH=~/bin:~/.ruby/bin:~/.rbenv/bin:~/.cask/bin:/hub/share/sbtools/apps/cgir_tools:$PATH
 
 if [[ `uname` == Linux ]]; then
 	PATH=~/bin/linux:~/bin/bear:$PATH
@@ -51,7 +51,7 @@ EMACSCLIENT=emacsclient
 if [[ $USER == rramacha ]]; then
 	EMACSCLIENT=sbemacsclient
 fi
-export EDITOR="atom --wait"
+export EDITOR=vim
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 export BROWSER=google-chrome
@@ -327,11 +327,11 @@ zshaddhistory () {
 }
 
 # ---[ Completion system ]---------------------------------------------
-case `uname` in
-Darwin)
-	DOTZSHPATH=~/.zsh;;
-Linux)
+case $USER in
+rramacha)
 	DOTZSHPATH=~/.zsh/linux;;
+artagnon)
+	DOTZSHPATH=~/.zsh;;
 esac
 
 fpath=($DOTZSHPATH/completion $fpath)
