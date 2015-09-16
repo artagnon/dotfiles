@@ -18,7 +18,7 @@ candidates = .zshrc .emacs .gitconfig .hgrc .Xdefaults .i3	\
 .ncmpcpp .xinitrc .tmux.conf .rbenv .i3status.conf bin .ssh	\
 .irbrc .perlcriticrc .aspell.conf .aspell.personal .zsh		\
 .mpdscribble .gdbinit .npmrc .zlogin .zlogout .zprofile .zshenv \
-.zprezto .zpreztorc .mpdconf
+.zprezto .zpreztorc .mpdconf .atom
 
 all: .rbenv/plugins/ruby-build .zprezto
 	@$(foreach file,$(candidates),$(symlink_to_home))

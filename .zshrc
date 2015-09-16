@@ -42,8 +42,6 @@ if [[ $USER == rramacha ]]; then
 fi
 
 # ---[ Shell exports ]-------------------------------------------------
-export EDITOR=emacsclient
-export VISUAL=$EDITOR
 export PATH=~/bin:~/.rbenv/bin:~/.cask/bin:/hub/share/sbtools/apps/cgir_tools:$PATH
 
 if [[ `uname` == Linux ]]; then
@@ -53,7 +51,7 @@ EMACSCLIENT=emacsclient
 if [[ $USER == rramacha ]]; then
 	EMACSCLIENT=sbemacsclient
 fi
-export EDITOR=$EMACSCLIENT
+export EDITOR="atom --wait"
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 export BROWSER=google-chrome
