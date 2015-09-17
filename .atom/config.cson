@@ -5,8 +5,25 @@
     showOnStartup: false
   core:
     themes: [
-      "one-dark-ui"
-      "solarized-dark-syntax"
+      "atom-material-ui"
+      "atom-material-syntax"
     ]
+    packagesWithKeymapsDisabled: [
+      "emacs-flow"
+    ]
+    audioBeep: false
   editor:
     invisibles: {}
+    tabLength: 4
+    tabType: "soft"
+  minimap:
+    plugins:
+      "find-and-replace": true
+  "advanced-open-file":
+    helmDirSwitch: true
+  "you-complete-me":
+    pythonExecutable: "/usr/local/bin/python2.7"
+  "node-debugger":
+    nodePath: "/usr/local/bin/node"
+  "atom-format": {}
+  "atom-beautify": {}
