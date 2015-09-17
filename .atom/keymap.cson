@@ -1,2 +1,8 @@
 '.platform-darwin atom-workspace':
   'cmd-t': 'advanced-open-file:toggle'
+'atom-text-editor':
+  'alt-.': 'you-complete-me:go-to'
+'atom-workspace':
+  'ctrl-alt-g': 'fuzzy-grep:toggleLastSearch'
+'.platform-darwin atom-workspace':
+  'cmd-t': 'advanced-open-file:toggle'

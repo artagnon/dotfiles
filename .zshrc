@@ -56,6 +56,7 @@ fi
 export EDITOR="atom --wait"
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
+export ATOM_REPOS_HOME=~/src
 export BROWSER=google-chrome
 export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf
 export PYTHONPATH=~/.local/lib:/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python
