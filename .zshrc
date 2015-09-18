@@ -44,14 +44,12 @@ if [[ $USER == rramacha ]]; then
 fi
 
 # ---[ Shell exports ]-------------------------------------------------
-export PATH=~/bin:~/.ruby/bin:~/.rbenv/bin:~/.cask/bin:/hub/share/sbtools/apps/cgir_tools:$PATH
-
-if [[ `uname` == Linux ]]; then
-	PATH=~/bin/linux:~/bin/bear:$PATH
-fi
+export PATH=~/bin:~/.ruby/bin:~/.rbenv/bin:~/.cask/bin:/hub/share/sbtools/apps/cgir_tools:/hub/share/sbtools/bin/$SBARCH:$PATH
 EMACSCLIENT=emacsclient
+
 if [[ $USER == rramacha ]]; then
-	EMACSCLIENT=sbemacsclient
+    PATH=~/bin/mw:~/bin/bear:$PATH
+    EMACSCLIENT=sbemacsclient
 fi
 export EDITOR="atom --wait"
 export VISUAL=$EDITOR
@@ -182,6 +180,8 @@ alias -g G='| grep'
 alias -g S='| sort'
 alias syncmaster='mw -using Bcgir_core sbsyncmaster -C /local-ssd/rramacha -log-dir /tmp/bcgir_core -src-root Bcgir_core -cfg cgir_syncmaster_debug'
 alias sbs='mw -using Bmain sbs'
+alias b='sbmake -j16'
+alias bv='VERBOSE=1 sbmake -j16'
 
 function fgr () {
     find . -name "*$1*"
