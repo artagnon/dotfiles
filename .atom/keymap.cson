@@ -24,3 +24,5 @@
   'alt-g up': 'unset!'
 '.platform-darwin':
   'alt-g': 'go-to-line:toggle'
+'.platform-darwin .advanced-open-file atom-text-editor':
+  'enter': 'advanced-open-file:confirm-selected-or-only'

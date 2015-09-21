@@ -44,7 +44,8 @@ if [[ $USER == rramacha ]]; then
 fi
 
 # ---[ Shell exports ]-------------------------------------------------
-export PATH=~/bin:~/.ruby/bin:~/.rbenv/bin:~/.cask/bin:/hub/share/sbtools/apps/cgir_tools:/hub/share/sbtools/bin/$SBARCH:$PATH
+export PATH=~/bin:~/.ruby/bin:~/.rbenv/bin:~/.cask/bin:$PATH
+export PATH=/hub/share/sbtools/apps/cgir_tools:/hub/share/sbtools/bin/$SBARCH:$PATH
 EMACSCLIENT=emacsclient
 
 if [[ $USER == rramacha ]]; then
