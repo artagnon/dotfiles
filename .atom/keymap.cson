@@ -6,3 +6,21 @@
   'ctrl-alt-g': 'fuzzy-grep:toggleLastSearch'
 '.platform-darwin atom-workspace':
   'cmd-t': 'advanced-open-file:toggle'
+'body':
+  'ctrl-enter': 'window:focus-next-pane'
+'.platform-darwin':
+  'alt-g g': 'unset!'
+'atom-workspace':
+  'alt-g g': 'unset!'
+  'alt-g h': 'unset!'
+  'alt-g l': 'unset!'
+  'alt-g o': 'unset!'
+  'alt-g r': 'unset!'
+  'alt-g b': 'unset!'
+  'alt-g c': 'unset!'
+'atom-text-editor':
+  'alt-g d': 'unset!'
+  'alt-g down': 'unset!'
+  'alt-g up': 'unset!'
+'.platform-darwin':
+  'alt-g': 'go-to-line:toggle'
