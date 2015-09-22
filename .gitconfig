@@ -144,8 +144,6 @@
 [diff]
 	submodule = log
 	tool = vimdiff2
-[difftool "foom"]
-         cmd = meld
 [pack]
 	usebitmaps = true
 [grep]
