@@ -8,8 +8,10 @@
   'cmd-t': 'advanced-open-file:toggle'
 'body':
   'ctrl-enter': 'window:focus-next-pane'
+  'cmd-c': 'atomic-emacs:copy'
 '.platform-darwin':
   'alt-g g': 'unset!'
+  'alt-g': 'go-to-line:toggle'
 'atom-workspace':
   'alt-g g': 'unset!'
   'alt-g h': 'unset!'
@@ -22,7 +24,6 @@
   'alt-g d': 'unset!'
   'alt-g down': 'unset!'
   'alt-g up': 'unset!'
-'.platform-darwin':
-  'alt-g': 'go-to-line:toggle'
 '.platform-darwin .advanced-open-file atom-text-editor':
-  'enter': 'advanced-open-file:confirm-selected-or-only'
+  'enter': 'advanced-open-file:confirm-selected-or-first'
+  'ctrl-j': 'core:confirm'

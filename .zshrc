@@ -146,26 +146,8 @@ function g () {
     fi
 }
 
-function x () {
-	case "$1" in
-	*.tar|*.tar.gz|*.tar.bz2|*.tgz|*.xz)
-		tar xvf "$1"
-		;;
-	*.bz2)
-		bunzip2 "$1"
-		;;
-	*.zip)
-		unzip "$1"
-		;;
-	esac
-}
-
 function calc () {
 	awk "BEGIN { print $@ }"
-}
-
-function m () {
-	$EMACSCLIENT -n -e "(man \"$*\")" 2>&1 >/dev/null || man "$*"
 }
 
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
@@ -183,6 +165,8 @@ alias syncmaster='mw -using Bcgir_core sbsyncmaster -C /local-ssd/rramacha -log-
 alias sbs='mw -using Bmain sbs'
 alias b='sbmake -j16'
 alias bv='VERBOSE=1 sbmake -j16'
+alias t=cgtddd
+alias p4v='open /Applications/p4v.app'
 
 function fgr () {
     find . -name "*$1*"
