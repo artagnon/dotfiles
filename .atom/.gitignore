@@ -6,3 +6,4 @@ dev
 .apm/
 packages/
 atom-shell/
+electron/
