@@ -2,8 +2,6 @@
   'cmd-t': 'advanced-open-file:toggle'
 'atom-text-editor':
   'alt-.': 'you-complete-me:go-to'
-'atom-workspace':
-  'ctrl-alt-g': 'fuzzy-grep:toggleLastSearch'
 '.platform-darwin atom-workspace':
   'cmd-t': 'advanced-open-file:toggle'
 'body':
@@ -13,6 +11,7 @@
   'alt-g g': 'unset!'
   'alt-g': 'go-to-line:toggle'
 'atom-workspace':
+  'ctrl-alt-g': 'fuzzy-grep:toggleLastSearch'
   'alt-g g': 'unset!'
   'alt-g h': 'unset!'
   'alt-g l': 'unset!'
@@ -27,3 +26,5 @@
 '.platform-darwin .advanced-open-file atom-text-editor':
   'enter': 'advanced-open-file:confirm-selected-or-first'
   'ctrl-j': 'core:confirm'
+'atom-workspace atom-text-editor':
+  'alt-.': 'you-complete-me:go-to'
