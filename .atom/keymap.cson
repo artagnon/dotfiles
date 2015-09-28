@@ -27,4 +27,7 @@
   'enter': 'advanced-open-file:confirm-selected-or-first'
   'ctrl-j': 'core:confirm'
 'atom-workspace atom-text-editor':
-  'alt-.': 'you-complete-me:go-to'
+  'alt-.': 'you-complete-me:go-to-definition'
+  'alt-,': 'you-complete-me:go-to-declaration'
+'atom-text-editor.autocomplete-active':
+  'ctrl-g': 'autocomplete-plus:cancel'
