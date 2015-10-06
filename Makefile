@@ -17,8 +17,7 @@ remove_if_symlink =							\
 candidates = .zshrc .emacs .gitconfig .hgrc .Xdefaults .i3	\
 .ncmpcpp .xinitrc .tmux.conf .rbenv .i3status.conf bin .ssh	\
 .irbrc .perlcriticrc .aspell.conf .aspell.personal .zsh		\
-.mpdscribble .gdbinit .npmrc .zlogin .zlogout .zprofile .zshenv \
-.zprezto .zpreztorc .mpdconf .atom
+.mpdscribble .gdbinit .npmrc .mpdconf .atom
 
 all: .rbenv/plugins/ruby-build .zprezto
 	@$(foreach file,$(candidates),$(symlink_to_home))
@@ -26,9 +25,6 @@ all: .rbenv/plugins/ruby-build .zprezto
 
 .rbenv/plugins/ruby-build:
 	git clone git://github.com/sstephenson/ruby-build $@
-
-.zprezto:
-	git clone --recursive git://github.com/artagnon/zprezto $@
 
 update:
 	git submodule foreach 'git checkout master; git pull'
