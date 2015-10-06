@@ -19,10 +19,12 @@
   minimap:
     plugins:
       "find-and-replace": true
+      selection: true
   "advanced-open-file":
     helmDirSwitch: true
   "you-complete-me":
     pythonExecutable: "/usr/local/bin/python2.7"
+    globalExtraConfig: "~/.ycm_extra_conf.py"
   "node-debugger":
     nodePath: "/usr/local/bin/node"
   "atom-format": {}

@@ -31,3 +31,7 @@
   'alt-,': 'you-complete-me:go-to-declaration'
 'atom-text-editor.autocomplete-active':
   'ctrl-g': 'autocomplete-plus:cancel'
+'atom-text-editor':
+  'cmd-;': 'block-comment:toggle'
+'atom-workspace atom-text-editor:not([mini])':
+  'cmd-;': 'editor:toggle-line-comments'

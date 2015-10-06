@@ -164,9 +164,20 @@ alias -g S='| sort'
 alias syncmaster='mw -using Bcgir_core sbsyncmaster -C /local-ssd/rramacha -log-dir /tmp/bcgir_core -src-root Bcgir_core -cfg cgir_syncmaster_debug'
 alias sbs='mw -using Bmain sbs'
 alias b='sbmake -j16'
+alias bd='DEBUG=1 sbmake -j16'
 alias bv='VERBOSE=1 sbmake -j16'
+alias bdv='VERBOSE=1 DEBUG=1 sbmake -j16'
 alias t=cgtddd
-alias p4v='open /Applications/p4v.app'
+alias p4v=sbp4v
+alias review=sbreviewboard
+
+function sbtest() {
+    sb -nodesktop -r "rerun $1 $2"
+}
+
+function sbtestd() {
+    sb -nodesktop -debug -r "rerun $1 $2"
+}
 
 function fgr () {
     find . -name "*$1*"

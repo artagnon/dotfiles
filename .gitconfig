@@ -173,3 +173,5 @@
 	insteadOf = gh:klug/
 [url "git://github.com/"]
 	insteadOf = gh:
+[url "git@insidelabs-git.mathworks.com:"]
+    insteadOf = mw:
