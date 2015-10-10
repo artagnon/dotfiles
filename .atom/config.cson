@@ -29,3 +29,7 @@
     nodePath: "/usr/local/bin/node"
   "atom-format": {}
   "atom-beautify": {}
+  "formatter-clang-format":
+    executablePath: "/Users/artagnon/bin/clang-format"
+  "atom-fuzzy-grep":
+    grepCommandString: "/usr/local/bin/ag -i --nocolor --nogroup --column"
