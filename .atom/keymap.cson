@@ -6,7 +6,9 @@
   'cmd-t': 'advanced-open-file:toggle'
 'body':
   'ctrl-enter': 'window:focus-next-pane'
-  'cmd-c': 'atomic-emacs:copy'
+'atom-workspace atom-text-editor':
+  'ctrl-y': 'core:paste'
+  'alt-w': 'core:copy'
 '.platform-darwin':
   'alt-g g': 'unset!'
   'alt-g': 'go-to-line:toggle'
@@ -26,12 +28,17 @@
 '.platform-darwin .advanced-open-file atom-text-editor':
   'enter': 'advanced-open-file:confirm-selected-or-first'
   'ctrl-j': 'core:confirm'
-'atom-workspace atom-text-editor':
-  'alt-.': 'you-complete-me:go-to-definition'
-  'alt-,': 'you-complete-me:go-to-declaration'
 'atom-text-editor.autocomplete-active':
   'ctrl-g': 'autocomplete-plus:cancel'
 'atom-text-editor':
   'cmd-;': 'block-comment:toggle'
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-;': 'editor:toggle-line-comments'
+'atom-text-editor:not([mini])':
+  'alt-y': 'clipboard-plus:toggle'
+'atom-text-editor':
+  'ctrl-k t down': 'unset!'
+  'ctrl-k t up': 'unset!'
+  'ctrl-k t left': 'unset!'
+  'ctrl-k t right': 'unset!'
+  'ctrl-k t t': 'unset!'

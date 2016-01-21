@@ -58,3 +58,4 @@ Emacs.geometry:	100x48+190+40
 Emacs.BackingStore: always
 Emacs.italic.attributeForeground: hotpink
 Emacs.FontBackend: xft
+*VT100.translations: #override Meta <KeyPress> V: insert-selection(PRIMARY, CUT_BUFFER0) \n

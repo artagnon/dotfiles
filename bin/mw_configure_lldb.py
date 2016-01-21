@@ -7,8 +7,8 @@
 
 import os
 import lldb
+import inspect
 import re
-
 
 #----------------------------------------------
 # Custom formatting for fl::ustring
@@ -202,7 +202,7 @@ def __lldb_init_module(debugger, internal_dict):
     debugger.HandleCommand('type summary add -F  mw_configure_lldb.slsvdiagnosticitem_summary "slsvDiagnosticItem"')
     debugger.HandleCommand('command script add -f mw_configure_lldb.bex bex')
     print ' '
-    print 'User command "bex:'
+    print 'User command bex:'
     print '    process handle -p true -n false -s false SIGSEGV SIGBUS'
     print '    b mnDebugRuntimeFault'
     print '    b fl_diag_terminate'

@@ -44,7 +44,7 @@ if [[ $USER == rramacha ]]; then
 fi
 
 # ---[ Shell exports ]-------------------------------------------------
-export PATH=~/bin:~/.ruby/bin:~/.rbenv/bin:~/.cask/bin:$PATH
+export PATH=~/bin:/usr/local/bin:~/.ruby/bin:~/.rbenv/bin:~/.cask/bin:$PATH
 export PATH=/hub/share/sbtools/apps/cgir_tools:/hub/share/sbtools/bin/$SBARCH:$PATH
 EMACSCLIENT=emacsclient
 
@@ -80,6 +80,7 @@ export PERL_MB_OPT="--install_base $HOME/.perl5"
 export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
 export PERL5LIB=~/.perl5/lib/perl5:$PERL5LIB
 export PATH=~/.perl5/bin:$PATH
+export GOPATH=~/.go
 export PERLBREW_ROOT=~/.perl5
 test -f ~/.perl5/etc/bashrc && source ~/.perl5/etc/bashrc
 
@@ -94,11 +95,10 @@ alias mountfat="sudo mount -o uid=$USER,gid=$USER,fmask=113,dmask=002"
 alias mountl="sudo mount -o loop"
 alias umount='sudo umount'
 alias rf='rm -rf'
-alias chrome='google-chrome'
-alias p4='p4g'
+alias p4=p4g
 alias sb='sb -softwareopengl'
-alias sbnd='sb -softwareopengl -nodesktop'
-alias sbndd='sb -softwareopengl -nodesktop -debug'
+alias sbnd='sb -softwareopengl -nosplash -nodesktop'
+alias sbndd='sb -softwareopengl -nosplash -nodesktop -debug'
 
 # aptitude aliases
 alias pS='sudo aptitude install'
@@ -161,12 +161,15 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g G='| grep'
 alias -g S='| sort'
-alias syncmaster='mw -using Bcgir_core sbsyncmaster -C /local-ssd/rramacha -log-dir /tmp/bcgir_core -src-root Bcgir_core -cfg cgir_syncmaster_debug'
+alias -g U='| uniq'
 alias sbs='mw -using Bmain sbs'
-alias b='sbmake -j16'
-alias bd='DEBUG=1 sbmake -j16'
-alias bv='VERBOSE=1 sbmake -j16'
-alias bdv='VERBOSE=1 DEBUG=1 sbmake -j16'
+alias lcmupdate='mw -using Bmain lcmupdate'
+alias b=cgmake
+alias br=cg_build_and_render.pl
+alias bd='DEBUG=1 cgmake'
+alias br='DEBUG= cgmake'
+alias bv='VERBOSE=1 cgmake'
+alias bdv='VERBOSE=1 DEBUG=1 cgmake'
 alias t=cgtddd
 alias p4v=sbp4v
 alias review=sbreviewboard
