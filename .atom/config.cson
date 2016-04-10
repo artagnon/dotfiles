@@ -1,53 +1,54 @@
 "*":
-  "exception-reporting":
-    userId: "eff40292-48c0-c335-72c9-7e123750c70f"
-  welcome:
-    showOnStartup: false
+  "advanced-filter-file":
+    helmDirSwitch: true
+  "advanced-open-file":
+    fuzzyMatch: true
+    helmDirSwitch: true
+  "atom-beautify": {}
+  "atom-format": {}
+  "atom-fuzzy-grep":
+    grepCommandString: "/usr/local/bin/ag -i --nocolor --nogroup --column"
+  "atom-perforce":
+    autoAdd: true
+    autoEdit: true
+  "atom-terminal-panel": {}
+  "atomic-rtags":
+    rcExecutable: "/home/rramacha/bin/mw/rc"
+  "clipboard-plus": {}
   core:
-    themes: [
-      "atom-dark-ui"
-      "batman-syntax"
+    audioBeep: false
+    disabledPackages: [
+      "language-gfm"
     ]
+    openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
       "emacs-flow"
     ]
-    audioBeep: false
+    projectHome: "~/src"
+    themes: [
+      "material-ui"
+      "material-syntax"
+    ]
   editor:
     invisibles: {}
-    tabLength: 4
-    tabType: "soft"
+  "exception-reporting":
+    userId: "eff40292-48c0-c335-72c9-7e123750c70f"
+  "formatter-clang-format":
+    executablePath: "/Users/artagnon/bin/clang-format"
+  "fuzzy-finder":
+    useAlternateScoring: true
+  megafinder:
+    MWspecifics:
+      dirNarrowing: "matlab/src/cg_ir matlab/src/cgir_vm matlab/src/cgir_vm_rt matlab/src/cgir_xform matlab/src/cgir_support matlab/src/emlcoder matlab/src/cgir_cgel"
   minimap:
     plugins:
       "find-and-replace": true
       selection: true
-  "advanced-open-file":
-    helmDirSwitch: true
-    fuzzyMatch: true
-  "you-complete-me":
-    pythonExecutable: "/usr/local/bin/python2.7"
-    globalExtraConfig: "~/.ycm_extra_conf.py"
   "node-debugger":
     nodePath: "/usr/local/bin/node"
-  "atom-format": {}
-  "atom-beautify": {}
-  "formatter-clang-format":
-    executablePath: "/Users/artagnon/bin/clang-format"
-  "atom-fuzzy-grep":
-    grepCommandString: "/usr/local/bin/ag -i --nocolor --nogroup --column"
-  "atomic-rtags":
-    rcExecutable: "/home/rramacha/bin/mw/rc"
-  "formatter-clang-format":
-    executablePath: "/home/rramacha/bin/mw/clang-format"
-  "clipboard-plus": {}
-  "atom-perforce":
-    autoAdd: true
-    autoEdit: true
-  "fuzzy-finder":
-    useAlternateScoring: true
-  "advanced-filter-file":
-    helmDirSwitch: true
-  megafinder:
-    MWspecifics:
-      dirNarrowing: "matlab/src/cg_ir matlab/src/cgir_vm matlab/src/cgir_vm_rt matlab/src/cgir_xform matlab/src/cgir_support matlab/src/emlcoder matlab/src/cgir_cgel"
-  "atom-terminal-panel": {}
   term3: {}
+  welcome:
+    showOnStartup: false
+  "you-complete-me":
+    globalExtraConfig: "~/.ycm_extra_conf.py"
+    pythonExecutable: "/usr/local/bin/python2.7"

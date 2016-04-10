@@ -1,9 +1,6 @@
-storage
+blob-store
 compile-cache
 dev
-.npm
+storage
 .node-gyp
-.apm/
-packages/
-atom-shell/
-electron/
+.npm

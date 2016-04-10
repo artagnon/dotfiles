@@ -1,13 +1,9 @@
-# ---[ Prezto ]--------------------------------------------------------
-if [[ -s ~/.zprezto/init.zsh ]]; then
-	source ~/.zprezto/init.zsh
-fi
-
 # ---[ Keychain ]------------------------------------------------------
 keychain --nogui -q ~/.ssh/id_rsa 2>/dev/null &&
 source ~/.keychain/localhost-sh
 
 # ---[ Modules ]-------------------------------------------------------
+fpath=($DOTZSHPATH/completion $fpath)
 zmodload zsh/complist
 autoload -Uz compinit
 compinit
@@ -45,7 +41,10 @@ fi
 
 # ---[ Shell exports ]-------------------------------------------------
 export PATH=~/bin:/usr/local/bin:~/.ruby/bin:~/.rbenv/bin:~/.cask/bin:$PATH
-export PATH=/hub/share/sbtools/apps/cgir_tools:/hub/share/sbtools/bin/$SBARCH:$PATH
+export PATH=/hub/share/sbtools/apps/cgir_tools:$PATH
+if [[ $SBARCH != "" ]]; then
+	export PATH=/hub/share/sbtools/bin/$SBARCH:$PATH
+fi
 EMACSCLIENT=emacsclient
 
 if [[ $USER == rramacha ]]; then
@@ -57,7 +56,7 @@ export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 export ATOM_REPOS_HOME=~/src
 export BROWSER=google-chrome
-export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf
+export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf:~/src/torch/pkg/torch/lib
 export PYTHONPATH=~/.local/lib:/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python
 export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
@@ -74,12 +73,12 @@ export MANPATH=~/share/man:/opt/local/share/manpath:$MANPATH
 eval "$(rbenv init -)"
 test -f ~/.opam/opam-init/init.zsh && source ~/.opam/opam-init/init.zsh
 
-# ---[ Perl ]----------------------------------------------------------
+# ---[ Perl and Go ]----------------------------------------------------
 export PERL_LOCAL_LIB_ROOT=$PERL_LOCAL_LIB_ROOT:~/.perl5
 export PERL_MB_OPT="--install_base $HOME/.perl5"
 export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
 export PERL5LIB=~/.perl5/lib/perl5:$PERL5LIB
-export PATH=~/.perl5/bin:$PATH
+export PATH=~/.perl5/bin:~/.go/bin:$PATH
 export GOPATH=~/.go
 export PERLBREW_ROOT=~/.perl5
 test -f ~/.perl5/etc/bashrc && source ~/.perl5/etc/bashrc
@@ -115,7 +114,7 @@ alias cU='cower -u'
 
 # gem and pip aliases
 alias gi='gem install'
-alias pi='pip install --user'
+alias pi='sudo pip3 install'
 alias bi='brew install'
 
 # remove bad aliases set by prezto
@@ -321,7 +320,6 @@ artagnon)
 	DOTZSHPATH=~/.zsh;;
 esac
 
-fpath=($DOTZSHPATH/completion $fpath)
 test -f $DOTZSHPATH/completion/go.zsh && source $DOTZSHPATH/completion/go.zsh
 test -f $DOTZSHPATH/completion/perf.sh && source $DOTZSHPATH/completion/perf.sh
 
@@ -368,3 +366,11 @@ if [[ -n $SSH_CLIENT ]]; then
 fi
 
 precmd () { __git_ps1 "%F{white}%B%n%b%f" "$SSH_PROMPT_INDICATOR:%F{yellow}%B%~%b%f%(!.#.$) " "|%s" }
+
+
+. /Users/artagnon/src/torch/install/bin/torch-activate
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# added by travis gem
+[ -f /Users/artagnon/.travis/travis.sh ] && source /Users/artagnon/.travis/travis.sh

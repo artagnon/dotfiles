@@ -116,6 +116,7 @@
 	dc = diff --cached
         o = diff --name-status @{u}
 	g = grep -p
+	gi = grep -i
 	g0 = grep -p --max-depth 0
 	fg = !git ls-files | grep -E
 	rfl = log --oneline --relative-date -g
@@ -175,3 +176,11 @@
 	insteadOf = gh:
 [url "git@insidelabs-git.mathworks.com:"]
     insteadOf = mw:
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[lfs "extension.env-test"]
+	clean = env-test-clean
+	smudge = env-test-smudge
+	priority = 0
