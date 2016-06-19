@@ -51,7 +51,7 @@ if [[ $USER == rramacha ]]; then
     PATH=~/bin/mw:~/bin/bear:$PATH
     EMACSCLIENT=sbemacsclient
 fi
-export EDITOR="atom --wait"
+export EDITOR="atom-beta --wait"
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 export ATOM_REPOS_HOME=~/src
@@ -165,7 +165,13 @@ alias sbs='mw -using Bmain sbs'
 alias lcmupdate='mw -using Bmain lcmupdate'
 alias b=cgmake
 alias br=cg_build_and_render.pl
-alias bd='DEBUG=1 cgmake'
+
+if [[ $USER == rramacha ]]; then
+	alias bd='DEBUG=1 cgmake'
+else
+	alias bd='ninja check'
+fi
+
 alias br='DEBUG= cgmake'
 alias bv='VERBOSE=1 cgmake'
 alias bdv='VERBOSE=1 DEBUG=1 cgmake'
