@@ -70,7 +70,6 @@ export PPPATH=/tmp/ppdump
 export MANPATH=~/share/man:/opt/local/share/manpath:$MANPATH
 
 # ---[ evals ]---------------------------------------------------------
-eval "$(rbenv init -)"
 test -f ~/.opam/opam-init/init.zsh && source ~/.opam/opam-init/init.zsh
 
 # ---[ Perl and Go ]----------------------------------------------------

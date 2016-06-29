@@ -1,6 +1,0 @@
-[submodule ".rbenv"]
-	path = .rbenv
-	url = gh:sstephenson/rbenv
-	branch = master
-	update = rebase
-	ignore = all

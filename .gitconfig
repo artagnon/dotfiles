@@ -177,10 +177,6 @@
 [url "git@insidelabs-git.mathworks.com:"]
     insteadOf = mw:
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
-[lfs "extension.env-test"]
-	clean = env-test-clean
-	smudge = env-test-smudge
-	priority = 0

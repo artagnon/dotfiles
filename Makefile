@@ -15,16 +15,13 @@ remove_if_symlink =							\
 	fi;
 
 candidates = .zshrc .emacs .gitconfig .hgrc .Xdefaults .i3	\
-.ncmpcpp .xinitrc .tmux.conf .rbenv .i3status.conf bin .ssh	\
+.ncmpcpp .xinitrc .tmux.conf .i3status.conf bin .ssh		\
 .irbrc .perlcriticrc .aspell.conf .aspell.personal .zsh		\
 .mpdscribble .gdbinit .npmrc .mpdconf .atom
 
-all: .rbenv/plugins/ruby-build .zprezto
+all:
 	@$(foreach file,$(candidates),$(symlink_to_home))
 	git submodule update --init --recursive
-
-.rbenv/plugins/ruby-build:
-	git clone git://github.com/sstephenson/ruby-build $@
 
 update:
 	git submodule foreach 'git checkout master; git pull'
