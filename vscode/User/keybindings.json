@@ -1,0 +1,33 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+{
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+},{
+    "key": "cmd+b",
+    "command": "workbench.action.quickOpen"
+},{
+    "key": "ctrl+g",
+    "command": "workbench.action.closeMessages",
+    "when": "globalMessageVisible"
+},{
+    "key": "ctrl+g",
+    "command": "removeSecondaryCursors",
+    "when": "editorHasMultipleSelections && editorTextFocus"
+},{
+    "key": "ctrl+g",
+    "command": "hideSuggestWidget",
+    "when": "editorTextFocus && suggestWidgetVisible"
+},{
+    "key": "alt+q",
+    "command": "rewrap.rewrapComment",
+    "when": "editorTextFocus"
+},{
+    "key": "ctrl+w",
+    "command": "editor.action.clipboardCutAction",
+    "when": "editorTextFocus"
+},{
+    "key": "ctrl+y",
+    "command": "editor.action.clipboardPasteAction",
+    "when": "editorTextFocus"
+}]
