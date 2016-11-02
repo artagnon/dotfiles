@@ -1,9 +1,5 @@
 '.platform-darwin atom-workspace':
   'cmd-t': 'advanced-open-file:toggle'
-'atom-text-editor':
-  'alt-.': 'you-complete-me:go-to'
-'.platform-darwin atom-workspace':
-  'cmd-t': 'advanced-open-file:toggle'
 'body':
   'ctrl-enter': 'window:focus-next-pane'
 'atom-workspace atom-text-editor':
@@ -25,7 +21,15 @@
   'alt-g d': 'unset!'
   'alt-g down': 'unset!'
   'alt-g up': 'unset!'
-  'cmd-;': 'block-comment:toggle'
+  'ctrl-k t down': 'unset!'
+  'ctrl-k t up': 'unset!'
+  'ctrl-k t left': 'unset!'
+  'ctrl-k t right': 'unset!'
+  'ctrl-k t t': 'unset!'
+  'alt-down': 'editor:move-line-down'
+  'alt-shift-down': 'editor:duplicate-lines'
+  'alt-up': 'editor:move-line-up'
+  'cmd-shift-k': 'editor:delete-line'
 '.platform-darwin .advanced-open-file atom-text-editor':
   'enter': 'advanced-open-file:confirm-selected-or-first'
   'ctrl-j': 'core:confirm'
@@ -33,11 +37,17 @@
   'ctrl-g': 'autocomplete-plus:cancel'
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-;': 'editor:toggle-line-comments'
-'atom-text-editor:not([mini])':
+'atom-text-editor.vim-mode-plus':
+  'ctrl-v' : 'atomic-emacs:scroll-up'
+  'alt-v' : 'atomic-emacs:scroll-down'
+  'ctrl-a' : 'editor:move-to-beginning-of-line'
+  'ctrl-e' : 'editor:move-to-end-of-line'
+  'ctrl-i': 'cursor-history:next'
+  'ctrl-o': 'cursor-history:prev'
+  'ctrl-f': 'atomic-emacs:forward-char'
+  'ctrl-b': 'atomic-emacs:backward-char'
+'atom-text-editor.vim-mode-plus.normal-mode':
+  ':': 'vim-mode-plus-ex-mode:open'
+'.platform-darwin atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'alt-y': 'clipboard-plus:toggle'
-'atom-text-editor':
-  'ctrl-k t down': 'unset!'
-  'ctrl-k t up': 'unset!'
-  'ctrl-k t left': 'unset!'
-  'ctrl-k t right': 'unset!'
-  'ctrl-k t t': 'unset!'
+  'g q': 'autoflow:reflow-selection'

@@ -30,4 +30,8 @@
     "key": "ctrl+y",
     "command": "editor.action.clipboardPasteAction",
     "when": "editorTextFocus"
+},{
+    "key": "ctrl+`",
+    "command": "terminalHere.create",
+    "when": "editorTextFocus"
 }]
