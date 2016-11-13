@@ -4,6 +4,10 @@
     "key": "ctrl+g",
     "command": "-workbench.action.gotoLine"
 },{
+    "key": "cmd+k cmd+w",
+    "command": "workbench.action.closeOtherEditors",
+    "when": "editorTextFocus"
+},{
     "key": "cmd+b",
     "command": "workbench.action.quickOpen"
 },{
@@ -21,6 +25,10 @@
 },{
     "key": "alt+q",
     "command": "rewrap.rewrapComment",
+    "when": "editorTextFocus"
+},{
+    "key": "cmd+y",
+    "command": "redo",
     "when": "editorTextFocus"
 },{
     "key": "ctrl+w",

@@ -3,6 +3,9 @@
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shell.osx": "/bin/zsh",
     "extensions.autoUpdate": true,
+    "C_Cpp.clang_format_formatOnSave": true,
+    "C_Cpp.clang_format_sortIncludes": true,
+    "C_Cpp.clang_format_path": "/usr/local/bin/clang-format",
     "editor.rulers": [80],
     "files.exclude": {
         "**/.git": true,

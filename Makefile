@@ -21,7 +21,14 @@ candidates = .zshrc .emacs .gitconfig .hgrc .Xdefaults .i3	\
 
 all:
 	@$(foreach file,$(candidates),$(symlink_to_home))
-	git submodule update --init --recursive
+	git submodule update --init --recursive;
+
+	# fish is a special case
+	if test -e ~/.config/fish; then				\
+		echo "Warning: ~/.config/fish already exists";	\
+	else							\
+		ln -s ~/dotfiles/fish ~/.config/fish;		\
+	fi;
 
 update:
 	git submodule foreach 'git checkout master; git pull'

@@ -77,7 +77,7 @@
   'ctrl-w ctrl-l': 'unset!'
   'ctrl-w ctrl-c': 'unset!'
   'ctrl-w ctrl-h': 'unset!'
- 'atom-text-editor.vim-mode-plus.normal-mode':
+'atom-text-editor.vim-mode-plus.normal-mode':
   ':': 'vim-mode-plus-ex-mode:open'
 '.platform-darwin atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'g q': 'autoflow:reflow-selection'

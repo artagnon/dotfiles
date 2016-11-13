@@ -116,6 +116,7 @@
 	dc = diff --cached
         o = diff --name-status @{u}
 	g = grep -p
+	gl = grep -l
 	gi = grep -i
 	g0 = grep -p --max-depth 0
 	fg = !git ls-files | grep -E
