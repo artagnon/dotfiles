@@ -1,6 +1,4 @@
 function fish_prompt
-	set_color yellow
-	echo (pwd) | sed -e "s|^$HOME|~|" -e "s|^/sandbox/rramacha|\$s|"
-	set_color normal
-	echo '$ '
+    set -l cwd (echo (pwd) | sed -e "s|^$HOME|~|" -e "s|^/sandbox/rramacha|\$s|")
+    echo -n (set_color yellow)$cwd(set_color normal)'$ '
 end
