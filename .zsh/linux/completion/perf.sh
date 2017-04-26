@@ -1,1 +1,0 @@
-/home/artagnon/src/linux/tools/perf/perf-completion.sh

@@ -12,6 +12,7 @@
 .xmonad/history
 .ncmpcpp/error.log
 .zsh/cache/
+.zsh/rramacha/cache/
 
 # cloned separately
 .zprezto

@@ -1,1 +1,0 @@
-/home/artagnon/src/go/misc/zsh/go

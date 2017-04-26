@@ -1,1 +1,0 @@
-/Users/artagnon/src/git/contrib/completion/git-completion.bash

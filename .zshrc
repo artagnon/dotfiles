@@ -3,7 +3,6 @@ keychain --nogui -q ~/.ssh/id_rsa 2>/dev/null &&
 source ~/.keychain/localhost-sh
 
 # ---[ Modules ]-------------------------------------------------------
-fpath=($DOTZSHPATH/completion $fpath)
 zmodload zsh/complist
 autoload -Uz compinit
 compinit
@@ -41,22 +40,21 @@ fi
 
 # ---[ Shell exports ]-------------------------------------------------
 export PATH=~/bin:/usr/local/bin:~/.ruby/bin:~/.rbenv/bin:~/.cask/bin:$PATH
-export PATH=/hub/share/sbtools/apps/cgir_tools:$PATH
-if [[ $SBARCH != "" ]]; then
-	export PATH=/hub/share/sbtools/bin/$SBARCH:$PATH
-fi
+export PATH=/hub/share/sbtools/apps/cgir_tools/profilingTestTools:$PATH
+export PATH=/hub/share/sbtools/apps/cgir_tools:/hub/share/sbtools/bin/$SBARCH:$PATH
+export PATH=/mathworks/inside/labs/dev/matlab_coder_tools/bear:$PATH
 EMACSCLIENT=emacsclient
 
 if [[ $USER == rramacha ]]; then
     PATH=~/bin/mw:~/bin/bear:$PATH
     EMACSCLIENT=sbemacsclient
 fi
-export EDITOR="atom-beta --wait"
+export EDITOR="atom-beta -w"
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 export ATOM_REPOS_HOME=~/src
 export BROWSER=google-chrome
-export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf:~/src/torch/pkg/torch/lib
+export LD_LIBRARY_PATH=/usr/local/lib:~/src/linux/tools/perf
 export PYTHONPATH=~/.local/lib:/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Resources/Python
 export GEM_HOME=~/.ruby
 export PYTHONSTARTUP=~/.pythonrc
@@ -65,6 +63,7 @@ export MENUCONFIG_COLOR=mono
 export PS_PERSONALITY=linux
 export LLDB_DEBUGSERVER_PATH=~/bin/debugserver
 export PPPATH=/tmp/ppdump
+export P4MERGE='open -n -a p4merge --args'
 
 # ---[ set MANPATH ]---------------------------------------------------
 export MANPATH=~/share/man:/opt/local/share/manpath:$MANPATH
@@ -72,12 +71,12 @@ export MANPATH=~/share/man:/opt/local/share/manpath:$MANPATH
 # ---[ evals ]---------------------------------------------------------
 test -f ~/.opam/opam-init/init.zsh && source ~/.opam/opam-init/init.zsh
 
-# ---[ Perl and Go ]----------------------------------------------------
+# ---[ Perl ]----------------------------------------------------------
 export PERL_LOCAL_LIB_ROOT=$PERL_LOCAL_LIB_ROOT:~/.perl5
 export PERL_MB_OPT="--install_base $HOME/.perl5"
 export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
 export PERL5LIB=~/.perl5/lib/perl5:$PERL5LIB
-export PATH=~/.perl5/bin:~/.go/bin:$PATH
+export PATH=~/.perl5/bin:$PATH
 export GOPATH=~/.go
 export PERLBREW_ROOT=~/.perl5
 test -f ~/.perl5/etc/bashrc && source ~/.perl5/etc/bashrc
@@ -97,6 +96,7 @@ alias p4=p4g
 alias sb='sb -softwareopengl'
 alias sbnd='sb -softwareopengl -nosplash -nodesktop'
 alias sbndd='sb -softwareopengl -nosplash -nodesktop -debug'
+alias cdroot='cd `sbroot`'
 
 # aptitude aliases
 alias pS='sudo aptitude install'
@@ -113,8 +113,9 @@ alias cU='cower -u'
 
 # gem and pip aliases
 alias gi='gem install'
-alias pi='sudo pip3 install'
+alias pi='pip3 install'
 alias bi='brew install'
+alias meld='open -n -a Meld --args'
 
 # remove bad aliases set by prezto
 unalias -m l
@@ -136,18 +137,11 @@ function l () {
 	ls $LSCOLORSW -v "$@"
 }
 
-function g () {
-    if test $# = 0; then
-	git status
-    else
-	git "$@"
-    fi
-}
-
 function calc () {
 	awk "BEGIN { print $@ }"
 }
 
+alias g=git
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='mpv "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias incognito='export HISTFILE=/dev/null'
@@ -162,29 +156,23 @@ alias -g S='| sort'
 alias -g U='| uniq'
 alias sbs='mw -using Bmain sbs'
 alias lcmupdate='mw -using Bmain lcmupdate'
-alias b=cgmake
+alias s='cd /sandbox/rramacha'
+alias b='DEBUG= cgmake'
 alias br=cg_build_and_render.pl
-
-if [[ $USER == rramacha ]]; then
-	alias bd='DEBUG=1 cgmake'
-else
-	alias bd='ninja check'
-fi
-
-alias br='DEBUG= cgmake'
+alias bd='DEBUG=1 cgmake'
 alias bv='VERBOSE=1 cgmake'
 alias bdv='VERBOSE=1 DEBUG=1 cgmake'
 alias t=cgtddd
 alias p4v=sbp4v
 alias review=sbreviewboard
-
-function sbtest() {
-    sb -nodesktop -r "rerun $1 $2"
-}
-
-function sbtestd() {
-    sb -nodesktop -debug -r "rerun $1 $2"
-}
+alias check='sbcheck -skip ran_sbruntests -skip codereview -skip default_changelist -skip gecks -no-prompt -opened'
+alias indent='sbindent -no-prompt -opened'
+alias valgrind=sbvalgrind
+alias forcebuild='echo "matlab/src/cg_ir/export/include/cg_ir/fwd/common.hpp" >force.txt \
+ 	&& sbsmartbuild -F force.txt DEBUG=1 NORUNTESTS=1 DISABLE_WARNINGS_AS_ERROR=1'
+alias smartb='DEBUG=1 sbsmartbuild -opened -lean'
+alias backup='sbbackup -opened'
+alias restore='sbrestore -r'
 
 function fgr () {
     find . -name "*$1*"
@@ -298,7 +286,7 @@ function swd () {
 
 # ---[ ZSH Options ]---------------------------------------------------
 setopt   NO_GLOBAL_RCS NO_FLOW_CONTROL NO_BEEP MULTIOS
-setopt   NO_NOMATCH EXTENDED_GLOB
+setopt   NO_NOMATCH EXTENDED_GLOB CHASE_LINKS
 setopt   LIST_AMBIGUOUS AUTO_LIST AUTO_REMOVE_SLASH
 setopt   LIST_PACKED LIST_TYPES
 setopt   INC_APPEND_HISTORY EXTENDED_HISTORY SHARE_HISTORY HIST_REDUCE_BLANKS
@@ -320,11 +308,12 @@ zshaddhistory () {
 # ---[ Completion system ]---------------------------------------------
 case $USER in
 rramacha)
-	DOTZSHPATH=~/.zsh/linux;;
+	DOTZSHPATH=~/.zsh/rramacha;;
 artagnon)
 	DOTZSHPATH=~/.zsh;;
 esac
 
+fpath=($DOTZSHPATH/completion $fpath)
 test -f $DOTZSHPATH/completion/go.zsh && source $DOTZSHPATH/completion/go.zsh
 test -f $DOTZSHPATH/completion/perf.sh && source $DOTZSHPATH/completion/perf.sh
 
@@ -332,7 +321,6 @@ test -f $DOTZSHPATH/completion/perf.sh && source $DOTZSHPATH/completion/perf.sh
 _git_fp () { _git_format_patch; }
 _git_sel () { _git_send_email; }
 _git_seg () { _git_send_email; }
-compdef g=git
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $DOTZSHPATH/cache
@@ -371,11 +359,3 @@ if [[ -n $SSH_CLIENT ]]; then
 fi
 
 precmd () { __git_ps1 "%F{white}%B%n%b%f" "$SSH_PROMPT_INDICATOR:%F{yellow}%B%~%b%f%(!.#.$) " "|%s" }
-
-
-. /Users/artagnon/src/torch/install/bin/torch-activate
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# added by travis gem
-[ -f /Users/artagnon/.travis/travis.sh ] && source /Users/artagnon/.travis/travis.sh
