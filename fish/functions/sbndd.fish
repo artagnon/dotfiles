@@ -1,3 +1,3 @@
 function sbndd
-	sb -nodesktop -debug $argv
+	sb -nodesktop -nosplash -debug $argv
 end

@@ -11,6 +11,8 @@
     autoAdd: true
     autoEdit: true
   "atom-terminal-panel": {}
+  "atomic-emacs":
+    alwaysUseKillRing: true
   "atomic-rtags":
     rcExecutable: "/home/rramacha/bin/mw/rc"
   "clipboard-plus": {}
@@ -18,10 +20,13 @@
     audioBeep: false
     disabledPackages: [
       "language-gfm"
+      "vim-mode-plus"
+      "autocomplete-clang"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
       "emacs-flow"
+      "clipboard-plus"
     ]
     projectHome: "~/src"
     telemetryConsent: "limited"
@@ -31,6 +36,7 @@
     ]
   editor:
     invisibles: {}
+    preferredLineLength: 100
     tabLength: 4
   "exception-reporting":
     userId: "eff40292-48c0-c335-72c9-7e123750c70f"
@@ -40,7 +46,7 @@
     useAlternateScoring: true
   megafinder:
     MWspecifics:
-      dirNarrowing: "matlab/src/cg_ir matlab/src/cgir_vm matlab/src/cgir_vm_rt matlab/src/cgir_xform matlab/src/cgir_support matlab/src/emlcoder matlab/src/cgir_cgel matlab/src/cgir_tests"
+      dirNarrowing: "matlab/src/cg_ir matlab/src/cgir_vm matlab/src/cgir_vm_rt matlab/src/cgir_xform matlab/src/cgir_support matlab/src/emlcoder matlab/src/cgir_cgel matlab/src/cgir_tests matlab/src/cgir_polly"
     patternNarrowing: "*.cpp *.hpp *.h"
   minimap:
     plugins:

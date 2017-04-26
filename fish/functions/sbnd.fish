@@ -1,3 +1,3 @@
 function sbnd
-	sb -nodesktop $argv
+	sb -nodesktop -nosplash $argv
 end

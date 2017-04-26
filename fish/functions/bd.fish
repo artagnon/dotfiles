@@ -1,3 +1,3 @@
 function bd
-	sbmake -j12 DEBUG=1
+	env DEBUG=1 sbmake -j12
 end

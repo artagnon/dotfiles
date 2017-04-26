@@ -1,3 +1,3 @@
 function rf
-	rm -rf
+	rm -rf $argv
 end
