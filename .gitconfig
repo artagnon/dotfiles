@@ -1,5 +1,5 @@
 [include]
-	path = ~/private/.gitconfig
+	path = ~/.private/.gitconfig
 [apply]
 	whitespace = fix
 [user]
@@ -181,3 +181,4 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process

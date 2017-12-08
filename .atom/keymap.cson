@@ -10,6 +10,7 @@
   'cmd-alt-3': 'pane:split-down'
  'atom-workspace atom-text-editor':
   'ctrl-y': 'core:paste'
+  'alt-y': 'clipboard-plus:toggle'
   'alt-w': 'core:copy'
   'ctrl-w': 'core:cut'
   'alt-y': 'clipboard-plus:toggle'

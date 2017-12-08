@@ -3,7 +3,37 @@
     createDirectories: true
     fuzzyMatch: true
     helmDirSwitch: true
-  "atom-beautify": {}
+  "atom-beautify":
+    bash:
+      beautify_on_save: true
+    cpp:
+      beautify_on_save: true
+      default_beautifier: "clang-format"
+    general:
+      _analyticsUserId: "172b6ea9-0fdb-447b-900b-049234b79a2b"
+      showLoadingView: false
+    haskell:
+      disabled: true
+    html:
+      beautify_on_save: true
+    js:
+      beautify_on_save: true
+    json:
+      beautify_on_save: true
+      brace_style: "expand"
+    markdown:
+      beautify_on_save: true
+    ocaml:
+      beautify_on_save: true
+    perl:
+      beautify_on_save: true
+    python:
+      beautify_on_save: true
+      max_line_length: 100
+    rust:
+      beautify_on_save: true
+    yaml:
+      disabled: true
   "atom-format": {}
   "atom-fuzzy-grep":
     grepCommandString: "/usr/local/bin/ag -i --nocolor --nogroup --column"
@@ -15,6 +45,15 @@
     alwaysUseKillRing: true
   "atomic-rtags":
     rcExecutable: "/home/rramacha/bin/mw/rc"
+  "autocomplete-haskell":
+    completionBackendInfo: false
+  "clang-format":
+    executable: "/usr/local/bin/clang-format"
+    formatCOnSave: true
+    formatCPlusPlusOnSave: true
+    formatJavaOnSave: true
+    formatJavascriptOnSave: true
+    formatObjectiveCOnSave: true
   "clipboard-plus": {}
   core:
     audioBeep: false
@@ -35,6 +74,7 @@
       "material-syntax"
     ]
   editor:
+    fontSize: 12
     invisibles: {}
     preferredLineLength: 100
     tabLength: 4
@@ -44,6 +84,15 @@
     executablePath: "/Users/artagnon/bin/clang-format"
   "fuzzy-finder":
     useAlternateScoring: true
+  "haskell-ghc-mod": {}
+  "ide-haskell":
+    onCursorMove: "Show Tooltip"
+    onSavePrettify: true
+  "julia-client":
+    juliaOptions:
+      optimisationLevel: 1
+  "linter-ui-default":
+    panelHeight: 300
   megafinder:
     MWspecifics:
       dirNarrowing: "matlab/src/cg_ir matlab/src/cgir_vm matlab/src/cgir_vm_rt matlab/src/cgir_xform matlab/src/cgir_support matlab/src/emlcoder matlab/src/cgir_cgel matlab/src/cgir_tests matlab/src/cgir_polly"
@@ -69,3 +118,22 @@
   "you-complete-me":
     globalExtraConfig: "~/.ycm_extra_conf.py"
     pythonExecutable: "/usr/local/bin/python2.7"
+".c2hs.source":
+  editor:
+    autoIndent: true
+    autoIndentOnPaste: true
+".cabal.source":
+  editor:
+    autoIndent: true
+    autoIndentOnPaste: true
+".haskell.source":
+  editor:
+    autoIndent: true
+    autoIndentOnPaste: true
+".hsig.source":
+  editor:
+    autoIndent: true
+    autoIndentOnPaste: true
+".idris.source":
+  editor:
+    autoIndentOnPaste: false
