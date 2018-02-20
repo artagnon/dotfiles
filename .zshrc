@@ -13,30 +13,34 @@ autoload colors zsh/terminfo
 export LSCOLORS=cxfxcxdxbxegedabagacad
 export LS_COLORS="di=32;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 case `uname` in
-  Darwin)
-  LSCOLORSW=-G;;
-  Linux)
-  LSCOLORSW=--color;;
+    Darwin)
+        LSCOLORSW=-G ;;
+    Linux)
+        LSCOLORSW=--color ;;
 esac
 
 # ---[ Autols ]--------------------------------------------------------
 function chpwd() {
-  case `pwd` in
-    "$HOME/src/git"|"$HOME/src/git/"*|"/tmp") ;;
-    *) ls $LSCOLORSW -v ;;
-  esac
+    case `pwd` in
+        "$HOME/src/git"|"$HOME/src/git/"*|"/tmp") ;;
+        *) ls $LSCOLORSW -v ;;
+    esac
+}
+
+# ---[ git status ]-----------------------------------------------------
+function g() {
+    if [[ $# -eq 0 ]]; then
+        git status;
+    else
+        git $@;
+    fi
 }
 
 # ---[ Save canceled command ]-----------------------------------------
 TRAPINT () {
-  zle && [[ $HISTNO -eq $HISTCMD ]] && print -rs -- $BUFFER
-  return $1
+    zle && [[ $HISTNO -eq $HISTCMD ]] && print -rs -- $BUFFER
+    return $1
 }
-
-# ---[ MathWorks ]-----------------------------------------------------
-if [[ $USER == rramacha ]]; then
-  . /mathworks/hub/share/sbtools/bash_setup.bash
-fi
 
 # ---[ Shell exports ]-------------------------------------------------
 export SCALA_HOME=/usr/local/share/scala
@@ -44,13 +48,13 @@ export PATH=~/bin:~/.npms/bin:~/.local/bin:/usr/local/bin:$SCALA_HOME/bin:$PATH
 export PATH=/usr/local/texlive/2016/bin/x86_64-darwin:~/.cask/bin:$PATH
 export PATH=/hub/share/sbtools/apps/cgir_tools:$PATH
 if [[ $SBARCH != "" ]]; then
-  export PATH=/hub/share/sbtools/bin/$SBARCH:$PATH
+    export PATH=/hub/share/sbtools/bin/$SBARCH:$PATH
 fi
 EMACSCLIENT=emacsclient
 
 if [[ $USER == rramacha ]]; then
-  PATH=~/bin/mw:~/bin/bear:$PATH
-  EMACSCLIENT=sbemacsclient
+    PATH=~/bin/mw:~/bin/bear:$PATH
+    EMACSCLIENT=sbemacsclient
 fi
 export EDITOR="atom-beta -w"
 export VISUAL=$EDITOR
@@ -126,32 +130,23 @@ unalias -m mv
 
 # tiny helpers
 function l () {
-  case "$1" in
-    recent)
-      shift
-      ls $LSCOLORSW -vt "$@" | head -n 5
-    ;;
-    size)
-      shift
-      ls $LSCOLORSW -vS "$@"
-    ;;
-  esac
-  ls $LSCOLORSW -v "$@"
-}
-
-function g () {
-  if test $# = 0; then
-    git status
-  else
-    git "$@"
-  fi
+    case "$1" in
+        recent)
+            shift
+            ls $LSCOLORSW -vt "$@" | head -n 5
+            ;;
+        size)
+            shift
+            ls $LSCOLORSW -vS "$@"
+            ;;
+    esac
+    ls $LSCOLORSW -v "$@"
 }
 
 function calc () {
-  awk "BEGIN { print $@ }"
+    awk "BEGIN { print $@ }"
 }
 
-alias g=git
 alias rmdup='find . -name "*\ \(1\)*" -exec rm {} \;'
 alias entertain='mpv "$(find . -type f -regextype posix-awk -iregex ".*\.(avi|mpg|mpeg|mkv|wmv|dat)$" | sort --random-sort | head -n 1)"'
 alias incognito='export HISTFILE=/dev/null'
@@ -171,9 +166,9 @@ alias b='DEBUG= cgmake'
 alias br=cg_build_and_render.pl
 
 if [[ $USER == rramacha ]]; then
-  alias bd='DEBUG=1 cgmake'
+    alias bd='DEBUG=1 cgmake'
 else
-  alias bd='ninja check'
+    alias bd='ninja check'
 fi
 
 alias br='DEBUG= cgmake'
@@ -184,15 +179,15 @@ alias p4v=sbp4v
 alias review=sbreviewboard
 
 function sbtest() {
-  sb -nodesktop -r "rerun $1 $2"
+    sb -nodesktop -r "rerun $1 $2"
 }
 
 function sbtestd() {
-  sb -nodesktop -debug -r "rerun $1 $2"
+    sb -nodesktop -debug -r "rerun $1 $2"
 }
 
 function fgr () {
-  find . -name "*$1*"
+    find . -name "*$1*"
 }
 
 # usage: git-make       ;for x86 linux.git build or make -j 8
@@ -201,104 +196,104 @@ function fgr () {
 #    or: git-make um32  ;for um32 linux.git build
 #    or: git-make arm   ;for arm64 linux.git build
 function git-make () {
-  unset ARCH
-  unset SUBARCH
-  unset CROSS_COMPILE
-  
-  test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)" || return 1
-  case "$1" in
-    prove)
-      make -j 8 test
-    ;;
-    um)
-      make mrproper
-      make defconfig ARCH=um
-      make -j 8 ARCH=um
-    ;;
-    um32)
-      make mrproper
-      make defconfig ARCH=um SUBARCH=i386
-      make -j 8 ARCH=um SUBARCH=i386
-    ;;
-    arm32-native)
-      make mrproper
-      make defconfig ARCH=arm32
-      make -j 2 ARCH=arm32
-    ;;
-    arm)
-      make mrproper
-      make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
-      make -j 8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
-    ;;
-    android-em)
-      if test "$2" = "-i"; then
-        make -j 8 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-;
-      else
-        make mrproper
-        make goldfish_armv7_defconfig ARCH=arm
-        make -j 8 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-
-      fi
-    ;;
-    android-flo)
-      if test "$2" = "-i"; then
-        make -j 8 ARCH=arm CROSS_COMPILE=arm-eabi-;
-      else
-        make mrproper
-        make flo_defconfig ARCH=arm
-        make -j 8 ARCH=arm CROSS_COMPILE=arm-eabi-;
-      fi
-    ;;
-    sparc32)
-      make mrproper
-      make defconfig ARCH=sparc CROSS_COMPILE=sparc-leon3-linux-
-      make -j 8 ARCH=sparc CROSS_COMPILE=sparc-leon3-linux-
-    ;;
-    *)
-      if test -f Kconfig; then
-        make mrproper
-        make defconfig ARCH=x86
-        make -j 8 ARCH=x86
-      else
-        make -j 8
-      fi
-  esac
+    unset ARCH
+    unset SUBARCH
+    unset CROSS_COMPILE
+
+    test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)" || return 1
+    case "$1" in
+        prove)
+            make -j 8 test
+            ;;
+        um)
+            make mrproper
+            make defconfig ARCH=um
+            make -j 8 ARCH=um
+            ;;
+        um32)
+            make mrproper
+            make defconfig ARCH=um SUBARCH=i386
+            make -j 8 ARCH=um SUBARCH=i386
+            ;;
+        arm32-native)
+            make mrproper
+            make defconfig ARCH=arm32
+            make -j 2 ARCH=arm32
+            ;;
+        arm)
+            make mrproper
+            make defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+            make -j 8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+            ;;
+        android-em)
+            if test "$2" = "-i"; then
+                make -j 8 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-;
+            else
+                make mrproper
+                make goldfish_armv7_defconfig ARCH=arm
+                make -j 8 ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi-
+            fi
+            ;;
+        android-flo)
+            if test "$2" = "-i"; then
+                make -j 8 ARCH=arm CROSS_COMPILE=arm-eabi-;
+            else
+                make mrproper
+                make flo_defconfig ARCH=arm
+                make -j 8 ARCH=arm CROSS_COMPILE=arm-eabi-;
+            fi
+            ;;
+        sparc32)
+            make mrproper
+            make defconfig ARCH=sparc CROSS_COMPILE=sparc-leon3-linux-
+            make -j 8 ARCH=sparc CROSS_COMPILE=sparc-leon3-linux-
+            ;;
+        *)
+            if test -f Kconfig; then
+                make mrproper
+                make defconfig ARCH=x86
+                make -j 8 ARCH=x86
+            else
+                make -j 8
+            fi
+    esac
 }
 
 # usage: git-prove-all [<branch>]
 function git-prove-all () {
-  GIT_SEQUENCE_EDITOR="sed -i '/^pick/aexec make -j 8 test'" git ri ${1-master}
+    GIT_SEQUENCE_EDITOR="sed -i '/^pick/aexec make -j 8 test'" git ri ${1-master}
 }
 
 # usage: gsh <file>
 #    or: gsh <name-to-match>
 function gsh () {
-  if test $# != 1; then
-    return 1
-  fi
-  if test -f "$1"; then
-    sh "$1" -v -i
-    return
-  fi
-  find . -maxdepth 1 -type f -name "*$1*" -exec echo "== {}" \; -exec sh {} \;
+    if test $# != 1; then
+        return 1
+    fi
+    if test -f "$1"; then
+        sh "$1" -v -i
+        return
+    fi
+    find . -maxdepth 1 -type f -name "*$1*" -exec echo "== {}" \; -exec sh {} \;
 }
 
 # usage: reload-completer (git|rustc)
 function reload-completer () {
-  test $# != 1 && return 1
-  unfunction -m _$1\*
-  autoload -Uz $^fpath/_$1*(N:t)
+    test $# != 1 && return 1
+    unfunction -m _$1\*
+    autoload -Uz $^fpath/_$1*(N:t)
 }
 
 function - () {
-  if test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)"; then
-    g co -
-  else
-    cd - >/dev/null
-  fi
+    if test "true" = "$(g rp --is-inside-work-tree 2>/dev/null)"; then
+        g co -
+    else
+        cd - >/dev/null
+    fi
 }
 
 function swd () {
-  cd $(pwd | sed -e "s|/local-ssd/$USER/[^/]*|/local-ssd/$USER/$1|")
+    cd $(pwd | sed -e "s|/local-ssd/$USER/[^/]*|/local-ssd/$USER/$1|")
 }
 
 # ---[ ZSH Options ]---------------------------------------------------
@@ -319,15 +314,15 @@ SAVEHIST=$HISTSIZE
 
 # TODO: how to remove it from the history list?
 zshaddhistory () {
-  [[ $1 != *dcommit* ]]
+    [[ $1 != *dcommit* ]]
 }
 
 # ---[ Completion system ]---------------------------------------------
 case $USER in
-  rramacha)
-  DOTZSHPATH=~/.zsh/linux;;
-  artagnon)
-  DOTZSHPATH=~/.zsh;;
+    rramacha)
+        DOTZSHPATH=~/.zsh/linux ;;
+    artagnon)
+        DOTZSHPATH=~/.zsh ;;
 esac
 
 fpath=($DOTZSHPATH/completion $fpath)
@@ -355,7 +350,7 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # ---[ ZLE ]-----------------------------------------------------------
 history-incremental-search-backward-initial() {
-  zle history-incremental-search-backward $BUFFER
+    zle history-incremental-search-backward $BUFFER
 }
 zle -N history-incremental-search-backward-initial
 bindkey '^R' history-incremental-search-backward-initial
@@ -369,17 +364,17 @@ zstyle ':vcs_info:*' enable git
 
 SSH_PROMPT_INDICATOR=""
 if [[ -n $SSH_CLIENT ]]; then
-  SSH_PROMPT_INDICATOR="%F{cyan}^%f"
+    SSH_PROMPT_INDICATOR="%F{cyan}^%f"
 fi
 
 precmd() {
-  vcs_info
-  RPROMPT="${vcs_info_msg_0_}"
+    vcs_info
+    RPROMPT="${vcs_info_msg_0_}"
 }
 
 PS1="%F{white}%B%n%b%f$SSH_PROMPT_INDICATOR:%F{yellow}%B%~%b%f%(!.#.$) "
 
 test -e ~/src/torch/install/bin/torch-activate && \
-source ~/src/torch/install/bin/torch-activate
+    source ~/src/torch/install/bin/torch-activate
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
