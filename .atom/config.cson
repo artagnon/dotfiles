@@ -9,6 +9,7 @@
     cpp:
       beautify_on_save: true
       default_beautifier: "clang-format"
+      disabled: true
     general:
       _analyticsUserId: "172b6ea9-0fdb-447b-900b-049234b79a2b"
       showLoadingView: false
@@ -27,6 +28,7 @@
       beautify_on_save: true
     perl:
       beautify_on_save: true
+      disabled: true
     python:
       beautify_on_save: true
       max_line_length: 100
@@ -77,7 +79,6 @@
     fontSize: 12
     invisibles: {}
     preferredLineLength: 100
-    tabLength: 4
   "exception-reporting":
     userId: "eff40292-48c0-c335-72c9-7e123750c70f"
   "formatter-clang-format":

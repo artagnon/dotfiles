@@ -17,7 +17,8 @@ remove_if_symlink =							\
 candidates = .zshrc .emacs .gitconfig .hgrc .Xdefaults .i3	\
 .ncmpcpp .xinitrc .tmux.conf .i3status.conf bin .ssh		\
 .irbrc .perlcriticrc .aspell.conf .aspell.personal .zsh		\
-.mpdscribble .gdbinit .npmrc .mpdconf .atom .bash_profile
+.mpdscribble .gdbinit .npmrc .mpdconf .atom .bash_profile       \
+.unison
 
 all:
 	@$(foreach file,$(candidates),$(symlink_to_home))

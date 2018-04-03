@@ -1,0 +1,4 @@
+root = /Users/artagnon/src/llvm
+root = ssh://blueberry//curr/ramk/src/llvm
+ignore = Name .git
+ignore = Name build

@@ -38,6 +38,7 @@
 	s = status
 	sh = show
 	shs = show -s
+	ns = show --name-status
 	c = clone
 	co = checkout
 	cof = checkout -f
@@ -53,17 +54,9 @@
 	cpc = cherry-pick --continue
 	cpa = cherry-pick --abort
 	cpq = cherry-pick --quit
-	fp = !rm -rf outgoing && git format-patch -M -C -o outgoing
-	fp1 = !rm -rf outgoing && git format-patch -1 -M -C -o outgoing
-	fpm = !rm -rf outgoing && git format-patch -M -C -o outgoing master
 	fpo = format-patch --stdout -M -C
 	clf = clang-format
 	se = send-email
-	sel = !git send-email --to=\"LKML <linux-kernel@vger.kernel.org>\" ~/src/linux/outgoing/*.patch
-	se-git = !git send-email --to=\"Git List <git@vger.kernel.org>\" ~/src/git/outgoing/*.patch
-	se-llvm = !git send-email --to=\"LLVMdev <llvmdev@cs.uiuc.edu>\" ~/src/llvm/outgoing/*.patch
-	se-cedet = !git send-email --to=\"cedet-devel <cedet-devel@lists.sourceforge.net>\" ~/src/cedet/outgoing/*.patch
-	se-clang = !git send-email --to=\"cfe-commits <cfe-commits@cs.uiuc.edu>\" ~/src/clang/outgoing/*.patch
 	graph = log --graph --decorate --pretty=oneline --abbrev-commit
 	rv = log --reverse origin..
 	rvp = log -p --reverse origin..
@@ -99,6 +92,7 @@
 	hot = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
 	bra = branch -a
 	m = merge
+	ff = merge --ff
 	fb = filter-branch
 	rp = rev-parse
 	rps = rev-parse --symbolic-full-name
@@ -114,7 +108,7 @@
 	d = diff
 	dni = diff --no-index
 	dc = diff --cached
-        o = diff --name-status @{u}
+    o = diff --name-status @{u}
 	g = grep -p
 	gl = grep -l
 	gi = grep -i
@@ -125,8 +119,8 @@
 	desc = describe --always --contains --all
 	ref = log -1 --date=short --pretty='%h (%s, %ad)'
 	fixes = log -1 --abbrev=12 --pretty='Fixes: %h (%s)'
-	h = help
 	cf = cat-file
+	cl = clean -dfx
 [man]
 	viewer = woman
 [status]
@@ -169,14 +163,8 @@
 	requireForce = false
 [credential]
 	helper = cache --timeout 36000
-[url "git@github.com:artagnon/"]
-	insteadOf = gh:artagnon/
-[url "git@github.com:klug/"]
-	insteadOf = gh:klug/
-[url "git://github.com/"]
+[url "git@github.com:"]
 	insteadOf = gh:
-[url "git@insidelabs-git.mathworks.com:"]
-    insteadOf = mw:
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
