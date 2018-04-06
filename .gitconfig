@@ -104,6 +104,7 @@
 	rre = remote rename
 	rsu = remote set-url
 	sad = submodule add
+	sud = submodule update --init
 	a = add
 	d = diff
 	dni = diff --no-index
