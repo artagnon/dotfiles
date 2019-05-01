@@ -14,20 +14,15 @@ remove_if_symlink =							\
 		fi;							\
 	fi;
 
-candidates = .zshrc .emacs .gitconfig .hgrc .Xdefaults .i3	\
-.ncmpcpp .xinitrc .tmux.conf .i3status.conf bin .ssh		\
-.irbrc .perlcriticrc .aspell.conf .aspell.personal .zsh		\
-.mpdscribble .gdbinit .npmrc .mpdconf .atom .bash_profile       \
-.unison
+candidates = .gitconfig .i3					\
+.tmux.conf .i3status.conf bin .ssh				\
+.irbrc .perlcriticrc .aspell.conf .aspell.personal 		\
+.mpdscribble .gdbinit .atom .bash_profile			\
 
 all:
 	@$(foreach file,$(candidates),$(symlink_to_home))
-	git submodule update --init --recursive;
-
-update:
-	git submodule foreach 'git checkout master; git pull'
 
 clean:
 	@$(foreach file,$(candidates),$(remove_if_symlink))
 
-.PHONY: update clean all
+.PHONY: clean all

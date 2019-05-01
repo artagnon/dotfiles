@@ -1,4 +1,0 @@
-root = /Users/artagnon/src/edg
-root = ssh://blueberry//curr/ramk/src/edg
-ignore = Name .git
-ignore = Name build

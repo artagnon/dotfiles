@@ -1,5 +1,5 @@
-[include]
-	path = ~/.private/.gitconfig
+[core]
+	editor = nvim
 [apply]
 	whitespace = fix
 [user]
@@ -44,12 +44,12 @@
 	cof = checkout -f
 	cob = checkout -b
 	com = checkout master
-	ci = commit
-	cia = commit --amend
-	cim = commit -m
-	ciaa = commit --amend -a
-	ciam = commit -am
-	cial = commit -a
+	ci = commit -s
+	cia = commit -s --amend
+	cim = commit -s -m
+	ciaa = commit -s --amend -a
+	ciam = commit -s -am
+	cial = commit -s -a
 	cp = cherry-pick
 	cpc = cherry-pick --continue
 	cpa = cherry-pick --abort

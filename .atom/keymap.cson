@@ -8,33 +8,15 @@
   'cmd-alt down': 'window:focus-pane-below'
   'cmd-alt-2': 'pane:split-right'
   'cmd-alt-3': 'pane:split-down'
+  'ctrl-v': 'core:page-down'
+  'alt-v': 'core:page-up'
  'atom-workspace atom-text-editor':
   'ctrl-y': 'core:paste'
   'alt-y': 'clipboard-plus:toggle'
   'alt-w': 'core:copy'
   'ctrl-w': 'core:cut'
   'alt-y': 'clipboard-plus:toggle'
-'.platform-darwin':
-  'alt-g g': 'unset!'
-  'alt-g': 'go-to-line:toggle'
-'atom-workspace':
-  'ctrl-alt-g': 'fuzzy-grep:toggleLastSearch'
-  'alt-g g': 'unset!'
-  'alt-g h': 'unset!'
-  'alt-g l': 'unset!'
-  'alt-g o': 'unset!'
-  'alt-g r': 'unset!'
-  'alt-g b': 'unset!'
-  'alt-g c': 'unset!'
 'atom-text-editor':
-  'alt-g d': 'unset!'
-  'alt-g down': 'unset!'
-  'alt-g up': 'unset!'
-  'ctrl-k t down': 'unset!'
-  'ctrl-k t up': 'unset!'
-  'ctrl-k t left': 'unset!'
-  'ctrl-k t right': 'unset!'
-  'ctrl-k t t': 'unset!'
   'alt-down': 'editor:move-line-down'
   'alt-shift-down': 'editor:duplicate-lines'
   'alt-up': 'editor:move-line-up'
@@ -42,7 +24,5 @@
 '.platform-darwin .advanced-open-file atom-text-editor':
   'enter': 'advanced-open-file:confirm-selected-or-first'
   'ctrl-j': 'core:confirm'
-'atom-text-editor.autocomplete-active':
-  'ctrl-g': 'autocomplete-plus:cancel'
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-;': 'editor:toggle-line-comments'

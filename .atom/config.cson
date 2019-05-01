@@ -72,13 +72,15 @@
     projectHome: "~/src"
     telemetryConsent: "limited"
     themes: [
-      "material-ui"
-      "material-syntax"
+      "atom-material-ui"
+      "atom-material-syntax"
     ]
   editor:
     fontSize: 12
     invisibles: {}
     preferredLineLength: 100
+    softWrap: true
+    softWrapAtPreferredLineLength: true
   "exception-reporting":
     userId: "eff40292-48c0-c335-72c9-7e123750c70f"
   "formatter-clang-format":
@@ -94,6 +96,7 @@
       optimisationLevel: 1
   "linter-ui-default":
     panelHeight: 300
+    showPanel: true
   megafinder:
     MWspecifics:
       dirNarrowing: "matlab/src/cg_ir matlab/src/cgir_vm matlab/src/cgir_vm_rt matlab/src/cgir_xform matlab/src/cgir_support matlab/src/emlcoder matlab/src/cgir_cgel matlab/src/cgir_tests matlab/src/cgir_polly"
