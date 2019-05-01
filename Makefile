@@ -14,10 +14,10 @@ remove_if_symlink =							\
 		fi;							\
 	fi;
 
-candidates = .gitconfig .i3					\
-.tmux.conf .i3status.conf bin .ssh				\
-.irbrc .perlcriticrc .aspell.conf .aspell.personal 		\
-.mpdscribble .gdbinit .atom .bash_profile			\
+candidates = .gitconfig 	\
+.tmux.conf bin .ssh		\
+.irbrc .perlcriticrc  		\
+.gdbinit .atom .bash_profile	\
 
 all:
 	@$(foreach file,$(candidates),$(symlink_to_home))
