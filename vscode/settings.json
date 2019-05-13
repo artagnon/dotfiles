@@ -1,0 +1,13 @@
+{
+    "editor.wordWrap": "on",
+    "editor.acceptSuggestionOnEnter": "smart",
+    "editor.autoClosingQuotes": "never",
+    "editor.suggest.shareSuggestSelections": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.tabCompletion": "on",
+    "fstar.path": "/Users/artagnon/src/fstar/bin/fstar.exe",
+    "clangd.path": "/Users/artagnon/bin/clangd",
+    "clangd.trace": "verbose",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.minimap.enabled": false
+}

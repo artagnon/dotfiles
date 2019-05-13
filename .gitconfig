@@ -44,12 +44,11 @@
 	cof = checkout -f
 	cob = checkout -b
 	com = checkout master
-	ci = commit -s
-	cia = commit -s --amend
-	cim = commit -s -m
-	ciaa = commit -s --amend -a
-	ciam = commit -s -am
-	cial = commit -s -a
+	ci = commit
+	cia = commit --amend
+	ciaa = commit --amend -a
+	ciamend = commit --amend
+	cial = commit -a
 	cp = cherry-pick
 	cpc = cherry-pick --continue
 	cpa = cherry-pick --abort
