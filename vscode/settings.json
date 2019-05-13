@@ -6,6 +6,7 @@
     "files.trimTrailingWhitespace": true,
     "editor.tabCompletion": "on",
     "fstar.path": "/Users/artagnon/src/fstar/bin/fstar.exe",
+    "fstar.arguments": ["--lsp"],
     "clangd.path": "/Users/artagnon/bin/clangd",
     "clangd.trace": "verbose",
     "editor.multiCursorModifier": "ctrlCmd",
