@@ -36,9 +36,9 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
-     ;; auto-completion
-     ;; better-defaults
+     ;; helm
+     auto-completion
+     better-defaults
      emacs-lisp
      ;; git
      ;; markdown
@@ -73,6 +73,7 @@ values."
 (setq lsp-clients-clangd-executable "~/bin/clangd")
 (setq lsp-enable-snippet nil)
 (setq lsp-enable-file-watchers t)
+(setq lsp-enable-completion-at-point t)
 
 (defun dotspacemacs/init ()
   "Initialization function.
