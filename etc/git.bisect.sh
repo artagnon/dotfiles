@@ -1,6 +1,5 @@
 #!/bin/sh
 
-make clean &&
-make -j 8 &&
-cd t &&
-sh -v -i regression.sh
+git clean -dfx &&
+make -C src -j8 ocaml-fstar-ocaml &&
+make -C ulib -j8

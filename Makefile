@@ -14,18 +14,13 @@ remove_if_symlink =							\
 		fi;							\
 	fi;
 
-candidates = .gitconfig 	\
-.tmux.conf bin .ssh		\
-.irbrc .perlcriticrc  		\
-.gdbinit .atom .bash_profile	\
+candidates = .gitconfig .rubocop.yml	\
+.tmux.conf bin .ssh .emacs.d	        \
+.irbrc .perlcriticrc .spacemacs		\
+.gdbinit .atom .bash_profile		\
 
 all:
 	@$(foreach file,$(candidates),$(symlink_to_home))
-
-vscode:
-	mkdir -p "~/Library/Application Support/Code - Insiders/User"
-	ln -s ~/dotfiles/vscode/settings.json "~/Library/Application Support/Code - Insiders/User/settings.json"
-	ln -s ~/dotfiles/vscode/keybindings.json "~/Library/Application Support/Code - Insiders/User/keybindings.json"
 
 clean:
 	@$(foreach file,$(candidates),$(remove_if_symlink))

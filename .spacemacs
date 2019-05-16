@@ -50,6 +50,7 @@ values."
      ;; syntax-checking
      ;; version-control
      lsp
+     coq
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -74,6 +75,9 @@ values."
 (setq lsp-enable-snippet nil)
 (setq lsp-enable-file-watchers t)
 (setq lsp-enable-completion-at-point t)
+
+;; Coq PG options
+(setq coq-prog-name "~/.opam/default/bin/coqtop")
 
 (defun dotspacemacs/init ()
   "Initialization function.

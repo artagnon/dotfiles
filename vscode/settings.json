@@ -10,5 +10,6 @@
     "clangd.path": "/Users/artagnon/bin/clangd",
     "clangd.trace": "verbose",
     "editor.multiCursorModifier": "ctrlCmd",
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "coqtop.binPath": "/Users/artagnon/.opam/default/bin"
 }
