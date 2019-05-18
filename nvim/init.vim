@@ -9,3 +9,5 @@ call plug#end()
 nnoremap <leader>f :FZF<cr>
 nnoremap <leader>cd :lcd %:h<cr>
 nnoremap gev :e $MYVIMRC<cr>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)

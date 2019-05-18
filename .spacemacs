@@ -49,6 +49,7 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     (c-c++ :variables c-c++-backend 'lsp-clangd)
      lsp
      coq
      )
@@ -75,6 +76,7 @@ values."
 (setq lsp-enable-snippet nil)
 (setq lsp-enable-file-watchers t)
 (setq lsp-enable-completion-at-point t)
+(add-hook 'c++-mode-hook #'lsp)
 
 ;; Coq PG options
 (setq coq-prog-name "~/.opam/default/bin/coqtop")
