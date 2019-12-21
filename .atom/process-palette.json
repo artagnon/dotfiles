@@ -1,8 +1,0 @@
-{
-  "commands" : [
-    {
-      "command" : "p4 edit {filePath}",
-      "action"  : "Perfoce Edit"
-    }
-  ]
-}
