@@ -4,6 +4,8 @@ Plug 'junegunn/vim-github-dashboard'
 Plug '/usr/local/opt/fzf'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'liuchengxu/eleline.vim'
+Plug 'let-def/vimbufsync'
+Plug 'whonore/coqtail'
 call plug#end()
 
 nnoremap <leader>f :FZF<cr>

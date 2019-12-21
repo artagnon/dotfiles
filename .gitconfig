@@ -24,16 +24,15 @@
 	lg = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr %an)%C(reset)
 [alias]
 	l = log
+	ol = log --oneline
 	lr = log --reverse --no-merges
 	lp = log -p --no-merges
 	l1 = log -1 -p
 	lrp = log --reverse -p --no-merges
 	lf = log --follow
 	la = !git log --author=\"$(git config --get user.name)\"
-	sl = shortlog -ns --no-merges --since=3.months
-	sle = shortlog -nse --no-merges --since=3.months
-	sli = shortlog -ns --no-merges
-	slei = shortlog -nse --no-merges
+	sl = shortlog -ns --no-merges
+	sle = shortlog -nse --no-merges
 	sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
 	s = status
 	sh = show
@@ -47,7 +46,7 @@
 	ci = commit
 	cia = commit --amend
 	ciaa = commit --amend -a
-	ciamend = commit --amend
+	ciam = commit --amend
 	cial = commit -a
 	cp = cherry-pick
 	cpc = cherry-pick --continue
@@ -84,11 +83,10 @@
 	b = blame -M -CC
 	bD = branch -D
 	bM = branch -M
-	br = branch
 	bru = branch -u
 	brum = branch -u master
 	fer = for-each-ref
-	hot = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
+	br = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
 	bra = branch -a
 	m = merge
 	ff = merge --ff
@@ -114,7 +112,7 @@
 	gi = grep -i
 	g0 = grep -p --max-depth 0
 	fg = !git ls-files | grep -E
-	rfl = log --oneline --relative-date -g
+	rfl = log --oneline -rfl -g
 	conf = config
 	desc = describe --always --contains --all
 	ref = log -1 --date=short --pretty='%h (%s, %ad)'

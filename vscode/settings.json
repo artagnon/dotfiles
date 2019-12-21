@@ -1,15 +1,41 @@
 {
-    "editor.wordWrap": "on",
-    "editor.acceptSuggestionOnEnter": "smart",
-    "editor.autoClosingQuotes": "never",
-    "editor.suggest.shareSuggestSelections": true,
-    "files.trimTrailingWhitespace": true,
-    "editor.tabCompletion": "on",
-    "fstar.path": "/Users/artagnon/src/fstar/bin/fstar.exe",
-    "fstar.arguments": ["--lsp"],
-    "clangd.path": "/Users/artagnon/bin/clangd",
-    "clangd.trace": "verbose",
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.minimap.enabled": false,
-    "coqtop.binPath": "/Users/artagnon/.opam/default/bin"
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.formatOnSave": true,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.autoClosingQuotes": "never",
+  "editor.suggest.shareSuggestSelections": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.tabCompletion": "on",
+  "vsfstar.path": "/User/artagnon/src/fstar/bin/fstar.exe",
+  "clangd.path": "/Users/artagnon/clangd",
+  "clangd.trace": "verbose",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "solargraph.commandPath": "/Users/artagnon/.rbenv/shims/solargraph",
+  "rufo.exe": "/Users/artagnon/.rbenv/shims/rufo",
+  "languageServerHaskell.hieExecutablePath": "/Users/artagnon/.local/bin/hie",
+  "workbench.colorTheme": "Material Theme",
+  "coqtop.binPath": "/Users/artagnon/.opam/default/bin",
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "coqLangServer.trace.server": "verbose",
+  "triggerTaskOnSave.tasks": {
+    "clayoven": ["**/*.clay", "**/*.slim"]
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editor.showTabs": true,
+  "debug.onTaskErrors": "showErrors",
+  "editor.wordWrapColumn": 120,
+  "editor.copyWithSyntaxHighlighting": true,
+  "explorer.confirmDelete": false,
+  "editor.detectIndentation": false
 }
