@@ -1,41 +1,49 @@
 {
   "editor.wordWrap": "wordWrapColumn",
-  "editor.formatOnSave": true,
   "editor.acceptSuggestionOnEnter": "smart",
   "editor.autoClosingQuotes": "never",
   "editor.suggest.shareSuggestSelections": true,
   "files.trimTrailingWhitespace": true,
   "editor.tabCompletion": "on",
-  "vsfstar.path": "/User/artagnon/src/fstar/bin/fstar.exe",
-  "clangd.path": "/Users/artagnon/clangd",
-  "clangd.trace": "verbose",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "solargraph.commandPath": "/Users/artagnon/.rbenv/shims/solargraph",
   "rufo.exe": "/Users/artagnon/.rbenv/shims/rufo",
-  "languageServerHaskell.hieExecutablePath": "/Users/artagnon/.local/bin/hie",
-  "workbench.colorTheme": "Material Theme",
-  "coqtop.binPath": "/Users/artagnon/.opam/default/bin",
-  "go.formatTool": "goimports",
-  "go.useLanguageServer": true,
-  "coqLangServer.trace.server": "verbose",
+  "coqtop.startOn": "open-script",
   "triggerTaskOnSave.tasks": {
-    "clayoven": ["**/*.clay", "**/*.slim"]
+    "clayoven": [
+      "**/*.clay",
+      "**/*.slim",
+      "**/*.css",
+      "**/*.js",
+      ".clayoven/*",
+    ]
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.editor.showTabs": true,
+  "workbench.editor.showTabs": false,
   "debug.onTaskErrors": "showErrors",
-  "editor.wordWrapColumn": 120,
+  "editor.wordWrapColumn": 140,
   "editor.copyWithSyntaxHighlighting": true,
   "explorer.confirmDelete": false,
-  "editor.detectIndentation": false
+  "window.zoomLevel": 0,
+  "files.exclude": {
+    "**/.DS_Store": true,
+  },
+  "files.insertFinalNewline": true,
+  "html.format.wrapLineLength": 140,
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "terminal.integrated.inheritEnv": false,
+  "workbench.editorAssociations": [
+    {
+        "viewType": "hexEditor.hexedit",
+        "filenamePattern": "*.rm"
+    }
+  ],
+  "editor.formatOnSave": true,
+  "extensions.ignoreRecommendations": false,
+  "explorer.confirmDragAndDrop": false,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "cmake.configureOnOpen": true
 }

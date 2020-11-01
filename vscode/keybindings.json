@@ -1,23 +1,78 @@
 // Place your key bindings in this file to override the defaults
 [
-    {
-        "key": "ctrl+v",
-        "command": "cursorPageDown",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "pagedown",
-        "command": "-cursorPageDown",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+cmd+v",
-        "command": "cursorPageUp",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "pageup",
-        "command": "-cursorPageUp",
-        "when": "textInputFocus"
-    }
+  {
+    "key": "ctrl+v",
+    "command": "cursorPageDown",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+cmd+v",
+    "command": "cursorPageUp",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "F2",
+    "command": "extension.coq.query.check",
+    "when": "editorTextFocus && editorLangId == coq"
+  },
+  {
+    "key": "F3",
+    "command": "extension.coq.query.print",
+    "when": "editorTextFocus && editorLangId == coq"
+  },
+  {
+    "key": "F4",
+    "command": "extension.coq.query.about",
+    "when": "editorTextFocus && editorLangId == coq"
+  },
+  {
+    "key": "F5",
+    "command": "extension.coq.interpretToPoint",
+    "when": "editorTextFocus && editorLangId == coq"
+  },
+  {
+    "key": "F5",
+    "command": "extension.coq.interpretToPoint",
+    "when": "resourceScheme==coq-view"
+  },
+  {
+    "key": "F6",
+    "command": "extension.coq.stepBackward",
+    "when": "editorTextFocus && editorLangId == coq"
+  },
+  {
+    "key": "F6",
+    "command": "extension.coq.stepBackward",
+    "when": "resourceScheme==coq-view"
+  },
+  {
+    "key": "F7",
+    "command": "extension.coq.stepForward",
+    "when": "editorTextFocus && editorLangId == coq"
+  },
+  {
+    "key": "F7",
+    "command": "extension.coq.stepForward",
+    "when": "resourceScheme==coq-view"
+  },
+  {
+    "key": "F8",
+    "command": "extension.coq.interpretToEnd",
+    "when": "editorTextFocus && editorLangId == coq"
+  },
+  {
+    "key": "F8",
+    "command": "extension.coq.interpretToEnd",
+    "when": "resourceScheme==coq-view"
+  },
+  {
+    "key": "F9",
+    "command": "extension.coq.interrupt",
+    "when": "editorTextFocus && editorLangId == coq"
+  },
+  {
+    "key": "F9",
+    "command": "extension.coq.interrupt",
+    "when": "resourceScheme==coq-view"
+  }
 ]

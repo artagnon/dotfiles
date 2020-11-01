@@ -1,5 +1,7 @@
 [core]
 	editor = nvim
+	ignorecase = false
+	quotepath = off
 [apply]
 	whitespace = fix
 [user]
@@ -44,7 +46,6 @@
 	cob = checkout -b
 	com = checkout master
 	ci = commit
-	cia = commit --amend
 	ciaa = commit --amend -a
 	ciam = commit --amend
 	cial = commit -a
@@ -62,6 +63,7 @@
 	rh = reset --hard
 	rhu = reset --hard @{u}
 	re = rebase
+	rem = rebase master
 	reo = rebase --onto
 	ri = rebase -i
 	rim = rebase -i master
@@ -111,7 +113,6 @@
 	gl = grep -l
 	gi = grep -i
 	g0 = grep -p --max-depth 0
-	fg = !git ls-files | grep -E
 	rfl = log --oneline -rfl -g
 	conf = config
 	desc = describe --always --contains --all
