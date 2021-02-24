@@ -6,7 +6,7 @@
 	whitespace = fix
 [user]
 	name = Ramkumar Ramachandra
-	email = artagnon@gmail.com
+	email = r@artagnon.com
 [github]
 	user = artagnon
 [format]
@@ -14,9 +14,9 @@
 	coverLetter = auto
 	defaultTo = master
 [sendemail]
-	smtpuser = artagnon@gmail.com
+	smtpuser = r@artagnon.com
 	suppresscc = self
-	smtpserver = smtp.gmail.com
+	smtpserver = smtp.fastmail.com
 	smtpserverport = 587
 	smtpencryption = tls
 	chainreplyto = false
