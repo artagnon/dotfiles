@@ -4,11 +4,5 @@
 			"command": "clangd",
 			"rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
 			"filetypes": ["c", "cpp", "objc", "objcpp"]
-		},
-		"fstar": {
-			"command": "fstar.exe",
-			"args": ["--lsp"],
-			"filetypes": ["fs", "fsi", "fst", "fsti"]
 		}
-	}
 }
