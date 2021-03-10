@@ -15,8 +15,7 @@ remove_if_symlink =							\
 	fi;
 
 candidates = .gitconfig .rubocop.yml	\
-.tmux.conf bin .ssh .emacs.d	        \
-.irbrc .perlcriticrc .spacemacs		\
+bin .ssh .perlcriticrc .irbrc
 
 all:
 	@$(foreach file,$(candidates),$(symlink_to_home))
