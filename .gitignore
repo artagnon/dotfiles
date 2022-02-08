@@ -6,6 +6,7 @@
 *.elc
 *.errors
 *.1
+*pycache*
 .private
 .xmonad/xmonad-i386-linux
 .xmonad/xmonad-x86_64-linux

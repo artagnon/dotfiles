@@ -2,13 +2,15 @@
 	editor = nvim
 	ignorecase = false
 	quotepath = off
-[apply]
-	whitespace = fix
 [user]
 	name = Ramkumar Ramachandra
 	email = r@artagnon.com
 [github]
 	user = artagnon
+[diff]
+	colorMoved = dimmed-zebra
+[apply]
+	whitespace = fix
 [format]
 	signoff = true
 	coverLetter = auto
@@ -36,8 +38,8 @@
 	sl = shortlog -ns --no-merges
 	sle = shortlog -nse --no-merges
 	sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
-	s = status
-	sh = show
+	s = status -s
+	sh = show -w
 	shs = show -s
 	ns = show --name-status
 	c = clone
@@ -105,7 +107,7 @@
 	sad = submodule add
 	sud = submodule update --init
 	a = add
-	d = diff
+	d = diff -w
 	dni = diff --no-index
 	dc = diff --cached
     o = diff --name-status @{u}
@@ -169,3 +171,5 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+[init]
+	defaultBranch = master
