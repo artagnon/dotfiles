@@ -26,102 +26,6 @@
 	default = current
 [pretty]
 	lg = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr %an)%C(reset)
-[alias]
-	l = log
-	ol = log --oneline
-	lr = log --reverse --no-merges
-	lp = log -p --no-merges
-	l1 = log -1 -p
-	lrp = log --reverse -p --no-merges
-	lf = log --follow
-	la = !git log --author=\"$(git config --get user.name)\"
-	sl = shortlog -ns --no-merges
-	sle = shortlog -nse --no-merges
-	sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
-	s = status -s
-	sh = show -w
-	shs = show -s
-	ns = show --name-status
-	c = clone
-	co = checkout
-	cof = checkout -f
-	cob = checkout -b
-	com = checkout master
-	ci = commit
-	ciaa = commit --amend -a
-	ciam = commit --amend
-	cial = commit -a
-	cp = cherry-pick
-	cpc = cherry-pick --continue
-	cpa = cherry-pick --abort
-	cpq = cherry-pick --quit
-	fpo = format-patch --stdout -M -C
-	clf = clang-format
-	se = send-email
-	graph = log --graph --decorate --pretty=oneline --abbrev-commit
-	rv = log --reverse origin..
-	rvp = log -p --reverse origin..
-	r = reset
-	rh = reset --hard
-	rhu = reset --hard @{u}
-	re = rebase
-	rem = rebase master
-	reo = rebase --onto
-	ri = rebase -i
-	rim = rebase -i master
-	rc = rebase --continue
-	ra = rebase --abort
-	rs = rebase --skip
-	ss = stash save
-	ssk = stash save --keep-index
-	sp = stash pop
-	sd = stash drop
-	sc = stash clear
-	p = push
-	pup = push -u
-	pf = push -f
-	f = fetch
-	fo = fetch origin
-	fa = fetch --all
-	pu = pull
-	b = blame -M -CC
-	bD = branch -D
-	bM = branch -M
-	bru = branch -u
-	brum = branch -u master
-	fer = for-each-ref
-	br = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
-	bra = branch -a
-	m = merge
-	ff = merge --ff
-	fb = filter-branch
-	rp = rev-parse
-	rps = rev-parse --symbolic-full-name
-	rl = rev-list
-	rsh = remote show -n
-	rad = remote add
-	rrm = remote rm
-	rpr = remote prune
-	rre = remote rename
-	rsu = remote set-url
-	sad = submodule add
-	sud = submodule update --init
-	a = add
-	d = diff -w
-	dni = diff --no-index
-	dc = diff --cached
-    o = diff --name-status @{u}
-	g = grep -p
-	gl = grep -l
-	gi = grep -i
-	g0 = grep -p --max-depth 0
-	rfl = log --oneline -rfl -g
-	conf = config
-	desc = describe --always --contains --all
-	ref = log -1 --date=short --pretty='%h (%s, %ad)'
-	fixes = log -1 --abbrev=12 --pretty='Fixes: %h (%s)'
-	cf = cat-file
-	cl = clean -dfx
 [man]
 	viewer = woman
 [status]
@@ -173,3 +77,132 @@
 	process = git-lfs filter-process
 [init]
 	defaultBranch = master
+[alias]
+	# status
+	s = status
+
+	# log
+	l = log --stat
+	ol = log --oneline --stat
+	lr = log --reverse
+	lf = log --follow
+	la = !git log --author=\"$(git config --get user.name)\"
+	graph = log --graph --decorate --pretty=oneline --abbrev-commit
+
+	# shortlog
+	sl = shortlog -ns --no-merges
+	sle = shortlog -nse --no-merges
+	sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
+
+	# show
+	sh = show -w
+	stat = show --stat
+
+	# clone
+	c = clone
+
+	# fetch
+	f = fetch
+	fo = fetch origin
+	fa = fetch --all
+
+	# pull and push
+	pu = pull
+	p = push
+	pup = push -u
+	pf = push -f
+
+	# remote
+	rsh = remote show -n
+	rad = remote add
+	rrm = remote rm
+	rpr = remote prune
+	rre = remote rename
+	rsu = remote set-url
+
+	# checkout
+	co = checkout
+	cof = checkout -f
+	cob = checkout -b
+	com = checkout master
+
+	# branch
+	bd = branch -D
+	bm = branch -M
+	bru = branch -u
+	br = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
+	bra = branch -a
+
+	# merge
+	m = merge
+
+	# add, commit
+	a = add
+	ci = commit
+	ciaa = commit --amend -a
+	ciam = commit --amend
+	cial = commit -a
+
+	# check-pick
+	cp = cherry-pick
+	cpc = cherry-pick --continue
+	cpa = cherry-pick --abort
+	cpq = cherry-pick --quit
+
+	# rebase
+	re = rebase
+	rem = rebase master
+	reo = rebase --onto
+	ri = rebase -i
+	rim = rebase -i master
+	rc = rebase --continue
+	ra = rebase --abort
+	rs = rebase --skip
+
+	# clang-format
+	clf = clang-format
+
+	# format-patch and send-email
+	fpo = format-patch --stdout -M -C
+	se = send-email
+
+	# reset
+	r = reset
+	rh = reset --hard
+
+	# stash
+	ss = stash save
+	ssk = stash save --keep-index
+	sp = stash pop
+	sd = stash drop
+	sc = stash clear
+
+	# blame
+	b = blame -M -CC
+
+	# filter-branch
+	fb = filter-branch
+
+	# submodule
+	sad = submodule add
+	sud = submodule update --init
+
+	# diff
+	d = diff -w
+	dni = diff --no-index
+	dc = diff --cached
+
+	# grep
+	g = grep -p
+	gl = grep -l
+	gi = grep -i
+	g0 = grep -p --max-depth 0
+
+	# config
+	conf = config
+
+	# describe
+	desc = describe --always --contains --all
+
+	# clean
+	cl = clean -dfx
