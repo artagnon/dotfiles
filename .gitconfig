@@ -83,6 +83,7 @@
 
 	# log
 	l = log --stat
+	lp = log --patch
 	ol = log --oneline --stat
 	lr = log --reverse
 	lf = log --follow
@@ -189,6 +190,7 @@
 
 	# diff
 	d = diff -w
+	ds = diff --stat
 	dni = diff --no-index
 	dc = diff --cached
 
