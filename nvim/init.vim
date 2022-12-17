@@ -8,12 +8,15 @@ Plug 'let-def/vimbufsync'
 Plug 'whonore/coqtail'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-finder'
-Plug 'EdenEast/nightfox.nvim'
+Plug 'EdenEast/nightfox.nvim', {'branch': 'main'}
+Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
+Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
-nnoremap <leader>f :FZF<cr>
-nnoremap <leader>cd :lcd %:h<cr>
+set termguicolors
+
+nnoremap <leader>f :FzfLua files<cr>
 nnoremap gev :e $MYVIMRC<cr>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-colorscheme nightfox
+colorscheme carbonfox
