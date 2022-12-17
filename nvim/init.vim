@@ -11,9 +11,11 @@ Plug 'RishabhRD/nvim-finder'
 Plug 'EdenEast/nightfox.nvim', {'branch': 'main'}
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-lualine/lualine.nvim'
 call plug#end()
 
 set termguicolors
+lua require('lualine').setup()
 
 nnoremap <leader>f :FzfLua files<cr>
 nnoremap gev :e $MYVIMRC<cr>

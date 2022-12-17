@@ -2,6 +2,7 @@
 	editor = nvim
 	ignorecase = false
 	quotepath = off
+	pager = delta
 [user]
 	name = Ramkumar Ramachandra
 	email = r@artagnon.com
@@ -36,8 +37,7 @@
 	rebase = true
 [merge]
 	conflictstyle = diff3
-	log = 10
-	defaultToUpstream = true
+	log = true
 [rerere]
 	enabled = true
 [rebase]
@@ -45,7 +45,11 @@
 	autostash = true
 [diff]
 	submodule = log
-	tool = vimdiff2
+	colorMoved = default
+[delta]
+	navigate = true
+	light = false
+	line-numbers = true
 [pack]
 	usebitmaps = true
 [grep]
@@ -78,6 +82,8 @@
 	process = git-lfs filter-process
 [init]
 	defaultBranch = master
+[interactive]
+	diffFilter = delta --color-only
 [alias]
 	# status
 	s = status
