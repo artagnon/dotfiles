@@ -2,19 +2,11 @@
 *#
 *DS_Store
 *.o
-*.hi
-*.elc
 *.errors
 *.1
 *pycache*
-.private
-.xmonad/xmonad-i386-linux
-.xmonad/xmonad-x86_64-linux
-.xmonad/history
-.ncmpcpp/error.log
-.zsh/cache/
-.zsh/rramacha/cache/
+fish/fish_variables
+nvim/plugged
 
 # cloned separately
-.zprezto
 .rbenv
