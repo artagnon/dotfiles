@@ -49,7 +49,6 @@
 [delta]
 	navigate = true
 	light = false
-	line-numbers = true
 [pack]
 	usebitmaps = true
 [grep]
