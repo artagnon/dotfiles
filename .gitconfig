@@ -5,6 +5,7 @@
 [user]
 	name = Ramkumar Ramachandra
 	email = r@artagnon.com
+	signingKey = 6BC7A231EC97BC9D
 [github]
 	user = artagnon
 [diff]
