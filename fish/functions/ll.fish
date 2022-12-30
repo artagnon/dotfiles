@@ -1,4 +1,3 @@
-# Defined via `source`
-function ll --wraps='ls -lha' --description 'alias ll=ls -lha'
-  ls -lha $argv; 
+function ll --wraps='ls -lha' --wraps='exa --long' --description 'alias ll=exa --long'
+  exa --long $argv; 
 end
