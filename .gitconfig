@@ -2,7 +2,6 @@
 	editor = nvim
 	ignorecase = false
 	quotepath = off
-	pager = delta
 [user]
 	name = Ramkumar Ramachandra
 	email = r@artagnon.com
@@ -11,6 +10,7 @@
 	user = artagnon
 [diff]
 	colorMoved = dimmed-zebra
+	external = difft --display inline
 [apply]
 	whitespace = fix
 [format]
@@ -45,10 +45,6 @@
 	autostash = true
 [diff]
 	submodule = log
-	colorMoved = default
-[delta]
-	navigate = true
-	light = false
 [pack]
 	usebitmaps = true
 [grep]
@@ -81,15 +77,13 @@
 	process = git-lfs filter-process
 [init]
 	defaultBranch = master
-[interactive]
-	diffFilter = delta --color-only
 [alias]
 	# status
 	s = status
 
 	# log
 	l = log --stat
-	lp = log --patch
+	lp = log --patch --ext-diff
 	ol = log --oneline --stat
 	lr = log --reverse
 	lf = log --follow
@@ -102,7 +96,7 @@
 	sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
 
 	# show
-	sh = show -w
+	sh = show -w --ext-diff
 	stat = show --stat
 
 	# clone
