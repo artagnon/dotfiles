@@ -10,7 +10,6 @@
 	user = artagnon
 [diff]
 	colorMoved = dimmed-zebra
-	external = difft --display inline
 [apply]
 	whitespace = fix
 [format]
@@ -83,7 +82,7 @@
 
 	# log
 	l = log --stat
-	lp = log --patch --ext-diff
+	lp = log --patch
 	ol = log --oneline --stat
 	lr = log --reverse
 	lf = log --follow
@@ -96,7 +95,7 @@
 	sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
 
 	# show
-	sh = show -w --ext-diff
+	sh = show -w
 	stat = show --stat
 
 	# clone
