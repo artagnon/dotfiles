@@ -84,10 +84,11 @@
 	# log
 	l = log --stat
 	lp = log --patch
-	ol = log --oneline --stat
+	l1 = log --oneline --stat
 	lr = log --reverse
 	lf = log --follow
-	la = !git log --author=\"$(git config --get user.name)\"
+	la = !git log --stat --author=\"$(git config --get user.name)\"
+	la1 = !git log --oneline --author=\"$(git config --get user.name)\"
 	graph = log --graph --decorate --pretty=oneline --abbrev-commit
 
 	# shortlog
