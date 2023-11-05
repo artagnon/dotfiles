@@ -64,6 +64,8 @@
 	implicitIdentity = false
 	detachedHead = false
 	amWorkDir = false
+	waitingForEditor = false
+	rmHints = false
 [clean]
 	requireForce = false
 [credential]
