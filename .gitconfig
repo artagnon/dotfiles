@@ -164,7 +164,7 @@
 	rs = rebase --skip
 
 	# clang-format
-	clf = clang-format
+	cf = clang-format
 
 	# format-patch and send-email
 	fpo = format-patch --stdout -M -C
