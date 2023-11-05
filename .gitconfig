@@ -182,7 +182,7 @@
 	sc = stash clear
 
 	# blame
-	b = blame -M -CC
+	b = blame -M -CC --color-by-age --color-lines
 
 	# filter-branch
 	fb = filter-branch
