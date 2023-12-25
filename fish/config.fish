@@ -1,4 +1,4 @@
-set PATH ~/.rbenv/bin /usr/local/bin ~/.local/bin ~/bin ~/go/bin ~/.cargo/bin ~/.yarn/bin ~/.config/yarn/global/node_modules/.bin $PATH
+set PATH ~/.rbenv/bin /usr/local/bin ~/.local/bin ~/bin ~/go/bin ~/.cargo/bin /usr/local/opt/llvm/bin ~/.yarn/bin ~/.config/yarn/global/node_modules/.bin $PATH
 set -gx GPG_TTY $(tty)
 
 # zoxide
