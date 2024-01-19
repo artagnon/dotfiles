@@ -3,12 +3,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 Plug 'EdenEast/nightfox.nvim', {'branch': 'main'}
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 set termguicolors
-lua require('lualine').setup()
 
 nnoremap <leader>f :FzfLua files<cr>
 nnoremap gev :e $MYVIMRC<cr>
