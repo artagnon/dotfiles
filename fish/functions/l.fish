@@ -1,3 +1,3 @@
-function l --wraps=ls --wraps=exa --description 'alias l=exa'
-  exa $argv; 
+function l --wraps=ls --wraps=eza --description 'alias l=eza'
+  eza $argv; 
 end
