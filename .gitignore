@@ -1,16 +1,5 @@
-*~
-*#
-*DS_Store
-*.o
-*.errors
-*.1
-*pycache*
 .ssh/id_rsa
 .ssh/id_rsa.pub
 .ssh/known_hosts
 .ssh/*.pem
-fish/fish_variables
 nvim/plugged
-
-# cloned separately
-.rbenv
