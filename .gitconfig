@@ -85,7 +85,7 @@
 	l = log --stat
 	lp = log --patch
 	l1 = log --oneline --stat
-	lr = log --reverse
+	lr = log --reverse --stat
 	lf = log --follow
 	la = !git log --stat --author=\"$(git config --get user.name)\"
 	la1 = !git log --oneline --author=\"$(git config --get user.name)\"
@@ -165,7 +165,7 @@
 	cf = clang-format
 
 	# format-patch and send-email
-	fpo = format-patch --stdout -M -C
+	fp = format-patch -M -C
 	se = send-email
 
 	# reset
