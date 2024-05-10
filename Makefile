@@ -30,8 +30,7 @@ remove_config_symlink =							\
 		fi;							\
 	fi;
 
-home_candidates = .gitconfig bin .ssh .perlcriticrc \
-.irbrc .zshrc .tmux.conf
+home_candidates = .gitconfig bin .perlcriticrc .irbrc .zshrc .tmux.conf
 
 config_candidates = fish nvim
 
