@@ -1,13 +1,7 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 config.default_prog = { '/opt/homebrew/bin/fish', '-l' }
-config.color_scheme = 'iTerm2 Default'
-config.unix_domains = {
-  {
-    name = 'unix',
-  },
-}
-config.default_gui_startup_args = { 'connect', 'unix' }
+config.color_scheme = 'Sonokai (Gogh)'
 config.keys = {
   {
     key = 'w',

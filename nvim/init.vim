@@ -5,7 +5,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/tokyonight.nvim', {'branch': 'main'}
 call plug#end()
 
-set termguicolors
 set tabstop=2
 set shiftwidth=2
 set expandtab
