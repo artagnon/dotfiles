@@ -1,4 +1,4 @@
-set PATH ~/.rbenv/bin /opt/homebrew/bin ~/.local/bin ~/bin ~/go/bin ~/.cargo/bin /usr/local/opt/llvm/bin ~/.yarn/bin ~/.config/yarn/global/node_modules/.bin $PATH
+set PATH ~/bin ~/.rbenv/bin ~/.local/bin ~/.cargo/bin ~/.yarn/bin /opt/homebrew/bin /opt/homebrew/sbin $PATH
 
 # venv
 source ~/src/llvm-test-suite/venv/bin/activate.fish

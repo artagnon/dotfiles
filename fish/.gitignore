@@ -4,3 +4,4 @@ fish_prompt.fish
 fish_mode_prompt.fish
 fish_variables
 fish_plugins
+conf.d/
