@@ -1,36 +1,37 @@
-symlink_to_home =						\
-	if test -e ~/$(file); then				\
+symlink_to_home =															\
+	if test -e ~/$(file); then									\
 		echo "Warning: ~/$(file) already exists";	\
-	else							\
-		ln -s ~/dotfiles/$(file) ~/$(file);		\
+	else																				\
+		ln -s ~/dotfiles/$(file) ~/$(file);				\
 	fi;
 
-symlink_to_config =						\
-	if test -e ~/.config/$(file); then				\
+symlink_to_config =																		\
+	if test -e ~/.config/$(file); then									\
 		echo "Warning: ~/.config/$(file) already exists";	\
-	else							\
-		ln -s ~/dotfiles/$(file) ~/.config/$(file);		\
+	else																								\
+		ln -s ~/dotfiles/$(file) ~/.config/$(file);				\
 	fi;
 
-remove_home_symlink =							\
-	if test -e ~/$(file); then					\
-		if test -h ~/$(file); then				\
-			rm ~/$(file);					\
-		else							\
+remove_home_symlink =															\
+	if test -e ~/$(file); then											\
+		if test -h ~/$(file); then										\
+			rm ~/$(file);																\
+		else																					\
 			echo "Warning: ~/$(file) is not a symlink";	\
-		fi;							\
+		fi;																						\
 	fi;
 
-remove_config_symlink =							\
-	if test -e ~/.config/$(file); then					\
-		if test -h ~/.config/$(file); then				\
-			rm ~/.config/$(file);					\
-		else							\
+remove_config_symlink =																		\
+	if test -e ~/.config/$(file); then											\
+		if test -h ~/.config/$(file); then										\
+			rm ~/.config/$(file);																\
+		else																									\
 			echo "Warning: ~/.config/$(file) is not a symlink";	\
-		fi;							\
+		fi;																										\
 	fi;
 
-home_candidates = .gitconfig bin .perlcriticrc .irbrc .zshrc .tmux.conf
+home_candidates = .gitconfig bin .perlcriticrc .irbrc \
+									.zshrc .wezterm.lua
 
 config_candidates = fish nvim
 

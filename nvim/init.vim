@@ -1,21 +1,21 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-Plug 'EdenEast/nightfox.nvim', {'branch': 'main'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
-Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'folke/tokyonight.nvim', {'branch': 'main'}
 call plug#end()
 
 set termguicolors
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set nosmartindent
+set nocindent
+set noautoindent
 
 nnoremap <leader>f :FzfLua files<cr>
 nnoremap gev :e $MYVIMRC<cr>
 
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
@@ -24,4 +24,17 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-colorscheme carbonfox
+:lua << EOF
+require 'nvim-treesitter.configs'.setup {
+  auto_install = true,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false
+  },
+  indent = {
+    enable = true
+  }
+}
+EOF
+
+colorscheme tokyonight-night
