@@ -1,54 +1,43 @@
+local vim = vim
+
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.opt.smartindent = false
-vim.opt.cindent = false
-vim.opt.autoindent = false
-vim.opt.backup = false
-vim.opt.writebackup = false
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "yes"
 
+-- lazy setup
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 -- plug
-local Plug = vim.fn['plug#']
-vim.call('plug#begin')
-Plug('neoclide/coc.nvim', { ['branch'] = 'release' })
-Plug('ibhagwan/fzf-lua', { ['branch'] = 'main' })
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = function()
-  local tsupdate = require('nvim-treesitter.install').update({ with_sync = true })
-  tsupdate()
-end })
-Plug('rebelot/kanagawa.nvim')
-vim.call('plug#end')
-
--- coc
-function _G.check_back_space()
-  local col = vim.fn.col('.') - 1
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
-end
-
-local keyset = vim.keymap.set
-local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-keyset("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-keyset("n", "gd", "<Plug>(coc-definition)", {silent = true})
-keyset("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
-keyset("n", "gi", "<Plug>(coc-implementation)", {silent = true})
-keyset("n", "gr", "<Plug>(coc-references)", {silent = true})
-keyset("n", "<leader>2", "<Plug>(coc-rename)", {silent = true})
-
-function _G.show_docs()
-  local cw = vim.fn.expand('<cword>')
-  if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
-    vim.api.nvim_command('h ' .. cw)
-  elseif vim.api.nvim_eval('coc#rpc#ready()') then
-    vim.fn.CocActionAsync('doHover')
-  else
-    vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-  end
-end
-keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
+require 'lazy'.setup({
+  'neovim/nvim-lspconfig',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-cmdline',
+  'nvim-lua/plenary.nvim',
+  'petertriho/cmp-git',
+  'hrsh7th/cmp-path',
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
+  { 'ibhagwan/fzf-lua', branch = 'main' },
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  'rebelot/kanagawa.nvim'})
 
 -- fzf
+local keyset = vim.keymap.set
 keyset('n', '<leader>f', "<CMD>lua require('fzf-lua').files()<CR>", {silent = true})
 
 -- nvim-treesitter
@@ -63,4 +52,60 @@ require 'nvim-treesitter.configs'.setup {
   }
 }
 
+-- nvim-cmp
+local cmp = require 'cmp'
+cmp.setup({
+  snippet = {
+    expand = { function(args) vim.snippet.expand(args.body) end }
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+  }),
+})
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' },
+  },
+    {
+      { name = 'cmdline' },
+    }),
+  matching = { disallow_symbol_nonprefix_matching = false }
+})
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'git' },
+  },
+    {
+      { name = 'buffer' },
+    }),
+})
+
+require 'cmp_git'.setup({
+  remotes = { "ram" },
+})
+
+local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
+require 'lspconfig'['clangd'].setup {
+  capabilities = capabilities
+}
+require 'lspconfig'['lua_ls'].setup {
+  capabilities = capabilities
+}
+
+-- mason and mason-lspconfig
+require 'mason'.setup()
+require 'mason-lspconfig'.setup()
+
+-- colorscheme
 vim.cmd('silent! colorscheme kanagawa-wave')
