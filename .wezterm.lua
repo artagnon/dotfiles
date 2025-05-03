@@ -30,7 +30,7 @@ wezterm.on('window-resized', function(window, pane)
 end)
 
 config.default_prog = { '/opt/homebrew/bin/fish', '-l' }
-config.color_scheme = 'Sonokai (Gogh)'
+config.color_scheme = 'Catppuccin Mocha'
 config.keys = {
   {
     key = 'w',
