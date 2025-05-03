@@ -1,202 +1,202 @@
 [core]
-	editor = nvim
-	ignorecase = false
-	quotepath = off
+  editor = nvim
+  ignorecase = false
+  quotepath = off
 [user]
-	name = Ramkumar Ramachandra
-	email = r@artagnon.com
+  name = Ramkumar Ramachandra
+  email = r@artagnon.com
 [github]
-	user = artagnon
+  user = artagnon
 [diff]
-	colorMoved = dimmed-zebra
+  colorMoved = dimmed-zebra
 [apply]
-	whitespace = fix
+  whitespace = fix
 [format]
-	signoff = true
-	coverLetter = auto
-	defaultTo = master
+  signoff = true
+  coverLetter = auto
+  defaultTo = master
 [sendemail]
-	smtpuser = r@artagnon.com
-	suppresscc = self
-	smtpserver = smtp.fastmail.com
-	smtpserverport = 587
-	smtpencryption = tls
-	chainreplyto = false
+  smtpuser = r@artagnon.com
+  suppresscc = self
+  smtpserver = smtp.fastmail.com
+  smtpserverport = 587
+  smtpencryption = tls
+  chainreplyto = false
 [push]
-	default = current
+  default = current
 [pretty]
-	lg = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr %an)%C(reset)
+  lg = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr %an)%C(reset)
 [man]
-	viewer = woman
+  viewer = woman
 [status]
-	short = true
-	branch = true
+  short = true
+  branch = true
 [pull]
-	rebase = true
+  rebase = true
 [merge]
-	conflictstyle = diff3
-	log = true
+  conflictstyle = diff3
+  log = true
 [rerere]
-	enabled = true
+  enabled = true
 [rebase]
-	autosquash = true
-	autostash = true
+  autosquash = true
+  autostash = true
 [diff]
-	submodule = log
+  submodule = log
 [pack]
-	usebitmaps = true
+  usebitmaps = true
 [log]
-	date = relative
-	mailmap = true
+  date = relative
+  mailmap = true
 [blame]
-	date = relative
-	blankboundary = true
-	showroot = true
+  date = relative
+  blankboundary = true
+  showroot = true
 [advice]
-	pushUpdateRejected = false
-	statusHints = false
-	commitBeforeMerge = false
-	resolveConflict = false
-	implicitIdentity = false
-	detachedHead = false
-	amWorkDir = false
-	waitingForEditor = false
-	rmHints = false
+  pushUpdateRejected = false
+  statusHints = false
+  commitBeforeMerge = false
+  resolveConflict = false
+  implicitIdentity = false
+  detachedHead = false
+  amWorkDir = false
+  waitingForEditor = false
+  rmHints = false
 [clean]
-	requireForce = false
+  requireForce = false
 [credential]
-	helper = cache --timeout 36000
+  helper = cache --timeout 36000
 [url "git@github.com:"]
-	insteadOf = gh:
+  insteadOf = gh:
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 [init]
-	defaultBranch = master
+  defaultBranch = master
 [alias]
-	# status
-	s = status
+  # status
+  s = status
 
-	# log
-	l = log --stat
-	lp = log --patch
-	l1 = log --oneline --stat
-	lr = log --reverse --stat
-	lf = log --follow
-	la = !git log --stat --author=\"$(git config --get user.name)\"
-	la1 = !git log --oneline --author=\"$(git config --get user.name)\"
-	graph = log --graph --decorate --pretty=oneline --abbrev-commit
+  # log
+  l = log --stat
+  lp = log --patch
+  l1 = log --oneline --stat
+  lr = log --reverse --stat
+  lf = log --follow
+  la = !git log --stat --author=\"$(git config --get user.name)\"
+  la1 = !git log --oneline --author=\"$(git config --get user.name)\"
+  graph = log --graph --decorate --pretty=oneline --abbrev-commit
 
-	# shortlog
-	sl = shortlog -ns --no-merges
-	sle = shortlog -nse --no-merges
-	sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
+  # shortlog
+  sl = shortlog -ns --no-merges
+  sle = shortlog -nse --no-merges
+  sla = !git shortlog -ns --no-merges --author=\"$(git config --get user.name)\"
 
-	# show
-	sh = show
+  # show
+  sh = show
 
-	# clone
-	c = clone
+  # clone
+  c = clone
 
-	# fetch
-	f = fetch
-	fo = fetch origin
-	fa = fetch --all
+  # fetch
+  f = fetch
+  fo = fetch origin
+  fa = fetch --all
 
-	# pull and push
-	pu = pull
-	p = push
-	pup = push -u
-	pf = push -f
+  # pull and push
+  pu = pull
+  p = push
+  pup = push -u
+  pf = push -f
 
-	# remote
-	rsh = remote show -n
-	rad = remote add
-	rrm = remote rm
-	rpr = remote prune
-	rre = remote rename
-	rsu = remote set-url
+  # remote
+  rsh = remote show -n
+  rad = remote add
+  rrm = remote rm
+  rpr = remote prune
+  rre = remote rename
+  rsu = remote set-url
 
-	# checkout
-	co = checkout
-	cof = checkout -f
-	cob = checkout -b
-	com = checkout master
+  # checkout
+  co = checkout
+  cof = checkout -f
+  cob = checkout -b
+  com = !git checkout \"$(git config --get init.defaultBranch)\"
 
-	# branch
-	bd = branch -D
-	bm = branch -M
-	bru = branch -u
-	br = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
-	bra = branch -a
+  # branch
+  bd = branch -D
+  bm = branch -M
+  bru = branch -u
+  br = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
+  bra = branch -a
 
-	# merge
-	m = merge
+  # merge
+  m = merge
 
-	# add, commit
-	a = add
-	ci = commit
-	ciaa = commit --amend -a
-	ciam = commit --amend
-	cial = commit -a
+  # add, commit
+  a = add
+  ci = commit
+  ciaa = commit --amend -a
+  ciam = commit --amend
+  cial = commit -a
 
-	# check-pick
-	cp = cherry-pick
-	cpc = cherry-pick --continue
-	cpa = cherry-pick --abort
-	cpq = cherry-pick --quit
+  # check-pick
+  cp = cherry-pick
+  cpc = cherry-pick --continue
+  cpa = cherry-pick --abort
+  cpq = cherry-pick --quit
 
-	# rebase
-	re = rebase
-	rem = rebase master
-	reo = rebase --onto
-	ri = rebase -i
-	rim = rebase -i master
-	rc = rebase --continue
-	ra = rebase --abort
-	rs = rebase --skip
+  # rebase
+  re = rebase
+  rem = !git rebase \"$(git-config --get init.defaultBranch)\"
+  reo = rebase --onto
+  ri = rebase -i
+  rim = !git rebase -i \"$(git config --get init.defaultBranch)\"
+  rc = rebase --continue
+  ra = rebase --abort
+  rs = rebase --skip
 
-	# clang-format
-	cf = clang-format
+  # clang-format
+  cf = clang-format
 
-	# format-patch and send-email
-	fp = format-patch -M -C
-	se = send-email
+  # format-patch and send-email
+  fp = format-patch -M -C
+  se = send-email
 
-	# reset
-	r = reset
-	rh = reset --hard
+  # reset
+  r = reset
+  rh = reset --hard
 
-	# stash
-	ss = stash save
-	ssk = stash save --keep-index
-	sp = stash pop
-	sd = stash drop
-	sc = stash clear
+  # stash
+  ss = stash save
+  ssk = stash save --keep-index
+  sp = stash pop
+  sd = stash drop
+  sc = stash clear
 
-	# blame
-	b = blame -M -CC --color-by-age --color-lines
+  # blame
+  b = blame -M -CC --color-by-age --color-lines
 
-	# filter-branch
-	fb = filter-branch
+  # filter-branch
+  fb = filter-branch
 
-	# submodule
-	sad = submodule add
-	sud = submodule update --init
+  # submodule
+  sad = submodule add
+  sud = submodule update --init
 
-	# diff
-	d = diff -w
-	stat = diff --stat
-	dni = diff --no-index
-	dc = diff --cached
+  # diff
+  d = diff -w
+  stat = diff --stat
+  dni = diff --no-index
+  dc = diff --cached
 
-	# config
-	conf = config
+  # config
+  conf = config
 
-	# describe
-	desc = describe --always --contains --all
+  # describe
+  desc = describe --always --contains --all
 
-	# clean
-	cl = clean -dfx
+  # clean
+  cl = clean -dfx
