@@ -25,15 +25,13 @@ require 'lazy'.setup({
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-cmdline',
   'hrsh7th/cmp-path',
   'nvim-lua/plenary.nvim',
-  'petertriho/cmp-git',
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
   { 'ibhagwan/fzf-lua', branch = 'main' },
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-  'rebelot/kanagawa.nvim'})
+  'catppuccin/nvim'})
 
   -- fzf
   local keyset = vim.keymap.set
@@ -72,23 +70,13 @@ require 'lazy'.setup({
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
       { name = 'path' },
-    },
-    {
-      { name = 'cmdline' },
     }),
     matching = { disallow_symbol_nonprefix_matching = false }
   })
   cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
-      { name = 'git' },
-    },
-    {
       { name = 'buffer' },
     }),
-  })
-
-  require 'cmp_git'.setup({
-    remotes = { "ram" },
   })
 
   local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
@@ -104,4 +92,4 @@ require 'lazy'.setup({
   require 'mason-lspconfig'.setup()
 
   -- colorscheme
-  vim.cmd('silent! colorscheme kanagawa-wave')
+  vim.cmd('silent! colorscheme catppuccin-mocha')

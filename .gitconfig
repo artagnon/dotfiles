@@ -129,7 +129,7 @@
   bd = branch -D
   bm = branch -M
   bru = branch -u
-  br = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 10 --sort='-committerdate' refs/heads
+  br = for-each-ref --format='%(color:red)%(HEAD) %(color:green)%(refname:short)%(color:reset)%(upstream:trackshort)' --count 20 --sort='-committerdate' refs/heads
   bra = branch -a
 
   # merge

@@ -5,6 +5,10 @@ local config = wezterm.config_builder()
 local cache_dir = os.getenv('HOME') .. '/.cache/wezterm/'
 local window_size_cache_path = cache_dir .. 'window_size_cache.txt'
 
+config.set_environment_variables = {
+  PATH = '/bin:/usr/bin:/usr/local/bin:/opt/homebrew/bin',
+}
+
 wezterm.on('gui-startup', function()
   os.execute('mkdir ' .. cache_dir)
 
@@ -29,7 +33,6 @@ wezterm.on('window-resized', function(window, pane)
   window_size_cache_file:close()
 end)
 
-config.default_prog = { '/opt/homebrew/bin/fish', '-l' }
 config.color_scheme = 'Catppuccin Mocha'
 config.keys = {
   {
@@ -38,5 +41,10 @@ config.keys = {
     action = wezterm.action.CloseCurrentTab { confirm = false },
   },
 }
+config.default_prog = { 'fish', '-l' }
+config.color_scheme = 'Catppuccin Mocha'
 config.window_close_confirmation = 'NeverPrompt'
+config.font = wezterm.font 'Source Code Pro'
+config.font_size = 12
+config.use_ime = false
 return config
