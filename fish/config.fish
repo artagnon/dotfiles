@@ -4,6 +4,9 @@ set PATH ~/install/avr8-gnu-toolchain-linux_x86_64/bin $PATH
 # venv
 source ~/venv/bin/activate.fish
 
+# aliases
+alias code=code-insiders
+
 # rbenv
 rbenv init - | source
 

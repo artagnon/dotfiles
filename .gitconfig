@@ -4,7 +4,8 @@
   quotepath = off
 [user]
   name = Ramkumar Ramachandra
-  email = r@artagnon.com
+[include]
+  path = ~/.gitconfig.local
 [github]
   user = artagnon
 [diff]
