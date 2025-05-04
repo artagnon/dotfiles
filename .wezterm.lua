@@ -18,8 +18,7 @@ wezterm.on('gui-startup', function()
     mux.spawn_window{ width = tonumber(width), height = tonumber(height) }
     window_size_cache_file:close()
   else
-    local tab, pane, window = mux.spawn_window{}
-    window:gui_window():maximize()
+    mux.spawn_window{}
   end
 end)
 
