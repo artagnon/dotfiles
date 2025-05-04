@@ -1,4 +1,5 @@
 set PATH ~/bin ~/.rbenv/bin ~/.local/bin ~/.cargo/bin ~/.yarn/bin /opt/homebrew/bin /opt/homebrew/sbin $PATH
+set PATH ~/install/avr8-gnu-toolchain-linux_x86_64/bin $PATH
 
 # venv
 source ~/venv/bin/activate.fish
