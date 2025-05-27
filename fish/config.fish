@@ -10,6 +10,10 @@ alias code=code-insiders
 # rbenv
 rbenv init - | source
 
+# ccache
+set -gx CMAKE_C_COMPILER_LAUNCHER ccache
+set -gx CMAKE_CXX_COMPILER_LAUNCHER ccache
+
 # perl
 set -gx PERL_MM_OPT "INSTALL_BASE=$HOME/.perl5"
 set -gx PERL5LIB "$HOME/.perl5/lib/perl5"
