@@ -63,6 +63,7 @@
   amWorkDir = false
   waitingForEditor = false
   rmHints = false
+  skippedCherryPicks = false
 [clean]
   requireForce = false
 [credential]
@@ -160,7 +161,7 @@
   rs = rebase --skip
 
   # replay with update-ref and checkout
-  repl = !git replay-checkout \"$1\" \"$(git config --get init.defaultBranch)\"
+  reco = !git replay-checkout \"$1\" \"$(git config --get init.defaultBranch)\"
 
   # clang-format
   cf = clang-format

@@ -45,5 +45,4 @@ config.color_scheme = 'Catppuccin Mocha'
 config.window_close_confirmation = 'NeverPrompt'
 config.font = wezterm.font 'Source Code Pro'
 config.font_size = 12
-config.use_ime = false
 return config

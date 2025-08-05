@@ -10,6 +10,9 @@ alias code=code-insiders
 # rbenv
 rbenv init - | source
 
+# ime for weztterm
+set -gx XMODIFIERS @im=ibus
+
 # ccache
 set -gx CMAKE_C_COMPILER_LAUNCHER ccache
 set -gx CMAKE_CXX_COMPILER_LAUNCHER ccache
