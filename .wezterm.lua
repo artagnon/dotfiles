@@ -44,5 +44,5 @@ config.default_prog = { 'fish', '-l' }
 config.color_scheme = 'Catppuccin Mocha'
 config.window_close_confirmation = 'NeverPrompt'
 config.font = wezterm.font 'Source Code Pro'
-config.font_size = 12
+config.font_size = 14
 return config

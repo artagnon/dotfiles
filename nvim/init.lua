@@ -21,7 +21,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- plug
 require 'lazy'.setup({
-  'neovim/nvim-lspconfig',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-nvim-lsp',
@@ -36,15 +35,6 @@ require 'lazy'.setup({
   -- fzf
   local keyset = vim.keymap.set
   keyset('n', '<leader>f', "<CMD>lua require('fzf-lua').files()<CR>", {silent = true})
-
-  -- nvim-treesitter
-  require 'nvim-treesitter.configs'.setup {
-    auto_install = true,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false
-    }
-  }
 
   -- nvim-cmp
   local cmp = require 'cmp'
@@ -78,14 +68,9 @@ require 'lazy'.setup({
       { name = 'buffer' },
     }),
   })
-
-  local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
-  require 'lspconfig'['clangd'].setup {
-    capabilities = capabilities
-  }
-  require 'lspconfig'['lua_ls'].setup {
-    capabilities = capabilities
-  }
+  vim.lsp.config('*', {
+    capabilities = require 'cmp_nvim_lsp'.default_capabilities()
+  })
 
   -- mason and mason-lspconfig
   require 'mason'.setup()
