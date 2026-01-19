@@ -1,4 +1,4 @@
-fish_add_path ~/bin ~/.rbenv/bin ~/.local/bin ~/.cargo/bin ~/.yarn/bin ~/install/avr8-gnu-toolchain-linux_x86_64/bin
+fish_add_path ~/bin ~/.rbenv/bin ~/.local/bin ~/.cargo/bin ~/.yarn/bin /opt/homebrew/bin
 
 # venv
 test -d ~/venv && source ~/venv/bin/activate.fish; or true
@@ -9,7 +9,7 @@ alias code=code-insiders
 # rbenv
 command -q rbenv && rbenv init - | source; or true
 
-# ime for weztterm
+# ime for wezterm
 set -gx XMODIFIERS @im=ibus
 
 # ccache
