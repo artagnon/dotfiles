@@ -1,14 +1,13 @@
-set PATH ~/bin ~/.rbenv/bin ~/.local/bin ~/.cargo/bin ~/.yarn/bin /opt/homebrew/bin /opt/homebrew/sbin $PATH
-set PATH ~/install/avr8-gnu-toolchain-linux_x86_64/bin $PATH
+fish_add_path ~/bin ~/.rbenv/bin ~/.local/bin ~/.cargo/bin ~/.yarn/bin ~/install/avr8-gnu-toolchain-linux_x86_64/bin
 
 # venv
-source ~/venv/bin/activate.fish
+test -d ~/venv && source ~/venv/bin/activate.fish; or true
 
 # aliases
 alias code=code-insiders
 
 # rbenv
-rbenv init - | source
+command -q rbenv && rbenv init - | source; or true
 
 # ime for weztterm
 set -gx XMODIFIERS @im=ibus
@@ -23,4 +22,4 @@ set -gx PERL5LIB "$HOME/.perl5/lib/perl5"
 set -gx PERL_LOCAL_LIB_ROOT "$HOME/.perl5/lib/perl5"
 
 # opam configuration
-source ~/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+test -f ~/.opam/opam-init/init.fish && source ~/.opam/opam-init/init.fish; or true
